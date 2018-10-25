@@ -20,7 +20,7 @@ When you click the **Knit** button a document will be generated that includes bo
 ```{r dataset}
 library(ggplot2)
 
-data <- read.csv("C:\\Users\\toohey-1\\Downloads\\25_OMAC\\packml.hmi.csv")
+data <- read.csv("https://raw.githubusercontent.com/patricktoohey/packml-hmi/master/packexpo_evaluation/packml.hmi.csv")
 
 levels.diffculty <- c(1, 2, 3, 4, 5)
 labels.diffculty <- c("Very Difficult", "Difficult", "Normal", "Easy", "Very Easy")
