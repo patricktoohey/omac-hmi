@@ -1,0 +1,536 @@
+---
+title: "PackML HMI"
+author: "Patrick Toohey"
+date: "October 24, 2018"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r dataset}
+library(ggplot2)
+
+data <- read.csv("C:\\Users\\toohey-1\\Downloads\\25_OMAC\\packml.hmi.csv")
+
+levels.diffculty <- c(1, 2, 3, 4, 5)
+labels.diffculty <- c("Very Difficult", "Difficult", "Normal", "Easy", "Very Easy")
+
+levels.confidence <- c(1, 2, 3, 4, 5)
+labels.confidence <- c("Not Confident at All", "Not Confident", "Normal", "Confident", "Very Confident")
+
+levels.alarm <- c(1,2,3,4,5)
+labels.alarm <- c("Bin Full", "Sealer Temp", "Material Low", "Connection Lost", "None of the Above")
+
+
+```
+
+# Demographics
+
+This sections summarizes the general characteristics of the study's sample population.
+
+### Age:
+
+Circle the range representing your age...
+
+```{r demographics.Age, echo=FALSE}
+
+demographics.age.levels <- c(1, 2, 3, 4, 5)
+demographics.age.labels <- c("18-30", "30-40", "40-50", "50-60", "60+")
+
+data$Age <- factor(data$Age, levels=demographics.age.levels, labels=demographics.age.labels)
+plot.demographics.age <- ggplot(data) + aes(x=Age) + geom_histogram(binwidth=1, stat="Count")
+plot.demographics.age
+```
+
+### Packaging HMI Experience:
+
+Circle the description best representing your level of experience using packaging machine HMIs...
+
+```{r demographics.hmi, echo=FALSE}
+demographics.hmi.levels <- c(1, 2, 3, 4)
+demographics.hmi.labels <- c("Never Used", "Novice", "Intermediate", "Advanced")
+
+data$Experience.HMI <- factor(data$Experience.HMI, levels=demographics.hmi.levels, labels=demographics.hmi.labels)
+plot.demographics.hmi <- ggplot(data) + aes(x=Experience.HMI) + geom_histogram(binwidth=1, stat="Count")
+plot.demographics.hmi
+```
+
+### Packaging Industry Experience:
+
+Circle the description best representing your level of experience using packaging machine HMIs...
+
+```{r demographics.industry, echo=FALSE}
+demographics.industry.levels <- c(1, 2, 3, 4)
+demographics.industry.labels <- c("0-5 years", "5-15 years", "15-30 years", "30+ years")
+
+data$Experience.Industry <- factor(data$Experience.Industry, levels=demographics.industry.levels, labels=demographics.industry.labels)
+plot.demographics.industry <- ggplot(data) + aes(x=Experience.Industry) + geom_histogram(binwidth=1, stat="Count")
+plot.demographics.industry
+```
+
+### Packaging Company Category:
+
+Circle the description best representing your current company with respect to HMIs...
+
+```{r demographics.company, echo=FALSE}
+demographics.company.levels <- c(1, 2, 3, 4)
+demographics.company.labels <- c("End User", "Technology Provider", "System Integrator", "Machine Builder")
+
+data$Company.Category <- factor(data$Company.Category, levels=demographics.company.levels, labels=demographics.company.labels)
+plot.demographics.company <- ggplot(data) + aes(x=Company.Category) + geom_histogram(binwidth=1, stat="Count")
+plot.demographics.company
+```
+
+### Packaging HMI Role:
+
+Circle the description best representing your current role with respect to equipment HMIs...
+
+```{r demographics.role, echo=FALSE}
+demographics.role.levels <- c(1, 2, 3, 4)
+demographics.role.labels <- c("Operator", "Decision Maker", "Engineer", "Other")
+
+data$Role.HMI <- factor(data$Role.HMI, levels=demographics.role.levels, labels=demographics.role.labels)
+plot.demographics.role <- ggplot(data) + aes(x=Role.HMI) + geom_histogram(binwidth=1, stat="Count")
+plot.demographics.role
+```
+
+# Lenze HMI Evaluation
+
+### Lenze Equipment Current State:
+
+What is the numeric code representing the Current Equipment State?
+
+```{r lenze.state.difficulty, echo=FALSE}
+
+levels.lenze.state <- c(1,2,3,4,5)
+labels.lenze.state <- c("4", "5", "6", "7", "11")
+
+data$Lenze.State <- factor(data$Lenze.State, levels=levels.lenze.state, labels=labels.lenze.state)
+plot.lenze.state <- ggplot(data) + aes(x=Lenze.State) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.state
+
+data$Lenze.State.Confidence <- factor(data$Lenze.State.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.lenze.state.confidence <- ggplot(data) + aes(x=Lenze.State.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.state.confidence
+
+data$Lenze.State.Difficulty <- factor(data$Lenze.State.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.lenze.state.difficulty <- ggplot(data) + aes(x=Lenze.State.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.state.difficulty
+```
+
+### Lenze IP Address:
+
+What is the IP address of this Lenze device (i.e., Own IP Address)?
+
+```{r lenze.address.difficulty, echo=FALSE}
+levels.lenze.address <- c(1,2,3,4)
+labels.lenze.address <- c("192.168.2.1", "192.168.100.11", "172.21.117.220", "127.0.0.1")
+
+data$Lenze.Address <- factor(data$Lenze.Address, levels=levels.lenze.address, labels=labels.lenze.address)
+plot.lenze.address <- ggplot(data) + aes(x=Lenze.Address) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.address
+
+data$Lenze.Address.Confidence <- factor(data$Lenze.Address.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.lenze.address.confidence <- ggplot(data) + aes(x=Lenze.Address.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.address.confidence
+
+data$Lenze.Address.Difficulty <- factor(data$Lenze.Address.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.lenze.address.difficulty <- ggplot(data) + aes(x=Lenze.Address.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.address.difficulty
+```
+
+### Lenze Mode Current Time:
+
+What is the current value of Mode Current Time?
+
+```{r lenze.modetime.difficulty, echo=FALSE}
+levels.lenze.mode <- c(1,2,3,4)
+labels.lenze.mode <- c("0", "less than 90", "90", "more than 90")
+
+data$Lenze.ModeTime <- factor(data$Lenze.ModeTime, levels=levels.lenze.mode, labels=labels.lenze.mode)
+plot.lenze.modetime <- ggplot(data) + aes(x=Lenze.ModeTime) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.modetime
+
+data$Lenze.ModeTime.Confidence <- factor(data$Lenze.ModeTime.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.lenze.modetime.confidence <- ggplot(data) + aes(x=Lenze.ModeTime.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.modetime.confidence
+
+data$Lenze.ModeTime.Difficulty <- factor(data$Lenze.ModeTime.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.lenze.modetime.difficulty <- ggplot(data) + aes(x=Lenze.ModeTime.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.modetime.difficulty
+```
+
+### Lenze Held Alarm:
+
+Which of the following is the most recent alarm produced in the Held category?
+
+```{r lenze.alarm, echo=FALSE}
+
+data$Lenze.Alarm <- factor(data$Lenze.Alarm, levels=levels.alarm, labels=labels.alarm)
+plot.lenze.alarm <- ggplot(data) + aes(x=Lenze.Alarm) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.alarm
+
+data$Lenze.Alarm.Confidence <- factor(data$Lenze.Alarm.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.lenze.alarm.confidence <- ggplot(data) + aes(x=Lenze.Alarm.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.alarm.confidence
+
+data$Lenze.Alarm.Difficulty <- factor(data$Lenze.Alarm.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.lenze.alarm.difficulty <- ggplot(data) + aes(x=Lenze.Alarm.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.alarm.difficulty
+```
+
+## Lenze Overall Difficulty
+
+Overall, how difficult was the Lenze interface for the above tasks?
+
+```{r lenze.difficulty, echo=FALSE}
+
+data$Lenze.Overall.Difficulty <- factor(data$Lenze.Overall.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.lenze.difficulty <- ggplot(data) + aes(x=Lenze.Overall.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.lenze.difficulty
+```
+
+# Beckhoff / Nestle HMI Evaluation
+
+### Beckhoff / Nestle Communicating Device Count:
+
+What is the currently reported number of communicating devices?
+
+```{r bn.count, echo=FALSE}
+
+levels.bn.count <- c(1,2,3,4)
+labels.bn.count <- c("0", "7", "12", "19")
+
+data$BeckhoffNestle.Count <- factor(data$BeckhoffNestle.Count, levels=levels.bn.count, labels=labels.bn.count)
+plot.bn.count <- ggplot(data) + aes(x=BeckhoffNestle.Count) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.count
+
+data$BeckhoffNestle.Count.Confidence <- factor(data$BeckhoffNestle.Count.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.bn.count.confidence <- ggplot(data) + aes(x=BeckhoffNestle.Count.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.count.confidence
+
+data$BeckhoffNestle.Count.Difficulty <- factor(data$BeckhoffNestle.Count.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.bn.count.difficulty <- ggplot(data) + aes(x=BeckhoffNestle.Count.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.count.difficulty
+```
+
+### Beckhoff / Nestle Sealer Temperature
+
+What is the currently reported sealer temperature in degrees Celsius?
+
+```{r bn.sealer, echo=FALSE}
+
+levels.bn.sealer <- c(1,2,3,4)
+labels.bn.sealer <- c("130", "160", "100", "204")
+
+data$BeckhoffNestle.SealerTemp <- factor(data$BeckhoffNestle.SealerTemp, levels=levels.bn.sealer, labels=labels.bn.sealer)
+plot.bn.sealer <- ggplot(data) + aes(x=BeckhoffNestle.SealerTemp) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.sealer
+
+data$BeckhoffNestle.SealerTemp.Confidence <- factor(data$BeckhoffNestle.SealerTemp.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.bn.sealer.confidence <- ggplot(data) + aes(x=BeckhoffNestle.SealerTemp.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.sealer.confidence
+
+data$BeckhoffNestle.SealerTemp.Difficulty <- factor(data$BeckhoffNestle.SealerTemp.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.bn.sealer.difficulty <- ggplot(data) + aes(x=BeckhoffNestle.SealerTemp.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.sealer.difficulty
+```
+
+
+### Beckhoff / Nestle Bad Product Count:
+
+What is the current Bad Product count?
+
+```{r bn.rejects, echo=FALSE}
+
+levels.bn.rejects <- c(1,2,3,4)
+labels.bn.rejects <- c("0", "less than 60", "60", "more than 60")
+
+data$BeckhoffNestle.Rejects <- factor(data$BeckhoffNestle.Rejects, levels=levels.bn.rejects, labels=labels.bn.rejects)
+plot.bn.rejects <- ggplot(data) + aes(x=BeckhoffNestle.Rejects) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.rejects
+
+data$BeckhoffNestle.Rejects.Confidence <- factor(data$BeckhoffNestle.Rejects.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.bn.rejects.confidence <- ggplot(data) + aes(x=BeckhoffNestle.Rejects.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.rejects.confidence
+
+data$BeckhoffNestle.Rejects.Difficulty <- factor(data$BeckhoffNestle.Rejects.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.bn.rejects.difficulty <- ggplot(data) + aes(x=BeckhoffNestle.Rejects.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.rejects.difficulty
+```
+
+### Beckhoff / Nestle Alarm:
+
+Which of the following is the most recent alarm?
+
+```{r bn.alarm, echo=FALSE}
+
+data$BeckhoffNestle.Alarm <- factor(data$BeckhoffNestle.Alarm, levels=levels.alarm, labels=labels.alarm)
+plot.bn.alarm <- ggplot(data) + aes(x=BeckhoffNestle.Alarm) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.alarm
+
+data$BeckhoffNestle.Alarm.Confidence <- factor(data$BeckhoffNestle.Alarm.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.bn.alarm.confidence <- ggplot(data) + aes(x=BeckhoffNestle.Alarm.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.alarm.confidence
+
+data$BeckhoffNestle.Alarm.Difficulty <- factor(data$BeckhoffNestle.Alarm.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.bn.alarm.difficulty <- ggplot(data) + aes(x=BeckhoffNestle.Alarm.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.alarm.difficulty
+```
+
+## Beckhoff / Nestle Overall Difficulty
+
+Overall, how difficult was the Beckhoff/Nestle interface for the above tasks?
+
+```{r bn.difficulty, echo=FALSE}
+
+data$BeckhoffNestle.Overall.Difficulty <- factor(data$BeckhoffNestle.Overall.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.bn.difficulty <- ggplot(data) + aes(x=BeckhoffNestle.Overall.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.bn.difficulty
+```
+
+# Siemens / Qimarox HMI Evaluation
+
+### Siemens / Qimarox Upstream Machine Speed:
+
+What is the reported speed of the upstream machine in packages per minute (ppm)?
+
+```{r sq.speed, echo=FALSE}
+levels.sq.speed <- c(1,2,3,4)
+labels.sq.speed <- c("0", "30", "60", "200")
+
+data$SiemensQimarox.Speed <- factor(data$SiemensQimarox.Speed, levels=levels.sq.speed, labels=labels.sq.speed)
+plot.sq.speed <- ggplot(data) + aes(x=SiemensQimarox.Speed) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.speed
+
+data$SiemensQimarox.Speed.Confidence <- factor(data$SiemensQimarox.Speed.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.sq.speed.confidence <- ggplot(data) + aes(x=SiemensQimarox.Speed.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.speed.confidence
+
+data$SiemensQimarox.Speed.Difficulty <- factor(data$SiemensQimarox.Speed.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.sq.speed.difficulty <- ggplot(data) + aes(x=SiemensQimarox.Speed.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.speed.difficulty
+```
+
+### Siemens / Qimarox PLC IP Address:
+
+What is the reported PLC IP Address?
+
+```{r sq.address, echo=FALSE}
+levels.sq.address <- c(1,2,3,4)
+labels.sq.address <- c("172.21.117.205", "127.0.0.1", "192.268.2.1", "192.168.100.60")
+
+data$SiemensQimarox.Address <- factor(data$SiemensQimarox.Address, levels=levels.sq.speed, labels=labels.sq.speed)
+plot.sq.address <- ggplot(data) + aes(x=SiemensQimarox.Address) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.address
+
+data$SiemensQimarox.Address.Confidence <- factor(data$SiemensQimarox.Address.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.sq.address.confidence <- ggplot(data) + aes(x=SiemensQimarox.Address.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.address.confidence
+
+data$SiemensQimarox.Address.Difficulty <- factor(data$SiemensQimarox.Address.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.sq.address.difficulty <- ggplot(data) + aes(x=SiemensQimarox.Address.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.address.difficulty
+```
+
+### Siemens / Qimarox Reject Count
+
+What is the currently reported reject count?
+
+```{r sq.rejects, echo=FALSE}
+levels.sq.rejects <- c(1,2,3,4)
+labels.sq.rejects <- c("0", "less than 60", "60", "more than 60")
+
+data$SiemensQimarox.Rejects <- factor(data$SiemensQimarox.Rejects, levels=levels.sq.rejects, labels=labels.sq.rejects)
+plot.sq.rejects <- ggplot(data) + aes(x=SiemensQimarox.Rejects) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.rejects
+
+data$SiemensQimarox.Rejects.Confidence <- factor(data$SiemensQimarox.Rejects.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.sq.rejects.confidence <- ggplot(data) + aes(x=SiemensQimarox.Rejects.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.rejects.confidence
+
+data$SiemensQimarox.Rejects.Difficulty <- factor(data$SiemensQimarox.Rejects.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.sq.rejects.difficulty <- ggplot(data) + aes(x=SiemensQimarox.Rejects.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.rejects.difficulty
+```
+
+### Siemens / Qimarox Alarm:
+
+Which of the following is the most recent alarm?
+
+```{r sq.alarms, echo=FALSE}
+
+data$SiemensQimarox.Alarm <- factor(data$SiemensQimarox.Alarm, levels=levels.alarm, labels=labels.alarm)
+plot.sq.alarms <- ggplot(data) + aes(x=SiemensQimarox.Alarm) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.alarms
+
+data$SiemensQimarox.Alarm.Confidence <- factor(data$SiemensQimarox.Alarm.Confidence, levels=levels.confidence, labels=labels.confidence)
+plot.sq.alarms.confidence <- ggplot(data) + aes(x=SiemensQimarox.Alarm.Confidence) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.alarms.confidence
+
+data$SiemensQimarox.Alarm.Difficulty <- factor(data$SiemensQimarox.Alarm.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.sq.alarms.difficulty <- ggplot(data) + aes(x=SiemensQimarox.Alarm.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.alarms.difficulty
+```
+
+## Siemens / Qimarox Difficulty
+
+Overall, how difficult was the Siemens/Qimarox interface for the above tasks?
+
+```{r sq.difficulty, echo=FALSE}
+
+data$SiemensQimarox.Overall.Difficulty <- factor(data$SiemensQimarox.Overall.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.sq.difficulty <- ggplot(data) + aes(x=SiemensQimarox.Overall.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.difficulty
+```
+
+## Mixed Difficulty
+
+Would it be difficult working on a production line with a mix of these interfaces?
+
+```{r mixed.difficulty, echo=FALSE}
+
+data$BeckhoffNestle.SiemensQimarox.Difficulty <- factor(data$BeckhoffNestle.SiemensQimarox.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.sq.bn.difficulty <- ggplot(data) + aes(x=BeckhoffNestle.SiemensQimarox.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.sq.bn.difficulty
+
+data$Lenze.SiemensQimarox.Difficulty <- factor(data$Lenze.SiemensQimarox.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.l.sq.difficulty <- ggplot(data) + aes(x=Lenze.SiemensQimarox.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.l.sq.difficulty
+
+data$BeckhoffNestle.Lenze.Difficulty <- factor(data$BeckhoffNestle.Lenze.Difficulty, levels=levels.diffculty, labels=labels.diffculty)
+plot.l.bn.difficulty <- ggplot(data) + aes(x=BeckhoffNestle.Lenze.Difficulty) + geom_histogram(binwidth=1, stat="Count")
+plot.l.bn.difficulty
+```
+
+
+# HMI Evaluation Summary
+
+### Overall Preference:
+
+If you were assigned a position as a line operator, which interface would you prefer using?
+
+```{r summary.preference, echo=FALSE}
+
+levels.preference <- c(1,2,3)
+labels.preference <- c("Lenze", "Beckhoff / Nestle", "Siemens / Qimarox")
+
+data$Preference.Overall <- factor(data$Preference.Overall, levels=levels.preference, labels=labels.preference)
+plot.preference <- ggplot(data) + aes(x=Preference.Overall) + geom_histogram(binwidth=1, stat="Count")
+plot.preference
+
+plot.preference + facet_wrap(~Age, ncol=2)
+plot.preference + facet_wrap(~Experience.HMI, ncol=2)
+plot.preference + facet_wrap(~Experience.Industry, ncol=2)
+plot.preference + facet_wrap(~Company.Category, ncol=2)
+plot.preference + facet_wrap(~Role.HMI, ncol=2)
+```
+
+### Perceived Challenges:
+
+Working with a mixture of these interfaces on a regular basis would lead to reduced efficiency.
+
+```{r summary.efficiency, echo=FALSE}
+
+levels.agreement <- c(1, 2, 3, 4, 5)
+labels.agreement <- c("Completely Disagree", "Disagree", "Indifferent", "Agree", "Completely Agree")
+
+data$Perceived.Efficiency.Reduction <- factor(data$Perceived.Efficiency.Reduction, levels=levels.agreement, labels=labels.agreement)
+plot.efficiency <- ggplot(data) + aes(x=Perceived.Efficiency.Reduction) + geom_histogram(binwidth=1, stat="Count")
+plot.efficiency
+
+plot.efficiency + facet_wrap(~Age, ncol=2)
+plot.efficiency + facet_wrap(~Experience.HMI, ncol=2)
+plot.efficiency + facet_wrap(~Experience.Industry, ncol=2)
+plot.efficiency + facet_wrap(~Company.Category, ncol=2)
+plot.efficiency + facet_wrap(~Role.HMI, ncol=2)
+```
+
+Working with a mixture of these interfaces on a regular basis would lead to safety issues.
+
+```{r summary.safety, echo=FALSE}
+data$Perceived.Safety.Increase <- factor(data$Perceived.Safety.Increase, levels=levels.agreement, labels=labels.agreement)
+plot.safety <- ggplot(data) + aes(x=Perceived.Safety.Increase) + geom_histogram(binwidth=1, stat="Count")
+plot.safety
+
+plot.safety + facet_wrap(~Age, ncol=2)
+plot.safety + facet_wrap(~Experience.HMI, ncol=2)
+plot.safety + facet_wrap(~Experience.Industry, ncol=2)
+plot.safety + facet_wrap(~Company.Category, ncol=2)
+plot.safety + facet_wrap(~Role.HMI, ncol=2)
+```
+
+Standardizing on my preferred interface would significantly reduce downtime.
+
+```{r summary.downtime, echo=FALSE}
+data$Perceived.Downtime.Reduction <- factor(data$Perceived.Downtime.Reduction, levels=levels.agreement, labels=labels.agreement)
+plot.downtime <- ggplot(data) + aes(x=Perceived.Downtime.Reduction) + geom_histogram(binwidth=1, stat="Count")
+plot.downtime
+
+plot.downtime + facet_wrap(~Age, ncol=2)
+plot.downtime + facet_wrap(~Experience.HMI, ncol=2)
+plot.downtime + facet_wrap(~Experience.Industry, ncol=2)
+plot.downtime + facet_wrap(~Company.Category, ncol=2)
+plot.downtime + facet_wrap(~Role.HMI, ncol=2)
+```
+
+Standardizing on my preferred interface would increase job satisfaction for line operators.
+
+```{r summary.jobsatisfaction, echo=FALSE}
+
+data$Perceived.JobSatisfaction.Increase <- factor(data$Perceived.JobSatisfaction.Increase, levels=levels.agreement, labels=labels.agreement)
+plot.jobsatisfaction <- ggplot(data) + aes(x=Perceived.JobSatisfaction.Increase) + geom_histogram(binwidth=1, stat="Count")
+plot.jobsatisfaction
+
+plot.jobsatisfaction + facet_wrap(~Age, ncol=2)
+plot.jobsatisfaction + facet_wrap(~Experience.HMI, ncol=2)
+plot.jobsatisfaction + facet_wrap(~Experience.Industry, ncol=2)
+plot.jobsatisfaction + facet_wrap(~Company.Category, ncol=2)
+plot.jobsatisfaction + facet_wrap(~Role.HMI, ncol=2)
+```
+
+Standardizing on my preferred interface would reduce operator errors caused by poor HMI design.
+
+```{r summary.errorreduction, echo=FALSE}
+
+data$Perceived.OperatorError.Reduction <- factor(data$Perceived.OperatorError.Reduction, levels=levels.agreement, labels=labels.agreement)
+plot.errors <- ggplot(data) + aes(x=Perceived.OperatorError.Reduction) + geom_histogram(binwidth=1, stat="Count")
+plot.errors
+
+plot.errors + facet_wrap(~Age, ncol=2)
+plot.errors + facet_wrap(~Experience.HMI, ncol=2)
+plot.errors + facet_wrap(~Experience.Industry, ncol=2)
+plot.errors + facet_wrap(~Company.Category, ncol=2)
+plot.errors + facet_wrap(~Role.HMI, ncol=2)
+```
+
+Participating in this evaluation in no way changed my opinion regarding HMI standardization.
+
+```{r summary.sway, echo=FALSE}
+
+data$Standardization.Sway <- factor(data$Standardization.Sway, levels=levels.agreement, labels=labels.agreement)
+plot.sway <- ggplot(data) + aes(x=Standardization.Sway) + geom_histogram(binwidth=1, stat="Count")
+plot.sway
+
+plot.sway + facet_wrap(~Age, ncol=2)
+
+plot.sway + facet_wrap(~Experience.HMI, ncol=2)
+
+plot.sway + facet_wrap(~Experience.Industry, ncol=2)
+
+plot.sway + facet_wrap(~Company.Category, ncol=2)
+
+plot.sway + facet_wrap(~Role.HMI, ncol=2)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
