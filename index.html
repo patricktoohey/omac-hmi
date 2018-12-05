@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PackML HMI Guidance</title>
+
+    <meta name="author" content="Patrick Toohey">
+    <meta name="designer" content="Patrick Toohey">
+
+    <meta name="description" content="PackML HMI Guidance.">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Saira+Extra+Condensed" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+
+    <script src="js/packml.hmi.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> 
+        <![endif]-->
+
+</head>
+
+<body>
+    <h1>PackML HMI Implementation Guide</h1>
+    <h4>Part 6: PackML User Interface - HMI</h4>
+    <h5>Summary</h5>
+    <p>Lorem ipsum bacon</p>
+    <h2>Contents</h2>
+    <h2>2. Executive Summary</h2>
+    <h3>2.1 Purpose</h3>
+    <h3>2.2 Goals</h3>
+    <h2>3. Stack Lights and Control Buttons</h2>
+    <h3>3.1 Scope</h3>
+    <p>The implementation guidance in the area of stack lights and control buttons offers a unique opportunity to illustrate the basic usability principles that will be essential in the far more flexible areas of the HMI. Whereas stack lights are limited to...</p>
+    <ul>
+        <li>a selection of colors</li>
+        <li>in a particular order</li>
+        <li>illuminated at a particular frequency based on the machine state</li>
+    </ul>
+    <p>the graphical display portion of the HMI offers endless opportunities for confusion. Fortunately, the same simple principles that are inherent in the design of stack lights and control buttons, will provide the foundation for usability in the graphical interface. Discussing these principles in the more tangible context of stack lights and control buttons may at first seem excessive, but, as we will discover, the design priciples that produce optimal usability are quite simple intuitive once they are understood and embraced.</p>
+    <p>While the requirements necessary to specify a standardized PackML stack light implementation can be expressed in a few short paragraphs, we will offer a more verbose description that highlights the associated usability principles that are taken for granted.</p>
+    <h3>3.2 Hierarchy, Consistency, and Convention</h3>
+    <p>The standard PackML light stack presents the following colors representing the PackML states, ordered from the top down as follows...</p>
+    <table>
+        <tr>
+            <th>Color</th>
+            <th>PackML States</th>
+            <th>Sequence</th>
+        </tr>
+        <tr>
+            <td>Red</td>
+            <td>Aborted</td>
+            <td>Flashing</td>
+        </tr>
+        <tr>
+            <td>Red</td>
+            <td>Stopped</td>
+            <td>Solid</td>
+        </tr>
+        <tr>
+            <td>Amber</td>
+            <td>Suspended, Upstream Stoppage</td>
+            <td>Flashing</td>
+        </tr>
+        <tr>
+            <td>Amber</td>
+            <td>Suspended, Downstream Stoppage</td>
+            <td>Solid</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>Held Warning</td>
+            <td>Flashing</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>Held</td>
+            <td>Solid</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>Idle</td>
+            <td>Flashing</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>Execute</td>
+            <td>Solid</td>
+        </tr>
+    </table>
+    <p>Given the associated PackML states, the top-down orientation of the lights follows western cultural conventions where the most critical elements are positioned at the top. Here, the Stopped and Aborted states are presented at the top of the stack light, communicating their importance through their color (e.g., red or amber) and, perhaps more importantly, their position. The sequence attribute (i.e., flashing or solid) further communicates the urgency of the current state. It is accepted that the flashing light will draw more attention than a solid light, therefore, the flashing sequence is associated with the more urgent PackML states (e.g., Aborted is more urgent than Stopped). Here the attributes of color, position, and sequence represent hierarchy within the state model. Lights in a higher position are more urgent than those in a lower position, while lights that are flashing are more urgent than those that are solid. Similarly, through cultural convention, red is more urgent than amber. Hierarchy in the graphical interface will utilize these same attributes, as well as others, to establish focus, guiding the operator's attention to elements that are most essential to the task at hand.</p>
+    <p>Given this summary, a key requirement of the proper application of the PackML stack light standard is an adherence to the specified light orientation. Across a given production line, it is essential that the order of the lights maintain the top-down orientation listed above. While the dual coding (i.e., color and position) within the standard would likely accommodate a mispositioned light (e.g., amber above red), such a violation would surely be a distraction to a line operator. It is expected that a focused line operator could overcome a violation of the light position standard, however, under the additional stress of a line stoppage, a simple lack of consistency in light stack orientation could lead to an extended stoppage. Accordingly, we will highlight consistency in orientation as a key usability principle, one which will be revisited in the discussion on navigation design.</p>
+    <p>Moreover, it is essential that the color and sequence attribute of the associated stack lights be implemented in a consistent fashion within a single production facility. While an operator will most likely overcome some level of inconsistency in the size or color of the red stack lights across a number of machines in a single production line, a deviation in the frequency of a flashing light could draw undue attention to a single machine. A machine stack light flashing at a higher rate will draw more attention than surrounding machines blinking at a lower rate. Such scenarios should be avoided by establishing a standard flashing frequency within the line.</p>
+    <p>Discuss left-to-right stack lights or require top-down orientation?</p>
+    <h3>3.3 Proximity</h3>
+    <p>Given the importance of the orientation principle, it is equally important that the PackML stack lights be positioned in a manner that effectively communicate the association with a given machine. A stack light that is not sufficiently positioned above the machine will fail to effectively communicate the PackML state. Moreover, a PackML stack light that is not consistently positioned within the relative body of the associated machine, may not be appropriately identified if multiple stack lights with similar colors are present within the machine's proximity. Accordingly, it is recommended that the PackML stack lights be positioned such that a line operator with a view of the production line can consistently identify the PackML stack lights for each machine and correctly interpret the machine responsible for a line stoppage or held event.</p>
+    <h3>3.4 Speaking the Operator's Language</h3>
+    <p>While it is reasonable to use the conventions of position, color, and sequence to draw an operator's attention to a given machine, it is still necessary to communicate the required course of action in a manner that speaks more directly and effectively to the operator. It is not sufficient to blink the blue light and expect the operator to know what action is necessary. The graphical interface must effectively communicate the meaning of the blinking blue light by presenting an instruction that leads to a prompt resolution.</p>
+    <p>Operators that have been drawn to a machine with an effective stack light indication should be greeted with a message they can appropriately identify and act upon. Hierarchy within the graphical interface is essential for this task. The approaching operator should quickly identify the required action when they scan the graphical interface. Instructions that lack prominence will delay recovery of the production line. Lack of contrast and emphasis (e.g., size, boldness, color) will reduce the saliency of the operator instruction. Be sure the instruction presented to the operator is easily identified. Test the implementation to ensure the instructions are identified in a consistent manner.</p>
+    <p>Avoiding generic instructions (e.g., HELD) in favor of machine specific instructions (e.g., Empty the Under Bin and Press Start) will expedite operator response and line recovery. Where appropriate, utilize conventions like Simplified English, which communicate to a broader audience through grammatical convention. Avoid abbreviations, jargon, acronyms, and engineering-centric language, which will likely be lost on line operators. Reserve engineering conventions for log files, which will not require interpretation from line operators.</p>
+</body>
+
+</html>

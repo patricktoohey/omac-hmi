@@ -1,0 +1,481 @@
+@import (less) "bootstrap.css";
+@mite-red: #C8102E;
+@mite-yellow: #F1BE48;
+@grey60: #666666;
+
+@max-width: 1200px;
+
+@saira: 'Saira Extra Condensed',
+sans-serif;
+@anton: 'Anton',
+sans-serif;
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        color: white;
+        text-decoration: underline;
+    }
+}
+
+a.player {
+    color: @mite-red;
+    font-style: bold;
+}
+
+body {
+    font-size: 100%;
+    font-family: @saira;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#blue-one {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2em;
+}
+
+.challenge {
+    margin-top: 2em;
+    color: @grey60;
+    border-top: 0.2em solid @grey60;
+
+    p,
+    h2 {
+        color: @grey60;
+        padding-top: 0.3em;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 0em;
+    }
+}
+
+.challenge-icon {
+    max-height: 186px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.challenge-headline {
+    padding-bottom: 2em;
+}
+
+#crossover {
+    height: 165px;
+}
+
+div {
+    &.players {
+        padding-bottom: 2em;
+    }
+
+    &.achievements {
+        padding-bottom: 2em;
+        padding-left: 1em;
+    }
+
+    &.countdown {
+        padding-top: 2em;
+    }
+
+    &.fireonice {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.fireonice p {
+    padding-top: 0.5em;
+    text-align: center;
+}
+
+#flames {
+    padding-top: 1em;
+    font-size: 1.8em;
+    position: absolute;
+    right: 0.8em;
+
+    @media screen {
+        @media (max-width: 575px) {
+            padding-top: 0.6em;
+        }
+    }
+}
+
+.full-width {
+    .container-fluid;
+    .no-gutters;
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow: hidden;
+    clear: both;
+    font-family: @anton;
+    background-color: @mite-red;
+    color: white;
+}
+
+.game-challenge {
+    align-items: stretch;
+    padding-bottom: 2em;
+
+    @media screen {
+        @media (max-width: 575px) {
+            padding-right: 0.5em;
+        }
+
+    }
+}
+
+h1 {
+    padding-top: 1em;
+    font-size: 1.8em;
+    line-height: 100%;
+    white-space: nowrap;
+
+    a {
+        color: white;
+        font-family: @anton;
+    }
+
+    @media screen {
+        @media (max-width: 575px) {
+            padding-top: 1em;
+            font-size: 1.4em;
+            line-height: 100%;
+            white-space: nowrap;
+            padding-left: 0.8em;
+        }
+    }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: @anton;
+    color: @mite-red;
+}
+
+h2 {
+    font-size: 2.25em;
+    padding-top: 2em;
+    margin-bottom: 0.6em;
+
+    &.first {
+        padding-top: 1em !important;
+    }
+
+    @media screen {
+        @media (max-width: 575px) {
+            padding-left: 0.6em;
+        }
+
+    }
+}
+
+h3 {
+    font-size: 1.8em;
+    margin: auto;
+    display: block;
+    padding-left: 2em;
+}
+
+h4 {
+    font-size: 8em;
+    padding-top: 1.2em;
+    padding-bottom: 0.2em;
+    text-align: center;
+
+    &.date {
+        font-size: 7em;
+        padding-top: 0px;
+        padding-bottom: 0.1em;
+        text-align: center;
+    }
+
+    &.player {
+        border-bottom: 0.08em solid @mite-yellow;
+    }
+
+    @media screen {
+        @media (max-width: 768px) {
+            font-size: 4em;
+        }
+        @media (max-width: 992px) {
+            font-size: 5em;
+        }
+        @media (max-width: 1200px) {
+            padding-top: 0.5em;
+        }
+    }
+}
+
+h6 {
+    font-size: 2em;
+
+    @media screen {
+        @media (max-width: 992px) {
+            font-size: 1.8em;
+            margin-left: 0.1em;
+            padding-top: 1em;
+        }
+        @media (max-width: 768px) {
+            font-size: 1.5em;
+        }
+        @media (max-width: 572px) {
+            margin-left: 0.4em;
+        }
+    }
+}
+
+h5 {
+    font-size: 4em;
+    padding-top: 1em;
+    margin-bottom: 0.6em;
+
+    &.next-challenge {
+        padding-top: 0.5em;
+        margin-left: 0em !important;
+    }
+
+    @media screen {
+        @media (max-width: 992px) {
+            font-size: 3.5em;
+            margin-left: 0.1em;
+            padding-top: 1em;
+        }
+        @media (max-width: 768px) {
+            font-size: 3em;
+        }
+        @media (max-width: 572px) {
+            margin-left: 0.4em;
+        }
+    }
+}
+
+#header-text {
+    float: left;
+}
+
+.homeskill {
+    display: flex;
+}
+
+hr {
+    border: none;
+    height: 0.5em;
+    width: 100%;
+    margin: 0px;
+
+    &.yellow {
+        border-color: @mite-yellow;
+        background-color: @mite-yellow;
+    }
+
+    &.half {
+        width: 50%;
+        height: 0.15em;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2em;
+        margin-bottom: 1em;
+    }
+
+    &.black {
+        border-color: black;
+        background-color: black;
+    }
+}
+
+.match {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu {
+    margin-left: -14px;
+
+    @media screen {
+        @media (max-width: 575px) {
+            font-size: 1em;
+            margin-left: 0.4em;
+        }
+    }
+}
+
+nav {
+    background-color: @mite-red;
+    margin-bottom: 1em;
+
+    a {
+        font-size: 1.2em;
+        color: white;
+        font-family: @anton;
+    }
+}
+
+p {
+    font-family: @saira;
+    font-size: 1.4em;
+    color: black;
+    line-height: 1.2em;
+
+    &.countdown {
+        padding-top: 0.1em;
+        padding-bottom: 0.1em;
+        margin-bottom: 0.1em;
+        text-align: center;
+    }
+
+    &.game-time {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 0.5em;
+    }
+
+    &.game-description {
+        padding-bottom: 0.5em;
+        line-height: 120%;
+    }
+}
+
+.player {
+    max-width: 100%;
+    min-width: 150px;
+    height: auto;
+}
+
+.player-profile {
+    padding-top: 3em;
+}
+
+.players {
+
+    h2 {
+        padding-top: 1em;
+    }
+
+    p {
+        padding-left: 1em;
+    }
+}
+
+.skate-bullet {
+    width: 3em;
+    margin-right: 1em;
+}
+
+.skill {
+    border-top: 0.2em solid @mite-yellow;
+    border-bottom: 0.2em solid @mite-yellow;
+
+    p {
+        padding-top: 0.5em;
+        padding-bottom: 0em;
+    }
+}
+
+.skill-profile {
+    align-items: stretch;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.skill-detail {
+    align-items: stretch;
+    padding-bottom: 1em;
+}
+
+.skills {
+    margin-top: 0em;
+    margin-bottom: 2em;
+
+    img {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    h2 {
+        padding-top: 0em;
+    }
+}
+
+.sweater {
+    padding: 1em;
+}
+
+.team-logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    .img-fluid;
+}
+
+.vs {
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+// Region styling
+header {
+    .full-width;
+}
+
+footer {
+    .full-width;
+
+    nav a {
+        font-family: @saira;
+    }
+
+    h1 {
+        font-family: @saira;
+    }
+
+    nav {
+        padding-bottom: 2em;
+    }
+}
+
+.parent {
+    width: 201px;
+}
+
+@media screen and (max-width: 575px) {
+
+    .game-description {
+        padding-left: 0.9em;
+        padding-right: 0.9em;
+    }
+
+    .achievements p {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .reminder {
+        padding-left: 2em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h4.date {
+        font-size: 5.8em;
+    }
+}
