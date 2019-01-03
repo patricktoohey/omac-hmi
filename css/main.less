@@ -1,14 +1,20 @@
 @import (less) "bootstrap.css";
-@mite-red: #C8102E;
-@mite-yellow: #F1BE48;
+@omac-guidance-orange: #FF6600;
+@omac-logo-blue: #009EC4;
+@omac-table-blue: #7598D9;
+@omac-text-blue: #3667C3;
+@omac-table-grey: #BFBFBF;
+@omac-white: #FFFFFF;
+@omac-black: #000000;
 @grey60: #666666;
+@grey13: #dddddd;
 
 @max-width: 1200px;
 
-@saira: 'Saira Extra Condensed',
-sans-serif;
-@anton: 'Anton',
-sans-serif;
+@century-book: 'Century Schoolbook', serif;
+@century-book-bold: 'Century Schoolbook Bold', serif;
+@calibri: 'Calibri', 'Arial', sans-serif;
+@calibri-bold: 'Calibri Bold', 'Arial Bold', sans-serif;
 
 a {
     text-decoration: none;
@@ -19,94 +25,11 @@ a {
     }
 }
 
-a.player {
-    color: @mite-red;
-    font-style: bold;
-}
-
 body {
     font-size: 100%;
-    font-family: @saira;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-#blue-one {
-    display: block;
+    font-family: @century-book;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 2em;
-}
-
-.challenge {
-    margin-top: 2em;
-    color: @grey60;
-    border-top: 0.2em solid @grey60;
-
-    p,
-    h2 {
-        color: @grey60;
-        padding-top: 0.3em;
-        text-align: center;
-    }
-
-    h2 {
-        margin-bottom: 0em;
-    }
-}
-
-.challenge-icon {
-    max-height: 186px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.challenge-headline {
-    padding-bottom: 2em;
-}
-
-#crossover {
-    height: 165px;
-}
-
-div {
-    &.players {
-        padding-bottom: 2em;
-    }
-
-    &.achievements {
-        padding-bottom: 2em;
-        padding-left: 1em;
-    }
-
-    &.countdown {
-        padding-top: 2em;
-    }
-
-    &.fireonice {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-.fireonice p {
-    padding-top: 0.5em;
-    text-align: center;
-}
-
-#flames {
-    padding-top: 1em;
-    font-size: 1.8em;
-    position: absolute;
-    right: 0.8em;
-
-    @media screen {
-        @media (max-width: 575px) {
-            padding-top: 0.6em;
-        }
-    }
 }
 
 .full-width {
@@ -116,32 +39,20 @@ div {
     padding-right: 0px;
     overflow: hidden;
     clear: both;
-    font-family: @anton;
-    background-color: @mite-red;
+    font-family: @century-book;
+    background-color: @grey60;
     color: white;
 }
 
-.game-challenge {
-    align-items: stretch;
-    padding-bottom: 2em;
-
-    @media screen {
-        @media (max-width: 575px) {
-            padding-right: 0.5em;
-        }
-
-    }
-}
-
 h1 {
-    padding-top: 1em;
-    font-size: 1.8em;
+    padding-top: 4em;
+    font-size: 3.8416em;
     line-height: 100%;
-    white-space: nowrap;
+    color: @omac-guidance-orange;
 
     a {
         color: white;
-        font-family: @anton;
+        font-family: @century-book;
     }
 
     @media screen {
@@ -150,7 +61,6 @@ h1 {
             font-size: 1.4em;
             line-height: 100%;
             white-space: nowrap;
-            padding-left: 0.8em;
         }
     }
 }
@@ -160,14 +70,16 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: @anton;
-    color: @mite-red;
+    font-family: @century-book;
+    color: @omac-black;
 }
 
 h2 {
-    font-size: 2.25em;
+    font-size: 2.74em;
     padding-top: 2em;
     margin-bottom: 0.6em;
+    line-height: 120%;
+    color: @omac-guidance-orange;
 
     &.first {
         padding-top: 1em !important;
@@ -182,81 +94,42 @@ h2 {
 }
 
 h3 {
-    font-size: 1.8em;
+    font-size: 1.96em;
     margin: auto;
     display: block;
-    padding-left: 2em;
+    padding-top: 1.4em;
+    padding-bottom: 0.5em;
 }
 
 h4 {
-    font-size: 8em;
-    padding-top: 1.2em;
+    font-size: 1.4em;
+    padding-top: 0.5em;
     padding-bottom: 0.2em;
-    text-align: center;
+    text-align: left;
+    font-style: italic;
+    color: @grey60;
 
     &.date {
-        font-size: 7em;
+        font-size: 0.55em;
         padding-top: 0px;
         padding-bottom: 0.1em;
-        text-align: center;
+        text-align: left;
     }
 
-    &.player {
-        border-bottom: 0.08em solid @mite-yellow;
+    &.summary {
+        padding-top: 5em;        
+        color: @omac-text-blue;
     }
 
     @media screen {
         @media (max-width: 768px) {
-            font-size: 4em;
+            font-size: 1.4em;
         }
         @media (max-width: 992px) {
-            font-size: 5em;
+            font-size: 1.4em;
         }
         @media (max-width: 1200px) {
-            padding-top: 0.5em;
-        }
-    }
-}
-
-h6 {
-    font-size: 2em;
-
-    @media screen {
-        @media (max-width: 992px) {
-            font-size: 1.8em;
-            margin-left: 0.1em;
-            padding-top: 1em;
-        }
-        @media (max-width: 768px) {
-            font-size: 1.5em;
-        }
-        @media (max-width: 572px) {
-            margin-left: 0.4em;
-        }
-    }
-}
-
-h5 {
-    font-size: 4em;
-    padding-top: 1em;
-    margin-bottom: 0.6em;
-
-    &.next-challenge {
-        padding-top: 0.5em;
-        margin-left: 0em !important;
-    }
-
-    @media screen {
-        @media (max-width: 992px) {
-            font-size: 3.5em;
-            margin-left: 0.1em;
-            padding-top: 1em;
-        }
-        @media (max-width: 768px) {
-            font-size: 3em;
-        }
-        @media (max-width: 572px) {
-            margin-left: 0.4em;
+            padding-top: 1.4em;
         }
     }
 }
@@ -265,19 +138,19 @@ h5 {
     float: left;
 }
 
-.homeskill {
-    display: flex;
+#omac-logo {
+    padding-top: 3em;
 }
 
 hr {
     border: none;
-    height: 0.5em;
+    height: 0.2em;
     width: 100%;
     margin: 0px;
 
-    &.yellow {
-        border-color: @mite-yellow;
-        background-color: @mite-yellow;
+    &.orange {
+        border-color: @omac-guidance-orange;
+        background-color: @omac-guidance-orange;
     }
 
     &.half {
@@ -294,6 +167,35 @@ hr {
         border-color: black;
         background-color: black;
     }
+}
+
+table {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: @calibri;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+th, td {
+    padding: 1em;
+    text-align: left;
+    border: 1px solid @grey13;    
+} 
+
+th {
+    padding: 1em;
+    background-color: @omac-table-blue;
+    color: @omac-white;
+    border: 1px solid @omac-white;
+    font-family: @calibri-bold;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 2em;
+    font-size: 1.2em;
 }
 
 .match {
@@ -314,122 +216,21 @@ hr {
 }
 
 nav {
-    background-color: @mite-red;
+    background-color: @omac-black;
     margin-bottom: 1em;
 
     a {
         font-size: 1.2em;
         color: white;
-        font-family: @anton;
+        font-family: @century-book;
     }
 }
 
 p {
-    font-family: @saira;
+    font-family: @century-book;
     font-size: 1.4em;
     color: black;
-    line-height: 1.2em;
-
-    &.countdown {
-        padding-top: 0.1em;
-        padding-bottom: 0.1em;
-        margin-bottom: 0.1em;
-        text-align: center;
-    }
-
-    &.game-time {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 0.5em;
-    }
-
-    &.game-description {
-        padding-bottom: 0.5em;
-        line-height: 120%;
-    }
-}
-
-.player {
-    max-width: 100%;
-    min-width: 150px;
-    height: auto;
-}
-
-.player-profile {
-    padding-top: 3em;
-}
-
-.players {
-
-    h2 {
-        padding-top: 1em;
-    }
-
-    p {
-        padding-left: 1em;
-    }
-}
-
-.skate-bullet {
-    width: 3em;
-    margin-right: 1em;
-}
-
-.skill {
-    border-top: 0.2em solid @mite-yellow;
-    border-bottom: 0.2em solid @mite-yellow;
-
-    p {
-        padding-top: 0.5em;
-        padding-bottom: 0em;
-    }
-}
-
-.skill-profile {
-    align-items: stretch;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
-.skill-detail {
-    align-items: stretch;
-    padding-bottom: 1em;
-}
-
-.skills {
-    margin-top: 0em;
-    margin-bottom: 2em;
-
-    img {
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-    }
-
-    h2 {
-        padding-top: 0em;
-    }
-}
-
-.sweater {
-    padding: 1em;
-}
-
-.team-logo {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
-    .img-fluid;
-}
-
-.vs {
-    text-align: center;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    line-height: 1.68em;    
 }
 
 // Region styling
@@ -441,11 +242,11 @@ footer {
     .full-width;
 
     nav a {
-        font-family: @saira;
+        font-family: @century-book;
     }
 
     h1 {
-        font-family: @saira;
+        font-family: @century-book;
     }
 
     nav {
@@ -455,27 +256,4 @@ footer {
 
 .parent {
     width: 201px;
-}
-
-@media screen and (max-width: 575px) {
-
-    .game-description {
-        padding-left: 0.9em;
-        padding-right: 0.9em;
-    }
-
-    .achievements p {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-
-    .reminder {
-        padding-left: 2em;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    h4.date {
-        font-size: 5.8em;
-    }
 }
