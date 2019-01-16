@@ -25,11 +25,22 @@ a {
     }
 }
 
+@page{
+    size: auto;    
+    margin: 20mm 6mm 20mm  !important;
+}
+
 body {
     font-size: 100%;
     font-family: @century-book;
     margin-left: auto;
     margin-right: auto;
+
+    @media print {
+        margin: 0px;
+        background: #fff !important;
+        color: #000;        
+    }
 }
 
 .full-width {
@@ -63,6 +74,11 @@ h1 {
             white-space: nowrap;
         }
     }
+
+    @media print {
+        padding-top: 3em;
+        font-size: 2.74em;        
+    }
 }
 
 h2,
@@ -91,6 +107,11 @@ h2 {
         }
 
     }
+
+    @media print {
+        padding-top: 1em;
+        font-size: 1.96em;        
+    }
 }
 
 h3 {
@@ -99,6 +120,11 @@ h3 {
     display: block;
     padding-top: 1.4em;
     padding-bottom: 0.5em;
+
+    @media print {
+        padding-top: 1.4em;
+        font-size: 1.4em;        
+    }
 }
 
 h4 {
@@ -132,6 +158,12 @@ h4 {
             padding-top: 1.4em;
         }
     }
+
+    @media print {
+        &.summary {
+            padding-top: 50mm;
+        }        
+    }
 }
 
 #header-text {
@@ -140,13 +172,20 @@ h4 {
 
 #omac-logo {
     padding-top: 3em;
+
+    @media print {
+        padding-top: 2em;
+        width: 101px;        
+    }
 }
 
 hr {
     border: none;
+    display: block;
+    background: transparent;
     height: 0.2em;
     width: 100%;
-    margin: 0px;
+    margin: 0px;    
 
     &.orange {
         border-color: @omac-guidance-orange;
@@ -166,6 +205,10 @@ hr {
     &.black {
         border-color: black;
         background-color: black;
+        
+        @media print {
+            border-top: solid 2px black;
+        }
     }
 }
 
@@ -175,7 +218,14 @@ table {
     margin-right: auto;
     font-family: @calibri;
     margin-top: 2em;
-    margin-bottom: 3em;
+    margin-bottom: 3em;    
+}
+
+caption {
+    caption-side: top;
+    color: @omac-guidance-orange;
+    text-align: center;
+    font-family: @century-book;
 }
 
 th, td {
@@ -189,13 +239,19 @@ th {
     background-color: @omac-table-blue;
     color: @omac-white;
     border: 1px solid @omac-white;
-    font-family: @calibri-bold;
+    font-family: @calibri-bold;    
+    -webkit-print-color-adjust: exact !important;
 }
 
 ul {
     list-style-type: disc;
     margin-left: 2em;
     font-size: 1.2em;
+}
+
+.figure {
+    color: @omac-guidance-orange;
+    font-size: 1.2em;    
 }
 
 .match {
@@ -226,16 +282,53 @@ nav {
     }
 }
 
+img {
+    @media print {
+        max-width: 100%; 
+        height: auto;
+    }
+}
+
 p {
     font-family: @century-book;
     font-size: 1.4em;
     color: black;
     line-height: 1.68em;    
+
+    @media print {
+        font-size: 1.0em;        
+    }
 }
 
 // Region styling
 header {
     .full-width;
+}
+
+#stack-lights {
+    @media print {
+        page-break-before: always;
+    }
+}
+
+#stack-lights {
+    @media print {
+        page-break-after: always;
+    }
+}
+
+h2 {
+    @media print {
+        page-break-before: always;
+    }
+}
+
+.reference {
+    padding-top: 1em;
+}
+
+.pending {
+    background: yellowgreen;
 }
 
 footer {
