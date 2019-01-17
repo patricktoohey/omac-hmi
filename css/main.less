@@ -26,8 +26,11 @@ a {
 }
 
 @page{
-    size: auto;    
-    margin: 20mm 6mm 20mm  !important;
+    size: auto;
+    margin-right: 6mm !important;
+    margin-left: 6mm !important;
+    margin-top: 20mm !important;
+    margin-bottom: 35mm !important;
 }
 
 body {
@@ -243,6 +246,11 @@ th {
     -webkit-print-color-adjust: exact !important;
 }
 
+tr.grey th {
+    background-color: @omac-table-grey;
+    color: @omac-black;
+}
+
 ul {
     list-style-type: disc;
     margin-left: 2em;
@@ -333,19 +341,30 @@ h2 {
 
 footer {
     .full-width;
+    position: fixed;
+    bottom: 0;
+    font-family: @century-book;
+    padding-left: 3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 
-    nav a {
-        font-family: @century-book;
-    }
-
-    h1 {
-        font-family: @century-book;
-    }
-
-    nav {
-        padding-bottom: 2em;
+    @media print {
+        display: none;  
     }
 }
+
+@page :left :footer { 
+    content: string(doctitle);
+    font-family: @century-book;
+} 
+    
+
+@media print and (color) {
+    * {
+       -webkit-print-color-adjust: exact;
+       print-color-adjust: exact;
+    }
+ }
 
 .parent {
     width: 201px;

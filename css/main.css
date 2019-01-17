@@ -7650,7 +7650,10 @@ a:hover {
 }
 @page {
   size: auto;
-  margin: 20mm 6mm 20mm  !important;
+  margin-right: 6mm !important;
+  margin-left: 6mm !important;
+  margin-top: 20mm !important;
+  margin-bottom: 35mm !important;
 }
 body {
   font-size: 100%;
@@ -7855,6 +7858,10 @@ th {
   font-family: 'Calibri Bold', 'Arial Bold', sans-serif;
   -webkit-print-color-adjust: exact !important;
 }
+tr.grey th {
+  background-color: #BFBFBF;
+  color: #000000;
+}
 ul {
   list-style-type: disc;
   margin-left: 2em;
@@ -7953,18 +7960,29 @@ footer {
   padding-right: 0px;
   overflow: hidden;
   clear: both;
-  font-family: 'Century Schoolbook', serif;
   background-color: #666666;
   color: white;
+  position: fixed;
+  bottom: 0;
+  font-family: 'Century Schoolbook', serif;
+  padding-left: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
-footer nav a {
+@media print {
+  footer {
+    display: none;
+  }
+}
+@page :left :footer {
+  content: string(doctitle);
   font-family: 'Century Schoolbook', serif;
 }
-footer h1 {
-  font-family: 'Century Schoolbook', serif;
-}
-footer nav {
-  padding-bottom: 2em;
+@media print and (color) {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 }
 .parent {
   width: 201px;
