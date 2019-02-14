@@ -7831,7 +7831,7 @@ hr.black {
   }
 }
 table {
-  width: 70%;
+  width: 75%;
   margin-left: auto;
   margin-right: auto;
   font-family: 'Calibri', 'Arial', sans-serif;
@@ -7840,6 +7840,13 @@ table {
 }
 caption {
   caption-side: top;
+  color: #FF6600;
+  text-align: center;
+  font-family: 'Century Schoolbook', serif;
+}
+figcaption {
+  margin: 2em;
+  caption-side: bottom;
   color: #FF6600;
   text-align: center;
   font-family: 'Century Schoolbook', serif;
@@ -7885,6 +7892,26 @@ ul {
     margin-left: 0.4em;
   }
 }
+#stacklight {
+  clear: both;
+  overflow: hidden;
+}
+#stacklight_segment {
+  width: 50%;
+  float: left;
+}
+#stacklight-image {
+  max-width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+figure {
+  margin-top: 3em;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 nav {
   background-color: #000000;
   margin-bottom: 1em;
@@ -7893,6 +7920,10 @@ nav a {
   font-size: 1.2em;
   color: white;
   font-family: 'Century Schoolbook', serif;
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 @media print {
   img {
@@ -7935,7 +7966,33 @@ header {
 @media print {
   #stack-lights {
     page-break-after: always;
+    width: 100%;
   }
+}
+#green-red-diagram {
+  max-width: 100%;
+  height: auto;
+}
+#green-blue-diagram {
+  max-height: 150mm;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#green-amber-diagram {
+  max-height: 125mm;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#material-low-diagram {
+  max-height: 125mm;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media print {
   h2 {

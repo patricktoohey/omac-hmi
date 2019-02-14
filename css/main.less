@@ -216,7 +216,7 @@ hr {
 }
 
 table {
-    width: 70%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
     font-family: @calibri;
@@ -226,6 +226,14 @@ table {
 
 caption {
     caption-side: top;
+    color: @omac-guidance-orange;
+    text-align: center;
+    font-family: @century-book;
+}
+
+figcaption {
+    margin: 2em;
+    caption-side: bottom;
     color: @omac-guidance-orange;
     text-align: center;
     font-family: @century-book;
@@ -279,6 +287,30 @@ ul {
     }
 }
 
+#stacklight {
+    clear: both;
+    overflow: hidden;    
+}
+
+#stacklight_segment {    
+    width: 50%;
+    float: left;
+}
+
+#stacklight-image {
+    max-width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure {
+    margin-top: 3em;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 nav {
     background-color: @omac-black;
     margin-bottom: 1em;
@@ -291,6 +323,9 @@ nav {
 }
 
 img {
+    max-width: 100%; 
+    height: auto;
+
     @media print {
         max-width: 100%; 
         height: auto;
@@ -322,7 +357,37 @@ header {
 #stack-lights {
     @media print {
         page-break-after: always;
+        width: 100%;
     }
+}
+
+#green-red-diagram {
+    max-width: 100%; 
+    height: auto;
+}
+
+#green-blue-diagram {
+    max-height: 150mm;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#green-amber-diagram {
+    max-height: 125mm;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#material-low-diagram {
+    max-height: 125mm;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 {
