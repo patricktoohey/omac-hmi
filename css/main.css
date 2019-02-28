@@ -7643,9 +7643,10 @@ a.text-dark:hover {
 /*# sourceMappingURL=bootstrap.css.map */
 a {
   text-decoration: none;
+  color: #3667C3;
 }
 a:hover {
-  color: white;
+  color: #3667C3;
   text-decoration: underline;
 }
 @page {
@@ -7891,6 +7892,19 @@ ul {
     font-size: 1em;
     margin-left: 0.4em;
   }
+}
+#contents {
+  margin-top: 2em;
+}
+.section {
+  font-size: 1.5em;
+  margin-top: 2em;
+}
+.subsection {
+  font-size: 1.5em;
+}
+.contributor li {
+  font-size: 1em;
 }
 #stacklight {
   clear: both;
