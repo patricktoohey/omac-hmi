@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01C</title>
+    <title>PackML HMI Implementation Guidance Draft 01D</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -84,8 +84,8 @@
             <h3 id="Purpose">2.1 Purpose</h3>
             <p>
                 <span>[0002] It is generally accepted that production lines with widely varying HMI designs </span>
-                <span>will suffer from reduced operator efficiency. It follows that this lack of </span>
-                <span>efficiency will lead to longer downtime events, lower throughput, and reduced job satisfaction. </span>
+                <span>will suffer from reduced operator efficiency, which </span>
+                <span>will likely lead to longer downtime events, lower throughput, and reduced job satisfaction. </span>
                 <span>To help counter these issues, the following guidance will establish a set of Human-Machine </span>
                 <span>Interface implementation standards that, when employed by production machinery designers, </span>
                 <span>will establish the consistency necessary to accommodate the specific needs of the production-line operator.</span>
@@ -128,13 +128,13 @@
             </p>
             <p>
                 <span>[0007] The best practices offered throughout are provided to encourage continuous improvement on </span>
-                <span>the part of system designers. Our ability to effectively communicate with our operators </span>
+                <span>the part of system designers. Our ability to effectively communicate with the operators </span>
                 <span>through the equipment we design can always be improved. The provided guidance is </span>
                 <span>simply a starting point for designers seeking additional exposure to the usability and graphic </span>
                 <span>design disciplines. Proper application of the provided recommendations is ultimately dependent on the context in question; </span>
                 <span>evaluating the resulting designs via operator testing is essential. Getting it right the first time is a lofty goal, but </span>
                 <span>getting it right is paramount. With a greater understanding and ability to control the way operators </span>
-                <span>experience the equipment we design, it is expected that &ndash; as designers &ndash; we will likewise experience </span>
+                <span>experience the equipment, it is expected that the designers will likewise experience </span>
                 <span>greater job satisfaction.</span>
             </p>
             <h3 id="GuidanceStructure">2.3 Guidance Structure</h3>
@@ -169,20 +169,17 @@
                 <span>we must first establish the characteristics that are critical to success.</span>
             </p>
             <p>
-                <span>[0012] The first relevant operational characteristic, which distinguishes production equipment operators </span>
-                <span>from most commercial product users, is the high likelihood that the operator is not present when </span>
-                <span>feedback is provided by the machine. The operator responsible for multiple machines does not </span>
-                <span>simply stand by and monitor a single HMI. When a downtime event is triggered by a specific machine </span>
-                <span>in a complex line, it is highly likely that the operator is not present. Accordingly, effectively </span>
-                <span>communicating with an operator that arrives after a critical event occurs will prove to be an essential skill.</span>
+                <span>[0012] The first relevant operational aspect to be taken into consideration is that the operator responsible for multiple </span>
+                <span>machines does not simply stand by and monitor a single HMI. Therefore when a downtime event is triggered by a  </span>
+                <span>specific machine in a complex line, it is highly likely that the operator is not present. Effective communication  </span>
+                <span>with an operator that arrives after the occurence of a critical event will prove to be an essential skill. </span>                
             </p>
             <p>
-                <span>[0013] The downtime example is further complicated by the urgency of the situation. If a machine is down, the </span>
-                <span>producer is losing money. This additional urgency increases the cognitive load experienced by the operator. </span>
-                <span>It is reasonable to argue that the likelihood of interface-manipulation errors will increase under these </span>
-                <span>conditions. Poor design is more easily accommodated under normal conditions. The added stress of abnormal </span>
-                <span>conditions amplifies the impact of flawed designs. Accordingly, the designer must take care to consider the conditions </span>
-                <span>and environment under which their operators perform.</span>
+                <span>[0013] The downtime example is further complicated by the urgency of the situation. While poor design is more easily </span>
+                <span>accommodated under normal operating conditions, a downtime event introduces additional stress on the operator. It </span>
+                <span>is reasonable to argue that the likelihood of interface-manipulation errors will increase under this additional urgency. </span>
+                <span>Abnormal operating conditions clearly amplify the impact of flawed design. Accordingly, </span>
+                <span>the designer must take care to consider the environment and conditions under which the operators perform.</span>
             </p>
             <p>
                 <span>[0014] The associated goals and context in which operators work should be in the forefront of the designer's mind </span>
@@ -233,7 +230,7 @@
                 <span>[0020] A system that helps operators avoid errors will likely pay dividends in both the Efficiency and </span>
                 <span>Satisfaction contexts. Extra, unnecessary HMI steps performed due to uncertainty on the part of </span>
                 <span>the operator are a prime example of waste when considered from the lean manufacturing viewpoint. </span>
-                <span>Producing designs that minimize such waste achieve the objective of Fault Resistance. Similarly, </span>
+                <span>Producing designs that minimize such waste achieves the objective of Fault Resistance. Similarly, </span>
                 <span>a system that can recover quickly from other errors (e.g., undo to recover from accidentally </span>
                 <span>deleting a product configuration) warrants points in the Fault Tolerance category. Again, this </span>
                 <span>characteristic clearly impacts the Efficiency and Satisfaction measures.</span>
@@ -275,7 +272,7 @@
                 <span>of the individual machine, and in relationship to the other machines on the line. Once both the </span>
                 <span>observation and comprehension are achieved, the operator will determine, for example, that the </span>
                 <span>wrapping machine is running low on film. Having made this determination, the operator will consider </span>
-                <span>the level 3 needs of the situation, which address how the current conditions will impact the future status </span>
+                <span>the level 3 SA needs, which address how the current conditions will impact the future status </span>
                 <span>of the line.</span>
             </p>
             <p>
@@ -289,7 +286,7 @@
                 <span>the designer is left with only a few basic questions when evaluating a design. Will the </span>
                 <span>operator see the stimulus I have designed? If the stimulus is provided on screen, is the </span>
                 <span>intended focal point sufficiently salient, or is there other "digital noise" distracting </span>
-                <span>the operator's attention from the critical indicator. Will the operator comprehend the feedback </span>
+                <span>the operator's attention from the critical indicator? Will the operator comprehend the feedback </span>
                 <span>from the machine, or is the signal ambiguous, leaving the operator with a high level of </span>
                 <span>uncertainty? Finally, does the machine simplify the operator's ability to predict the future </span>
                 <span>outcome? Does the system warrant an explicit message communicating the time remaining until a </span>
@@ -322,7 +319,7 @@
                 <span>in a particular order illuminated at a particular frequency based on the machine state, </span>
                 <span>the graphical display portion of the HMI affords the designer a more limitless </span>
                 <span>range of options, which, unfortunately, offers endless opportunities </span>
-                <span>for the introduction of usability issues. Fortunately, the same simple principles that are inherent in </span>
+                <span>for the introduction of usability issues. The same simple principles that are inherent in </span>
                 <span>the effective design of stacklights and control push-buttons will demonstrate the foundation </span>
                 <span>of usability in the graphical interface. Discussing these principles in the </span>
                 <span>more tangible context of stacklights and push-buttons may at first seem </span>
@@ -334,13 +331,13 @@
             <p>
                 <span>[0030] While the actual requirements necessary to specify the standardized PackML stacklight </span>
                 <span>and push-button implementations can be expressed in a few short paragraphs, we will offer a </span>
-                <span>more verbose description that highlights the associated usability principles </span>
-                <span>that are likely taken for granted.</span>
+                <span>more verbose description that highlights the associated usability principles, </span>
+                <span>which are likely taken for granted.</span>
             </p>
             
             <h3 id="StacklightsStandard">4.2 Standard Implementation</h3>
             <p>
-                <span>[0031] The standard PackML stacklight presents select colors representing the </span>
+                <span>[0031] The standard PackML stacklight presents selected colors representing the </span>
                 <span>PackML states described in ANSI/ISA TR88.00.02-2015. </span>
                 <span>Ordered from the top down as demonstrated in Figure 1, the lights will </span>
                 <span>be illuminated in the sequence (i.e., solid or flashing) and color specified based on the current PackML state. The </span>
@@ -607,7 +604,7 @@
                 <span>coding (i.e., color and position) within the standard would likely accommodate </span>
                 <span>a mispositioned light (e.g., amber above red), such a violation would surely </span>
                 <span>be a distraction to a line operator. It is expected that a focused color-sighted </span>
-                <span>line operator could overcome a violation of the light position standard, however, </span>
+                <span>line operator could overcome a violation of the light position standard. However, </span>
                 <span>under the additional stress of a line stoppage, a simple lack of consistency in </span>
                 <span>stacklight orientation could lead to an extended stoppage. Accordingly, we will </span>
                 <span>highlight consistency in orientation as a key usability principle, one which will </span>
@@ -627,8 +624,7 @@
             <p>
                 <span>[0043] These points illustrate the relevant distinction between internal and external consistency. </span>
                 <span>Utilizing the same size and shape lenses within a single stacklight of a given machine </span>
-                <span>demonstrates the most basic application of internal consistency where the consistency is maintained </span>
-                <span>within the scope of the machine. A lack of consistency in a </span>
+                <span>demonstrates the most basic application of internal consistency. A lack of consistency in a </span>
                 <span>single light of the stack &ndash; a different shape or size, for example &ndash; would draw </span>
                 <span>additional attention from the operator. This should be avoided unless the additional attention </span>
                 <span>is a desirable effect. External consistency, on the other hand, is demonstrated by using the same </span>
@@ -701,7 +697,7 @@
                 <span>[0050] While it is reasonable to use the conventions of position, color, and sequence to draw </span>
                 <span>an operator's attention to a given machine, it is still necessary to communicate the </span>
                 <span>required course of action in a manner that speaks more directly and effectively to the </span>
-                <span>operator. It is not sufficient to blink the blue light and expect the operator to know </span>
+                <span>operator. It is not sufficient, for example, to blink the blue light and expect the operator to know </span>
                 <span>what action is necessary. The graphical interface must effectively communicate the </span>
                 <span>meaning of the blinking blue light by presenting an instruction that leads to a prompt </span>
                 <span>resolution.</span></p>
@@ -722,6 +718,9 @@
                 <span>grammatical conventions. Avoid abbreviations, jargon, acronyms, and engineering-centric language, </span>
                 <span>which will likely be lost on line operators. Reserve engineering conventions for log files, which </span>
                 <span>will not require interpretation from line operators.</span>
+                <ol>
+                    <li>Latex</li>
+                </ol>
             </p>
         </div>
         <div>
@@ -795,11 +794,22 @@
                     </td>
                     <td>01C</td>
                 </tr>
+                <tr>
+                    <td>2019-03-28</td>
+                    <td>PST</td>
+                    <td>
+                        <span>Readability improvements. </span> 
+                        <ul>
+                            <li class="contributor">Omar Cordovani, Siemens</li>
+                        </ul>
+                    </td>
+                    <td>01D</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer>PackML HMI Implementation Guide Draft 01C</footer>
+    <footer>PackML HMI Implementation Guide Draft 01D</footer>
 </body>
 
 </html>
