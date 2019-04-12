@@ -165,8 +165,19 @@ h4 {
 
     @media print {
         &.summary {
-            padding-top: 50mm;
+            padding-top: 45mm;
         }        
+    }
+}
+
+h5 {
+    padding-top: 2.0em;
+    font-size: 1.6em;
+    color: @omac-guidance-orange;
+
+    @media print {
+        padding-top: 10mm;
+        font-size: 1.2em;
     }
 }
 
@@ -223,6 +234,17 @@ table {
     font-family: @calibri;
     margin-top: 2em;
     margin-bottom: 3em;    
+    
+    @media print {
+        font-size: 0.8em;        
+        page-break-before: always;
+    }
+}
+
+#version-log {
+    @media print {
+        page-break-before: avoid;
+    }
 }
 
 caption {
@@ -230,14 +252,24 @@ caption {
     color: @omac-guidance-orange;
     text-align: center;
     font-family: @century-book;
+
+    @media print {
+        font-size: 0.8em;
+    }
 }
 
 figcaption {
     margin: 2em;
+    margin-left: 20%;
+    margin-right: 20%;    
     caption-side: bottom;
     color: @omac-guidance-orange;
-    text-align: center;
+    text-align: left;
     font-family: @century-book;
+
+    @media print {
+        font-size: 0.8em;
+    }
 }
 
 th, td {
@@ -253,6 +285,12 @@ th {
     border: 1px solid @omac-white;
     font-family: @calibri-bold;    
     -webkit-print-color-adjust: exact !important;
+
+    @media print {
+        background-color: @omac-table-grey;
+        color: @omac-black;
+        border: 1px solid @omac-table-grey;
+    }
 }
 
 tr.grey th {
@@ -368,20 +406,38 @@ header {
 
 #stack-lights {
     @media print {
-        page-break-before: always;
-    }
-}
-
-#stack-lights {
-    @media print {
         page-break-after: always;
         width: 100%;
     }
 }
 
+#print-dialog {
+    width: 60%; 
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#packml_state_model {
+    width: 70%; 
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #green-red-diagram {
     max-width: 100%; 
     height: auto;
+}
+
+#green-red-completing-diagram {
+    max-height: 150mm;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #green-blue-diagram {

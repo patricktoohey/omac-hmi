@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01D</title>
+    <title>PackML HMI Implementation Guidance Draft 01E</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -28,9 +28,9 @@
 
 <body>
     <div class="container">
-        <div><img id="omac-logo" src="images/OMAC.png" alt="OMAC"/></div>
+        <div><img id="omac-logo" src="images/OMAC.png" alt="OMAC" /></div>
         <h1>PackML Implementation Guide</h1>
-        <hr class="black"/>
+        <hr class="black" />
         <h4>Part 6: PackML HMIs - User Interfaces, Stacklights, and Push-Button Controls</h4>
         <div class="summary">
             <h4 class="summary">Summary</h4>
@@ -42,10 +42,11 @@
                 <span>concrete examples explaining the guidelines, as well as reference material for those </span>
                 <span>seeking more in depth explanations of the associated concepts.</span>
             </p>
-        </div>        
+            <h5 class="author">Author: Patrick Toohey, Mettler-Toledo Product Inspection</h4>
+        </div>
         <div>
             <h2>Contents</h2>
-            <hr class="black"/>
+            <hr class="black" />
             <ul id="contents">
                 <li>
                     <a href="#ExecutiveSummary" class="section">2. Executive Summary</a>
@@ -61,7 +62,6 @@
                         <li><a href="#OperatorEmpathy">3.1 Operator Empathy</a></li>
                         <li><a href="#UsabilityCharacteristics">3.2 Usability Characteristics</a></li>
                         <li><a href="#SituationAwareness">3.3 Situation Awareness</a></li>
-                        <li><a href="#DecisionMaking">3.4 Decision Making</a></li>
                     </ul>
                 </li>
                 <li>
@@ -80,7 +80,7 @@
         </div>
         <div>
             <h2 id="ExecutiveSummary">2. Executive Summary</h2>
-            <hr class="black"/>
+            <hr class="black" />
             <h3 id="Purpose">2.1 Purpose</h3>
             <p>
                 <span>[0002] It is generally accepted that production lines with widely varying HMI designs </span>
@@ -96,7 +96,7 @@
                 <span>usability within machine HMIs can always be improved. Accordingly, this document will provide </span>
                 <span>guidance in the areas of usability and graphic design, which should benefit design engineers </span>
                 <span>seeking to expand their background in those disciplines. </span>
-            </p>        
+            </p>
             <p>
                 <span>[0004] To accompany the recommendations offered throughout, this guideline presents a collection </span>
                 <span>of reference material from which many of the best practices have been established. Readers are </span>
@@ -116,13 +116,13 @@
                 <span>with a critical eye and to better understand successful designs and the underlying mechanisms that </span>
                 <span>help achieve the desired outcome. The recommendations provided here advocate these additional steps as </span>
                 <span>they are essential to the development of optimally usable designs.</span>
-            </p>    
+            </p>
             <h3 id="Goals">2.2 Goals</h3>
             <p>
                 <span>[0006] As stated previously, this guidance is targeted at designers for the benefit of operators. </span>
                 <span>By improving the environment in which operators work, producers will ideally realize </span>
                 <span>reductions in downtime, increased throughput, lower levels of rework, and operators with higher </span>
-                <span>levels of job satisfaction. Moreover, standardization in specific areas of the Human-Machine interface </span>
+                <span>levels of job satisfaction. Moreover, standardization in specific areas of the human-machine interface </span>
                 <span>should aid in the development of cross-functional production operators that can move from line to </span>
                 <span>line with greater efficiency.</span>
             </p>
@@ -162,161 +162,205 @@
                 <span>seeking guidance on design refinement and validation. </span>
             </p>
             <h2 id="Background">3. Background</h3>
-            <hr class="black"/>
-            <h3 id="OperatorEmpathy">3.1 Operator Empathy</h3>
-            <p>
-                <span>[0011] In order to appropriately design machines that will ultimately meet the needs of the operator, </span>
-                <span>we must first establish the characteristics that are critical to success.</span>
-            </p>
-            <p>
-                <span>[0012] The first relevant operational aspect to be taken into consideration is that the operator responsible for multiple </span>
-                <span>machines does not simply stand by and monitor a single HMI. Therefore when a downtime event is triggered by a  </span>
-                <span>specific machine in a complex line, it is highly likely that the operator is not present. Effective communication  </span>
-                <span>with an operator that arrives after the occurence of a critical event will prove to be an essential skill. </span>                
-            </p>
-            <p>
-                <span>[0013] The downtime example is further complicated by the urgency of the situation. While poor design is more easily </span>
-                <span>accommodated under normal operating conditions, a downtime event introduces additional stress on the operator. It </span>
-                <span>is reasonable to argue that the likelihood of interface-manipulation errors will increase under this additional urgency. </span>
-                <span>Abnormal operating conditions clearly amplify the impact of flawed design. Accordingly, </span>
-                <span>the designer must take care to consider the environment and conditions under which the operators perform.</span>
-            </p>
-            <p>
-                <span>[0014] The associated goals and context in which operators work should be in the forefront of the designer's mind </span>
-                <span>as each HMI decision is made. Understanding and empathizing with the operator is a great motivator for </span>
-                <span>the engaged designer.</span>
-            </p>
-            <h3 id="UsabilityCharacteristics">3.2 Usability Characteristics</h3>
-            <p>
-                <span>[0015] With a handful of critical operator characteristics understood, it is next important to establish the scope </span>
-                <span>of the term usability. Nielsen (1993) presents a set of usability characteristics to help clarify the concept; the </span>
-                <span>usability of a machine is a function of its a) Learnability, b) Memorability, c) Efficiency, d) Fault Resistance </span>
-                <span>and Tolerance, and d) the level of Satisfaction experienced by the operator.</span>
-            </p>
-            <p>
-                <span>[0016] In the context of the production lines, Learnability, obviously, is most relevant to the new line operator. </span>
-                <span>Here, the operator's ability to quickly build fluency in the associated Human-Machine Interface is a key measure </span>
-                <span>of the designer's success. Similarly, an operator's ability to become productive when transitioning from one </span>
-                <span>machine to another is a function of the new machine's Learnability level. It is our expectation that </span>
-                <span>the standardization initiatives established in this guideline will increase the Learnability of any </span>
-                <span>machines adopting the standards.</span>
-            </p> 
-            <p>
-                <span>[0017] Learnability is generally measured by presenting new users with a task to perform using the interface. </span>
-                <span>The time required to complete the task is a reasonable quantitative metric. When compared to an alternate </span>
-                <span>design, the magnitude of the improvement attributed to the new design will help validate the design.</span>
-            </p>
-            <p>
-                <span>[0018] In a well functioning production line, it is likely that an operator will have infrequent interactions </span>
-                <span>with the HMI. When the operator returns to a machine after a prolonged absence, the Memorability of </span>
-                <span>the HMI becomes the focal point. Will the operator need to relearn the interface or is there some level of </span>
-                <span>retention that allows a returning user to become productive more quickly than a new user?</span>
-            </p>
-            <p>
-                <span>[0019] Maintaining the downtime example discussed earlier, an operator's ability to quickly identify and </span>
-                <span>resolve an event is a perfect demonstration of the Efficiency characteristic. If instead, the operator must struggle </span>
-                <span>through multiple steps with uncertainty and confusion, the downtime event will likely persist for an </span>
-                <span>unacceptable period. When considered as raw metrics, the Efficiency of a production machine is best </span>
-                <span>characterized in terms of the time necessary to complete specific tasks. While it is often argued that the </span>
-                <span>number of steps taken (e.g., taps, key presses) is a worthwhile metric, we argue that a single step that </span>
-                <span>takes 5 minutes due to operator uncertainty is much less efficient than 50 steps that require minimal </span>
-                <span>thought and take 10 seconds. While a lowering the number of required steps is a worthy objective, time </span>
-                <span>to completion is usually the more important goal in the production context. Measuring efficiency often </span>
-                <span>warrants some amount of task repetition. During such testing, the first few iterations will actually </span>
-                <span>constitute a measure of learnability. Once the task is learned, a more accurate measure of efficiency </span>
-                <span>can be achieved through a number of additional repetitions.</span>
-            </p>
-            <p>
-                <span>[0020] A system that helps operators avoid errors will likely pay dividends in both the Efficiency and </span>
-                <span>Satisfaction contexts. Extra, unnecessary HMI steps performed due to uncertainty on the part of </span>
-                <span>the operator are a prime example of waste when considered from the lean manufacturing viewpoint. </span>
-                <span>Producing designs that minimize such waste achieves the objective of Fault Resistance. Similarly, </span>
-                <span>a system that can recover quickly from other errors (e.g., undo to recover from accidentally </span>
-                <span>deleting a product configuration) warrants points in the Fault Tolerance category. Again, this </span>
-                <span>characteristic clearly impacts the Efficiency and Satisfaction measures.</span>
-            </p>
-            <p>
-                <span>[0021] While the Learnability, Memorability, Efficiency, and Fault Awareness characteristics are well </span>
-                <span>aligned with quantitative metrics, the Satisfaction characteristic is much more qualitative in </span>
-                <span>nature. Norman (2003) addressed the ambiguity of Satisfaction by offering the Visceral, </span>
-                <span>Reflective, and Behavioral characteristics. MORE CONTENT TO FOLLOW</span>
-                ...  
-            </p>
-            <h3 id="SituationAwareness">3.3 Situational Awareness</h3>
-            <p>
-                <span>[0022] Given the previously discussed usability characteristics, it is next necessary to consider how a </span>
-                <span>given machine can effectively (a) communicate a condition and (b) direct the operator to the appropriate </span>
-                <span>course of action. Endsley (1995) offers a model for Situation Awareness (SA) that breaks such interactions </span>
-                <span>into 3 levels. First, the model declares that the operator must perceive a given condition. The associated stimulus could be </span>
-                <span>a horn, a stacklight, a message on a display, a pile of products on the production floor, or </span>
-                <span>the smell of burning plastic. Having achieved Level 1 SA, the operator must then appropriately </span>
-                <span>interpret the situation. What does the light mean? Why are there items on the floor? What's that </span>
-                <span>smell? Finally, after Level 2 SA is achieved, the operator must project the current situation into the future. Perhaps the light </span>
-                <span>is only a warning indicator that requires action to prevent a less desirable outcome. At this stage, </span>
-                <span>the operator has achieved Level 3 SA and must make a decision and, optionally, perform some course of action. </span>
-                <span>Ideally, the achieved level of awareness is not flawed and contains no level of uncertainty. The appropriateness of the response </span>
-                <span>is contingent on the effectiveness at each subsequent level. </span>
-            </p>
-            <p>
-                <span>[0023] Ultimately, the designer is responsible for ensuring that the situational awareness is not flawed and contains </span>
-                <span>minimal uncertainty. If the operator does not perceive the light because it is obscured from </span>
-                <span>their vantage point, they have no reason to consider its meaning. Or, perhaps, a horn from a </span>
-                <span>different line distracted their attention. Ensuring that the stimulus is effectively perceived </span>
-                <span>is the first challenge.</span>
-            </p>
-            <p>
-                <span>[0024] Comprehension of the situation with respect to the operator's goals is the next challenge. Given </span>
-                <span>a fully integrated production line and a standard stacklight convention, the operator will be </span>
-                <span>responsible for monitoring the lights on the entire production line. If the operator observes a light </span>
-                <span>transition from green to blue, the operator must interpret that light transition both in the context </span>
-                <span>of the individual machine, and in relationship to the other machines on the line. Once both the </span>
-                <span>observation and comprehension are achieved, the operator will determine, for example, that the </span>
-                <span>wrapping machine is running low on film. Having made this determination, the operator will consider </span>
-                <span>the level 3 SA needs, which address how the current conditions will impact the future status </span>
-                <span>of the line.</span>
-            </p>
-            <p>
-                <span>[0025] Continuing the example of the machine running low on film, the operator will likely consider how </span>
-                <span>urgent the situation is. If an additional 15 minutes of production is expected following the </span>
-                <span>alarm, the operator will consider this point when making a decision on a course of action.</span>
-            </p>
-            <p>
-                <span>[0026] Understanding this basic model of situation awareness is a great benefit to designers. By </span>
-                <span>understanding the basic thought process of the operator, and the relevant levels therein, </span>
-                <span>the designer is left with only a few basic questions when evaluating a design. Will the </span>
-                <span>operator see the stimulus I have designed? If the stimulus is provided on screen, is the </span>
-                <span>intended focal point sufficiently salient, or is there other "digital noise" distracting </span>
-                <span>the operator's attention from the critical indicator? Will the operator comprehend the feedback </span>
-                <span>from the machine, or is the signal ambiguous, leaving the operator with a high level of </span>
-                <span>uncertainty? Finally, does the machine simplify the operator's ability to predict the future </span>
-                <span>outcome? Does the system warrant an explicit message communicating the time remaining until a </span>
-                <span>critical system stoppage? When considering the appropriateness of the design, the designer </span>
-                <span>can utilize the situational awareness model to help direct and evaluate potential solutions.</span>
-            </p>
-            <h3 id="DecisionMaking">3.4 Decision Making</h3>
-            <p>
-                <span>[0027] Having established situational awareness (e.g., the machine has 5 minutes worth of material </span>
-                <span>remaining), the operator must then make a decision (e.g., the material needs to be refilled </span>
-                <span>immediately or, there is still plenty of time) and, optionally, take action. The Skill-Rule-Knowledge (SRK) model ...</span>
-            </p>
-            <p>
-                <span>[0028] In the next section of the guidance, we will begin by presenting the PackML Stacklight </span>
-                <span>standard. Throughout the explanation of that standard, we will consider the associated </span>
-                <span>aspects of usability and the components of the situational awareness model that are relevant </span>
-                <span>in each aspect of its design. Once these concepts are considered in the simple context of </span>
-                <span>stacklights, we will continue to explore the more complicated user-interface design domain.</span>
-            </p>
+                <hr class="black" />
+                <h3 id="OperatorEmpathy">3.1 Operator Empathy</h3>
+                <p>
+                    <span>[0011] In order to appropriately design machines that will ultimately meet the needs of the operator, </span>
+                    <span>we must first establish the characteristics that are critical to success.</span>
+                </p>
+                <p>
+                    <span>[0012] The first relevant operational aspect to be taken into consideration is that the operator responsible for multiple </span>
+                    <span>machines does not simply stand by and monitor a single HMI. Therefore, when a downtime event is triggered by a  </span>
+                    <span>specific machine in a complex line, it is highly likely that the operator is not present. Accordingly, effective communication  </span>
+                    <span>with an operator that arrives after the occurrence of a critical event will prove to be an essential skill. </span>
+                </p>
+                <p>
+                    <span>[0013] The downtime example is further complicated by the urgency of the situation. While poor design is more easily </span>
+                    <span>accommodated under normal operating conditions, a downtime event introduces additional stress on the operator. It </span>
+                    <span>is reasonable to argue that the likelihood of interface-manipulation errors will increase under this additional urgency. </span>
+                    <span>Abnormal operating conditions clearly amplify the impact of flawed design. Accordingly, </span>
+                    <span>the designer must take care to consider both the environment and conditions under which the operators perform.</span>
+                </p>
+                <p>
+                    <span>[0014] The associated goals and context in which operators work should be in the forefront of the designer's mind </span>
+                    <span>as each HMI decision is made. Understanding and empathizing with the operator is a great motivator for </span>
+                    <span>the engaged designer.</span>
+                </p>
+                <h3 id="UsabilityCharacteristics">3.2 Usability Characteristics</h3>
+                <p>
+                    <span>[0015] With a handful of critical operator characteristics understood, it is next important to establish the scope </span>
+                    <span>of the term usability. Nielsen (1993) presents a set of usability characteristics to help clarify the concept; the </span>
+                    <span>usability of a machine is a function of its (a) Learnability, (b) Memorability, (c) Efficiency, (d) Fault Resistance </span>
+                    <span>and Tolerance, and (d) the level of Satisfaction experienced by the operator.</span>
+                </p>
+                <p>
+                    <span>[0016] Within the scope of production environments, system learnability is most relevant for operators interacting with a piece of </span>
+                    <span>equipment for the first time. Here, the operator's ability to quickly build fluency in the associated machine interface is a key measure </span>
+                    <span>of the designer's success. Similarly, an operator's ability to become productive when transitioning from one </span>
+                    <span>machine to another is a function of the latter machine's level of learnability; standardization is a big help in this scenario.  </span>
+                    <span>It is important to note, however, that expert users (i.e., those executing advanced functionality) will still require </span>
+                    <span>specialized training and significant practice before they are able to effectively perform certain higher </span>
+                    <span>level tasks. This is completely acceptable; the learnability characteristic is simply not applicable in these </span>
+                    <span>cases. Learnability optimizations are generally not a substitute for proper training and practice. Design techniques like </span>
+                    <span>Progressive Disclosure help illustrate this distinction. </span>
+                </p>
+                <p>
+                    <span>[0017] Most easily demonstrated by examining the design of digital printing interfaces, progressive disclosure is a technique </span>
+                    <span>whereby expert-level controls and interfaces are segregated from the components that are most frequently utilized. In a typical </span>
+                    <span>printer interface, a small number of core facilities (e.g., number of copies, page selection, orientation) are presented in simple dialogs similar to that shown in Figure 1, </span>
+                    <span>while more advanced features (e.g., color management, page setup) are hidden in "Advanced" submenus. </span>
+                    <span>This separation optimizes the basic interface, providing an environment that is less likely to overwhelm the average user. </span>
+                    <span>Accordingly, this technique presents an interface that is highly learnable. The number of options are minimized, leaving a smaller subset of features that must be learned. </span>
+                    <span>Expert users instead utilize a separate section of the interface that is dedicated to their more specialized </span>
+                    <span>needs. Improving the efficiency for the expert user by mixing more complicated features with basic tools would </span>
+                    <span>complicate the interface to the disadvantage of the average user. This should be avoided. Isolating the advanced features is </span>
+                    <span>the appropriate design compromise in most situations where mixed audiences exist. </span>
+                </p>
+                <figure>
+                    <img id="print-dialog" src="images/Print.png" />
+                    <figcaption>
+                        <span>Figure 1: Print dialogs typically hide expert-level controls behind "Advanced settings" shortcuts that offer interfaces more suitable </span>
+                        <span>for the advanced audience. With the advanced features hidden away, the resulting basic interface is simpler and easier to learn. This design </span>
+                        <span>concept is known as progressive disclosure; additional content is presented in levels appropriate to the audience. </span>
+                    </figcaption>
+                </figure>
+                <p>
+                    <span>[0018] Learnability is generally measured by presenting new users with an interface-based task. </span>
+                    <span>The time required to complete the task is then a reasonable quantitative metric of the system's learnability. When compared to either an </span>
+                    <span>existing design or a competing design alternative, the magnitude of the improvement attributed to the new design will help validate the underlying concept. </span>
+                </p>
+                <p>
+                    <span>[0019] In a well functioning production line, it is likely that an operator will have infrequent interactions </span>
+                    <span>with the HMI. When the operator returns to a machine after a prolonged absence, the memorability of </span>
+                    <span>the HMI becomes the focal point. Will the operator need to relearn the interface or is there some level of </span>
+                    <span>retention that allows a returning user to become productive more quickly than a new user? </span>
+                    <span>Testing memorability is generally more difficult than testing learnability as some period of inactivity is required </span>
+                    <span>to properly evaluate how effectively the interface accommodates the returning operator. </span>
+                </p>
+                <p>
+                    <span>[0020] Maintaining the downtime example discussed previously, an operator's ability to quickly identify and </span>
+                    <span>resolve an event is a perfect demonstration of the Efficiency characteristic. If instead, the operator must struggle </span>
+                    <span>through multiple steps with uncertainty and confusion, the downtime event will likely persist for an </span>
+                    <span>unacceptable period. When considered as raw metrics, the efficiency of a production machine is best </span>
+                    <span>characterized in terms of the time necessary to complete specific tasks; OEE is rooted in such thinking. While it is often argued that the </span>
+                    <span>number of steps taken (e.g., taps, key presses) is a worthwhile metric, we argue that a single step that </span>
+                    <span>takes 5 minutes due to operator uncertainty is much less efficient than 50 steps that require minimal </span>
+                    <span>thought and take a total of 10 seconds to complete. While lowering the number of required steps is a worthy objective, time </span>
+                    <span>to completion is usually the more important goal in production environments. Measuring efficiency often </span>
+                    <span>warrants some amount of task repetition. During such testing, the first few iterations will actually </span>
+                    <span>constitute a measure of learnability. Once the task is learned, a more accurate measure of efficiency </span>
+                    <span>can be achieved through a number of additional repetitions.</span>
+                </p>
+                <p>
+                    <span>[0021] Efficiency can often be improved through the addition of shortcuts that simplify frequently used interactions. </span>
+                    <span>Standard multi-step operations (e.g., menu navigation or command sequences) can be optimized in ways that </span>
+                    <span>benefit advanced users without interfering with novice operators. On-screen touch shortcuts, for example, </span>
+                    <span>accelerate the efforts of expert users without cluttering the interface with additional content. While the novice user is still able to </span>
+                    <span>employ the standard mechanism, the expert user achieves the same result with fewer steps. </span>
+                </p>
+                <p>
+                    <span>[0022] Likewise, a system that helps operators avoid errors will likely pay dividends in both the efficiency and </span>
+                    <span>satisfaction categories. Extra, unnecessary HMI steps performed due to uncertainty on the part of </span>
+                    <span>the operator are a prime example of waste when considered from the lean manufacturing viewpoint. </span>
+                    <span>Producing designs that minimize such waste accommodate the Fault Resistance objective. Moreover, </span>
+                    <span>a system that can efficiently resolve slips or mistakes (e.g., undo to recover from accidentally </span>
+                    <span>deleting a product configuration) warrants additional points in the fault tolerance category. Facilities </span>
+                    <span>that accommodate fault tolerance will generally improve efficiency and overall operator satisfaction as well.</span>
+                </p>
+                <p>
+                    <span>[0023] While the Learnability, Memorability, Efficiency, and Fault Awareness characteristics are well </span>
+                    <span>aligned with quantitative metrics, the Satisfaction characteristic is much more qualitative in </span>
+                    <span>nature. The subjective opinions of the operator can be difficult to accommodate. Designing a </span>
+                    <span>satisfying interface generally requires (a) a good understanding of the operator, (b) an understanding of the context </span>
+                    <span>of use, and (c) an understanding of the operators goals. When the operator and the associated work environment are at </span>
+                    <span>the forefront of the designer's mind, they will be better able to comprehend the subjective envelope of satisfaction. </span>
+                    <span>With that understanding in place, proper application of basic design principles will likely yield an interface that is satisfying. </span>
+                </p>
+                <h3 id="SituationAwareness">3.3 Situational Awareness</h3>
+                <p>
+                    <span>[0024] Given the previously discussed usability characteristics, it is next necessary to consider how a </span>
+                    <span>given machine can effectively (a) communicate a condition and (b) direct the operator to the appropriate </span>
+                    <span>course of action. Endsley (1995) offers a model for Situation Awareness (SA) that breaks such interactions </span>
+                    <span>into 3 distinct levels. First, the model declares that the operator must perceive a given condition. The associated stimulus could be </span>
+                    <span>a horn, a stacklight, a message on a display, a pile of products on the production floor, or </span>
+                    <span>the smell of burning plastic. Having achieved Level 1 SA, the operator must then appropriately </span>
+                    <span>interpret the situation. What does the light mean? Why are there items on the floor? What's that </span>
+                    <span>smell? Finally, after Level 2 SA is achieved, the operator must project the current situation into the future. Perhaps the light </span>
+                    <span>is only a warning indicator that requires action to prevent a less desirable outcome. At this stage, </span>
+                    <span>the operator has achieved Level 3 SA and must make a decision and, optionally, perform some course of action. </span>
+                    <span>Ideally, the achieved level of awareness is not flawed and contains no level of uncertainty. The appropriateness of the operator's response </span>
+                    <span>is contingent on the effectiveness at each subsequent awareness level. </span>
+                </p>
+                <p>
+                    <span>[0025] Ultimately, the designer is responsible for ensuring that the situational awareness is not flawed and contains </span>
+                    <span>minimal uncertainty. If the operator does not perceive the light because it is obscured from </span>
+                    <span>their vantage point, they have no reason to consider its meaning. Or, perhaps, a horn from a </span>
+                    <span>different line distracted their attention. Ensuring that the stimulus is effectively perceived </span>
+                    <span>is the first challenge. Design principles offered throughout this guidance focus specifically on effective communication. </span>
+                </p>
+                <p>
+                    <span>[0026] Comprehension of the situation with respect to the operator's goals is the next challenge. Given </span>
+                    <span>a fully integrated production line and a standard stacklight convention, the operator will be </span>
+                    <span>responsible for monitoring the lights on the entire production line. If the operator observes a light </span>
+                    <span>transition from green to blue, the operator must interpret that light transition both in the context </span>
+                    <span>of the individual machine, and in relationship to the other machines on the line. Once both the </span>
+                    <span>observation and comprehension are achieved, the operator will determine, for example, that the </span>
+                    <span>wrapping machine is running low on film. Having made this determination, the operator will consider </span>
+                    <span>the level 3 SA needs, which address how the current conditions will impact the future status </span>
+                    <span>of the line.</span>
+                </p>
+                <p>
+                    <span>[0027] Continuing the example of the machine running low on film, the operator will likely consider how </span>
+                    <span>urgent the situation is. If the operator understands that an additional 15 minutes of production can be expected following the </span>
+                    <span>first instance of an alarm, the operator will consider this point when making a decision on a course of action. </span>
+                    <span>Perhaps there is sufficient time to complete another task before addressing the active alarm. </span>
+                </p>
+                <p>
+                    <span>[0028] Understanding this basic model of situation awareness is a great benefit to designers. By </span>
+                    <span>understanding the basic thought process of the operator, and the relevant levels therein, </span>
+                    <span>the designer is left with only a few basic questions when evaluating a design. Will the </span>
+                    <span>operator see the stimulus I have designed? If the stimulus is provided on screen, is the </span>
+                    <span>intended focal point sufficiently salient, or is there other "digital noise" distracting </span>
+                    <span>the operator's attention from the critical indicator? Will the operator comprehend the feedback </span>
+                    <span>from the machine, or is the signal ambiguous, leaving the operator with a high level of </span>
+                    <span>uncertainty? Finally, does the machine simplify the operator's ability to predict the future </span>
+                    <span>outcome? Does the system warrant an explicit message communicating the time remaining until a </span>
+                    <span>critical system stoppage? This would certainly help the inexperienced operator that does not </span>
+                    <span>yet understand the relationship between system events. When considering the appropriateness of the design, the designer </span>
+                    <span>can utilize the situational awareness model to help direct and evaluate potential solutions.</span>
+                </p>
+                <p>
+                    <span>[0029] In the next section of the guidance, we will begin by presenting the PackML Stacklight </span>
+                    <span>standard. Throughout the explanation of that standard, we will consider the associated </span>
+                    <span>aspects of usability and the components of the situational awareness model that are relevant </span>
+                    <span>in each aspect of its design. Once these concepts are considered in the simple context of </span>
+                    <span>stacklights, we will continue to explore the more complicated user-interface design domain.</span>
+                </p>
         </div>
         <div>
             <h2 id="Stacklights">4. Stacklights and Control Push-Buttons</h2>
-            <hr class="black"/>
+            <hr class="black" />
             <h3 id="StacklightsScope">4.1 Scope</h3>
             <p>
-                <span>[0029] The implementation guidance in the area of stacklights and push-button controls </span>
+                <span>[0030] This section of the guidance will specify the mapping between the </span>
+                <span>standard ANSI/ISA TR88.00.02-2015 PackML state model &ndash; demonstrated in Figure 3 &ndash; and the associated stacklight </span>
+                <span>and push-button control implemention standards established here. The mapping will address </span>
+                <span>(a) color coding of lightstack lamps for respective PackML states, (b) related lamp sequences (i.e., flashing or solid), and </span>
+                <span>(c) proper integration of the push-buttons to communicate required operator interactions. </span>
+            </p>
+            <figure>
+                <img id="packml_state_model" src="images/base_diagram_packml.png" />
+                <figcaption>
+                    <span>Figure 2: The standard PackML state model as presented in ANSI/ISA TR88.00.02-2015. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0031] As noted previously, the implementation guidance in these areas </span>
                 <span>offers a unique opportunity to illustrate the basic usability </span>
                 <span>principles that will be essential in the far more flexible areas of the </span>
-                <span>HMI (e.g., user-interface displays). Whereas stacklights are limited to a selection of colors </span>
-                <span>in a particular order illuminated at a particular frequency based on the machine state, </span>
+                <span>HMI (e.g., navigation system, user-interface displays). Whereas stacklight designs are </span>
+                <span>naturally constrained to a simple ordered collection of colored lamps </span>
+                <span>illuminated in a specific manner based on the machine state, </span>
                 <span>the graphical display portion of the HMI affords the designer a more limitless </span>
                 <span>range of options, which, unfortunately, offers endless opportunities </span>
                 <span>for the introduction of usability issues. The same simple principles that are inherent in </span>
@@ -328,33 +372,27 @@
                 <span>When applied to the graphical portion of the HMI, these principles will improve </span>
                 <span>system usability while requiring minimal effort on the part of the designer.</span>
             </p>
-            <p>
-                <span>[0030] While the actual requirements necessary to specify the standardized PackML stacklight </span>
-                <span>and push-button implementations can be expressed in a few short paragraphs, we will offer a </span>
-                <span>more verbose description that highlights the associated usability principles, </span>
-                <span>which are likely taken for granted.</span>
-            </p>
-            
             <h3 id="StacklightsStandard">4.2 Standard Implementation</h3>
             <p>
-                <span>[0031] The standard PackML stacklight presents selected colors representing the </span>
+                <span>[0032] The standard PackML stacklight contains 4 lamps to represent the </span>
                 <span>PackML states described in ANSI/ISA TR88.00.02-2015. </span>
-                <span>Ordered from the top down as demonstrated in Figure 1, the lights will </span>
-                <span>be illuminated in the sequence (i.e., solid or flashing) and color specified based on the current PackML state. The </span>
+                <span>Ordered from the top down as demonstrated in Figure 3, the lamps will </span>
+                <span>be illuminated in a specific sequence (i.e., off, solid, or flashing) based on the current PackML state. The </span>
                 <span>standard order, from top down is red, amber, blue, green. </span>
             </p>
             <figure>
-                <img id="lightstack-table" src="images/LightStackTable5.png"/>
+                <img id="lightstack-table" src="images/LightStackTable7.png" />
                 <figcaption>
-                    <span>Figure 1: Summary table of lamp color and sequence associated with PackML states or machine conditions. Additionally, </span>
+                    <span>Figure 3: Summary table of lamp color and sequence associated with PackML states and machine conditions. Additionally, </span>
                     <span>the table presents the associated response for integrated horns and illuminated Start and Reset buttons.</span>
                 </figcaption>
             </figure>
-            
             <p>
-                <span>[0032] Under most conditions, only a single light in the stack will be illuminated at </span>
+                <span>[0033] Under most conditions, only a single lamp in the stack will be illuminated at </span>
                 <span>a given time. However, when a Hold Warning exists (i.e., a material shortage will occur soon), </span>
                 <span>the blue lamp will begin flashing while the active state lamp (e.g., red, amber, or green) will maintain its current sequence. </span>
+                <span>Table 1 summarizes the relationships between the stacklight activity, the related machine state, and the associated responsibilities </span>
+                <span>of personnel for respective equipment. </span>
             </p>
             <table id="stack-lights">
                 <caption>Table 1: PackML Stacklight Standard</caption>
@@ -368,33 +406,33 @@
                 <tr>
                     <td>Red</td>
                     <td>Flashing</td>
-                    <td>Aborted</td>
+                    <td>Aborting, Aborted, or Clearing</td>
                     <td>Production aborted &ndash; attention and reset required</td>
                     <td>Operator and / or Technician</td>
                 </tr>
                 <tr>
                     <td>Red</td>
                     <td>Solid</td>
-                    <td>Stopped</td>
+                    <td>Complete, Stopping, Stopped, or Resetting</td>
                     <td>Controlled Stop performed</td>
                     <td>Operator</td>
                 </tr>
                 <tr>
                     <td>Amber</td>
                     <td>Flashing</td>
-                    <td>Suspended &ndash; Upstream Stoppage</td>
+                    <td>Suspending or Suspended &ndash; Upstream Stoppage</td>
                     <td>Upstream equipment issue &ndash; infeed is empty (e.g., combiner, heat seal)</td>
                     <td>Upstream Equipment</td>
                 </tr>
                 <tr>
                     <td>Amber</td>
                     <td>Solid</td>
-                    <td>Suspended &ndash; Downstream Stoppage</td>
+                    <td>Suspending or Suspended &ndash; Downstream Stoppage</td>
                     <td>Downstream equipment issue (e.g., metal detector, checkweigher, case packer)</td>
                     <td>Downstream Equipment</td>
                 </tr>
                 <tr>
-                    <td>Blue</td>                    
+                    <td>Blue</td>
                     <td>Flashing</td>
                     <td>Hold Warning</td>
                     <td>Running, but material requires replenishment (e.g., carton magazine, glue tank)</td>
@@ -403,7 +441,7 @@
                 <tr>
                     <td>Blue</td>
                     <td>Solid</td>
-                    <td>Held</td>
+                    <td>Holding or Held</td>
                     <td>Material exhausted, machine can no longer run</td>
                     <td>Operator</td>
                 </tr>
@@ -417,17 +455,11 @@
                 <tr>
                     <td>Green</td>
                     <td>Solid</td>
-                    <td>Execute</td>
+                    <td>Starting, Execute, Completing, Unholding, Suspending, Suspended</td>
                     <td>Machine is running product</td>
                     <td>Operator</td>
                 </tr>
             </table>
-            <p>
-                <span>[0033] The associated standard implementation for push-button controls (e.g., start, stop, reset) follows </span>
-                <span>conventions similar to those defined for stacklights. While adhering to the basic </span>
-                <span>color and marking requirements for push-butttons specified in IEC 60204-1:2016, the PackML </span>
-                <span>standard requires that illuminated push-button actuators use the sequence mapping specified in Table 2. </span>
-            </p>
             <table id="buttons">
                 <caption>Table 2: PackML Control Push-Button Standard</caption>
                 <tr>
@@ -452,12 +484,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>Holding</td>
-                    <td>Solid</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>Held</td>
+                    <td>Completing</td>
                     <td>Solid</td>
                 </tr>
                 <tr>
@@ -472,7 +499,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>Suspend</td>
+                    <td>Suspended</td>
                     <td>Solid</td>
                 </tr>
                 <tr>
@@ -482,49 +509,90 @@
                 </tr>
                 <tr>
                     <td></td>
+                    <td>Complete</td>
+                    <td>Flashing</td>
+                </tr>
+                <tr>
+                    <td></td>
                     <td>Stopped</td>
                     <td>Flashing</td>
                 </tr>
             </table>
             <p>
-                <span>[0034] Figure 2 presents a composite diagram demonstrating that PackML states associated </span>
-                <span>with the red and green lamps. The diagram shows the state flow and the associated transitions </span>
-                <span>of the lamp and push-button light sequences. In the Stopped state, the red lamp will be solid </span>
-                <span>and the Reset button will be flashing. When the Reset button is pressed, the red lamp will clear, </span>
-                <span>and the green lamp and Start button will begin flashing. This action will transition the system </span>
-                <span>through Resetting to the Idle state. Upon a press of the Start button, the green lamp and Start </span>
-                <span>button will display solid through the Starting state to the Execute state.</span>
-            </p>
+                <span>[0034] The associated standard PackML implementation for push-button controls (e.g., start, stop, reset) follows </span>
+                <span>conventions similar to those defined for stacklights. While adhering to the basic </span>
+                <span>color and marking requirements for push-butttons specified in IEC 60204-1:2016, the PackML </span>
+                <span>standard requires that illuminated push-button actuators use the sequence mapping detailed in Figure 3 and Table 2. </span>
+                <span>The Reset and Start button will flash to communicate that the operator must press the respective button to initiate </span>
+                <span>a transition to the subsequent PackML state (i.e., Resetting, Starting). These transitions align with the Reset and Start commands defined </span>
+                <span>in the state model. Note that the flashing-green Start button is aligned exclusively with the </span>
+                <span>flashing-green lamp, but that a similar perfect correlation does not necessarily exist for the solid-green and flashing-blue pairings.  </span>
+            </p>            
             <figure>
-                <img id="green-red-diagram" src="images/Green-Red4.png"/>
+                <img id="green-red-diagram" src="images/Green-Red5.png" />
                 <figcaption>
-                    <span>Figure 2: Stacklight and Push-Button conditions in states associated with the red and green </span>
+                    <span>Figure 4: Stacklight and Push-Button conditions in states associated with the red and green </span>
                     <span>stacklight lamps, where F indicates flashing and S indicates solid. The Reset button will </span>
-                    <span>flash in the Aborting, Aborted, and Stopped states, while the Start button will flash in the </span>
-                    <span>Resetting and Idle states before transitioning to solid in the Starting and Execute States.</span>
+                    <span>flash in the Aborted and Stopped states, whereas the Start button will flash in the </span>
+                    <span>Idle state before transitioning to solid in the Starting and Execute States.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0035] When the Stop button is pressed, the green lamp will turn off and the red lamp will </span>
+                <span>[0035] Figure 4 presents a composite diagram demonstrating that PackML states associated </span>
+                <span>with the red and green lamps. The diagram shows the state flow and the associated transitions </span>
+                <span>of the lamp and push-button light sequences. In the Stopped state, the red lamp will be solid </span>
+                <span>and the Reset button will be flashing. When the Reset button is pressed, the system will transition </span>
+                <span>through Resetting to the Idle state, where the Start button and green lamp will begin flashing. </span>
+                <span>Upon a press of the Start button, the green lamp and Start </span>
+                <span>button will display solid through the Starting state to the Execute state.</span>
+            </p>
+            <p>
+                <span>[0036] When the Stop button is pressed, the green lamp will turn off and the red lamp will </span>
                 <span>display solid. The system will then transition to the Stopped state where the Reset button </span>
                 <span>will again return to a flashing sequence. </span>
             </p>
             <p>
-                <span>[0036] Alternately, from the Execute state, for example, the system will transition to the </span>
-                <span>Aborting state when the E-Stop is engaged. On this transition, the red lamp and Reset button </span>
-                <span>will begin flashing. When the E-Stop is cleared and the Reset button is pressed, the system will transition through the </span>
+                <span>[0037] Alternately, from the Execute state, for example, the system will transition to the </span>
+                <span>Aborting state when the E-Stop is engaged. On this transition, the red lamp </span>
+                <span>will begin flashing. When the system reaches the Aborted state, the Reset button will begin flashing. </span>
+                <span>Once the E-Stop is cleared and the Reset button is pressed, the system will transition through the </span>
                 <span>Clearing state until the transition to the Stopped state completes, where the red lamp will light solid. </span>
             </p>
+            <p>
+                <span>[0038] The sequence demonstrated in diagram Figure 5 will execute on systems that employ the Completing transition. </span>
+                <span>The Complete command will initiate the sequence sending the machine through the Completing state where the green </span>
+                <span>lamp will remain on and the Start button will remain illuminated. When the Complete state is reached, the green </span>
+                <span>lamp will clear and the red lamp will light. At this point, the Start button will clear and the Reset button will </span>
+                <span>begin flashing. This condition matches the equivalent response that occurs when the system reaches the Stopped </span>
+                <span>state presented as the entry point in Figure 5.</span>
+            </p>
             <figure>
-                <img id="green-blue-diagram" src="images/Green-Blue.png"/>
+                <img id="green-red-completing-diagram" src="images/Green-Red_Complete.png" />
                 <figcaption>
-                    <span>Figure 3: Stacklight and Push-Button conditions in states associated with the solid blue </span>
-                    <span>lamp transition. The sequence is initiated by the Holding transition (e.g., material exhausted) </span>
-                    <span>and is maintained until the condition is resolved (e.g., material replenished). </span>
+                    <span>Figure 5: Stacklight and Push-Button conditions associated with the Completing </span>
+                    <span>sequence. When the transition from Execute to Completing occurs in response to the </span>
+                    <span>Complete command, the green lamp and Start button will remain solid until the Complete </span>
+                    <span>state is reached. The Complete state will mimic the Stopped state, where the red lamp </span>
+                    <span>will be solid and the Reset button will flash. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0037] Figure 3 demonstrates the stacklight responses associated with the Held state. </span>
+                <span>[0039] As demonstrated in Figure 6, the Suspended branch of the PackML state diagram is addressed according to the directional cause </span>
+                <span>of the event. Upstream equipment issues will transition the stacklight to a flashing amber state. Whereas </span>
+                <span>downstream events will trigger a solid amber lamp. With the exception of the Unsuspending state, the Start </span>
+                <span>button will remain illuminated throughout. </span>
+            </p>
+            <figure>
+                <img id="green-amber-diagram" src="images/Green-Amber.png" />
+                <figcaption>
+                    <span>Figure 6: Stacklight and Push-Button conditions in states associated with the amber </span>
+                    <span>lamp. The sequence is initiated by an issue at upstream or downstream equipment. </span>
+                    <span>Upstream issues will produce a flashing sequence on the amber lamp, while downstream </span>
+                    <span>issues will present a solid amber lamp.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0040] Figure 7 demonstrates the stacklight responses associated with the Held state. </span>
                 <span>The sequence is initiated by the Holding transition (e.g., material exhausted). This </span>
                 <span>state change will disable the green lamp and illuminate the blue lamp solid. The lamp </span>
                 <span>will remain solid through the transition to the Held state. When the Hold condition is resolved, </span>
@@ -532,31 +600,15 @@
                 <span>the execute state. Note that the Start button will not be lit within the Holding and Held states.</span>
             </p>
             <figure>
-                <img id="green-amber-diagram" src="images/Green-Amber.png"/>
+                <img id="green-blue-diagram" src="images/Green-Blue.png" />
                 <figcaption>
-                    <span>Figure 4: Stacklight and Push-Button conditions in states associated with the amber </span>
-                    <span>lamp. The sequence is initiated by an issue at upstream or downstream equipment. </span>
-                    <span>Upstream issues will produce a flashing sequence on the amber lamp, while downstream </span>
-                    <span>issues will present a solid amber lamp.</span>
+                    <span>Figure 7: Stacklight and Push-Button conditions in states associated with the solid blue </span>
+                    <span>lamp transition. The sequence is initiated by the Holding transition (e.g., material exhausted) </span>
+                    <span>and is maintained until the condition is resolved (e.g., material replenished). </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0038] The Suspended branch of the PackML state diagram is addressed according to the directional cause </span>
-                <span>of the event. Upstream equipment issues will transition the stacklight to a flashing amber state. Whereas </span>
-                <span>downstream events will trigger a solid amber lamp. With the exception of the Unsuspending state, the Start </span>
-                <span>button will remain illuminated throughout. </span>
-            </p>
-            <figure>
-                <img id="material-low-diagram" src="images/MaterialLow.png"/>
-                <figcaption>
-                    <span>Figure 5: Stacklight conditions associated with a pending Hold condition (e.g., material low). </span>
-                    <span>blue lamp will flash until pending Hold condition is either reached or prevented/resolved. Pending </span>
-                    <span>Hold condition will exist concurrently with the active machine state. Flashing blue lamp will </span>
-                    <span>accompany any other lamp associated with the active machine state. Pending Hold cannot occur during Holding or Held states. </span>
-                </figcaption>
-            </figure>
-            <p>
-                <span>[0039] The blue lamp will be utilized to communicate material issues to the operator. </span>
+                <span>[0041] The blue lamp will be utilized to communicate material issues to the operator. </span>
                 <span>Should the machine determine that its local material store is critically low, this condition </span>
                 <span>will be communicated to the operator by flashing the blue lamp. The operator will then have </span>
                 <span>a set period of time to replenish the material store before the machine reaches the Held condition, </span>
@@ -564,10 +616,18 @@
                 <span>If the Held state is reached, the blue lamp will then be lit solid where is will stay until the material </span>
                 <span>is restored to an adequate level. </span>
             </p>
-
+            <figure>
+                <img id="material-low-diagram" src="images/MaterialLow.png" />
+                <figcaption>
+                    <span>Figure 8: Stacklight conditions associated with a pending Hold condition (e.g., material low). </span>
+                    <span>blue lamp will flash until pending Hold condition is either reached or prevented/resolved. Pending </span>
+                    <span>Hold condition will exist concurrently with the active machine state. Flashing blue lamp will </span>
+                    <span>accompany any other lamp associated with the active machine state. Pending Hold cannot occur during Holding or Held states. </span>
+                </figcaption>
+            </figure>
             <h3 id="StacklightsHierarchy">4.3 Hierarchy, Orientation, Consistency, and Convention</h3>
             <p>
-                <span>[0040] Given the associated PackML states, the top-down orientation </span>
+                <span>[0042] Given the associated PackML states, the top-down orientation </span>
                 <span>of the lights follows western cultural conventions where the </span>
                 <span>most critical elements are positioned at the top. Here, the </span>
                 <span>Stopped and Aborted states are presented at the top of the </span>
@@ -580,7 +640,7 @@
                 <span>the more urgent PackML states (e.g., Aborted is more urgent than </span>
                 <span>Stopped). Note specifically here, that a machine approaching a Held </span>
                 <span>condition (e.g., material low), is considered more critical than </span>
-                <span>a machine that is held. Together, the attributes of color, position, and sequence </span>
+                <span>a machine that is actively held. Together, the attributes of color, position, and sequence </span>
                 <span>represent hierarchy within the state model. Lights in a higher </span>
                 <span>position are more urgent than those in a lower position, while </span>
                 <span>lights that are flashing are more urgent than those that are </span>
@@ -591,13 +651,8 @@
                 <span>guiding the operator's attention to elements that are most </span>
                 <span>essential to the task at hand.</span>
             </p>
-            <figure>
-                <img id="stacklight-image" src="images/StackLightAndButtons.png"/>
-                <figcaption>Figure 6: Standard PackML stacklight color sequence and example push-button controls demonstrating IEC 60204-1:2016 requirements.</caption>
-            </figure>
-            
             <p>
-                <span>[0041] Given this summary, a key requirement of the proper application of the </span>
+                <span>[0043] Given this summary, a key requirement of the proper application of the </span>
                 <span>PackML stacklight standard is an adherence to the specified light </span>
                 <span>orientation. Across a given production line, it is essential that the order </span>
                 <span>of the lights maintain the top-down orientation listed in Table 1. While the dual </span>
@@ -611,7 +666,7 @@
                 <span>be revisited in the discussion on navigation design.</span>
             </p>
             <p>
-                <span>[0042] Moreover, it is essential that the color and sequence attributes of the </span>
+                <span>[0044] Moreover, it is essential that the color and sequence attributes of the </span>
                 <span>associated stacklights be implemented in a consistent fashion within a single </span>
                 <span>production facility. While an operator will most likely overcome some level of </span>
                 <span>inconsistency in the size or color of the red stacklights across a number of </span>
@@ -622,7 +677,7 @@
                 <span>standard flashing frequency within the line.</span>
             </p>
             <p>
-                <span>[0043] These points illustrate the relevant distinction between internal and external consistency. </span>
+                <span>[0045] These points illustrate the relevant distinction between internal and external consistency. </span>
                 <span>Utilizing the same size and shape lenses within a single stacklight of a given machine </span>
                 <span>demonstrates the most basic application of internal consistency. A lack of consistency in a </span>
                 <span>single light of the stack &ndash; a different shape or size, for example &ndash; would draw </span>
@@ -630,41 +685,46 @@
                 <span>is a desirable effect. External consistency, on the other hand, is demonstrated by using the same </span>
                 <span>top-down sequence of colors in the PackML stacklights across a production line containing </span>
                 <span>machines produced by multiple vendors. When we discuss standardization, external consistency </span>
-                <span>is generally the objective. </span>
+                <span>is generally the objective as it accommodates consistency across facilities and organizations. </span>
             </p>
             <p>
-                <span>[0044] While not explicitly discussed in IEC 60204-1:2009, external consistency (i.e., across machines) with respect </span>
+                <span>[0046] An additional application of consistency evident throughout this design </span>
+                <span>is the requirement that at all times at least one of the lamps will be illuminated. This </span>
+                <span>requirement helps eliminate uncertainty on the part of the operator. The absence of an </span>
+                <span>active lamp could lead the operator to believe that the machine is either off or malfunctioning for some reason. </span>
+                <span>Keeping at least one lamp illuminated at all times is an important communication mechanism. </span>
+            </p>
+            <figure>
+                <img id="stacklight-image" src="images/StackLightAndButtons.png" />
+                <figcaption>Figure 9: Standard PackML stacklight color sequence and example push-button controls demonstrating IEC 60204-1:2016 requirements.</caption>
+            </figure>
+            <p>
+                <span>[0047] Finally, while not explicitly discussed in IEC 60204-1:2009, external consistency (i.e., across machines) with respect </span>
                 <span>to the relative orientation of the push-button controls for Start, Stop, and Reset </span>
                 <span>is highly recommended. As with the stacklight example &ndash; where color and </span>
                 <span>position combine to communicate state &ndash; the dual coding of marking and positioning of push-buttons </span>
                 <span>reduces the likelihood of error on the part of the operator. However, consider the impact of two </span>
                 <span>adjacent machines where the orientation of the Start and Stop buttons are reversed. While </span>
                 <span>inconsistency in orientation should be avoided if possible, the optional introduction of color </span>
-                <span>can aid the operator when positional consistency cannot be guaranteed. Depending on the context, </span>
-                <span>internal consistency can prove to be more critical than external consistency. This point is clearly evident </span>
-                <span>in the design of user interfaces; particularly when multiple vendors are considered.</span>
-            </p>                
-            <p>
-                <span>[0045] An application ...</span>
+                <span>can aid the operator when positional consistency cannot be guaranteed.</span>
             </p>
-            <p>
-                <span>[0046] Do keep in mind that consistency should be avoided if the underlying relationship does not hold. </span>
-                <span>...</span>
-            </p>
-            
             <h3 id="StacklightsAlignment">4.4 Alignment</h3>
             <p>
-                <span>[0047] While it is likely taken for granted in the design of stacklights, alignment </span>
+                <span>[0048] While it is likely taken for granted in the design of stacklights, alignment </span>
                 <span>is a key component of usability. Operators will conceptually group items that are </span>
                 <span>aligned with one another. The vertical alignment of the stacklights communicates this relationship. </span>
-                <span>...</span>
+                <span>Accordingly, it is important to align components that are related; the alignment reinforces the </span>
+                <span>relationship for the operator. Conversely, it is equally important </span>
+                <span>to avoid aligning components that are unrelated, particularly if an assumed association could increase </span>
+                <span>the likelihood of operator confusion or error. Lamps that serve some purpose other than communicating </span>
+                <span>PackML state should be positioned on a separate stack to achieve alignment isolation, which will help avoid distraction and confusion. </span>
             </p>
-            
+
             <h3 id="StacklightsProximity">4.5 Proximity</h3>
             <p>
-                <span>[0048] Given the importance of the orientation and alignment principle, it is equally important that </span>
-                <span>the PackML stacklights and push-button controls are positioned in a manner that effectively communicate </span>
-                <span>their association with a given machine. While operator visibility is a key </span>
+                <span>[0049] Given the importance of the orientation and alignment principles, it is equally important that </span>
+                <span>the PackML stacklights and push-button controls are positioned in a manner that ensures safe operation and effectively communicates </span>
+                <span>the respective association with a given machine. While operator visibility is a key </span>
                 <span>requirement for effective positioning, a stacklight that is not sufficiently </span>
                 <span>positioned with respect to the machine could fail to effectively communicate </span>
                 <span>the PackML state. Moreover, a PackML stacklight that is not consistently positioned </span>
@@ -673,71 +733,85 @@
                 <span>Accordingly, it is recommended that the PackML stacklights are positioned such that a </span>
                 <span>line operator with a view of the production line can consistently identify the PackML </span>
                 <span>stacklights for each machine and correctly interpret the machine responsible for a </span>
-                <span>line stoppage or held event.</span>
+                <span>line stoppage or hold event. Stacklights for other machines should be positioned with </span>
+                <span>sufficient separation to ensure their status is not misplaced. Additionally, as safety is paramount, the </span>
+                <span>proximity of push-buttons must be managed to ensure that operators have clear visibility </span>
+                <span>of the associated machine whenever the Start button is pressed. </span>
             </p>
-            
+
             <h3 id="StacklightsContrast">4.6 Contrast</h3>
             <p>
-                <span>[0049] While it is again expected that sufficient contrast will exist between a lit and </span>
+                <span>[0050] The discussions of consistency, alignment, and proximity highlight the overarching </span>
+                <span>importance of contrast. We are instinctively designed to identify contrast. When contrast exists without cause </span>
+                <span>we can be left confused; searching for the meaning. Contrast can communicate organization, either </span>
+                <span>through simple groupings or more detailed hierarchies. We perceive contrast in color, brightness, </span>
+                <span>size, polariy, orientation, and position. Proper use of contrast is essential to effective communication in interface design.</span>
+            </p>
+            <p>
+                <span>[0051] While it is again expected that sufficient contrast will exist between a lit and </span>
                 <span>unlit stacklight, we will belabor the example to highlight the related design concept. </span>
                 <span>Within a stacklight, it is expected that an individual lamp will provide sufficient </span>
                 <span>brightness to ensure that an operator can effectively distinguish between the lit and unlit states. </span>
                 <span>Likewise, it is expected that the contrast between lamps (e.g., red to amber) is sufficient to ensure </span>
-                <span>that the operator will </span> 
-                <span>correctly, without hesitation, identify the actively lit lamp. It is important to note here </span>
+                <span>that the operator will correctly &ndash; without hesitation &ndash; identify the active lamps. </span>
+                <span>It is important to note here </span>
                 <span>that the operator's ability to interpret the correct lamp states is a function of both the </span>
                 <span>the lights themselves (e.g., brightness, color) and the surrounding environment. Specifically it </span>
                 <span>is critical to consider the operator's perspective when viewing the lamps. It is possible that the </span>
                 <span>structures behind a stacklight will impair the operator's ability to correctly perceive the active </span>
-                <span>lamp. </span>
+                <span>lamp. Proper positioning of all operator interfaces should take into consideration the impact of the </span>
+                <span>surrounding environment and context of use. </span>
             </p>
-            
+
             <h3 id="StacklightsContrast">4.7 Speaking the Operator's Language</h3>
             <p>
-                <span>[0050] While it is reasonable to use the conventions of position, color, and sequence to draw </span>
+                <span>[0052] While it is reasonable to use the conventions of position, color, and sequence to draw </span>
                 <span>an operator's attention to a given machine, it is still necessary to communicate the </span>
                 <span>required course of action in a manner that speaks more directly and effectively to the </span>
-                <span>operator. It is not sufficient, for example, to blink the blue light and expect the operator to know </span>
-                <span>what action is necessary. The graphical interface must effectively communicate the </span>
-                <span>meaning of the blinking blue light by presenting an instruction that leads to a prompt </span>
+                <span>operator. It is not sufficient, for example, to blink the blue lamp in the stacklight and expect the operator to know </span>
+                <span>what action is necessary. While the push-button controls offer guidance in some scenarios, the </span>
+                <span>graphical interface must effectively communicate the </span>
+                <span>meaning of the blinking blue lamp by presenting an instruction that leads to a prompt </span>
                 <span>resolution.</span></p>
             <p>
-                <span>[0051] Operators that have been drawn to a machine with an effective stacklight indication should </span>
+                <span>[0053] Operators that have been drawn to a machine with an effective stacklight indication should </span>
                 <span>be greeted with a message they can appropriately identify and act upon. Hierarchy within the </span>
                 <span>graphical interface is essential for this task. The approaching operator should quickly identify </span>
                 <span>the required action when they scan the graphical interface. Instructions that lack prominence </span>
                 <span>will delay the recovery of the production line. Lack of contrast and emphasis (e.g., size, boldness, </span>
                 <span>color) will reduce the saliency of the operator instruction. Be sure the instruction presented to </span>
-                <span>the operator is easily identified. Test the implementation to ensure the instructions are identified </span>
+                <span>the operator is easily identified. Testing of the implementation should be employed to ensure the instructions are identified </span>
                 <span>in a consistent manner.</span>
             </p>
             <p>
-                <span>[0052] Avoiding generic instructions (e.g., HELD) in favor of machine specific instructions (e.g., Empty </span>
+                <span>[0054] Avoiding generic instructions (e.g., HELD) in favor of machine specific instructions (e.g., Empty </span>
                 <span>the Under Bin and Press Start) will expedite operator response and line recovery. Where appropriate, </span>
-                <span>utilize conventions like Simplified English, which communicate to a broader audience through </span>
-                <span>grammatical conventions. Avoid abbreviations, jargon, acronyms, and engineering-centric language, </span>
-                <span>which will likely be lost on line operators. Reserve engineering conventions for log files, which </span>
-                <span>will not require interpretation from line operators.</span>
-                <ol>
-                    <li>Latex</li>
-                </ol>
+                <span>utilize conventions like AECMA (Association Europeenee des Constructeurs de Material Aerospatial) </span>
+                <span>Simplified English, which communicate to a broader audience through grammatical conventions. While </span>
+                <span>the guidance specifically targets English-speaking operators in international contexts, the conventions demonstrate the more broadly applicable importance of establishing </span>
+                <span>language patterns that are sufficient to reduce the required level of language </span>
+                <span>proficiency (Mills & Caldwell, 1997). Similar guidance is offered in the forthcoming Safety of Machinery  &ndash; </span>
+                <span>Instruction Handbook ISO 20607. As noted by the scope of that standard, if effective communication impacts </span>
+                <span>safety, it surely impacts usability as well. In general, interfaces should avoid abbreviations, jargon, acronyms, </span>
+                <span>and engineering-centric language, which will likely be lost on line operators. Reserve engineering conventions </span>
+                <span>for log files, which will not require interpretation from line operators.</span>
             </p>
         </div>
         <div>
             <h2>5. PackML State Model Representations</h2>
-            <hr class="black"/>
+            <hr class="black" />
             <h3>5.1 Scope</h3>
             <p>...</p>
         </div>
         <div>
             <h2>6. Navigation Design</h2>
-            <hr class="black"/>
+            <hr class="black" />
             <h3>6.1 Scope</h3>
             <p>...</p>
         </div>
         <div>
             <h2>7. Design Evaluation</h2>
-            <hr class="black"/>
+            <hr class="black" />
             <h3>7.1 Critique</h3>
             <h3>7.2 Heuristic Evaluation</h3>
             <h3>7.3 Usability Testing</h3>
@@ -745,16 +819,17 @@
         </div>
         <div>
             <h2>8. References</h2>
-            <hr class="black"/>
+            <hr class="black" />
             <p class="reference" title="Update with 2020 reference when known">ANSI/ISA-TR88.00.02-2015, Machine and unit/machine States, An Implementation example of ANSI/ISA-88.00.01.</p>
             <p class="reference">Endsley, M.R. (1995). Toward a theory of situation awareness in dynamic systems. <em>Human Factors, 37</em>, 85-104</p>
             <p class="reference">IEC 60204-1:2009, Safety of machinery - Electrical equipment of machines - Part 1: General requirements</p>
             <p class="reference">Nielson, J. (1993). <em>Usability engineering</em>. Cambridge, MA: Academic Press Professional.</p>
             <p class="reference">Nokleby, C. (2016). <em>PackML Unit/Machine Implementations Guide</em> - Part 1: PackML Interface State Manager</p>
+            <p class="reference">Mills, J.A., and Caldwell, B.S. 1997. Simplified English for computer displays. In <em>Advances in Human Factors and Ergonomics. Design of Computing Systems: Cognitive Considerations. Proceedings of the Seventh International Conference on Human-Computer Interaction</em>, ed. G. Salvendy, M.J. Smith, and R.J. Koubek. San Francisco, CA, August.</p>
         </div>
         <div>
             <h2>9. Version History</h2>
-            <hr class="black"/>
+            <hr class="black" />
             <table id="version-log">
                 <caption>Table 3: Version Log</caption>
                 <tr class="grey">
@@ -767,7 +842,7 @@
                     <td>2019-01-16</td>
                     <td>PST</td>
                     <td>First formal draft of stack light and push-button sections published for review by working group.</td>
-                    <td>01A</td>                    
+                    <td>01A</td>
                 </tr>
                 <tr>
                     <td>2019-02-14</td>
@@ -787,7 +862,7 @@
                     <td>2019-02-28</td>
                     <td>PST</td>
                     <td>
-                        <span>Standardized presentation of key terms (e.g., "stacklight", color capitalization, production over packaging). </span> 
+                        <span>Standardized presentation of key terms (e.g., "stacklight", color capitalization, production over packaging). </span>
                         <span>Add horn to scope of stacklight standard. Move matrix to introductory section of stacklight standard. </span>
                         <span>Add Guidance Structure section (i.e., section 2.3) to discuss location of relevant topics, specifically </span>
                         <span>the location of "standard" content for those primarily concerned with that content. </span>
@@ -798,18 +873,26 @@
                     <td>2019-03-28</td>
                     <td>PST</td>
                     <td>
-                        <span>Readability improvements. </span> 
+                        <span>Readability improvements. </span>
                         <ul>
                             <li class="contributor">Omar Cordovani, Siemens</li>
                         </ul>
                     </td>
                     <td>01D</td>
                 </tr>
+                <tr>
+                    <td>2019-04-04</td>
+                    <td>PST</td>
+                    <td>
+                        <span>...</span>
+                    </td>
+                    <td>01E</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer>PackML HMI Implementation Guide Draft 01D</footer>
+    <footer>PackML HMI Implementation Guide Draft 01E</footer>
 </body>
 
 </html>
