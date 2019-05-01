@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01E</title>
+    <title>PackML HMI Implementation Guidance Draft 01F</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -191,7 +191,7 @@
                     <span>[0015] With a handful of critical operator characteristics understood, it is next important to establish the scope </span>
                     <span>of the term usability. Nielsen (1993) presents a set of usability characteristics to help clarify the concept; the </span>
                     <span>usability of a machine is a function of its (a) Learnability, (b) Memorability, (c) Efficiency, (d) Fault Resistance </span>
-                    <span>and Tolerance, and (d) the level of Satisfaction experienced by the operator.</span>
+                    <span>and Tolerance, and (e) the level of Satisfaction experienced by the operator.</span>
                 </p>
                 <p>
                     <span>[0016] Within the scope of production environments, system learnability is most relevant for operators interacting with a piece of </span>
@@ -381,7 +381,7 @@
                 <span>standard order, from top down is red, amber, blue, green. </span>
             </p>
             <figure>
-                <img id="lightstack-table" src="images/LightStackTable7.png" />
+                <img id="lightstack-table" src="images/LightStackTable8.png" />
                 <figcaption>
                     <span>Figure 3: Summary table of lamp color and sequence associated with PackML states and machine conditions. Additionally, </span>
                     <span>the table presents the associated response for integrated horns and illuminated Start and Reset buttons.</span>
@@ -389,7 +389,7 @@
             </figure>
             <p>
                 <span>[0033] Under most conditions, only a single lamp in the stack will be illuminated at </span>
-                <span>a given time. However, when a Hold Warning exists (i.e., a material shortage will occur soon), </span>
+                <span>a given time. However, when a Hold Warning exists (e.g., a material shortage will occur soon, reject bin approaching capacity), </span>
                 <span>the blue lamp will begin flashing while the active state lamp (e.g., red, amber, or green) will maintain its current sequence. </span>
                 <span>Table 1 summarizes the relationships between the stacklight activity, the related machine state, and the associated responsibilities </span>
                 <span>of personnel for respective equipment. </span>
@@ -435,14 +435,14 @@
                     <td>Blue</td>
                     <td>Flashing</td>
                     <td>Hold Warning</td>
-                    <td>Running, but material requires replenishment (e.g., carton magazine, glue tank)</td>
+                    <td>Running, but internal machine issue requires immediate attention (e.g., reject bin approaching capacity, material requires replenishment)</td>
                     <td>Operator</td>
                 </tr>
                 <tr>
                     <td>Blue</td>
                     <td>Solid</td>
                     <td>Holding or Held</td>
-                    <td>Material exhausted, machine can no longer run</td>
+                    <td>Machine can no longer run, internal machine issue preventing further production (e.g., reject bin full, material exhausted)</td>
                     <td>Operator</td>
                 </tr>
                 <tr>
@@ -455,7 +455,7 @@
                 <tr>
                     <td>Green</td>
                     <td>Solid</td>
-                    <td>Starting, Execute, Completing, Unholding, Suspending, Suspended</td>
+                    <td>Starting, Execute, Completing, Unholding, Unsuspending</td>
                     <td>Machine is running product</td>
                     <td>Operator</td>
                 </tr>
@@ -517,49 +517,71 @@
                     <td>Stopped</td>
                     <td>Flashing</td>
                 </tr>
+                <tr>
+                    <td>Stop Button</td>
+                    <td>All States</td>
+                    <td>No Sequencing Required</td>
+                </tr>
             </table>
             <p>
                 <span>[0034] The associated standard PackML implementation for push-button controls (e.g., start, stop, reset) follows </span>
                 <span>conventions similar to those defined for stacklights. While adhering to the basic </span>
                 <span>color and marking requirements for push-butttons specified in IEC 60204-1:2016, the PackML </span>
                 <span>standard requires that illuminated push-button actuators use the sequence mapping detailed in Figure 3 and Table 2. </span>
-                <span>The Reset and Start button will flash to communicate that the operator must press the respective button to initiate </span>
-                <span>a transition to the subsequent PackML state (i.e., Resetting, Starting). These transitions align with the Reset and Start commands defined </span>
-                <span>in the state model. Note that the flashing-green Start button is aligned exclusively with the </span>
-                <span>flashing-green lamp, but that a similar perfect correlation does not necessarily exist for the solid-green and flashing-blue pairings.  </span>
+                <span>The Reset and Start buttons will flash to communicate that the operator must press the respective button to initiate </span>
+                <span>a transition to the subsequent PackML state (i.e., Clearing, Resetting, Starting). Illuminating the Stop button is not  </span>
+                <span>required. Also, note that the flashing-green Start button is aligned exclusively with the flashing-green lamp, </span>
+                <span>but that a similar perfect correlation does not exist for the Running condition (i.e., solid-green lamp and solid Start button). </span>
+                <span>Moreover, note that there is no relationship between the blue lamp and the traditionally blue Reset button. </span>
+            </p>            
+            <p>
+                <span>[0035] The underlying state transitions associated with the push-button controls align specifically with the Clear, Reset, Start, </span>
+                <span>and Stop commands defined in the PackML state model. The Start and Stop buttons trigger the associated Start </span>
+                <span>and Stop commands, whereas the Clear and Reset commands are both associated with the Reset button. </span>
+                <span>The implementation of the Reset push-button sequencing (i.e., off, flashing, or solid) will be applied in an appropriate </span>
+                <span>device-specific manner. Following an emergency stop, for example, the system will transition to the Aborted state where an </span>
+                <span>operator-initiated press of the Reset button is likely necessary to trigger the transition to the Clearing state. Similarly, </span>
+                <span>an open door may trigger the Stop command, which will </span>
+                <span>send the machine to the Stopped state where the Reset command is required. If an operator-initiated Reset is required in this </span>
+                <span>scenario, the Reset button must flash. Note that the path from Aborted </span>
+                <span>to Idle (i.e., the path through Clearing and Stopped) requires both a Clear and Reset command, both of which will be mapped to  </span>
+                <span>the flashing Reset button. For machines where the full Aborted-to-Idle path can be traversed safely, a single-press reset </span>
+                <span>is permitted. For machines where an operator-initiated reset is not required, the flashing Reset button is likewise not required. </span>
+                <span>In short, whenever an operator-initiated reset is required, the Reset button must flash. </span>
             </p>            
             <figure>
                 <img id="green-red-diagram" src="images/Green-Red5.png" />
                 <figcaption>
                     <span>Figure 4: Stacklight and Push-Button conditions in states associated with the red and green </span>
                     <span>stacklight lamps, where F indicates flashing and S indicates solid. The Reset button will </span>
-                    <span>flash in the Aborted and Stopped states, whereas the Start button will flash in the </span>
-                    <span>Idle state before transitioning to solid in the Starting and Execute States.</span>
+                    <span>flash whenever an operator-iniated reset is required, whereas the Start button will always flash in the </span>
+                    <span>Idle state before transitioning to solid in the Starting and Execute States. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0035] Figure 4 presents a composite diagram demonstrating that PackML states associated </span>
+                <span>[0036] Figure 4 presents a composite diagram demonstrating the PackML states associated </span>
                 <span>with the red and green lamps. The diagram shows the state flow and the associated transitions </span>
                 <span>of the lamp and push-button light sequences. In the Stopped state, the red lamp will be solid </span>
-                <span>and the Reset button will be flashing. When the Reset button is pressed, the system will transition </span>
+                <span>and  &ndash; if an operator-initiated reset is required &ndash; the Reset button  </span>
+                <span>will be flashing. When the Reset button is pressed, the system will transition </span>
                 <span>through Resetting to the Idle state, where the Start button and green lamp will begin flashing. </span>
                 <span>Upon a press of the Start button, the green lamp and Start </span>
                 <span>button will display solid through the Starting state to the Execute state.</span>
             </p>
             <p>
-                <span>[0036] When the Stop button is pressed, the green lamp will turn off and the red lamp will </span>
+                <span>[0037] When the Stop button is pressed, the green lamp will turn off and the red lamp will </span>
                 <span>display solid. The system will then transition to the Stopped state where the Reset button </span>
-                <span>will again return to a flashing sequence. </span>
+                <span>will again return to a flashing sequence if an operator-initiated Reset action is required. </span>
             </p>
             <p>
-                <span>[0037] Alternately, from the Execute state, for example, the system will transition to the </span>
+                <span>[0038] Alternately, from the Execute state, for example, the system will transition to the </span>
                 <span>Aborting state when the E-Stop is engaged. On this transition, the red lamp </span>
                 <span>will begin flashing. When the system reaches the Aborted state, the Reset button will begin flashing. </span>
                 <span>Once the E-Stop is cleared and the Reset button is pressed, the system will transition through the </span>
                 <span>Clearing state until the transition to the Stopped state completes, where the red lamp will light solid. </span>
             </p>
             <p>
-                <span>[0038] The sequence demonstrated in diagram Figure 5 will execute on systems that employ the Completing transition. </span>
+                <span>[0039] The sequence demonstrated in diagram Figure 5 will execute on systems that employ the Completing transition. </span>
                 <span>The Complete command will initiate the sequence sending the machine through the Completing state where the green </span>
                 <span>lamp will remain on and the Start button will remain illuminated. When the Complete state is reached, the green </span>
                 <span>lamp will clear and the red lamp will light. At this point, the Start button will clear and the Reset button will </span>
@@ -577,7 +599,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0039] As demonstrated in Figure 6, the Suspended branch of the PackML state diagram is addressed according to the directional cause </span>
+                <span>[0040] As demonstrated in Figure 6, the Suspended branch of the PackML state diagram is addressed according to the directional cause </span>
                 <span>of the event. Upstream equipment issues will transition the stacklight to a flashing amber state. Whereas </span>
                 <span>downstream events will trigger a solid amber lamp. With the exception of the Unsuspending state, the Start </span>
                 <span>button will remain illuminated throughout. </span>
@@ -592,10 +614,10 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0040] Figure 7 demonstrates the stacklight responses associated with the Held state. </span>
-                <span>The sequence is initiated by the Holding transition (e.g., material exhausted). This </span>
+                <span>[0041] Figure 7 demonstrates the stacklight responses associated with the Held state. </span>
+                <span>The sequence is initiated by the Holding transition (e.g., material exhausted, reject bin full). This </span>
                 <span>state change will disable the green lamp and illuminate the blue lamp solid. The lamp </span>
-                <span>will remain solid through the transition to the Held state. When the Hold condition is resolved, </span>
+                <span>will remain solid through the transition to the Held state. When the Hold condition is resolved (e.g., material replenished, reject bin emptied), </span>
                 <span>the blue lamp will clear and the green lamp will turn solid to signify the transition back to </span>
                 <span>the execute state. Note that the Start button will not be lit within the Holding and Held states.</span>
             </p>
@@ -608,8 +630,9 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0041] The blue lamp will be utilized to communicate material issues to the operator. </span>
-                <span>Should the machine determine that its local material store is critically low, this condition </span>
+                <span>[0042] The blue lamp will also be utilized to communicate required preventative measures </span>
+                <span>for any internal conditions that would prevent proper machine operation and an associated transition to the Held state. </span>
+                <span>For example, should the machine determine that its local material store is critically low, this condition </span>
                 <span>will be communicated to the operator by flashing the blue lamp. The operator will then have </span>
                 <span>a set period of time to replenish the material store before the machine reaches the Held condition, </span>
                 <span>which indicates that material has been exhausted to the point where production can no longer proceed. </span>
@@ -619,15 +642,15 @@
             <figure>
                 <img id="material-low-diagram" src="images/MaterialLow.png" />
                 <figcaption>
-                    <span>Figure 8: Stacklight conditions associated with a pending Hold condition (e.g., material low). </span>
-                    <span>blue lamp will flash until pending Hold condition is either reached or prevented/resolved. Pending </span>
-                    <span>Hold condition will exist concurrently with the active machine state. Flashing blue lamp will </span>
-                    <span>accompany any other lamp associated with the active machine state. Pending Hold cannot occur during Holding or Held states. </span>
+                    <span>Figure 8: Stacklight conditions associated with a potential Hold condition (e.g., material low, reject bin approaching capacity). </span>
+                    <span>The blue lamp will flash until the potential Hold condition is either reached or prevented/resolved. Note that the potential </span>
+                    <span>Hold condition will exist concurrently with the active machine state. The flashing blue lamp will </span>
+                    <span>accompany any other lamp associated with the active machine state. Potential Hold warnings cannot occur during Holding or Held states. </span>
                 </figcaption>
             </figure>
             <h3 id="StacklightsHierarchy">4.3 Hierarchy, Orientation, Consistency, and Convention</h3>
             <p>
-                <span>[0042] Given the associated PackML states, the top-down orientation </span>
+                <span>[0043] Given the associated PackML states, the top-down orientation </span>
                 <span>of the lights follows western cultural conventions where the </span>
                 <span>most critical elements are positioned at the top. Here, the </span>
                 <span>Stopped and Aborted states are presented at the top of the </span>
@@ -652,7 +675,7 @@
                 <span>essential to the task at hand.</span>
             </p>
             <p>
-                <span>[0043] Given this summary, a key requirement of the proper application of the </span>
+                <span>[0044] Given this summary, a key requirement of the proper application of the </span>
                 <span>PackML stacklight standard is an adherence to the specified light </span>
                 <span>orientation. Across a given production line, it is essential that the order </span>
                 <span>of the lights maintain the top-down orientation listed in Table 1. While the dual </span>
@@ -666,7 +689,7 @@
                 <span>be revisited in the discussion on navigation design.</span>
             </p>
             <p>
-                <span>[0044] Moreover, it is essential that the color and sequence attributes of the </span>
+                <span>[0045] Moreover, it is essential that the color and sequence attributes of the </span>
                 <span>associated stacklights be implemented in a consistent fashion within a single </span>
                 <span>production facility. While an operator will most likely overcome some level of </span>
                 <span>inconsistency in the size or color of the red stacklights across a number of </span>
@@ -677,7 +700,7 @@
                 <span>standard flashing frequency within the line.</span>
             </p>
             <p>
-                <span>[0045] These points illustrate the relevant distinction between internal and external consistency. </span>
+                <span>[0046] These points illustrate the relevant distinction between internal and external consistency. </span>
                 <span>Utilizing the same size and shape lenses within a single stacklight of a given machine </span>
                 <span>demonstrates the most basic application of internal consistency. A lack of consistency in a </span>
                 <span>single light of the stack &ndash; a different shape or size, for example &ndash; would draw </span>
@@ -688,7 +711,7 @@
                 <span>is generally the objective as it accommodates consistency across facilities and organizations. </span>
             </p>
             <p>
-                <span>[0046] An additional application of consistency evident throughout this design </span>
+                <span>[0047] An additional application of consistency evident throughout this design </span>
                 <span>is the requirement that at all times at least one of the lamps will be illuminated. This </span>
                 <span>requirement helps eliminate uncertainty on the part of the operator. The absence of an </span>
                 <span>active lamp could lead the operator to believe that the machine is either off or malfunctioning for some reason. </span>
@@ -699,7 +722,7 @@
                 <figcaption>Figure 9: Standard PackML stacklight color sequence and example push-button controls demonstrating IEC 60204-1:2016 requirements.</caption>
             </figure>
             <p>
-                <span>[0047] Finally, while not explicitly discussed in IEC 60204-1:2009, external consistency (i.e., across machines) with respect </span>
+                <span>[0048] Finally, while not explicitly discussed in IEC 60204-1:2009, external consistency (i.e., across machines) with respect </span>
                 <span>to the relative orientation of the push-button controls for Start, Stop, and Reset </span>
                 <span>is highly recommended. As with the stacklight example &ndash; where color and </span>
                 <span>position combine to communicate state &ndash; the dual coding of marking and positioning of push-buttons </span>
@@ -710,7 +733,7 @@
             </p>
             <h3 id="StacklightsAlignment">4.4 Alignment</h3>
             <p>
-                <span>[0048] While it is likely taken for granted in the design of stacklights, alignment </span>
+                <span>[0049] While it is likely taken for granted in the design of stacklights, alignment </span>
                 <span>is a key component of usability. Operators will conceptually group items that are </span>
                 <span>aligned with one another. The vertical alignment of the stacklights communicates this relationship. </span>
                 <span>Accordingly, it is important to align components that are related; the alignment reinforces the </span>
@@ -722,7 +745,7 @@
 
             <h3 id="StacklightsProximity">4.5 Proximity</h3>
             <p>
-                <span>[0049] Given the importance of the orientation and alignment principles, it is equally important that </span>
+                <span>[0050] Given the importance of the orientation and alignment principles, it is equally important that </span>
                 <span>the PackML stacklights and push-button controls are positioned in a manner that ensures safe operation and effectively communicates </span>
                 <span>the respective association with a given machine. While operator visibility is a key </span>
                 <span>requirement for effective positioning, a stacklight that is not sufficiently </span>
@@ -741,14 +764,14 @@
 
             <h3 id="StacklightsContrast">4.6 Contrast</h3>
             <p>
-                <span>[0050] The discussions of consistency, alignment, and proximity highlight the overarching </span>
+                <span>[0051] The discussions of consistency, alignment, and proximity highlight the overarching </span>
                 <span>importance of contrast. We are instinctively designed to identify contrast. When contrast exists without cause </span>
                 <span>we can be left confused; searching for the meaning. Contrast can communicate organization, either </span>
                 <span>through simple groupings or more detailed hierarchies. We perceive contrast in color, brightness, </span>
                 <span>size, polariy, orientation, and position. Proper use of contrast is essential to effective communication in interface design.</span>
             </p>
             <p>
-                <span>[0051] While it is again expected that sufficient contrast will exist between a lit and </span>
+                <span>[0052] While it is again expected that sufficient contrast will exist between a lit and </span>
                 <span>unlit stacklight, we will belabor the example to highlight the related design concept. </span>
                 <span>Within a stacklight, it is expected that an individual lamp will provide sufficient </span>
                 <span>brightness to ensure that an operator can effectively distinguish between the lit and unlit states. </span>
@@ -765,7 +788,7 @@
 
             <h3 id="StacklightsContrast">4.7 Speaking the Operator's Language</h3>
             <p>
-                <span>[0052] While it is reasonable to use the conventions of position, color, and sequence to draw </span>
+                <span>[0053] While it is reasonable to use the conventions of position, color, and sequence to draw </span>
                 <span>an operator's attention to a given machine, it is still necessary to communicate the </span>
                 <span>required course of action in a manner that speaks more directly and effectively to the </span>
                 <span>operator. It is not sufficient, for example, to blink the blue lamp in the stacklight and expect the operator to know </span>
@@ -774,7 +797,7 @@
                 <span>meaning of the blinking blue lamp by presenting an instruction that leads to a prompt </span>
                 <span>resolution.</span></p>
             <p>
-                <span>[0053] Operators that have been drawn to a machine with an effective stacklight indication should </span>
+                <span>[0054] Operators that have been drawn to a machine with an effective stacklight indication should </span>
                 <span>be greeted with a message they can appropriately identify and act upon. Hierarchy within the </span>
                 <span>graphical interface is essential for this task. The approaching operator should quickly identify </span>
                 <span>the required action when they scan the graphical interface. Instructions that lack prominence </span>
@@ -784,7 +807,7 @@
                 <span>in a consistent manner.</span>
             </p>
             <p>
-                <span>[0054] Avoiding generic instructions (e.g., HELD) in favor of machine specific instructions (e.g., Empty </span>
+                <span>[0055] Avoiding generic instructions (e.g., HELD) in favor of machine specific instructions (e.g., Empty </span>
                 <span>the Under Bin and Press Start) will expedite operator response and line recovery. Where appropriate, </span>
                 <span>utilize conventions like AECMA (Association Europeenee des Constructeurs de Material Aerospatial) </span>
                 <span>Simplified English, which communicate to a broader audience through grammatical conventions. While </span>
@@ -895,11 +918,27 @@
                     </td>
                     <td>01E</td>
                 </tr>
+                <tr>
+                    <td>2019-04-25</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Added visual separation between lamp and push-button segments of Figure 3 </li>
+                            <li>Noted that No Sequencing Required for the Stop button </li>
+                            <li>Additional language demonstrating that Held is associated with any internal error, not just material shortage </li>                            
+                            <li class="contributor">Bryan Griffen, PMMI</li>
+                            <li>Noted automatic transition from Stopped or Complete are permitted if safety is accommodated </li>
+                            <li>Update Table 1 to match Figure 3. Replace Suspending and Suspended with Unsuspending </li>
+                            <li class="contributor">Mark Will, ProMach</li>
+                        </ul>
+                    </td>
+                    <td>01F</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer>PackML HMI Implementation Guide Draft 01E</footer>
+    <footer>PackML HMI Implementation Guide Draft 01F</footer>
 </body>
 
 </html>
