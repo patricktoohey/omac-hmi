@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01F</title>
+    <title>PackML HMI Implementation Guidance Draft 01G</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -73,7 +73,16 @@
                         <li><a href="#StacklightsAlignment">4.4 Alignment</a></li>
                         <li><a href="#StacklightsProximity">4.5 Proximity</a></li>
                         <li><a href="#StacklightsContrast">4.6 Contrast</a></li>
-                        <li><a href="#StacklightsContrast">4.7 Speaking the Operator's Language</a></li>
+                        <li><a href="#StacklightsLanguage">4.7 Speaking the Operator's Language</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#StateModel" class="section">5. PackML State Diagram Representations</a>
+                    <ul>
+                        <li><a href="#StateModelScope">5.1 Scope</a></li>
+                        <li><a href="#StateModelStandard">5.2 Standard Implementation</a></li>
+                        <li><a href="#StateModelDataInk">5.3 Data-Ink Ratio</a></li>
+                        <li><a href="#StateModelConsistency">5.4 Consistency</a></li>
                     </ul>
                 </li>
             </ul>
@@ -826,11 +835,202 @@
             </p>
         </div>
         <div>
-            <h2>5. PackML State Model Representations</h2>
+            <h2 id="StateModel">5. PackML State Model Representations</h2>
             <hr class="black" />
-            <h3>5.1 Scope</h3>
-            <p>...</p>
-        </div>
+            <h3 id="StateModelScope">5.1 Scope</h3>
+            <p>
+                <span>[0056] This section of the guidance will specify the steps necessary to present the standard ANSI/ISA </span>
+                <span>TR88.00.02-2015 PackML state model in a consistent and effective manner. More specifically, this section focuses </span>
+                <span>on the unique requirements for presenting the state model on a machine's HMI. In keeping with the themes </span>
+                <span>expressed previously, the guidance and associated design requirements prioritize the goals of the production-line operator. </span>
+                <span>The guidance illustrates the typical design challenges that designers must overcome and offers specific recommendations </span>
+                <span>that focus on accommodating the needs of the production operator. </span>
+            </p>
+            <p>
+                <span>[0057] From the engineer's perspective, the state model &ndash; demonstrated again in Figure 10 &ndash; represents </span>
+                <span>the underlying control programming that ensures machines across a production line will operate in a correct and </span>
+                <span>predictable fashion. Achieving this level of standardization across the packaging industry has elevated the </span>
+                <span>state model diagram to iconic status; a symbol of the collaboration and harmonization achieved within the industry. </span>
+                <span>Does this representation hold equivalent value for the operator? Likely not. The operator simply needs to understand </span>
+                <span>the current state of the machine and any actions necessary on their part. Accordingly, while the traditional visual representation </span>
+                <span>is encouraged where it can be accommodated, a faithful representation is not paramount. </span>
+            </p>
+            <figure>
+                <img id="packml_state_model" src="images/base_diagram_packml.png" />
+                <figcaption>
+                    <span>Figure 10: The standard PackML state model as presented in ANSI/ISA TR88.00.02-2015. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0058] Fortunately, despite some level of imprecision, the active machine state will be adequately represented by the </span>
+                <span>stacklight and push-button standards established here. The associated HMI components (i.e., lamps and illuminated buttons) visually communicate </span>
+                <span>the current machine state (e.g., Held, Suspended) and direct the operator when command execution is required (e.g., Reset button blinking). </span>
+                <span>With the exception of the solid green lamp, activity is required when any other lamp sequence is active (e.g., Flashing Green, Solid Red). While these components </span>
+                <span>satisfy many of the requirements that might otherwise be communicated through the state diagram, the lamps and the </span>
+                <span>state diagram cannot directly communicate the machine-specific causes of certain production conditions (e.g., bin full, material low); </span>
+                <span>communicating this information via text instructions on the HMI display is more appropriate. To that end, we argue that using precious HMI screen real estate </span>
+                <span>to communicate specific detailed information (e.g., operator instructions) is more critical than displaying the PackML state diagram. </span>
+                <span>The associated requirements for a Standard PackML State Model HMI Representation are aligned with these priorities.</span>
+            </p>
+            <p>
+                <span>[0059] With this scope established, the following sections will outline the specific requirements and guidance related to </span>
+                <span>visual representations of the PackML state diagram. </span>
+            </p>            
+            <h3 id="StateModelStandard">5.2 Standard Implementation</h3>
+            <p>
+                <span>[0060] Displays presenting the PackML state diagram must maintain the alignment demonstrated in Figure 10. For example, horizontal </span>
+                <span>alignment of the Unholding, Starting, Unsuspending, and Stopping states must be maintained. Likewise, vertical alignment of the </span>
+                <span>Idle, Starting, Execute, Completing, and Complete states must be maintained. If a properly aligned diagram cannot be displayed </span>
+                <span>(e.g., screen size too small) then the full diagram should not be displayed.</span>
+            </p>
+            <figure>
+                <img id="packml_state_model_level1" src="images/packml_diagram_level1.png" />
+                <figcaption>
+                    <span>Figure 11: The figure on the left does not observer the standard alignment requirements of the PackML state </span>
+                    <span>model diagram. States were repositioned from the standard layout to accommodate the small screen size on the target machine. </span>
+                    <span>If the alignment demonstrated in the right-hand example cannot be maintained, then the full diagram should not be displayed. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0061] When displaying the state model, all states should be displayed regardless of their implementation in the active </span>
+                <span>PackML mode. If &ndash; for example &ndash; the Completed and Completing states are not implemented in the current PackML mode, </span>
+                <span>these states should still be displayed in the diagram. Their representation, however, should be muted to communicate that </span>
+                <span>they are not active within the model. Figure 12 demonstrates a representation of the state model where the Completed and </span>
+                <span>Completing states have no functional purpose (i.e., they are pass-through states) and are therefore presented with a reduced level of contrast.</span>
+            </p>
+            <figure>
+                <img id="packml_state_model_level2" src="images/packml_diagram_level2.png" />
+                <figcaption>
+                    <span>Figure 12: For a given machine where the Completing and Complete states are not applicable, the resulting state model diagram </span>
+                    <span>should present those states with a reduced level of contrast to communicate their asbsence in the state model. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0062] If the full model cannot be displayed with proper alignment, the simplest acceptable alternative is to merely display the active PackML state. </span>
+                <span>When compared to the example on the left, the redesigned alternative in Figure 13 presents the operator with just as much information; </span>
+                <span>the machine is in the Execute state. That is not to say, however, that the minimalist representation is sufficient. The redesigned alternative </span>
+                <span>in Figure 13 can now accommodate additional information, which will enhance the operator's situational awareness. </span>
+            </p>
+            <figure>
+                <img id="packml_state_model_level1a" src="images/packml_diagram_level1a.png" />
+                <figcaption>
+                    <span>Figure 13: If the full state model cannot be displayed, it is acceptable to simply show the active state. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0063] While the specific metrics used to effectively report system state must be decided on a per-machine basis, the example in Figure 14 </span>
+                <span>demonstrates a visualization that has been designed to not only report machine state, but other data points that will enhance </span>
+                <span>the operator's situational awareness. These specific metrics are not required and only represent one possible way of effectively reporting </span>
+                <span>machine conditions. </span>
+            </p>
+            <figure>
+                <img id="packml_state_model_level1b" src="images/packml_diagram_level1b.png" />
+                <figcaption>
+                    <span>Figure 14: In this example, the machine state Execute is paired with the time spent in that state, along with data points reporting </span>
+                    <span>machine OEE and number of times the machine has been in the Held state.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0064] With these requirements and recommendations in place, the remaining sections will present additional guidance, </span>
+                <span>specific design recommendations, and general visualization theory aimed at effectively presentating the PackML State Model diagram. </span>
+            </p>
+            <h3 id="StateModelDataInk">5.3 Data-Ink Ratio</h3>
+            <p>
+                <span>[0065] Tufte (1983) argued that the data communicated by a given display should always be optimized and that unnecessary noise be eliminated. </span>
+                <span>Originally considered in the context of </span>
+                <span>print media, the optimal data-ink ratio is one where every drop of ink contributes value equal to its intensity. If the ink does not </span>
+                <span>communicate any data then its place on the page cannot be justified; zero value, zero ink. Carrying the argument further, if the ink contributes </span>
+                <span>only a small amount of data value it should be presented with a limited amount of visual impact (e.g., small, low contrast). </span>
+                <span>This simple concept facilitates the redesign demonstrated in Figure 13. </span>
+                <span>Often, it is far too easy to add digital ink to a display. The urgency to fill every empty space with content is natural for those </span>
+                <span>confined within the borders of a QVGA display. However &ndash; from the operator's perspective &ndash; the majority of the PackML state model </span>
+                <span>is digital noise. The inactive PackML states (i.e., those states supported by the machine, that are not currently active) provide no additonal </span>
+                <span>data to the operator. Rendering those states, therefore, is not </span>
+                <span>beneficial to the operator. Figure 13 offers the minimalist equivalent of the state diagram. It satisfies the most important question </span>
+                <span>the diagram can: what is the current state?</span>
+            </p>
+            <p>
+                <span>[0066] The redesigned alternative, however, is not necessarily sufficient as it leaves gaps in the operator's situational awareness. </span>
+                <span>With the space reclaimed by eliminating the non-data-ink, the design can now accommodate additional data that could not be rendered </span>
+                <span>in the previous visualization. Additional questions can now be answered. How long has the machine been in the Execute state? </span>
+                <span>What is the current OEE? How many times has the machine been Suspended or Held since Starting? Presenting such data offers far more </span>
+                <span>value than a rendering 17 inactive machine states. As stated previously, the appropriate questions will depend on the target machine </span>
+                <span>and the associated production environment. The Data-Ink Ratio concept simply guides the designer to ensure that the rendered content </span>
+                <span>be focused, first and foremost, on communicating data. Every pixel should be optimized to ensure it communicates data or nothing. Accomplishing </span>
+                <span>this objective requires a proper application of contrast within the interface.</span>
+            </p>
+            <h3 id="StateModelContrast">5.4 Contrast</h3>
+            <p>
+                <span>[0067] An HMI with properly applied contrast will help the operator focus their attention on the areas of a display that are most </span>
+                <span>relevant to the task at hand. An interface that is densely populated with content can still highlight key pieces of data without </span>
+                <span>the noise of supplementary data distracting the operator's attention. Contrast is achieved by varying the intensity of the elements </span>
+                <span>displayed on the screen. For text elements, contrast can be achieved by varying the font size used to display the associated content. </span>
+                <span>Additionally, text can be presented in different colors (e.g., black or grey) to communicate the level of emphasis appropriate for the </span>
+                <span>content. By carefully selecting an appropriate text size and color for each screen element, the interface will communicate hierarchy without </span>
+                <span>the need for heavy-handed visual guides. Considering again the minimalist PackML state diagram presented earlier, we see a simple yet consistent </span>
+                <span>application of contrast aimed at guiding the viewer's attention toward data and away from "noise". In this example, one could argue that </span>
+                <span>the labels decorating the actual data constitute noise. In order to effectively balance the interface the design must use text size </span>
+                <span>and color to direct the operator's attention across the display toward the key pieces of data with minimal emphasis on content that </span>
+                <span>does not contribute to situational awareness.</span>
+            </p>
+            <figure>
+                <img id="packml_state_model_level1b_contrast" src="images/packml_diagram_level1b.png" />
+                <figcaption>
+                    <span>Figure 15: Contrast can be used to focus the operator's attention on specific screen elements. The "Execute" PackML state is presented </span>
+                    <span>in black with a 52 pt font size. This is the most visually dominant screen element in terms of both size and color. </span>
+                    <span>The Time in State, OEE, and Held Events values (i.e., 14:23, 78%, and 6, respectively) are the next most salient, displayed in a dark </span>
+                    <span>grey (i.e., not black), but with a 29 pt font size. </span>
+                    <span>Finally, the labels (i.e., "Time in State", "OEE", and "Held Events") are shown in a lighter grey at a 16 pt font size. These combinations </span>
+                    <span>of color and size establish hierarchy within the display, which guides the operator's eye more efficiently. </span>
+                </figcaption>
+            </figure>
+            <h3 id="StateModelConsistency">5.5 Consistency</h3>
+            <p>
+                <span>[0068] Given the previous argument that all non-data-ink should be eliminated, it is reasonable to question the decision to display </span>
+                <span>PackML states that are not supported in a particular mode for a given machine type. Since these states do not communicate any data, the display's data-ink </span>
+                <span>ratio would clearly be improved if they were hidden. In this scenario, however, we argue that establishing consistency </span>
+                <span>of the display should take precedence over the data-ink ratio. The goal of providing the operator a consistent interface, while </span>
+                <span>concurrently reducing the data-ink ratio is achieved by reducing the effective contrast of the PackML states that are not </span>
+                <span>represented in the active machine mode. A muted representation for one or more states, as demonstrated in Figure 12, is sufficient to communicate </span>
+                <span>the fact that the associated states are not part of the target machine's PackML State Model. </span>
+            </p>            
+            <p>
+                <span>[0069] Consistency is therefore employed to avoid any distractions to the operator. Maintaining proper alignment within the state model </span>
+                <span>avoids unecessary confusion. By following the standard, the operator will not interpret misaligned states as something meaningful. The </span>
+                <span>operator will never question why there are gaps in the state model. Muting inactive states is a necessary compromise to both maintain </span>
+                <span>consistency in content and alignment, while concurrently communicating the nature of those states within the model.</span>
+            </p>
+            <h3 id="StateModelColorDesign">5.5 Color Design</h3>
+            <p>
+                <span>[0070] The previous discussion of contrast hinted to the effectiveness of color in highlighting elements on the screen. The example </span>
+                <span>in Figure 15 demonstrates that the pure black text provides the maximum level of contrast against a white background. Demonstrated </span>
+                <span>again here in Figure 16, we see that increasing the level of brightness in a color transitions that color toward pure white, which </span>
+                <span>provides no contrast against a white background. The grey levels achieved in between pure black and pure white allow the designer to </span>
+                <span>provide a level of contrast appropriate to a specific task (e.g., data: black, labels: grey, grid lines: light grey). </span>
+            </p>
+            <figure>
+                <img id="packml_state_model_brightness" src="images/brightness.png" />
+                <figcaption>
+                    <span>Figure 16: Pure black (i.e., RGB: 0, 0, 0) provides the maximum level of contrast against a pure white (i.e., RGB: 255, 255, 255) background. Increasing brightness in 20% increments transitions </span>
+                    <span>black to grey to white. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0071] When a specific hue is selected, red for example, the level of impact contributed by the color is correlated to the saturation level. </span>
+                <span>Figure 17 demonstrates the impact of reducing the saturation of a pure red hue (i.e., RGB: 255, 0, 0). </span>
+            </p>
+            <figure>
+                <img id="packml_state_model_saturation" src="images/saturation.png" />
+                <figcaption>
+                    <span>Figure 17: A pure red hue (i.e., RGB: 255, 0, 0) provides a high level of contrast against a white background. Decreasing saturation in 20% increments transitions </span>
+                    <span>red back to white.</span>
+                </figcaption>
+            </figure>
+            <h3 id="StateModelConsistency">5.6 Cognitive Overload</h3>
+            <p>
+                <span>[0072] The preceeding guidance is offered to help prevent or accommodate cognitive overload.</span>
+            </p>
+        </div>    
         <div>
             <h2>6. Navigation Design</h2>
             <hr class="black" />
@@ -854,6 +1054,7 @@
             <p class="reference">Nielson, J. (1993). <em>Usability engineering</em>. Cambridge, MA: Academic Press Professional.</p>
             <p class="reference">Nokleby, C. (2016). <em>PackML Unit/Machine Implementations Guide</em> - Part 1: PackML Interface State Manager</p>
             <p class="reference">Mills, J.A., and Caldwell, B.S. 1997. Simplified English for computer displays. In <em>Advances in Human Factors and Ergonomics. Design of Computing Systems: Cognitive Considerations. Proceedings of the Seventh International Conference on Human-Computer Interaction</em>, ed. G. Salvendy, M.J. Smith, and R.J. Koubek. San Francisco, CA, August.</p>
+            <p class="reference">Tufte, E.R. (1983). <em>The Visual Display of Quantitative Information</em>. Graphics Press.</p>
         </div>
         <div>
             <h2>9. Version History</h2>
@@ -949,11 +1150,21 @@
                     </td>
                     <td>1.00</td>
                 </tr>
+                <tr>
+                    <td>2019-08-29</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Added PackML State Model diagram content.</li>
+                        </ul>
+                    </td>
+                    <td>01G</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer>PackML HMI Implementation Guide Draft 01F</footer>
+    <footer>PackML HMI Implementation Guide Draft 01G</footer>
 </body>
 
 </html>
