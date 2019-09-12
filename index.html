@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01G</title>
+    <title>PackML HMI Implementation Guidance Draft 01H</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -82,7 +82,60 @@
                         <li><a href="#StateModelScope">5.1 Scope</a></li>
                         <li><a href="#StateModelStandard">5.2 Standard Implementation</a></li>
                         <li><a href="#StateModelDataInk">5.3 Data-Ink Ratio</a></li>
-                        <li><a href="#StateModelConsistency">5.4 Consistency</a></li>
+                        <li><a href="#StateModelContrast">5.4 Contrast</a></li>
+                        <li><a href="#StateModelConsistency">5.5 Consistency</a></li>
+                        <li><a href="#StateModelColorDesign">5.6 Color Design</a></li>
+                        <li><a href="#StateModelTypography">5.7 Typography</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>Figures</h2>
+            <hr class="black" />
+            <ul id="contents">
+                <li>
+                    <a href="#figures-background" class="section">3. Background</a>
+                    <ul>
+                        <li><a href="#print-dialog">Figure 1: Progressive Disclosure</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#figures-stacklights" class="section">4. Stacklights and Control Push-Buttons</a>
+                    <ul>
+                        <li><a href="#packml_state_model">Figure 2: Standard PackML Diagram</a></li>
+                        <li><a href="#lightstack-table">Figure 3: Summary Stacklight and Push-Button Standard</a></li>
+                        <li><a href="#green-red-diagram">Figure 4: Red and Green Lamp Sequences</a></li>
+                        <li><a href="#green-red-completing-diagram">Figure 5: Complete State Lamp Sequence</a></li>
+                        <li><a href="#green-amber-diagram">Figure 6: Suspend State Lamp Sequence</a></li>
+                        <li><a href="#green-blue-diagram">Figure 7: Held State Lamp Sequence</a></li>
+                        <li><a href="#material-low-diagram">Figure 8: Potential Hold Lamp Sequence</a></li>
+                        <li><a href="#stacklight-image">Figure 9: Standard Light Stack and Push-Buttons</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#figures-statemodel" class="section">5. PackML State Model Representations</a>
+                    <ul>
+                        <li><a href="#packml_state_model_representation">Figure 10: Standard PackML Diagram</a></li>
+                        <li><a href="#packml_state_model_level1">Figure 11: Proper State Model Alignment</a></li>
+                        <li><a href="#packml_state_model_level2">Figure 12: Displaying Pass-Through States</a></li>
+                        <li><a href="#packml_state_model_level1a">Figure 13: Minimal Acceptable Alternative Display</a></li>
+                        <li><a href="#packml_state_model_level1b">Figure 14: Extended Minimal Display Concept</a></li>
+                        <li><a href="#data_ink_ratio">Figure 15: Data-Ink Ratio </a></li>
+                        <li><a href="#packml_state_model_level1b_contrast">Figure 16: Type Size and Color</a></li>
+                        <li><a href="#packml_state_model_brightness">Figure 17: Brightness &ndash; Black to White</a></li>
+                        <li><a href="#packml_state_model_saturation">Figure 18: Saturation &ndash; Cyan to White</a></li>
+                        <li><a href="#packml_state_model_hsb">Figure 19: Shades and Tones &ndash; Cyan</a></li>
+                        <li><a href="#packml_state_model_colors">Figure 20: Shades and Tones &ndash; Applied</a></li>
+                        <li><a href="#packml_state_model_level3">Figure 21: PackML Diagram with Grey-Scale Background</a></li>
+                        <li><a href="#packml_state_model_level4">Figure 22: PackML Diagram with Borders Removed and New Typeface</a></li>
+                        <li><a href="#packml_state_model_highlights">Figure 23: Active State Highlights Aligned with Stack Light Colors</a></li>
+                        <li><a href="#packml_state_model_highlights_p_type">Figure 24: Active State Highlights Perceived with Protanopia-Type Color Blindness</a></li>
+                        <li><a href="#packml_state_model_highlights_d_type">Figure 25: Active State Highlights Perceived with Deuteranopia-Type Color Blindness</a></li>
+                        <li><a href="#typographic-scale">Figure 26: Typographic Scale Illustrated</a></li>
+                        <li><a href="#typeface-comparison">Figure 27: Typeface Alternatives</a></li>
+                        <li><a href="#small-caps">Figure 28: Small Caps Illustrated</a></li>
+                        <li><a href="#line-height">Figure 29: Line Height Demonstrated</a></li>
                     </ul>
                 </li>
             </ul>
@@ -852,11 +905,11 @@
                 <span>predictable fashion. Achieving this level of standardization across the packaging industry has elevated the </span>
                 <span>state model diagram to iconic status; a symbol of the collaboration and harmonization achieved within the industry. </span>
                 <span>Does this representation hold equivalent value for the operator? Likely not. The operator simply needs to understand </span>
-                <span>the current state of the machine and any actions necessary on their part. Accordingly, while the traditional visual representation </span>
+                <span>the current state of the machine and any actions necessary on his or her part. Accordingly, while the traditional visual representation </span>
                 <span>is encouraged where it can be accommodated, a faithful representation is not paramount. </span>
             </p>
             <figure>
-                <img id="packml_state_model" src="images/base_diagram_packml.png" />
+                <img id="packml_state_model_representation" src="images/base_diagram_packml.png" />
                 <figcaption>
                     <span>Figure 10: The standard PackML state model as presented in ANSI/ISA TR88.00.02-2015. </span>
                 </figcaption>
@@ -869,7 +922,7 @@
                 <span>satisfy many of the requirements that might otherwise be communicated through the state diagram, the lamps and the </span>
                 <span>state diagram cannot directly communicate the machine-specific causes of certain production conditions (e.g., bin full, material low); </span>
                 <span>communicating this information via text instructions on the HMI display is more appropriate. To that end, we argue that using precious HMI screen real estate </span>
-                <span>to communicate specific detailed information (e.g., operator instructions) is more critical than displaying the PackML state diagram. </span>
+                <span>to communicate specific detailed information (e.g., data, trends, operator instructions) is more critical than displaying the PackML state diagram. </span>
                 <span>The associated requirements for a Standard PackML State Model HMI Representation are aligned with these priorities.</span>
             </p>
             <p>
@@ -886,17 +939,17 @@
             <figure>
                 <img id="packml_state_model_level1" src="images/packml_diagram_level1.png" />
                 <figcaption>
-                    <span>Figure 11: The figure on the left does not observer the standard alignment requirements of the PackML state </span>
+                    <span>Figure 11: The figure on the left does not observe the standard alignment requirements of the PackML state </span>
                     <span>model diagram. States were repositioned from the standard layout to accommodate the small screen size on the target machine. </span>
                     <span>If the alignment demonstrated in the right-hand example cannot be maintained, then the full diagram should not be displayed. </span>
                 </figcaption>
             </figure>
             <p>
                 <span>[0061] When displaying the state model, all states should be displayed regardless of their implementation in the active </span>
-                <span>PackML mode. If &ndash; for example &ndash; the Completed and Completing states are not implemented in the current PackML mode, </span>
+                <span>PackML mode. If &ndash; for example &ndash; the Completing and Complete states are not implemented in the current PackML mode, </span>
                 <span>these states should still be displayed in the diagram. Their representation, however, should be muted to communicate that </span>
-                <span>they are not active within the model. Figure 12 demonstrates a representation of the state model where the Completed and </span>
-                <span>Completing states have no functional purpose (i.e., they are pass-through states) and are therefore presented with a reduced level of contrast.</span>
+                <span>they are not active within the model. Figure 12 demonstrates a representation of the state model where the </span>
+                <span>Completing and Complete states have no functional purpose (i.e., they are pass-through states) and are therefore presented with a reduced level of contrast.</span>
             </p>
             <figure>
                 <img id="packml_state_model_level2" src="images/packml_diagram_level2.png" />
@@ -919,7 +972,7 @@
             </figure>
             <p>
                 <span>[0063] While the specific metrics used to effectively report system state must be decided on a per-machine basis, the example in Figure 14 </span>
-                <span>demonstrates a visualization that has been designed to not only report machine state, but other data points that will enhance </span>
+                <span>demonstrates a visualization that has been designed to report both the machine state, as well as other data points that will enhance </span>
                 <span>the operator's situational awareness. These specific metrics are not required and only represent one possible way of effectively reporting </span>
                 <span>machine conditions. </span>
             </p>
@@ -936,27 +989,42 @@
             </p>
             <h3 id="StateModelDataInk">5.3 Data-Ink Ratio</h3>
             <p>
-                <span>[0065] Tufte (1983) argued that the data communicated by a given display should always be optimized and that unnecessary noise be eliminated. </span>
+                <span>[0065] Tufte (1983) argued that the data communicated by a given display should always be optimized and that unnecessary noise should be eliminated. </span>
                 <span>Originally considered in the context of </span>
                 <span>print media, the optimal data-ink ratio is one where every drop of ink contributes value equal to its intensity. If the ink does not </span>
                 <span>communicate any data then its place on the page cannot be justified; zero value, zero ink. Carrying the argument further, if the ink contributes </span>
-                <span>only a small amount of data value it should be presented with a limited amount of visual impact (e.g., small, low contrast). </span>
-                <span>This simple concept facilitates the redesign demonstrated in Figure 13. </span>
+                <span>only a small amount of data value it should be presented with a limited amount of visual impact (e.g., small, low contrast). Figure 15 presents </span>
+                <span>a scatter plot redesigned to optimize the data-ink ratio. In this example, the outer border of the plot is completely removed as it holds no </span>
+                <span>data value. The grid lines and axes are redrawn in a less dominant grey color, which replaces the more bold black color used in the original. </span>
+                <span>The individual data points are redrawn without an inner fill, which is more conducive displaying overlapping points while also presenting a </span>
+                <span>more light-weight esthetic. Each of these changes contributes to a higher data-ink ratio. Overall, the impact of non-data-ink is reduced, </span>
+                <span>therefore, the ratio is improved. </span>
+            </p>
+            <figure>
+                <img id="data_ink_ratio" src="images/data-ink-example.png" />
+                <figcaption>
+                    <span>Figure 15: The chart on the right has been redesigned to produce an equivalent with a higher data-ink ratio. The left-hand chart's </span>
+                    <span>border is removed and the black grid lines and axes are replaced with less dominant grey equivalents. The solid data points are </span>
+                    <span>replaced by points with stroke but no fill. Some axis labels are removed, others are simply replaced by smaller grey equivalents. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>This simple concept facilitated the more heavy-handed redesign demonstrated in Figure 13. </span>
                 <span>Often, it is far too easy to add digital ink to a display. The urgency to fill every empty space with content is natural for those </span>
                 <span>confined within the borders of a QVGA display. However &ndash; from the operator's perspective &ndash; the majority of the PackML state model </span>
                 <span>is digital noise. The inactive PackML states (i.e., those states supported by the machine, that are not currently active) provide no additonal </span>
-                <span>data to the operator. Rendering those states, therefore, is not </span>
+                <span>information to the operator. Rendering those states, therefore, is not </span>
                 <span>beneficial to the operator. Figure 13 offers the minimalist equivalent of the state diagram. It satisfies the most important question </span>
-                <span>the diagram can: what is the current state?</span>
+                <span>the complete diagram can: what is the current state?</span>
             </p>
             <p>
                 <span>[0066] The redesigned alternative, however, is not necessarily sufficient as it leaves gaps in the operator's situational awareness. </span>
                 <span>With the space reclaimed by eliminating the non-data-ink, the design can now accommodate additional data that could not be rendered </span>
                 <span>in the previous visualization. Additional questions can now be answered. How long has the machine been in the Execute state? </span>
                 <span>What is the current OEE? How many times has the machine been Suspended or Held since Starting? Presenting such data offers far more </span>
-                <span>value than a rendering 17 inactive machine states. As stated previously, the appropriate questions will depend on the target machine </span>
+                <span>value than rendering 17 inactive machine states. As stated previously, the appropriate questions will depend on the target machine </span>
                 <span>and the associated production environment. The Data-Ink Ratio concept simply guides the designer to ensure that the rendered content </span>
-                <span>be focused, first and foremost, on communicating data. Every pixel should be optimized to ensure it communicates data or nothing. Accomplishing </span>
+                <span>is focused, first and foremost, on communicating data. Every pixel should be optimized to ensure it communicates either data or nothing. Accomplishing </span>
                 <span>this objective requires a proper application of contrast within the interface.</span>
             </p>
             <h3 id="StateModelContrast">5.4 Contrast</h3>
@@ -967,16 +1035,16 @@
                 <span>displayed on the screen. For text elements, contrast can be achieved by varying the font size used to display the associated content. </span>
                 <span>Additionally, text can be presented in different colors (e.g., black or grey) to communicate the level of emphasis appropriate for the </span>
                 <span>content. By carefully selecting an appropriate text size and color for each screen element, the interface will communicate hierarchy without </span>
-                <span>the need for heavy-handed visual guides. Considering again the minimalist PackML state diagram presented earlier, we see a simple yet consistent </span>
+                <span>the need for heavy-handed visual guides. Considering again the minimalist PackML state diagram presented earlier, Figure 16 presents a simple yet consistent </span>
                 <span>application of contrast aimed at guiding the viewer's attention toward data and away from "noise". In this example, one could argue that </span>
-                <span>the labels decorating the actual data constitute noise. In order to effectively balance the interface the design must use text size </span>
-                <span>and color to direct the operator's attention across the display toward the key pieces of data with minimal emphasis on content that </span>
+                <span>the labels decorating the actual data constitute noise. In order to effectively balance the interface, the design must use text size </span>
+                <span>and color to direct the operator's attention across the display toward the key pieces of data, with minimal emphasis on content that </span>
                 <span>does not contribute to situational awareness.</span>
             </p>
             <figure>
-                <img id="packml_state_model_level1b_contrast" src="images/packml_diagram_level1b.png" />
+                <img id="packml_state_model_level1b_contrast" src="images/packml_diagram_level1b_annotated.png" />
                 <figcaption>
-                    <span>Figure 15: Contrast can be used to focus the operator's attention on specific screen elements. The "Execute" PackML state is presented </span>
+                    <span>Figure 16: Contrast can be used to focus the operator's attention on specific screen elements. The "Execute" PackML state is presented </span>
                     <span>in black with a 52 pt font size. This is the most visually dominant screen element in terms of both size and color. </span>
                     <span>The Time in State, OEE, and Held Events values (i.e., 14:23, 78%, and 6, respectively) are the next most salient, displayed in a dark </span>
                     <span>grey (i.e., not black), but with a 29 pt font size. </span>
@@ -989,7 +1057,7 @@
                 <span>[0068] Given the previous argument that all non-data-ink should be eliminated, it is reasonable to question the decision to display </span>
                 <span>PackML states that are not supported in a particular mode for a given machine type. Since these states do not communicate any data, the display's data-ink </span>
                 <span>ratio would clearly be improved if they were hidden. In this scenario, however, we argue that establishing consistency </span>
-                <span>of the display should take precedence over the data-ink ratio. The goal of providing the operator a consistent interface, while </span>
+                <span>of the display should take precedence over the data-ink ratio. The goal of providing the operator a consistent interface while </span>
                 <span>concurrently reducing the data-ink ratio is achieved by reducing the effective contrast of the PackML states that are not </span>
                 <span>represented in the active machine mode. A muted representation for one or more states, as demonstrated in Figure 12, is sufficient to communicate </span>
                 <span>the fact that the associated states are not part of the target machine's PackML State Model. </span>
@@ -1000,35 +1068,216 @@
                 <span>operator will never question why there are gaps in the state model. Muting inactive states is a necessary compromise to both maintain </span>
                 <span>consistency in content and alignment, while concurrently communicating the nature of those states within the model.</span>
             </p>
-            <h3 id="StateModelColorDesign">5.5 Color Design</h3>
+            <h3 id="StateModelColorDesign">5.6 Color Design</h3>
             <p>
                 <span>[0070] The previous discussion of contrast hinted to the effectiveness of color in highlighting elements on the screen. The example </span>
-                <span>in Figure 15 demonstrates that the pure black text provides the maximum level of contrast against a white background. Demonstrated </span>
-                <span>again here in Figure 16, we see that increasing the level of brightness in a color transitions that color toward pure white, which </span>
+                <span>in Figure 16 demonstrates that the pure black text provides the maximum level of contrast against a white background. Demonstrated </span>
+                <span>again here in Figure 17, we see that increasing the level of brightness in a color transitions that color toward pure white, which </span>
                 <span>provides no contrast against a white background. The grey levels achieved in between pure black and pure white allow the designer to </span>
-                <span>provide a level of contrast appropriate to a specific task (e.g., data: black, labels: grey, grid lines: light grey). </span>
+                <span>provide a level of contrast appropriate to a specific task (e.g., data: black, labels: grey, grid lines: light grey). In the digital RGB (i.e., Red-Green-Blue) </span>
+                <span>color model (i.e., that used by many design tools), pure black is represented as RGB: 0, 0, 0, whereas pure white is represented as RGB: 255, 255, 255. </span>
             </p>
             <figure>
                 <img id="packml_state_model_brightness" src="images/Brightness.png" />
                 <figcaption>
-                    <span>Figure 16: Pure black (i.e., RGB: 0, 0, 0) provides the maximum level of contrast against a pure white (i.e., RGB: 255, 255, 255) background. Increasing brightness in 20% increments transitions </span>
+                    <span>Figure 17: Pure black (i.e., RGB: 0, 0, 0) provides the maximum level of contrast against a pure white (i.e., RGB: 255, 255, 255) background. Increasing brightness in 20% increments transitions </span>
                     <span>black to grey to white. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0071] When a specific hue is selected, red for example, the level of impact contributed by the color is correlated to the saturation level. </span>
-                <span>Figure 17 demonstrates the impact of reducing the saturation of a pure red hue (i.e., RGB: 255, 0, 0). </span>
+                <span>[0071] When a specific hue is selected, like the cyan background of our sample PackML diagram, the level of impact contributed by the color is correlated to the saturation level. </span>
+                <span>Figure 18 demonstrates the impact of reducing the saturation of a cyan hue (i.e., RGB: 0, 217, 255). </span>
             </p>
             <figure>
                 <img id="packml_state_model_saturation" src="images/Saturation.png" />
                 <figcaption>
-                    <span>Figure 17: A pure red hue (i.e., RGB: 255, 0, 0) provides a high level of contrast against a white background. Decreasing saturation in 20% increments transitions </span>
-                    <span>red back to white.</span>
+                    <span>Figure 18: This cyan hue (i.e., RGB: 0, 217, 255) provides a high level of contrast against a white background. Decreasing saturation in 20% increments transitions </span>
+                    <span>the cyan color back to white.</span>
                 </figcaption>
             </figure>
-            <h3 id="StateModelConsistency">5.6 Cognitive Overload</h3>
             <p>
-                <span>[0072] The preceeding guidance is offered to help prevent or accommodate cognitive overload.</span>
+                <span>[0072] When used together, the hue, saturation, and brightness (HSB) properties provide a convenient alternative to the more common RGB color model as </span>
+                <span>the HSB model provides a more intuitive approach to color design. Given a specific color, adjustments to the saturation and brightness properties </span>
+                <span>will produce a second color that appropriately complements the original, while being more subdued or more bold. Figure 19 demonstrates some of the </span>
+                <span>shades and tints that can be produced from the pure red sample color.</span>
+            </p>
+            <figure>
+                <img id="packml_state_model_hsb" src="images/ShadesTints.png" />
+                <figcaption>
+                    <span>Figure 19: Altering both saturation and brightness of the cyan hue produces shades and tints of the that hue. Note that reducing brightness </span>
+                    <span>pushes the colors toward black, while reducing saturation pushes toward greys.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0073] Careful tuning of the saturation and brightness properties produced the inactive-state colors employed in Figure 20.</span>
+                <span>The color design originated with the cyan background color of the inner-states border. The HSB values were then adjusted to produce </span>
+                <span>shades of the original hue. These shades provide high levels of contrast when applied together while maintaining harmony with the original hue. </span>
+            </p>
+            <figure>
+                <img id="packml_state_model_colors" src="images/packml_diagram_color_design.png" />
+                <figcaption>
+                    <span>Figure 20: Subtle adjustments in the saturation and brightness of the cyan background color produce sufficient contrast to </span>
+                    <span>communicate the disabled condition of the Completing and Complete PackML states. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0074] In general, highly saturated colors should be reserved for the select interface components requiring the most attention. </span>
+                <span>In this example (i.e., the background colors of the PackML state diagram) it is difficult to argue that such a highly </span>
+                <span>saturated color is warranted. While there is sufficient contrast between the active state (i.e., Execute) and the background, </span>
+                <span>a more neutral background is likely warranted. In this situation a more desaturated color would make a more suitable backdrop </span>
+                <span>for the state diagram. Additionally, considering data ink ratio once again, it is also reasonable to remove the solid black border </span>
+                <span>that outlines the inner-state background area. These changes are demonstrated in Figure 21. </span>
+            </p>
+            <figure>
+                <img id="packml_state_model_level3" src="images/packml_diagram_level3.png" />
+                <figcaption>
+                    <span>Figure 21: A redesigned state model diagram where the background shapes have been desaturated and the black outline strokes </span>
+                    <span>have been removed. The disabled states (i.e., Completing and Complete) have been redesigned to accommodate the desaturated background color. </span>
+                    <span>The diagram is no less functional and includes fewer visual artifacts competing for the viewer's attention. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0075] Continuing the application of the data-ink-ratio concept, Figure 22 shows the result of removing the solid borders surrounding </span>
+                <span>the individual state elements. Additionally, the redesign increases the brightness of the state transition arrows from solid black to grey to reduce the </span>
+                <span>visual impact they introduce. The typeface has been replaced with a more condensed design where less horizontal space is required to display each label. </span>
+                <span>Finally, the size of the inactive state labels has been reduced &ndash; from 10pt to 8pt &ndash; leaving the active state more visually dominant within the display. </span>
+                <span>These changes demonstrate some of the possible methods for optimizing any operator interface. While these changes may not be possible in all environments, </span>
+                <span>it is worth understanding the available flexibility and potential impact for each design.</span>
+                
+            </p>
+            <figure>
+                <img id="packml_state_model_level4" src="images/packml_diagram_level4.png" />
+                <figcaption>
+                    <span>Figure 22: The data-ink-ratio is improved in this redesign where a) the individual state borders are removed, b) color of the transition arrows are </span>
+                    <span>brightened, c) a more condensed typeface is used, d) the color of the state labels are brightened, and e) the size of the inactive state labels are reduced. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0076] One final modification to the original design brings the display in better alignment with the previously defined stack light specification. </span>
+                <span>By replacing the original blue highlight of the Execute state with a green highlight the state diagram matches the color scheme of the light stack. </span>
+                <span>Carrying the concept further by updating the color scheme of the other machine states produces the designs shown in Figure 23. </span>
+            </p>
+            <figure>
+                <img id="packml_state_model_highlights" src="images/packml_diagram_highlights.png" />
+                <figcaption>
+                    <span>Figure 23: Highlighting the active states in colors aligned with the stack light standard provides consistency with aesthetic appeal. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0077] When selecting colors, it is often important to address accessibility concerns; specifically, accessibility for color blindness. Figure 24 demonstrates </span>
+                <span>the Figure 23 concepts as they would be seen by an operator with protanopia-type color blindness. Figure 25 demonstrates the equivalant for </span>
+                <span>deuteranopia-type color blindness. </span>
+            </p>
+            <figure>
+                <img id="packml_state_model_highlights_p_type" src="images/p-type.png" />
+                <figcaption>
+                    <span>Figure 24: Active state colors as viewed by an operator with protanopia-type color blindness. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0078] In these diagrams, color has been applied merely as a mechanism to align with the stack light standard. Misinterpretation of colors </span>
+                <span>in this context is of little concern as only one state will be highlighted at a time. More care must be taken when misinterpretation of color </span>
+                <span>can cause a misunderstanding on the part of the operator. A carefully designed color palette will help ensure that color-blind operators </span>
+                <span>are accommodated. The examples in Figures 22 and 23 were generated using a special color-blindness filter available in Adobe Illustrator. </span>
+                <span>Such tools allow the designer to see how their interfaces will be perceived by color-blind operators. Employing dual-coding </span>
+                <span>(e.g., color plus text) is recommended in more complicated contexts.</span>
+            </p>
+            <figure>
+                <img id="packml_state_model_highlights_d_type" src="images/d-type.png" />
+                <figcaption>
+                    <span>Figure 25: Active state colors as viewed by an operator with deuteranopia-type color blindness. </span>
+                </figcaption>
+            </figure> 
+            <h3 id="StateModelTypography">5.7 Typography</h3>
+            <p>
+                <span>[0079] When presenting text on screen, the designer can employ a few simple techniques to help maximize readability </span> 
+                <span>and establish the hierarchy that will guide the viewer effectively and efficiently through the screen's content. The example in Figure 16 demonstrates </span>
+                <span>how varying the relative size of text elements can help construct this hierarchy. As expected, larger text draws more attention. The primary focal </span>
+                <span>point in the example &ndash; the text presenting the PackML Execute state &ndash; is highlighted using a relatively dominant 52-point text size. </span>
+                <span>While this same text size is not utilized for other </span>
+                <span>purposes in this specific screen, it should be reused consistently elsewhere whenever a dominant focal point is required.</span>
+            </p>
+            <p>
+                <span>[0080] The importance of this primary data display is further highlighted by a distinct pair of smaller text elements </span>
+                <span>&ndash; each dedicated to a specific purpose &ndash; that bring order and communicate purpose for the remaining content. </span>
+                <span>This unique combination of text sizes (i.e., 16 pt and 29 pt in grey and dark grey respectively) introduces a pattern that the </span>
+                <span>viewer can anticipate and easily interpret. By consistently using these same sizes for the same purpose in the other </span>
+                <span>areas of the HMI, the viewer will quickly identify data values and labels in a more instinctive manner. This improves both </span>
+                <span>the learnability and memorability qualities of the interface.</span>
+            </p>  
+            <p>
+                <span>[0081] Instead of using an arbitrary collection of text sizes, the example employs typographic scaling, which brings harmony to the display </span>
+                <span>using a fixed multiplier that builds each successive text size from the last. </span>
+                <span>The scale ensures that there is sufficient visual contrast between the display's effective </span>
+                <span>levels (e.g., machine state, data values, data labels) such that the underlying hierarchy is more easily interpretted. </span>
+                <span>Figure 26 presents some alternative typographic scales to help illustrate the concept. </span>
+            </p>
+            <figure>
+                <img id="typographic-scale" src="images/typographic-scale.png" />
+                <figcaption>
+                    <span>Figure 26: Smaller typographics scale offer less effective hierarchy in the display. Larger scales offer more contrast, but </span>
+                    <span>are more difficult to accommodate on smaller screens or more densely populated displays. Utilizing color is an effective </span>
+                    <span>alternative to produce hierarchy at smaller scales. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0082] An effective typographic scale is established by first identifying </span>
+                <span>the smallest effective text size. In this sample, a modest 16 pt text size has been selected. In keeping with the data-ink ratio concept,  </span>
+                <span>this minimum text size will be used to present the least data-rich content (i.e., data labels). In practice, the appropriate minimum text </span>
+                <span>size will be impacted by the size of the screen, the viewing distance and angle, the quality of the display, and a number of other </span>
+                <span>context-specific variables that impact readability. Once the appropriate minimum size is determined, a fixed multiplier is selected </span>
+                <span>to provide a linear increase in the text size of subsequent levels. A relatively large multiplier </span>
+                <span>of 1.8x has been chosen in this example. With only 4 pieces of information, the interface can accommodate a larger scale than would </span>
+                <span>otherwise be available on a display with more densely populated content. </span>                
+            </p>
+            <p>
+                <span>[0083] The smallest scale in the example (i.e., 1.3x) provides less natural hierarchy via size. The hierarchy is enhanced through color, where </span>
+                <span>the smallest text is presented in grey to produce additional contrast. At a scale of 1.8x, the hierarchy is more pronounced. The grey coloring on the data label </span>
+                <span>is still utilized as there is no reason to increase the emphasis on that content. Progressing to the 2.5x scale shows more dynamic contrast, which </span>
+                <span>is certainly more pronounced, but does not necessarily produce a more functional or aesthetically rich display. </span>
+                <span>Altering the typeface itself, however, does offer an opportunity to improve both the aesthetic and functional characteristics of the interface. </span>
+            </p>
+            <figure>
+                <img id="typeface-comparison" src="images/typeface-comparison.png" />
+                <figcaption>
+                    <span>Figure 27: The typeface used to display a given element impacts both the personality of the interface as well as the display's readability and </span>
+                    <span>functional efficiency. A comparison of narrow, regular, light, and small caps fonts from the Arial and Halis typeface families is demonstrated here.  </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0084] Figure 27 illustrates some of the flexibility offered by various typefaces. While Arial Regular and Halis Rounded Book </span>
+                <span>offer similar personalities, variants like Arial Narrow help illustrate the functional benefits that some alternative fonts can afford. With a more compact </span>
+                <span>body, Arial Narrow requires less horizontal space to display equivalent content without sacrificing height and, therefore, legibility. </span>
+                <span>The demonstrated Halis fonts help illustrate the dynamic contrast afforded by light weight and small cap fonts. Light weight fonts are simply </span>
+                <span>the opposite of more commonly utilized bold fonts. An alternative to smaller font sizes or lower contrast colors, a light weight font positioned </span>
+                <span>adjacent to a regular font will likely draw less attention, while adding a clean and efficient aesthetic to the display. The small caps variants </span>
+                <span>offer another method for drawing extra attention to an element. While it is more difficult to read content that is capitalized, it will draw extra </span>
+                <span>attention from the viewer. Accordingly, caps and small caps should be avoided for longer text segments, but are appropriate for alarms and warnings. </span>
+            </p>
+            <figure>
+                <img id="small-caps" src="images/small-caps.png" />
+                <figcaption>
+                    <span>Figure 28: A small-caps typeface is designed to present capitalized letters efficiently. Comparing a fully capitalized EXECUTE string displayed </span>
+                    <span>in Halis Rounded Book against the Small Cap equivalent, we see that the Small Cap version is more efficient in horizontal space, and, arguably, </span>
+                    <span>more aesthetically pleasing.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0085] When longer runs of text are required, it is important to consider line spacing and line length. It is generally accepted that longer line </span>
+                <span>lengths slow down reading speed. Additionally, it is more difficult to read text where the distance between lines is too small. Figure 29 </span>
+                <span>demonstrates the impact line height has on legibility. Utilizing the preferred 120% guideline produces a more readable body of text.</span>
+            </p>
+            <figure>
+                <img id="line-height" src="images/line-height.png" />
+                <figcaption>
+                    <span>Figure 29: The preferred line height is typically 120% of the associated font size. The pictured text utilizes an 18 pt font. The </span>
+                    <span>sample on the left utilizes a 15 pt line height, which is not effective for readability purposes. Whereas the sample on the right </span>
+                    <span>features a 21.6 pt line height, which produces a far more legible body of text.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0086] While efficient use of screen space is a lofty goal, it should not come at the expense of the operator. Poor legibility </span>
+                <span>will impair operator performance, particularly under stressful conditions. </span>
             </p>
         </div>    
         <div>
@@ -1054,7 +1303,8 @@
             <p class="reference">Nielson, J. (1993). <em>Usability engineering</em>. Cambridge, MA: Academic Press Professional.</p>
             <p class="reference">Nokleby, C. (2016). <em>PackML Unit/Machine Implementations Guide</em> - Part 1: PackML Interface State Manager</p>
             <p class="reference">Mills, J.A., and Caldwell, B.S. 1997. Simplified English for computer displays. In <em>Advances in Human Factors and Ergonomics. Design of Computing Systems: Cognitive Considerations. Proceedings of the Seventh International Conference on Human-Computer Interaction</em>, ed. G. Salvendy, M.J. Smith, and R.J. Koubek. San Francisco, CA, August.</p>
-            <p class="reference">Tufte, E.R. (1983). <em>The Visual Display of Quantitative Information</em>. Graphics Press.</p>
+            <p class="reference">Schlatter, T. and Levinson, D. (2013). Visual Usability: Principles and Practices for Designing Digital Applications. Waltham, MA: Elsevier, Inc.</p>
+            <p class="reference">Tufte, E.R. (1983). <em>The Visual Display of Quantitative Information</em>. Graphics Press.</p>            
         </div>
         <div>
             <h2>9. Version History</h2>
@@ -1160,11 +1410,27 @@
                     </td>
                     <td>01G</td>
                 </tr>
+                <tr>
+                    <td>2019-09-06</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Revised PackML State Model content; added color design guidance and typography discussion.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span>Readability improvements. </span>
+                        <ul>
+                            <li class="contributor">Omar Cordovani, Siemens</li>
+                        </ul>
+                    </td>
+                    <td>01H</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer>PackML HMI Implementation Guide Draft 01G</footer>
+    <footer>PackML HMI Implementation Guide Draft 01H</footer>
 </body>
 
 </html>
