@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01H</title>
+    <title>PackML HMI Implementation Guidance Draft 01J</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -88,12 +88,19 @@
                         <li><a href="#StateModelTypography">5.7 Typography</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#Navigation" class="section">6. Navigation Design</a>
+                    <ul>
+                        <li><a href="#NavigationScope">6.1 Scope</a></li>
+                        <li><a href="#NavigationStandard">6.2 Standard Implementation</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div>
             <h2>Figures</h2>
             <hr class="black" />
-            <ul id="contents">
+            <ul id="figures">
                 <li>
                     <a href="#figures-background" class="section">3. Background</a>
                     <ul>
@@ -126,20 +133,40 @@
                         <li><a href="#packml_state_model_brightness">Figure 17: Brightness &ndash; Black to White</a></li>
                         <li><a href="#packml_state_model_saturation">Figure 18: Saturation &ndash; Cyan to White</a></li>
                         <li><a href="#packml_state_model_hsb">Figure 19: Shades and Tones &ndash; Cyan</a></li>
-                        <li><a href="#packml_state_model_colors">Figure 20: Shades and Tones &ndash; Applied</a></li>
-                        <li><a href="#packml_state_model_level3">Figure 21: PackML Diagram with Grey-Scale Background</a></li>
-                        <li><a href="#packml_state_model_level4">Figure 22: PackML Diagram with Borders Removed and New Typeface</a></li>
-                        <li><a href="#packml_state_model_highlights">Figure 23: Active State Highlights Aligned with Stack Light Colors</a></li>
-                        <li><a href="#packml_state_model_highlights_p_type">Figure 24: Active State Highlights Perceived with Protanopia-Type Color Blindness</a></li>
-                        <li><a href="#packml_state_model_highlights_d_type">Figure 25: Active State Highlights Perceived with Deuteranopia-Type Color Blindness</a></li>
-                        <li><a href="#typographic-scale">Figure 26: Typographic Scale Illustrated</a></li>
-                        <li><a href="#typeface-comparison">Figure 27: Typeface Alternatives</a></li>
-                        <li><a href="#small-caps">Figure 28: Small Caps Illustrated</a></li>
-                        <li><a href="#line-height">Figure 29: Line Height Demonstrated</a></li>
+                        <li><a href="#color_design_tools">Figure 20: Color Design Tools</a></li>
+                        <li><a href="#packml_state_model_colors">Figure 21: Shades and Tones &ndash; Applied</a></li>
+                        <li><a href="#packml_state_model_level3">Figure 22: PackML Diagram with Grey-Scale Background</a></li>
+                        <li><a href="#packml_state_model_level4">Figure 23: PackML Diagram with Borders Removed and New Typeface</a></li>
+                        <li><a href="#packml_state_model_highlights">Figure 24: Active State Highlights Aligned with Stack Light Colors</a></li>
+                        <li><a href="#packml_state_model_highlights_p_type">Figure 25: Active State Highlights Perceived with Protanopia-Type Color Blindness</a></li>
+                        <li><a href="#packml_state_model_highlights_d_type">Figure 26: Active State Highlights Perceived with Deuteranopia-Type Color Blindness</a></li>
+                        <li><a href="#typographic-scale">Figure 27: Typographic Scale Illustrated</a></li>
+                        <li><a href="#typeface-comparison">Figure 28: Typeface Alternatives</a></li>
+                        <li><a href="#small-caps">Figure 29: Small Caps Illustrated</a></li>
+                        <li><a href="#line-height">Figure 30: Line Height Demonstrated</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
+        <div>
+            <h2>Tables</h2>
+                <hr class="black" />
+                <ul id="tables">
+                    <li>
+                        <a href="#tables-stacklight" class="section">4. Stacklights and Control Push-Buttons</a>
+                        <ul>
+                            <li><a href="#table-stacklight-standard">Table 1: Stacklight Standard</a></li>
+                            <li><a href="#table-stacklight-standard">Table 2: Push-Button Standard</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#tables-navigation" class="section">6. Navigation Design</a>
+                        <ul>
+                            <li><a href="#navigation-contexts">Table 3: Navigation Contexts</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         <div>
             <h2 id="ExecutiveSummary">2. Executive Summary</h2>
             <hr class="black" />
@@ -1109,14 +1136,26 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0073] Careful tuning of the saturation and brightness properties produced the inactive-state colors employed in Figure 20.</span>
+                <span>[0074] Most dedicated design tools offer access to the RGB and HSB models. This facilitates design of a color palette using the HSB model, </span>
+                <span>with concurrent access to the associated RGB values required by most development platforms. Figure 20 demonstrates the color design tools </span>
+                <span>offered by Adobe Illustrator. Similar tools exist in Paint.Net and Inkscape. </span>
+            </p>
+            <figure>
+                <img id="color_design_tools" src="images/color_design_tools.png" />
+                <figcaption>
+                    <span>Figure 20: Adobe Illustrator supports color definitions in the traditional RGB space as well as the HSB color space. Once a color is </span>
+                    <span>defined in the HSB model, the equivalent RGB color can be used to configure other tools that do not inherently support HSB colors. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0073] Careful tuning of the saturation and brightness properties produced the inactive-state colors employed in Figure 21.</span>
                 <span>The color design originated with the cyan background color of the inner-states border. The HSB values were then adjusted to produce </span>
                 <span>shades of the original hue. These shades provide high levels of contrast when applied together while maintaining harmony with the original hue. </span>
             </p>
             <figure>
                 <img id="packml_state_model_colors" src="images/packml_diagram_color_design.png" />
                 <figcaption>
-                    <span>Figure 20: Subtle adjustments in the saturation and brightness of the cyan background color produce sufficient contrast to </span>
+                    <span>Figure 21: Subtle adjustments in the saturation and brightness of the cyan background color produce sufficient contrast to </span>
                     <span>communicate the disabled condition of the Completing and Complete PackML states. </span>
                 </figcaption>
             </figure>
@@ -1126,18 +1165,18 @@
                 <span>saturated color is warranted. While there is sufficient contrast between the active state (i.e., Execute) and the background, </span>
                 <span>a more neutral background is likely warranted. In this situation a more desaturated color would make a more suitable backdrop </span>
                 <span>for the state diagram. Additionally, considering data ink ratio once again, it is also reasonable to remove the solid black border </span>
-                <span>that outlines the inner-state background area. These changes are demonstrated in Figure 21. </span>
+                <span>that outlines the inner-state background area. These changes are demonstrated in Figure 22. </span>
             </p>
             <figure>
                 <img id="packml_state_model_level3" src="images/packml_diagram_level3.png" />
                 <figcaption>
-                    <span>Figure 21: A redesigned state model diagram where the background shapes have been desaturated and the black outline strokes </span>
+                    <span>Figure 22: A redesigned state model diagram where the background shapes have been desaturated and the black outline strokes </span>
                     <span>have been removed. The disabled states (i.e., Completing and Complete) have been redesigned to accommodate the desaturated background color. </span>
                     <span>The diagram is no less functional and includes fewer visual artifacts competing for the viewer's attention. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0075] Continuing the application of the data-ink-ratio concept, Figure 22 shows the result of removing the solid borders surrounding </span>
+                <span>[0075] Continuing the application of the data-ink-ratio concept, Figure 23 shows the result of removing the solid borders surrounding </span>
                 <span>the individual state elements. Additionally, the redesign increases the brightness of the state transition arrows from solid black to grey to reduce the </span>
                 <span>visual impact they introduce. The typeface has been replaced with a more condensed design where less horizontal space is required to display each label. </span>
                 <span>Finally, the size of the inactive state labels has been reduced &ndash; from 10pt to 8pt &ndash; leaving the active state more visually dominant within the display. </span>
@@ -1148,44 +1187,44 @@
             <figure>
                 <img id="packml_state_model_level4" src="images/packml_diagram_level4.png" />
                 <figcaption>
-                    <span>Figure 22: The data-ink-ratio is improved in this redesign where a) the individual state borders are removed, b) color of the transition arrows are </span>
+                    <span>Figure 23: The data-ink-ratio is improved in this redesign where a) the individual state borders are removed, b) color of the transition arrows are </span>
                     <span>brightened, c) a more condensed typeface is used, d) the color of the state labels are brightened, and e) the size of the inactive state labels are reduced. </span>
                 </figcaption>
             </figure>
             <p>
                 <span>[0076] One final modification to the original design brings the display in better alignment with the previously defined stack light specification. </span>
                 <span>By replacing the original blue highlight of the Execute state with a green highlight the state diagram matches the color scheme of the light stack. </span>
-                <span>Carrying the concept further by updating the color scheme of the other machine states produces the designs shown in Figure 23. </span>
+                <span>Carrying the concept further by updating the color scheme of the other machine states produces the designs shown in Figure 24. </span>
             </p>
             <figure>
                 <img id="packml_state_model_highlights" src="images/packml_diagram_highlights.png" />
                 <figcaption>
-                    <span>Figure 23: Highlighting the active states in colors aligned with the stack light standard provides consistency with aesthetic appeal. </span>
+                    <span>Figure 24: Highlighting the active states in colors aligned with the stack light standard provides consistency with aesthetic appeal. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0077] When selecting colors, it is often important to address accessibility concerns; specifically, accessibility for color blindness. Figure 24 demonstrates </span>
-                <span>the Figure 23 concepts as they would be seen by an operator with protanopia-type color blindness. Figure 25 demonstrates the equivalant for </span>
+                <span>[0077] When selecting colors, it is often important to address accessibility concerns; specifically, accessibility for color blindness. Figure 25 demonstrates </span>
+                <span>the Figure 24 concepts as they would be seen by an operator with protanopia-type color blindness. Figure 26 demonstrates the equivalant for </span>
                 <span>deuteranopia-type color blindness. </span>
             </p>
             <figure>
                 <img id="packml_state_model_highlights_p_type" src="images/p-type.png" />
                 <figcaption>
-                    <span>Figure 24: Active state colors as viewed by an operator with protanopia-type color blindness. </span>
+                    <span>Figure 25: Active state colors as viewed by an operator with protanopia-type color blindness. </span>
                 </figcaption>
             </figure>
             <p>
                 <span>[0078] In these diagrams, color has been applied merely as a mechanism to align with the stack light standard. Misinterpretation of colors </span>
                 <span>in this context is of little concern as only one state will be highlighted at a time. More care must be taken when misinterpretation of color </span>
                 <span>can cause a misunderstanding on the part of the operator. A carefully designed color palette will help ensure that color-blind operators </span>
-                <span>are accommodated. The examples in Figures 22 and 23 were generated using a special color-blindness filter available in Adobe Illustrator. </span>
+                <span>are accommodated. The examples in Figures 25 and 26 were generated using a special color-blindness filter available in Adobe Illustrator. </span>
                 <span>Such tools allow the designer to see how their interfaces will be perceived by color-blind operators. Employing dual-coding </span>
                 <span>(e.g., color plus text) is recommended in more complicated contexts.</span>
             </p>
             <figure>
                 <img id="packml_state_model_highlights_d_type" src="images/d-type.png" />
                 <figcaption>
-                    <span>Figure 25: Active state colors as viewed by an operator with deuteranopia-type color blindness. </span>
+                    <span>Figure 26: Active state colors as viewed by an operator with deuteranopia-type color blindness. </span>
                 </figcaption>
             </figure> 
             <h3 id="StateModelTypography">5.7 Typography</h3>
@@ -1210,12 +1249,12 @@
                 <span>using a fixed multiplier that builds each successive text size from the last. </span>
                 <span>The scale ensures that there is sufficient visual contrast between the display's effective </span>
                 <span>levels (e.g., machine state, data values, data labels) such that the underlying hierarchy is more easily interpretted. </span>
-                <span>Figure 26 presents some alternative typographic scales to help illustrate the concept. </span>
+                <span>Figure 27 presents some alternative typographic scales to help illustrate the concept. </span>
             </p>
             <figure>
                 <img id="typographic-scale" src="images/typographic-scale.png" />
                 <figcaption>
-                    <span>Figure 26: Smaller typographics scale offer less effective hierarchy in the display. Larger scales offer more contrast, but </span>
+                    <span>Figure 27: Smaller typographics scale offer less effective hierarchy in the display. Larger scales offer more contrast, but </span>
                     <span>are more difficult to accommodate on smaller screens or more densely populated displays. Utilizing color is an effective </span>
                     <span>alternative to produce hierarchy at smaller scales. </span>
                 </figcaption>
@@ -1240,12 +1279,12 @@
             <figure>
                 <img id="typeface-comparison" src="images/typeface-comparison.png" />
                 <figcaption>
-                    <span>Figure 27: The typeface used to display a given element impacts both the personality of the interface as well as the display's readability and </span>
+                    <span>Figure 28: The typeface used to display a given element impacts both the personality of the interface as well as the display's readability and </span>
                     <span>functional efficiency. A comparison of narrow, regular, light, and small caps fonts from the Arial and Halis typeface families is demonstrated here.  </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0084] Figure 27 illustrates some of the flexibility offered by various typefaces. While Arial Regular and Halis Rounded Book </span>
+                <span>[0084] Figure 28 illustrates some of the flexibility offered by various typefaces. While Arial Regular and Halis Rounded Book </span>
                 <span>offer similar personalities, variants like Arial Narrow help illustrate the functional benefits that some alternative fonts can afford. With a more compact </span>
                 <span>body, Arial Narrow requires less horizontal space to display equivalent content without sacrificing height and, therefore, legibility. </span>
                 <span>The demonstrated Halis fonts help illustrate the dynamic contrast afforded by light weight and small cap fonts. Light weight fonts are simply </span>
@@ -1254,37 +1293,195 @@
                 <span>offer another method for drawing extra attention to an element. While it is more difficult to read content that is capitalized, it will draw extra </span>
                 <span>attention from the viewer. Accordingly, caps and small caps should be avoided for longer text segments, but are appropriate for alarms and warnings. </span>
             </p>
+            <p>
+                <span>[0085] Figure 29 illustrates the differences between a true small caps font displaying the letters "Execute" and a normal font displaying the </span>
+                <span>characters "EXECUTE". The illustration shows the the small caps font produces a larger leading letter "E", while displaying smaller capital letters </span>
+                <span>for the remainder of the word. Contrasted with the fully capitalized "EXECUTE" rendered in the normal font, we see that the more horizontal space is </span>
+                <span>used and that there is more space between the individual letters. The small caps font is specifically designed to provide a more aesthetically pleasing </span>
+                <span>rendering of the fully capitalized equipment. With less space between the letters, the small-caps version produces a visual that appears to be more fluid. </span>
+            </p>
             <figure>
                 <img id="small-caps" src="images/small-caps.png" />
                 <figcaption>
-                    <span>Figure 28: A small-caps typeface is designed to present capitalized letters efficiently. Comparing a fully capitalized EXECUTE string displayed </span>
+                    <span>Figure 29: A small-caps typeface is designed to present capitalized letters efficiently. Comparing a fully capitalized EXECUTE string displayed </span>
                     <span>in Halis Rounded Book against the Small Cap equivalent, we see that the Small Cap version is more efficient in horizontal space, and, arguably, </span>
                     <span>more aesthetically pleasing.</span>
                 </figcaption>
             </figure>
             <p>
                 <span>[0085] When longer runs of text are required, it is important to consider line spacing and line length. It is generally accepted that longer line </span>
-                <span>lengths slow down reading speed. Additionally, it is more difficult to read text where the distance between lines is too small. Figure 29 </span>
+                <span>lengths slow down reading speed. Additionally, it is more difficult to read text where the distance between lines is too small. Figure 30 </span>
                 <span>demonstrates the impact line height has on legibility. Utilizing the preferred 120% guideline produces a more readable body of text.</span>
             </p>
             <figure>
                 <img id="line-height" src="images/line-height.png" />
                 <figcaption>
-                    <span>Figure 29: The preferred line height is typically 120% of the associated font size. The pictured text utilizes an 18 pt font. The </span>
+                    <span>Figure 30: The preferred line height is typically 120% of the associated font size. The pictured text utilizes an 18 pt font. The </span>
                     <span>sample on the left utilizes a 15 pt line height, which is not effective for readability purposes. Whereas the sample on the right </span>
                     <span>features a 21.6 pt line height, which produces a far more legible body of text.</span>
                 </figcaption>
             </figure>
             <p>
                 <span>[0086] While efficient use of screen space is a lofty goal, it should not come at the expense of the operator. Poor legibility </span>
-                <span>will impair operator performance, particularly under stressful conditions. </span>
+                <span>will impair operator performance, particularly under stressful conditions. Accordingly, line height should be optimized </span>
+                <span>whenever the underlying design tools will accommodate such control. </span>
             </p>
         </div>    
         <div>
-            <h2>6. Navigation Design</h2>
+            <h2 id="Navigation">6. Navigation Design</h2>
             <hr class="black" />
-            <h3>6.1 Scope</h3>
-            <p>...</p>
+            <h3 id="NavigationScope">6.1 Scope</h3>
+            <p>
+                <span>[0087] While the previous section's guidance on PackML State Model diagrams constitutes a valuable step forward, the guidelines </span>
+                <span>related to navigation design will likely offer far more benefit to the average operator. Understandably, </span>
+                <span>given the vast array of facilities contained in a typical HMI, establishing an appropriate </span>
+                <span>scope for a navigation template was the first necessary milestone in the standardization process. As noted previously, there are an unlimited number of viable </span>
+                <span>design alternatives to choose from. Moreover, no single design template will ever offer the perfect interface for all operators. In an </span>
+                <span>effort to solidify a reasonable scope for the effort, the HMI working group organized a usability study to compare a set of existing design concepts, </span>
+                <span>each of which organized screen content in a unique and intriguing manner. From the earliest stages of the standard-development effort, </span>
+                <span>agreement existed on the appropriate depth for standardization. It was argued that the scope of the standardization effort should be limited to </span>
+                <span>the small intersection of operator-interface components that are most commonly encountered on production equipment. The usability study and  </span>
+                <span>subsequent review by the committee left the originally identified scope largely unchanged.</span>
+            </p>            
+            <p>
+                <span>[0088] Returning to the original goals of the broader standardization effort, the key objectives centered around the efficiency and effectiveness of line </span>
+                <span>operators. Enabling an operator to move from one machine to the next with minimal effort signified the ideal benefit of a standard HMI template. </span>
+                <span>In this context, learnability, memorability, and efficiency are the key usability characteristics that must drive the template's design. </span>
+                <span>Learnability will surely be improved by a navigation system that: a) follows expected conventions (i.e., externally consistent), b) offers a consistent implementation from machine to machine (i.e., internally consistent), </span>
+                <span>c) effectively highlights the current navigation context, and d) ensures the operator feels they are in control of the navigation process. </span>
+            </p>            
+            <p>
+                <span>[0089] More specifically, the guidance will: a) establish standard navigation elements, b) specify standard alignment and orientation patterns for the navigation </span>
+                <span>subsystem, and c) establish a set of standard screen elements that are unrelated to task of navigation. The standard screen elements and associated orientation patterns </span>
+                <span>represent the findings of the usability study that compared the competing designs and alternatives in question. In some cases, the study helped </span>
+                <span>solidify long held conventions that already exist as standard practice in production HMIs. In other cases, the study demonstrated that no quantifiable benefit </span>
+                <span>existed between the competing designs. In these cases, the resulting standard leaves the decision to the designer. Establishing a standard without </span>
+                <span>compelling evidence or standard practice could not be justified. </span>
+            </p>
+            <p>
+                <span>[0090] As noted previously, operators will realize the most benefit from an HMI template that allows them to move from machine to machine without the need </span>
+                <span>for extensive retraining. Accordingly, the primary focus of the standard template is the navigation system; the roadmap to the facilities within </span>
+                <span>the interface. </span>
+            </p>
+            <h3 id="NavigationStandard">6.2 Standard Implementation</h3>
+            <p>
+                <span>[0091] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 31, presents an array </span>
+                <span>of primary navigation elements spread horizontally along the lower edge of the HMI. The primary navigation elements represent the </span>
+                <span>seven required navigation contexts: a) Home, b) Products, c) Statistics, d) Alarms, e) Manual, f) Settings, and g) Diagnostics. </span>
+                <span>A more detailed description and example content for each of these contexts is provided in Table 3. Each of the primary navigation elements </span>
+                <span>presents a standard icon representing the associated context. With this pattern, navigation is initiated by selecting an element from the bottom of the display. </span>
+                <span>Subsequent navigation is then completed by choosing an element from the sub-menu presented along the left edge of the display. </span>
+            </p>
+            <figure>
+                <img id="navigation-horizontal" src="images/Navigation_Horizontal.png" />
+                <figcaption>
+                    <span>Figure 31: Basic template pattern where primary naviation elements are spread horizontally along the bottom of the HMI. </span> 
+                    <span>These primary elements consist of a standard icon-label pair for representing the associated navigation context. </span>
+                    <span>A text-only submenu, listing the different sections within each context, is presented along the left edge of the interface. </span>
+                    <span>Note that the actively-selected primary and secondary elements are presented with a higher level of contrast, which </span>
+                    <span>clearly highlights their active-selection state. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0092] The main alternative pattern presents the array of primary navigation elements spread vertically </span>
+                <span>along the left edge of the HMI. This pattern is demonstrated in Figure 32. As with the previous pattern, navigation is initiated by selecting  </span>
+                <span>one of the primary navigation elements positioned on the left edge of the screen. Subsequent navigation is initiated </span>
+                <span>by selecting one of the secondary-level navigation links presented along the top of the screen. </span>
+            </p>
+            <figure>
+                <img id="navigation-vertical" src="images/Navigation_Vertical.png" />
+                <figcaption>
+                    <span>Figure 32: Alternate template pattern where primary naviation elements are spread vertically along the left edge of the HMI. </span>
+                    <span>The secondary menu is presented along the top edge of the interface.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0093] The primary navigation elements represent the main conceptual groupings of content within production machines. The associated groupings </span>
+                <span>have been derived from standard practice within the production industry and accommodate the most commonly encountered </span>
+                <span>content in a manner that has been demonstrated  </span>
+            </p>
+            <p>
+                <span>[0094] The standard primary-navigation elements include the following contexts: a) Home, b) Products, c) Statistics, d) Alarms, e) Manual, f) Settings, and g) Diagnostics. </span>
+                <span>A description and example content for each of these contexts is provided in Table 3. </span>
+            </p>
+            <p>
+                <span>[0095] The Home context offers operators an high-level summary of the machine's operating status. This context will present the standard </span>
+                <span>PackML State Model, which was discussed in Section 5. Additionally, the Home context will offer a "Machine View", which displays summary </span>
+                <span>operating data (e.g., Throughput, Mean-Value Statistics), which may include a visual representation of the machine with component-specific data overlays as demonstrated in Figure 33. </span>                
+            </p>
+            <figure>
+                <img id="machine-view" src="images/machine_view.png" />
+                <figcaption>
+                    <span>Figure 33: Alternate template pattern where primary naviation elements are spread vertically along the left edge of the HMI. </span>
+                    <span>The secondary menu is presented along either the left edge of the interface.</span>
+                </figcaption>
+            </figure>
+            
+            <p>
+                <span>[0096] The Products context offers all facilities necessary to specify the production process for a specific product. </span>
+                <span>On a labeler, for example, the Products context would offer a series of durations necessary to properly apply the label on a specific product (e.g., Settle Time, Vacuum Delay).
+                <span>Settings that are applicable to all products (e.g., sensor positions) should be presented in the Settings context. </span>
+            </p>
+            <p>
+                <span>[0097] The term "Products" should be used unless a specific machine-specific term is appropriate. For example, on a palletizer, the </span>
+                <span>term Patterns is appropriate as it represents the actual production process. Other terms, specifically those inhereted from the process domain, </span>
+                <span>should not be used (e.g., Recipe, Article, Formats, Package). </span>
+            </p>
+            <table id="navigation-contexts">
+                <caption>Table 3: Navigation Contexts</caption>
+                <tr>
+                    <th>Context</th>
+                    <th>Icon</th>
+                    <th>Description</th>
+                    <th>Example Content</th>
+                </tr>
+                <tr>
+                    <td>Home</td>
+                    <td><img id="icon-home" src="images/Home.png" /></td>                    
+                    <td>Top-level interface displaying summary data for the machine.</td>
+                    <td>Equipment View, PackML State Model</td>
+                </tr>
+                <tr>
+                    <td>Products or Patterns</td>
+                    <td><img id="icon-products" src="images/Products.png" /></td>
+                    <td>Settings used to specify production process. Products is the preferred term, however, a machine-specific term like "Patterns" should be used when appropriate</td>
+                    <td>...</td>
+                </tr>
+                <tr>
+                    <td>Statistics</td>
+                    <td><img id="icon-statistics" src="images/Statistics.png" /></td>
+                    <td>General summary production statistics.</td>
+                    <td>Good/Bad Counts, Throughput (parts / min), OEE</td>
+                </tr>
+                <tr>
+                    <td>Alarms</td>
+                    <td><img id="icon-alarms" src="images/Alarms.png" /></td>
+                    <td>System alarms, warnings, and event displays.</td>
+                    <td>OMAC Code, Description, Timestamps (e.g., occurrence, acknowledge), Stop Reason, Category</td>
+                </tr>
+                <tr>
+                    <td>Manual</td>
+                    <td><img id="icon-manual" src="images/Manual.png" /></td>
+                    <td>Manual machine control interface.</td>
+                    <td>Jog, rotate, vacuum, tamp, beacon, label</td>
+                </tr>
+                <tr>
+                    <td>Settings</td>
+                    <td><img id="icon-settings" src="images/Settings.png" /></td>
+                    <td>Non-product, device-specific, machine settings.</td>
+                    <td>Sensor positions, encoder ratios, IP addresses</td>
+                </tr>
+                <tr>
+                    <td>Diagnostics</td>
+                    <td><img id="icon-diagnostics" src="images/Diagnostics.png" /></td>
+                    <td>Non-product, device-specific, machine settings.</td>
+                    <td>Sensor positions, encoder ratios, IP addresses</td>
+                </tr>
+            </table>            
+            <p>
+                <span>[0098] The Statistics context presents descriptive statistics that demonstrate the machine's production process. This context </span>
+                <span>accommodates basic production statistics like Good Counts, Bad Counts, and Throughput, as well as standard PackML OEE statistics.</span>
+            </p>
         </div>
         <div>
             <h2>7. Design Evaluation</h2>
@@ -1410,6 +1607,7 @@
                     </td>
                     <td>01G</td>
                 </tr>
+                
                 <tr>
                     <td>2019-09-06</td>
                     <td>PST</td>
@@ -1426,11 +1624,23 @@
                     </td>
                     <td>01H</td>
                 </tr>
+                <tr>
+                    <td>2020-01-02</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Initial navigation design content.</li>
+                        </ul>
+                    </td>
+                    <td>                        
+                    </td>
+                    <td>01J</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer>PackML HMI Implementation Guide Draft 01H</footer>
+    <footer>PackML HMI Implementation Guide Draft 01J</footer>
 </body>
 
 </html>
