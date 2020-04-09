@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01J</title>
+    <title>PackML HMI Implementation Guidance Draft 01K</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -1332,40 +1332,113 @@
             <hr class="black" />
             <h3 id="NavigationScope">6.1 Scope</h3>
             <p>
-                <span>[0087] While the previous section's guidance on PackML State Model diagrams constitutes a valuable step forward, the guidelines </span>
-                <span>related to navigation design will likely offer far more benefit to the average operator. Understandably, </span>
-                <span>given the vast array of facilities contained in a typical HMI, establishing an appropriate </span>
-                <span>scope for a navigation template was the first necessary milestone in the standardization process. As noted previously, there are an unlimited number of viable </span>
-                <span>design alternatives to choose from. Moreover, no single design template will ever offer the perfect interface for all operators. In an </span>
-                <span>effort to solidify a reasonable scope for the effort, the HMI working group organized a usability study to compare a set of existing design concepts, </span>
-                <span>each of which organized screen content in a unique and intriguing manner. From the earliest stages of the standard-development effort, </span>
-                <span>agreement existed on the appropriate depth for standardization. It was argued that the scope of the standardization effort should be limited to </span>
-                <span>the small intersection of operator-interface components that are most commonly encountered on production equipment. The usability study and  </span>
-                <span>subsequent review by the committee left the originally identified scope largely unchanged.</span>
-            </p>            
-            <p>
-                <span>[0088] Returning to the original goals of the broader standardization effort, the key objectives centered around the efficiency and effectiveness of line </span>
-                <span>operators. Enabling an operator to move from one machine to the next with minimal effort signified the ideal benefit of a standard HMI template. </span>
-                <span>In this context, learnability, memorability, and efficiency are the key usability characteristics that must drive the template's design. </span>
-                <span>Learnability will surely be improved by a navigation system that: a) follows expected conventions (i.e., externally consistent), b) offers a consistent implementation from machine to machine (i.e., internally consistent), </span>
-                <span>c) effectively highlights the current navigation context, and d) ensures the operator feels they are in control of the navigation process. </span>
-            </p>            
-            <p>
-                <span>[0089] More specifically, the guidance will: a) establish standard navigation elements, b) specify standard alignment and orientation patterns for the navigation </span>
-                <span>subsystem, and c) establish a set of standard screen elements that are unrelated to task of navigation. The standard screen elements and associated orientation patterns </span>
-                <span>represent the findings of the usability study that compared the competing designs and alternatives in question. In some cases, the study helped </span>
-                <span>solidify long held conventions that already exist as standard practice in production HMIs. In other cases, the study demonstrated that no quantifiable benefit </span>
-                <span>existed between the competing designs. In these cases, the resulting standard leaves the decision to the designer. Establishing a standard without </span>
-                <span>compelling evidence or standard practice could not be justified. </span>
+                <span>[0087] For most production operators, time spent manipulating an HMI is time wasted. Engineers that </span>
+                <span>design machine interfaces have an important responsibility to ensure that their operators perform </span>
+                <spam>effectively. If an operator is not effective when utilizing a designer's interface, it is the </span>
+                <span>designer who has failed, not the operator. In an effort to increase the likelihood of success for </span> 
+                <span>our fellow designers, this section offers a standard graphical interface template tailored </span>
+                <span>specifically for use in production environments. Isolated machine-level testing has demonstrated </span>
+                <span>that the following guidelines offer measurable usability benefits, with further improvements expected </span>
+                <span>when the practices are applied across full production lines. </span>
             </p>
             <p>
-                <span>[0090] As noted previously, operators will realize the most benefit from an HMI template that allows them to move from machine to machine without the need </span>
-                <span>for extensive retraining. Accordingly, the primary focus of the standard template is the navigation system; the roadmap to the facilities within </span>
-                <span>the interface. </span>
+                <span>[0088] Understandably, given the vast array of facilities in a typical interface, </span>
+                <span>establishing an appropriate scope for this section of the standard was the first critical milestone. </span>
+                <span>When compared to the relatively finite number of possible variations available in </span>
+                <span>the stacklight standard &ndash; where machine state is succinctly represented with nothing more than color, </span> 
+                <span>position, and frequency &ndash; the main graphical interface on a production machine offers a more limitless landscape for </span>
+                <span>competing design alternatives. Unfortunately, this flexibility often leads to haphazard designs where minimal </span>
+                <span>consistency exists between machines. In many ways, the less complicated, yet more rigid, stacklight standard illustrates </span>
+                <span>the ideal scope for use here in the graphical interface section. </span>
+            </p>
+            <p>
+                <span>[0089] Considering the situational awareness model once again, we are reminded that an effective interface </span>
+                <span>a) communicates the state of the world, b) affords insight into future conditions, and c) aids the </span>
+                <span>operator's decision making process. The PackML stacklight offers situational awareness with incredible efficiency. </span>
+                <span>A single flashing blue lamp, for example, is all that is needed to inform a remote line operator that 
+                <span>an internal machine issue must be addressed. Ironically, it is the stacklight's inherent constraints </span>
+                <span>that facilitate this situational awareness in such a usable manner. </span>
+                <span>Despite the obvious limitations, a PackML stacklight is effectively a 4-pixel display, where: </span>
+                <ul class="points">
+                    <li>Each pixel has a fixed color; the blue pixel can only every be blue, and no other pixel may ever use that same color.</li>
+                    <li>The pixels are aligned vertically so that their orientation is the same regardless of the operator's viewing angle.</li>
+                    <li>Each pixel has a precise meaning that, once defined, does not change.</li>
+                </ul>
+            </p>
+            <p>
+                <span>These limitations and the resulting consistency are paramount to the stacklight's effectiveness. </span>                
+            </p>
+            <p>    
+                <span>[0090] Carrying the analogy to the opposite extreme, the HMI terminal is nothing more than </span>
+                <span>than a 2-dimensional stacklight; it is reasonable to argue that the same benefits should be easily achieved. </span>
+                <span>Unfortunately, the potential for chaos is far greater in the graphical domain. </span>
+                <span>Whereas the stacklight's physical design provides natural hierarchy and content alignment, </span>
+                <span>the graphical interface demands no such structure. Pixels are easily combined to form shapes </span>
+                <span>and words that are arbitrarily sized and positioned on the display. These pixels quickly become </span>
+                <span>rare commodities; there is always more content, never enough space. </span>
+                <span>Content is then squeezed in here, crammed in there. Accordingly, a survey of machine </span>
+                <span>interfaces in a typical production line will likely show little or no consistency in </span>
+                <span>either content or alignment. Worse still, in a graphical inteface, the </span>
+                <span>content and alignment may very well change dynamically as the operator interacts with the screen. </span>
+                <span>The HMI working group began their effort with these challenges in mind.</span>
+            </p>
+            <p>
+                <span>[0091] From the earliest stages of the standardization effort, agreement existed that the graphical-interface </span>
+                <span>portion of the PackML HMI standard would need to be narrowly focused. It was argued that </span>
+                <span>the scope should be limited to the small intersection of operator-interface components that are </span>
+                <span>most commonly encountered on production equipment; expanding standardization beyond this </span>
+                <span>boundary would artificially limit designers and inhibit innovation. Moreover, since no single design </span>
+                <span>will ever offer the perfect interface for all operators, the HMI working group decided to avoid a ground-up design effort </span>
+                <span>and chose, instead, to consider the merits of a select set of existing design alternatives; each </span>
+                <span>either currently in use or proposed for use in a production line.</span>
+            </p>
+            <p>
+                <span>[0092] In an effort to quantify the effectiveness of these sample interfaces, </span>
+                <span>the group conducted a formal usability study, which aimed to produce an unbiased </span>
+                <span>evaluation of the respective systems. The study presented participants with a </span>
+                <span>collection of interfaces, each of which organized screen content in a unique </span>
+                <span>and intriguing manner. Participants were challenged to demonstrate basic situational </span>
+                <span>awareness by reporting system information available within each interface. </span>
+                <span>Following these exercises, participants offered qualitative feedback on the respective designs, noting </span>
+                <span>general preferences and providing comments on perceived usability. The study results and subsequent </span>
+                <span>review by the committee left the originally expressed opinions on scope largely unchanged. </span>
+                <span>While the standard HMI template would have a relatively limited scope, a supplementary collection </span>
+                <span>of design guidelines would be provided to help designers produce more effective interfaces </span>
+                <span>without inhibiting innovation.</span>
+            </p>            
+            <p>
+                <span>[0093] Returning to the high-level HMI standardization goals &ndash; where </span>
+                <span>the efficiency and effectiveness of line operators is the overarching priority &ndash; </span>
+                <span>the effective transition from one interface to the next </span>
+                <span>represents the primary benefit of the HMI template. This objective suggests </span>
+                <span>that learnability, memorability, and efficiency are the key usability characteristics </span>
+                <span>driving the template's design. Accordingly, it is reasonable to argue that the ideal </span>
+                <span>template: a) follows expected conventions, b) maximizes consistency between machines, </span>
+                <span>and c) ensures the operator feels they are in control. Given these criteria, the  </span>
+                <span>standard PackML HMI template: </span>                
+            </p>
+            <ul class="points">
+                <li>establishes a set of standard navigation elements</li>
+                <li>specifies standard alignment and orientation patterns for these elements</li>
+                <li>defines the auxiliary content operators rely on to make decisions in a production</li>
+            </ul>
+            <p>
+                <span>[0094] The standard navigation elements represent the most frequently encountered </span>
+                <span>menus and content groups found in production equipment. Following the best practices illustrated by the analysis of the stacklight </span>
+                <span>design, each element is assigned a fixed position in the HMI's menu along with a </span>
+                <span>standard name and icon representing the associated context. The template's alignment and </span>
+                <span>orientation patterns are derived from the key findings of the usability study, which offered evidence  </span>
+                <span>supporting established interface conventions from existing production HMIs. </span>
+                <span>Concurrently, the study demonstrated that conventions employed in commercial products </span>
+                <span>(e.g., mobile phones and tablets) do not map well to the production domain and should be avoided. </span>
+            </p>
+            <p>
+                <span>[0095] With this scope established, the following sections will outline the specific components of the standard HMI template </span>
+                <span>as well as general guidance related to graphical interface design in production devices.</span>
             </p>
             <h3 id="NavigationStandard">6.2 Standard Implementation</h3>
             <p>
-                <span>[0091] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 31, presents an array </span>
+                <span>[0096] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 31, presents an array </span>
                 <span>of primary navigation elements spread horizontally along the lower edge of the HMI. The primary navigation elements represent the </span>
                 <span>seven required navigation contexts: a) Home, b) Products, c) Statistics, d) Alarms, e) Manual, f) Settings, and g) Diagnostics. </span>
                 <span>A more detailed description and example content for each of these contexts is provided in Table 3. Each of the primary navigation elements </span>
@@ -1383,7 +1456,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0092] The main alternative pattern presents the array of primary navigation elements spread vertically </span>
+                <span>[0097] The main alternative pattern presents the array of primary navigation elements spread vertically </span>
                 <span>along the left edge of the HMI. This pattern is demonstrated in Figure 32. As with the previous pattern, navigation is initiated by selecting  </span>
                 <span>one of the primary navigation elements positioned on the left edge of the screen. Subsequent navigation is initiated </span>
                 <span>by selecting one of the secondary-level navigation links presented along the top of the screen. </span>
@@ -1396,16 +1469,16 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0093] The primary navigation elements represent the main conceptual groupings of content within production machines. The associated groupings </span>
+                <span>[0098] The primary navigation elements represent the main conceptual groupings of content within production machines. The associated groupings </span>
                 <span>have been derived from standard practice within the production industry and accommodate the most commonly encountered </span>
                 <span>content in a manner that has been demonstrated  </span>
             </p>
             <p>
-                <span>[0094] The standard primary-navigation elements include the following contexts: a) Home, b) Products, c) Statistics, d) Alarms, e) Manual, f) Settings, and g) Diagnostics. </span>
+                <span>[0099] The standard primary-navigation elements include the following contexts: a) Home, b) Products, c) Statistics, d) Alarms, e) Manual, f) Settings, and g) Diagnostics. </span>
                 <span>A description and example content for each of these contexts is provided in Table 3. </span>
             </p>
             <p>
-                <span>[0095] The Home context offers operators an high-level summary of the machine's operating status. This context will present the standard </span>
+                <span>[0100] The Home context offers operators an high-level summary of the machine's operating status. This context will present the standard </span>
                 <span>PackML State Model, which was discussed in Section 5. Additionally, the Home context will offer a "Machine View", which displays summary </span>
                 <span>operating data (e.g., Throughput, Mean-Value Statistics), which may include a visual representation of the machine with component-specific data overlays as demonstrated in Figure 33. </span>                
             </p>
@@ -1418,12 +1491,12 @@
             </figure>
             
             <p>
-                <span>[0096] The Products context offers all facilities necessary to specify the production process for a specific product. </span>
+                <span>[0101] The Products context offers all facilities necessary to specify the production process for a specific product. </span>
                 <span>On a labeler, for example, the Products context would offer a series of durations necessary to properly apply the label on a specific product (e.g., Settle Time, Vacuum Delay).
                 <span>Settings that are applicable to all products (e.g., sensor positions) should be presented in the Settings context. </span>
             </p>
             <p>
-                <span>[0097] The term "Products" should be used unless a specific machine-specific term is appropriate. For example, on a palletizer, the </span>
+                <span>[0102] The term "Products" should be used unless a specific machine-specific term is appropriate. For example, on a palletizer, the </span>
                 <span>term Patterns is appropriate as it represents the actual production process. Other terms, specifically those inhereted from the process domain, </span>
                 <span>should not be used (e.g., Recipe, Article, Formats, Package). </span>
             </p>
@@ -1636,11 +1709,23 @@
                     </td>
                     <td>01J</td>
                 </tr>
+                <tr>
+                        <td>2020-04-09</td>
+                        <td>PST</td>
+                        <td>
+                            <ul>
+                                <li>Revised scope for HMI template section.</li>
+                            </ul>
+                        </td>
+                        <td>                        
+                        </td>
+                        <td>01K</td>
+                    </tr>
             </table>
         </div>
     </div>
 
-    <footer>PackML HMI Implementation Guide Draft 01J</footer>
+    <footer>PackML HMI Implementation Guide Draft 01K</footer>
 </body>
 
 </html>
