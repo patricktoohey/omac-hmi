@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01K</title>
+    <title>PackML HMI Implementation Guidance Draft 01L</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -93,7 +93,27 @@
                     <ul>
                         <li><a href="#NavigationScope">6.1 Scope</a></li>
                         <li><a href="#NavigationStandard">6.2 Standard Implementation</a></li>
+                        <ul>
+                            <li><a href="#NavigationStandardContexts">6.2.1 Navigation Contexts</a></li>
+                            <li><a href="#NavigationStandardLayouts">6.2.2 Screen Layout</a></li>
+                            <li><a href="#NavigationStandardSupplements">6.2.3 Supplementary Content</a></li>
+                        </ul>
+                        
                     </ul>
+                </li>
+                <li>
+                    <a href="#Design" class="section">7. Design Evaluation</a>
+                    <ul>
+                        <li><a href="#NavigationScope">7.1 Critique</a></li>
+                        <li><a href="#NavigationStandard">7.2 Heuristic Evaluation</a></li> 
+                        <li><a href="#NavigationStandard">7.3 Usability Testing</a></li>                       
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Reference" class="section">8. Reference</a>
+                </li>
+                <li>
+                    <a href="#Versions" class="section">9. Version History</a>
                 </li>
             </ul>
         </div>
@@ -1346,8 +1366,8 @@
                 <span>establishing an appropriate scope for this section of the standard was the first critical milestone. </span>
                 <span>When compared to the relatively finite number of possible variations available in </span>
                 <span>the stacklight standard &ndash; where machine state is succinctly represented with nothing more than color, </span> 
-                <span>position, and frequency &ndash; the main graphical interface on a production machine offers a more limitless landscape for </span>
-                <span>competing design alternatives. Unfortunately, this flexibility often leads to haphazard designs where minimal </span>
+                <span>position, and frequency &ndash; the main graphical interface on a production machine offers a wider landscape for </span>
+                <span>competing design alternatives. Unfortunately, this flexibility often leads to haphazard designs where little to no </span>
                 <span>consistency exists between machines. In many ways, the less complicated, yet more rigid, stacklight standard illustrates </span>
                 <span>the ideal scope for use here in the graphical interface section. </span>
             </p>
@@ -1370,7 +1390,7 @@
             </p>
             <p>    
                 <span>[0090] Carrying the analogy to the opposite extreme, the HMI terminal is nothing more than </span>
-                <span>than a 2-dimensional stacklight; it is reasonable to argue that the same benefits should be easily achieved. </span>
+                <span>a 2-dimensional stacklight; it is reasonable to argue that the same benefits should be easily achieved. </span>
                 <span>Unfortunately, the potential for chaos is far greater in the graphical domain. </span>
                 <span>Whereas the stacklight's physical design provides natural hierarchy and content alignment, </span>
                 <span>the graphical interface demands no such structure. Pixels are easily combined to form shapes </span>
@@ -1389,7 +1409,7 @@
                 <span>most commonly encountered on production equipment; expanding standardization beyond this </span>
                 <span>boundary would artificially limit designers and inhibit innovation. Moreover, since no single design </span>
                 <span>will ever offer the perfect interface for all operators, the HMI working group decided to avoid a ground-up design effort </span>
-                <span>and chose, instead, to consider the merits of a select set of existing design alternatives; each </span>
+                <span>and chose, instead, to consider the merits of a selected set of existing design alternatives; each </span>
                 <span>either currently in use or proposed for use in a production line.</span>
             </p>
             <p>
@@ -1438,67 +1458,20 @@
             </p>
             <h3 id="NavigationStandard">6.2 Standard Implementation</h3>
             <p>
-                <span>[0096] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 31, presents an array </span>
-                <span>of primary navigation elements spread horizontally along the lower edge of the HMI. The primary navigation elements represent the </span>
-                <span>seven required navigation contexts: a) Home, b) Products, c) Statistics, d) Alarms, e) Manual, f) Settings, and g) Diagnostics. </span>
-                <span>A more detailed description and example content for each of these contexts is provided in Table 3. Each of the primary navigation elements </span>
-                <span>presents a standard icon representing the associated context. With this pattern, navigation is initiated by selecting an element from the bottom of the display. </span>
-                <span>Subsequent navigation is then completed by choosing an element from the sub-menu presented along the left edge of the display. </span>
+                <span>[0096] The PackML HMI navigation standard includes: 1) a collection of standard navigation contexts including appropriate icons and labels, </span>
+                <span>2) a pair of standard layout options for positioning of screen elements, and 3) a collection of common, yet optional, supplementary content. </span>
+                <span>These standard HMI components offer the consistency operators need to move efficiently from machine to machine. </span>
             </p>
-            <figure>
-                <img id="navigation-horizontal" src="images/Navigation_Horizontal.png" />
-                <figcaption>
-                    <span>Figure 31: Basic template pattern where primary naviation elements are spread horizontally along the bottom of the HMI. </span> 
-                    <span>These primary elements consist of a standard icon-label pair for representing the associated navigation context. </span>
-                    <span>A text-only submenu, listing the different sections within each context, is presented along the left edge of the interface. </span>
-                    <span>Note that the actively-selected primary and secondary elements are presented with a higher level of contrast, which </span>
-                    <span>clearly highlights their active-selection state. </span>
-                </figcaption>
-            </figure>
+            <h3 id="NavigationStandardContexts">6.2.1 Navigation Contexts</h3>
             <p>
-                <span>[0097] The main alternative pattern presents the array of primary navigation elements spread vertically </span>
-                <span>along the left edge of the HMI. This pattern is demonstrated in Figure 32. As with the previous pattern, navigation is initiated by selecting  </span>
-                <span>one of the primary navigation elements positioned on the left edge of the screen. Subsequent navigation is initiated </span>
-                <span>by selecting one of the secondary-level navigation links presented along the top of the screen. </span>
-            </p>
-            <figure>
-                <img id="navigation-vertical" src="images/Navigation_Vertical.png" />
-                <figcaption>
-                    <span>Figure 32: Alternate template pattern where primary naviation elements are spread vertically along the left edge of the HMI. </span>
-                    <span>The secondary menu is presented along the top edge of the interface.</span>
-                </figcaption>
-            </figure>
-            <p>
-                <span>[0098] The primary navigation elements represent the main conceptual groupings of content within production machines. The associated groupings </span>
-                <span>have been derived from standard practice within the production industry and accommodate the most commonly encountered </span>
-                <span>content in a manner that has been demonstrated  </span>
-            </p>
-            <p>
-                <span>[0099] The standard primary-navigation elements include the following contexts: a) Home, b) Products, c) Statistics, d) Alarms, e) Manual, f) Settings, and g) Diagnostics. </span>
-                <span>A description and example content for each of these contexts is provided in Table 3. </span>
-            </p>
-            <p>
-                <span>[0100] The Home context offers operators an high-level summary of the machine's operating status. This context will present the standard </span>
-                <span>PackML State Model, which was discussed in Section 5. Additionally, the Home context will offer a "Machine View", which displays summary </span>
-                <span>operating data (e.g., Throughput, Mean-Value Statistics), which may include a visual representation of the machine with component-specific data overlays as demonstrated in Figure 33. </span>                
-            </p>
-            <figure>
-                <img id="machine-view" src="images/machine_view.png" />
-                <figcaption>
-                    <span>Figure 33: Alternate template pattern where primary naviation elements are spread vertically along the left edge of the HMI. </span>
-                    <span>The secondary menu is presented along either the left edge of the interface.</span>
-                </figcaption>
-            </figure>
-            
-            <p>
-                <span>[0101] The Products context offers all facilities necessary to specify the production process for a specific product. </span>
-                <span>On a labeler, for example, the Products context would offer a series of durations necessary to properly apply the label on a specific product (e.g., Settle Time, Vacuum Delay).
-                <span>Settings that are applicable to all products (e.g., sensor positions) should be presented in the Settings context. </span>
-            </p>
-            <p>
-                <span>[0102] The term "Products" should be used unless a specific machine-specific term is appropriate. For example, on a palletizer, the </span>
-                <span>term Patterns is appropriate as it represents the actual production process. Other terms, specifically those inhereted from the process domain, </span>
-                <span>should not be used (e.g., Recipe, Article, Formats, Package). </span>
+                <span>[0097] The standard PackML navigation template includes seven primary navigation contexts: </span>
+                <span>a) Home, b) Products, c) Statistics, d) Alarms, e) Manual, f) Settings, and g) Diagnostics. </span>
+                <span>These contexts represent the main conceptual groupings of content within production machines. </span>
+                <span>The associated groupings have been derived from standard practice, accommodating the most commonly encountered production-industry content. </span>
+                <span>Each context is presented on the display with a standard icon representing the associated context. </span>
+                <span>A detailed description and example content for each of these contexts is provided in Table 3. </span>
+                <span>Navigation is initiated by selecting one of these elements on the display. </span>
+                <span>Subsequent navigation is then completed by choosing an element from the provided sub-menu. </span>
             </p>
             <table id="navigation-contexts">
                 <caption>Table 3: Navigation Contexts</caption>
@@ -1518,7 +1491,7 @@
                     <td>Products or Patterns</td>
                     <td><img id="icon-products" src="images/Products.png" /></td>
                     <td>Settings used to specify production process. Products is the preferred term, however, a machine-specific term like "Patterns" should be used when appropriate</td>
-                    <td>...</td>
+                    <td>Product name, dimensions, product-specific machine settings.</td>
                 </tr>
                 <tr>
                     <td>Statistics</td>
@@ -1547,14 +1520,81 @@
                 <tr>
                     <td>Diagnostics</td>
                     <td><img id="icon-diagnostics" src="images/Diagnostics.png" /></td>
-                    <td>Non-product, device-specific, machine settings.</td>
-                    <td>Sensor positions, encoder ratios, IP addresses</td>
+                    <td>Troubleshooting tools and configuration aids.</td>
+                    <td>Component status, digital I/O, drive diagnostics, low-level logs.</td>
                 </tr>
-            </table>            
+            </table>
             <p>
-                <span>[0098] The Statistics context presents descriptive statistics that demonstrate the machine's production process. This context </span>
-                <span>accommodates basic production statistics like Good Counts, Bad Counts, and Throughput, as well as standard PackML OEE statistics.</span>
+                <span>[0097] The <b>Home</b> context offers operators an high-level summary of the machine's operating status. This context will present the standard </span>
+                <span>PackML State Model, which was discussed in Section 5. Additionally, the Home context will offer a "Machine View", which displays summary </span>
+                <span>operating data (e.g., Throughput, Mean-Value Statistics), which may include a visual representation of the machine with component-specific data overlays as demonstrated in Figure 33. </span>                
             </p>
+            <p>
+                <span>[0098] The <b>Products</b> context offers all facilities necessary to specify the production process for a specific product. </span>
+                <span>On a labeler, for example, the Products context would offer a series of durations necessary to properly apply the label on a specific product (e.g., Settle Time, Vacuum Delay).
+                <span>Settings that are applicable to all products (e.g., sensor positions) should be presented in the Settings context. </span>
+            </p>
+            <p>
+                <span>[0099] The term "Products" should be used unless a machine-specific term is appropriate. For example, on a palletizer, the </span>
+                <span>term Patterns is appropriate as it represents the actual production process. Other terms, specifically those inhereted from the process domain (e.g., Recipe, Article, Formats, Package), </span>
+                <span>should not be used. </span>
+            </p>                        
+            <p>
+                <span>[0100] The <b>Statistics</b> section presents descriptive statistics that demonstrate the machine's production process. This context </span>
+                <span>accommodates basic production statistics like Good Counts, Bad Counts, and Throughput, as well as standard PackML OEE statistics. </span>
+                <span>While the Home context may offer one or two pieces of aggregate data, the remaining statistical content should be contained in the Statistics context.</span>
+            </p>
+            <p>
+                <span>[0101] The <b>Alarms</b> context displays all machine alarms, warnings, and events. While this standard does not offer specific requirements for these displays, </span>
+                <span>the guidance section will offer some example content. </span>
+            </p>
+            <p>
+                <span>[0102] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations. These actions are often needed </span>
+                <span>when commissioning a machine or when performing maintenance or troubleshooting activities.</span>
+            </p>
+            <p>
+                <span>[0103] The <b>Settings</b> context contains all machine-level configuration (e.g., sensor positions, IP addresses). </span>
+            </p>
+            <p>
+                <span>[0104] The <b>Diagnostics</b> section offers facilities for monitoring and tuning individual components (e.g., digital I/O, drives). </span>
+            </p>
+            <h3 id="NavigationStandardLayouts">6.2.2 Screen Layout</h3>            
+            <p>
+                <span>[0105] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 31, presents the array </span>
+                <span>of primary navigation elements spread horizontally along the lower edge of the HMI. </span>
+            </p>
+            <figure>
+                <img id="navigation-horizontal" src="images/Navigation_Horizontal.png" />
+                <figcaption>
+                    <span>Figure 31: Basic template pattern where primary naviation elements are spread horizontally along the bottom of the HMI. </span> 
+                    <span>These primary elements consist of a standard icon-label pair for representing the associated navigation context. </span>
+                    <span>A text-only submenu, listing the different sections within each context, is presented along the left edge of the interface. </span>
+                    <span>Note that the actively-selected primary and secondary elements are presented with a higher level of contrast, which </span>
+                    <span>clearly highlights their active-selection state. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0106] The main alternative pattern presents the array of primary navigation elements spread vertically </span>
+                <span>along the left edge of the HMI. This pattern is demonstrated in Figure 32. As with the previous pattern, navigation is initiated by selecting  </span>
+                <span>one of the primary navigation elements positioned on the left edge of the screen. Subsequent navigation is initiated </span>
+                <span>by selecting one of the secondary-level navigation links presented along the top of the screen. </span>
+            </p>
+            <figure>
+                <img id="navigation-vertical" src="images/Navigation_Vertical.png" />
+                <figcaption>
+                    <span>Figure 32: Alternate template pattern where primary naviation elements are spread vertically along the left edge of the HMI. </span>
+                    <span>The secondary menu is presented along the top edge of the interface.</span>
+                </figcaption>
+            </figure>
+            
+            <figure>
+                <img id="machine-view" src="images/machine_view.png" />
+                <figcaption>
+                    <span>Figure 33: Machine View example.</span>
+                </figcaption>
+            </figure>
+            <h3 id="NavigationStandardSupplements">6.2.3 Supplementary Content</h3>
+            <h3 id="NavigationGuidance">6.3 Guidance</h3>
         </div>
         <div>
             <h2>7. Design Evaluation</h2>
@@ -1580,7 +1620,7 @@
             <h2>9. Version History</h2>
             <hr class="black" />
             <table id="version-log">
-                <caption>Table 3: Version Log</caption>
+                <caption>Table 4: Version Log</caption>
                 <tr class="grey">
                     <th width="20%">Date<br>[YYYY-MM-DD]</th>
                     <th>Initials</th>
@@ -1679,20 +1719,19 @@
                         </ul>
                     </td>
                     <td>01G</td>
-                </tr>
-                
+                </tr>                
                 <tr>
                     <td>2019-09-06</td>
                     <td>PST</td>
                     <td>
                         <ul>
                             <li>Revised PackML State Model content; added color design guidance and typography discussion.</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <span>Readability improvements. </span>
-                        <ul>
-                            <li class="contributor">Omar Cordovani, Siemens</li>
+                            <li>
+                                <span>Readability improvements. </span>
+                                <ul>
+                                    <li class="contributor">Omar Cordovani, Siemens</li>
+                                </ul>
+                            </li>
                         </ul>
                     </td>
                     <td>01H</td>
@@ -1705,27 +1744,34 @@
                             <li>Initial navigation design content.</li>
                         </ul>
                     </td>
-                    <td>                        
-                    </td>
                     <td>01J</td>
                 </tr>
                 <tr>
-                        <td>2020-04-09</td>
-                        <td>PST</td>
-                        <td>
-                            <ul>
-                                <li>Revised scope for HMI template section.</li>
-                            </ul>
-                        </td>
-                        <td>                        
-                        </td>
-                        <td>01K</td>
-                    </tr>
+                    <td>2020-04-09</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Revised scope for HMI template section.</li>
+                        </ul>
+                    </td>
+                    <td>01K</td>
+                </tr>
+                <tr>
+                    <td>2020-05-06</td>
+                    <td>PST</td>
+                    <td>
+                        <span>Readability improvements. </span>
+                        <ul>
+                            <li class="contributor">Omar Cordovani, Siemens</li>
+                        </ul>
+                    </td>
+                    <td>01L</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer>PackML HMI Implementation Guide Draft 01K</footer>
+    <footer>PackML HMI Implementation Guide Draft 01L</footer>
 </body>
 
 </html>
