@@ -26,6 +26,15 @@ a {
     }
 }
 
+footer a {
+    color: @omac-white;
+
+    &:hover {
+        color: @omac-white;
+        text-decoration: underline;
+    }
+}
+
 @page{
     size: auto;
     margin-right: 6mm !important;
@@ -187,6 +196,7 @@ h5 {
 
 #omac-logo {
     padding-top: 3em;
+    margin-left: 0;
 
     @media print {
         padding-top: 2em;
@@ -278,6 +288,10 @@ th, td {
     border: 1px solid @grey13;    
 } 
 
+td {
+    vertical-align: top;
+}
+
 th {
     padding: 1em;
     background-color: @omac-table-blue;
@@ -345,7 +359,11 @@ ul {
 }
 
 .subsection {
-    font-size: 1.5em;
+    font-size: 1.0em;
+}
+
+.subsubsection {
+    font-size: 0.8em;
 }
 
 .contributor li {
@@ -390,6 +408,9 @@ nav {
 img {
     max-width: 100%; 
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
     @media print {
         max-width: 100%; 

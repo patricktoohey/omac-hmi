@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="217.5947mm"
+   height="126.3913mm"
+   viewBox="0 0 217.59469 126.3913"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="C:\Users\toohey-1\Downloads\25_OMAC\repository\packml-hmi\images\ProductsExample.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="PackMLProductsScreen.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="335.60019"
+     inkscape:cy="234.13739"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1672"
+     inkscape:window-y="31"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="191.25594,16.991681"
+       orientation="0,1"
+       id="guide4708"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="233.2113,136.99912"
+       orientation="1,0"
+       id="guide4924"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(14.508333,-12.931642)"
+     style="display:inline">
+    <rect
+       style="display:inline;fill:#000000;stroke:none;stroke-width:0.28011435"
+       id="rect169-2"
+       width="216.40172"
+       height="125.18349"
+       x="-13.844528"
+       y="14.139451"
+       rx="1.5000715"
+       ry="1.6811879"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#ffffff;stroke:#999999;stroke-width:0.27983588"
+       id="rect169"
+       width="215.97116"
+       height="125.18377"
+       x="-14.228357"
+       y="13.211618"
+       rx="1.497087"
+       ry="1.6811916"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#e46d43;fill-opacity:1;stroke:none;stroke-width:0.88195527;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4922"
+       width="216.25131"
+       height="13.15911"
+       x="-14.368276"
+       y="13.0717"
+       rx="0.91799068"
+       ry="1.1851215"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g5078">
+      <rect
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         ry="1.5"
+         rx="1.5"
+         style="fill:#ffffff;stroke:#999999;stroke-width:0.30074492"
+         y="-13.169744"
+         x="-4.08565"
+         height="17.345646"
+         width="78.184395"
+         id="rect14-4" />
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         id="text12-9-24"
+         y="0.23959225"
+         x="1.0171607"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332"
+           y="0.23959225"
+           x="1.0171607"
+           id="tspan10-5-6"
+           sodipodi:role="line">100</tspan></text>
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         id="text12-9-2-77"
+         y="0.32055157"
+         x="16.136194"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332"
+           y="0.32055157"
+           x="16.136194"
+           id="tspan10-5-0-2"
+           sodipodi:role="line">ms</tspan></text>
+      <rect
+         ry="1.4999996"
+         rx="0.64077038"
+         y="-17.065554"
+         x="-0.35226843"
+         height="7.1815472"
+         width="27.403273"
+         id="rect4854-77"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.82897753;stroke-miterlimit:4;stroke-dasharray:none" />
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         id="text12-8"
+         y="-12.60333"
+         x="0.69828773"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332"
+           y="-12.60333"
+           x="0.69828773"
+           id="tspan10-6"
+           sodipodi:role="line">Label Settle Time</tspan></text>
+    </g>
+    <g
+       id="g4964-9"
+       transform="translate(86.056423,-52.84026)">
+      <rect
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         ry="2.2205248"
+         rx="1.3091775"
+         style="fill:#ffffff;stroke:#999999;stroke-width:0.30074492"
+         y="40.23748"
+         x="-4.3414769"
+         height="17.345646"
+         width="78.184395"
+         id="rect14-1" />
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         id="text12-9-23"
+         y="53.646816"
+         x="0.76133353"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332"
+           y="53.646816"
+           x="0.76133353"
+           id="tspan10-5-7"
+           sodipodi:role="line">100</tspan></text>
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         id="text12-9-2-2"
+         y="53.727776"
+         x="15.880366"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332"
+           y="53.727776"
+           x="15.880366"
+           id="tspan10-5-0-95"
+           sodipodi:role="line">ms</tspan></text>
+      <rect
+         ry="1.4999996"
+         rx="0.64077038"
+         y="36.341671"
+         x="-0.60809553"
+         height="7.1815472"
+         width="27.403273"
+         id="rect4854-5"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.82897753;stroke-miterlimit:4;stroke-dasharray:none" />
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         id="text12-5"
+         y="40.803894"
+         x="0.44246063"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332"
+           y="40.803894"
+           x="0.44246063"
+           id="tspan10-51"
+           sodipodi:role="line">Label Settle Time</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.30000001;stroke-miterlimit:4;stroke-dasharray:none"
+       x="120.60813"
+       y="21.25667"
+       id="text12-4"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1"
+         x="120.60813"
+         y="21.25667"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#ffffff;stroke-width:0.30000001;stroke-miterlimit:4;stroke-dasharray:none">Applicator</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#181818;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="0.96887696"
+       y="21.026365"
+       id="text12-4-5"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-2"
+         x="0.96887696"
+         y="21.026365"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#181818;fill-opacity:1;stroke-width:0.26458332">Recipe</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#181818;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="41.943306"
+       y="21.096128"
+       id="text12-4-9"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-4"
+         x="41.943306"
+         y="21.096128"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#181818;fill-opacity:1;stroke-width:0.26458332">Delays</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#181818;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="83.25103"
+       y="21.607725"
+       id="text12-4-1"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-8"
+         x="83.25103"
+         y="21.607725"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#181818;fill-opacity:1;stroke-width:0.26458332">Printer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#181818;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="158.77394"
+       y="21.096128"
+       id="text12-4-52"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-3"
+         x="158.77394"
+         y="21.096128"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#181818;fill-opacity:1;stroke-width:0.26458332">Infeed/Inspect</tspan></text>
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       ry="1.6811879"
+       rx="1.5000715"
+       y="-27.742283"
+       x="234.69682"
+       height="125.18349"
+       width="216.40172"
+       id="rect169-2-0"
+       style="display:inline;fill:#000000;stroke:none;stroke-width:0.28011435" />
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       ry="1.6811879"
+       rx="1.5000715"
+       y="-28.810032"
+       x="233.64391"
+       height="125.18349"
+       width="216.40172"
+       id="rect169-9"
+       style="display:inline;fill:#ffffff;stroke:#999999;stroke-width:0.28011435" />
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       ry="1.1851215"
+       rx="0.91799068"
+       y="-28.810032"
+       x="233.64391"
+       height="13.15911"
+       width="216.25131"
+       id="rect4922-0"
+       style="display:inline;fill:#e46d43;fill-opacity:1;stroke:none;stroke-width:0.88195527;stroke-miterlimit:4;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.30000001;stroke-miterlimit:4;stroke-dasharray:none"
+       x="368.62033"
+       y="-20.993687"
+       id="text12-4-2"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-23"
+         x="368.62033"
+         y="-20.993687"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#000000;stroke-width:0.30000001;stroke-miterlimit:4;stroke-dasharray:none">Applicator</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="248.98105"
+       y="-20.855366"
+       id="text12-4-5-8"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-2-9"
+         x="248.98105"
+         y="-20.855366"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Recipe</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="289.95551"
+       y="-20.785603"
+       id="text12-4-9-7"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-4-9"
+         x="289.95551"
+         y="-20.785603"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Delays</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="331.26321"
+       y="-20.274006"
+       id="text12-4-1-0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-8-7"
+         x="331.26321"
+         y="-20.274006"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Printer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="406.78613"
+       y="-20.785603"
+       id="text12-4-52-0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-1-3-2"
+         x="406.78613"
+         y="-20.785603"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Infeed/Inspect</tspan></text>
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.35883147;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 368.965,-17.975476 h 20.684"
+       id="path5068-5"
+       inkscape:connector-curvature="0" />
+    <g
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       id="g5254-72"
+       style="display:inline"
+       transform="translate(248.01217,-41.881733)">
+      <rect
+         id="rect14-4-2-37"
+         width="64.395767"
+         height="17.342855"
+         x="-8.0349617"
+         y="45.039986"
+         style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+         rx="1.2354596"
+         ry="1.4997587"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-2.9335465"
+         y="58.447926"
+         id="text12-9-24-3-2"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-6-1-6"
+           x="-2.9335465"
+           y="58.447926"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">100</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="12.185487"
+         y="58.528885"
+         id="text12-9-2-77-1-71"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-0-2-6-1"
+           x="12.185487"
+           y="58.528885"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.82897753;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect4854-77-0-5"
+         width="27.403273"
+         height="7.1815472"
+         x="-4.3029757"
+         y="41.14278"
+         rx="0.64077038"
+         ry="1.4999996" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-3.2524195"
+         y="45.605003"
+         id="text12-8-2-7"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-6-1-51"
+           x="-3.2524195"
+           y="45.605003"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Label Settle Time</tspan></text>
+    </g>
+    <g
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       id="g5254-2-8"
+       transform="translate(317.44211,-41.881733)"
+       style="display:inline">
+      <rect
+         id="rect14-4-2-3-8"
+         width="64.395767"
+         height="17.342855"
+         x="-8.0349617"
+         y="45.039986"
+         style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+         rx="1.2354596"
+         ry="1.4997587"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-2.9335465"
+         y="58.447926"
+         id="text12-9-24-3-9-1"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-6-1-0-8"
+           x="-2.9335465"
+           y="58.447926"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">0</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="4.0589986"
+         y="58.528885"
+         id="text12-9-2-77-1-1-4"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-0-2-6-0-5"
+           x="4.0589986"
+           y="58.528885"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.79691344;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect4854-77-0-4-9"
+         width="25.324404"
+         height="7.1815472"
+         x="-4.3029757"
+         y="41.14278"
+         rx="0.59216022"
+         ry="1.4999996" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-3.2524195"
+         y="45.605003"
+         id="text12-8-2-5-6"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-6-1-5-4"
+           x="-3.2524195"
+           y="45.605003"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Air Assist Delay</tspan></text>
+    </g>
+    <g
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       id="g5254-7-3"
+       transform="translate(386.98973,-41.881733)"
+       style="display:inline">
+      <rect
+         id="rect14-4-2-0-0"
+         width="64.395767"
+         height="17.342855"
+         x="-8.0349617"
+         y="45.039986"
+         style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+         rx="1.2354596"
+         ry="1.4997587"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-2.9335465"
+         y="58.447926"
+         id="text12-9-24-3-1-0"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-6-1-8-1"
+           x="-2.9335465"
+           y="58.447926"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">250</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="12.185487"
+         y="58.528885"
+         id="text12-9-2-77-1-8-0"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-0-2-6-2-3"
+           x="12.185487"
+           y="58.528885"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.75413549;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect4854-77-0-6-2"
+         width="22.67857"
+         height="7.1815472"
+         x="-4.3029757"
+         y="41.14278"
+         rx="0.53029275"
+         ry="1.4999996" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-3.2524195"
+         y="45.605003"
+         id="text12-8-2-4-6"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-6-1-1-8"
+           x="-3.2524195"
+           y="45.605003"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Vacuum Delay</tspan></text>
+    </g>
+    <g
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       id="g5254-4-6"
+       transform="translate(248.01217,-12.391936)"
+       style="display:inline">
+      <rect
+         id="rect14-4-2-05-8"
+         width="64.395767"
+         height="17.342855"
+         x="-8.0349617"
+         y="45.039986"
+         style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+         rx="1.2354596"
+         ry="1.4997587"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-2.9335465"
+         y="58.447926"
+         id="text12-9-24-3-0-8"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-6-1-3-6"
+           x="-2.9335465"
+           y="58.447926"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">400</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="12.185487"
+         y="58.528885"
+         id="text12-9-2-77-1-7-8"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-0-2-6-4-5"
+           x="12.185487"
+           y="58.528885"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.71874028;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect4854-77-0-2-0"
+         width="20.599701"
+         height="7.1815472"
+         x="-4.3029757"
+         y="41.14278"
+         rx="0.48168254"
+         ry="1.4999996" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-3.2524195"
+         y="45.605003"
+         id="text12-8-2-1-0"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-6-1-6-6"
+           x="-3.2524195"
+           y="45.605003"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Tamp Extend</tspan></text>
+    </g>
+    <g
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       id="g5254-2-9-7"
+       transform="translate(317.44211,-12.391936)"
+       style="display:inline">
+      <rect
+         id="rect14-4-2-3-3-2"
+         width="64.395767"
+         height="17.342855"
+         x="-8.0349617"
+         y="45.039986"
+         style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+         rx="1.2354596"
+         ry="1.4997587"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-2.9335465"
+         y="58.447926"
+         id="text12-9-24-3-9-9-0"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-6-1-0-5-2"
+           x="-2.9335465"
+           y="58.447926"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">400</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="12.185487"
+         y="58.528885"
+         id="text12-9-2-77-1-1-5-6"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-5-0-2-6-0-8-3"
+           x="12.185487"
+           y="58.528885"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.72856408;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect4854-77-0-4-0-7"
+         width="21.166666"
+         height="7.1815472"
+         x="-4.3029757"
+         y="41.14278"
+         rx="0.49493986"
+         ry="1.4999996" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-3.2524195"
+         y="45.605003"
+         id="text12-8-2-5-2-6"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan10-6-1-5-1-6"
+           x="-3.2524195"
+           y="45.605003"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Tamp Retract</tspan></text>
+    </g>
+    <g
+       id="g5236"
+       transform="matrix(1,0,0,1.1525889,-3.7163363,123.18248)"
+       style="stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         y="26.23081"
+         x="-6.9356136"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="10.465942"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-8"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         ry="7.1347842"
+         rx="2.2643087"
+         y="26.23081"
+         x="27.867498"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-1"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="45.269054"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-14"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="80.072166"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-6"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="114.87528"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-4"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="132.27684"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-7"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="167.07994"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-2"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="184.48149"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-3"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="149.67839"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-38"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="97.473724"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-24"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="26.23081"
+         x="62.670609"
+         height="125.11903"
+         width="17.401556"
+         id="rect5141-46"
+         style="fill:none;fill-opacity:1;stroke:#fae4dc;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none" />
+    </g>
+    <rect
+       id="rect14-4-2"
+       width="64.395767"
+       height="17.342855"
+       x="-8.0349617"
+       y="39.748314"
+       style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+       rx="1.2354596"
+       ry="1.4997587"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="30.980574"
+       y="53.156254"
+       id="text12-9-24-3"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-5-6-1"
+         x="30.980574"
+         y="53.156254"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">100</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="46.099609"
+       y="53.237217"
+       id="text12-9-2-77-1"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-5-0-2-6"
+         x="46.099609"
+         y="53.237217"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-2.7678375"
+       y="47.133537"
+       id="text12-8-2"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-6-1"
+         x="-2.7678375"
+         y="47.133537"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Label Settle Time</tspan></text>
+    <rect
+       id="rect14-4-2-3"
+       width="64.395767"
+       height="17.342855"
+       x="61.394974"
+       y="39.748314"
+       style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+       rx="1.2354596"
+       ry="1.4997587"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="109.84815"
+       y="53.156254"
+       id="text12-9-24-3-9"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-5-6-1-0"
+         x="109.84815"
+         y="53.156254"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="116.8407"
+       y="53.237217"
+       id="text12-9-2-77-1-1"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-5-0-2-6-0"
+         x="116.8407"
+         y="53.237217"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="66.751328"
+       y="47.133537"
+       id="text12-8-2-5"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-6-1-5"
+         x="66.751328"
+         y="47.133537"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Air Assist Delay</tspan></text>
+    <rect
+       id="rect14-4-2-0"
+       width="64.395767"
+       height="17.342855"
+       x="130.94258"
+       y="39.748318"
+       style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+       rx="1.2354596"
+       ry="1.4997587"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="136.73888"
+       y="47.133537"
+       id="text12-8-2-4"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-6-1-1"
+         x="136.73888"
+         y="47.133537"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Vacuum Delay</tspan></text>
+    <g
+       id="g5643-0"
+       style="display:inline"
+       transform="translate(171.96405,-5.2916727)">
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         id="text12-9-24-3-1-3"
+         y="58.447926"
+         x="-2.9335465"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332"
+           y="58.447926"
+           x="-2.9335465"
+           id="tspan10-5-6-1-8-2"
+           sodipodi:role="line">250</tspan></text>
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         id="text12-9-2-77-1-8-2"
+         y="58.528885"
+         x="12.185487"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332"
+           y="58.528885"
+           x="12.185487"
+           id="tspan10-5-0-2-6-2-33"
+           sodipodi:role="line">ms</tspan></text>
+    </g>
+    <rect
+       id="rect14-4-2-05"
+       width="64.395767"
+       height="17.342855"
+       x="-8.0349617"
+       y="66.06311"
+       style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+       rx="1.2354596"
+       ry="1.4997587"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="29.698997"
+       y="79.471046"
+       id="text12-9-24-3-0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-5-6-1-3"
+         x="29.698997"
+         y="79.471046"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">400</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="46.099609"
+       y="79.55201"
+       id="text12-9-2-77-1-7"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-5-0-2-6-4"
+         x="46.099609"
+         y="79.55201"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-2.5966163"
+       y="73.448334"
+       id="text12-8-2-1"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-6-1-6"
+         x="-2.5966163"
+         y="73.448334"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Tamp Extend</tspan></text>
+    <rect
+       id="rect14-4-2-3-3"
+       width="64.395767"
+       height="17.342855"
+       x="61.394974"
+       y="66.06311"
+       style="fill:#ffffff;stroke:#999999;stroke-width:0.27291787"
+       rx="1.2354596"
+       ry="1.4997587"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="100.50505"
+       y="79.471046"
+       id="text12-9-24-3-9-9"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-5-6-1-0-5"
+         x="100.50505"
+         y="79.471046"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Antonio;-inkscape-font-specification:Antonio;stroke-width:0.26458332">400</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="116.8407"
+       y="79.55201"
+       id="text12-9-2-77-1-1-5"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-5-0-2-6-0-8"
+         x="116.8407"
+         y="79.55201"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#434343;fill-opacity:1;stroke-width:0.26458332">ms</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:0px;word-spacing:0px;fill:#434343;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="66.833321"
+       y="73.339813"
+       id="text12-8-2-5-2"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan10-6-1-5-1"
+         x="66.833321"
+         y="73.339813"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'Tw Cen MT Condensed';-inkscape-font-specification:'Tw Cen MT Condensed, ';fill:#434343;fill-opacity:1;stroke-width:0.26458332">Tamp Retract</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     style="display:inline" />
+</svg>

@@ -10,11 +10,14 @@
    overflow="visible"
    version="1.1"
    id="svg10"
-   sodipodi:docname="Product.svg"
+   sodipodi:docname="PackMLProducts.svg"
    inkscape:version="0.92.1 r15371"
-   width="45.900002"
-   height="44.599964"
-   style="overflow:visible">
+   width="70.251587"
+   height="49.030987"
+   style="overflow:visible"
+   inkscape:export-filename="C:\Users\toohey-1\Downloads\25_OMAC\repository\packml-hmi\images\PackMLProducts.png"
+   inkscape:export-xdpi="250.60001"
+   inkscape:export-ydpi="250.60001">
   <metadata
      id="metadata16">
     <rdf:RDF>
@@ -41,40 +44,56 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="4.72"
-     inkscape:cx="24.669995"
-     inkscape:cy="24.217134"
+     inkscape:cx="37.565466"
+     inkscape:cy="46.105646"
      inkscape:window-x="-8"
-     inkscape:window-y="1411"
+     inkscape:window-y="31"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg10"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0" />
-  <polygon
-     points="1.8,34.9 24.3,45.8 24.3,21.3 1.8,11.9 "
-     fill-rule=""
-     id="polygon8"
-     stroke-miterlimit="10"
-     style="fill:none;stroke:#004494;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
-     transform="translate(-1.3,-1.7000045)" />
-  <polygon
-     points="46.7,34.9 24.3,45.8 24.3,21.3 46.7,11.9 "
-     fill-rule=""
-     id="polygon10"
-     stroke-miterlimit="10"
-     style="fill:none;stroke:#004494;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
-     transform="translate(-1.3,-1.7000045)" />
-  <polygon
-     points="25.5,2.2 46.7,11.9 24.3,21.3 1.8,11.9 "
-     fill-rule=""
-     id="polygon12"
-     stroke-miterlimit="10"
-     style="fill:none;stroke:#004494;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
-     transform="translate(-1.3,-1.7000045)" />
+  <g
+     id="g21"
+     transform="translate(12.175795,2.2155117)">
+    <polygon
+       transform="translate(-1.3,-1.7000045)"
+       style="fill:none;stroke:#004494;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
+       stroke-miterlimit="10"
+       id="polygon8"
+       fill-rule=""
+       points="1.8,34.9 24.3,45.8 24.3,21.3 1.8,11.9 " />
+    <polygon
+       transform="translate(-1.3,-1.7000045)"
+       style="fill:none;stroke:#004494;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
+       stroke-miterlimit="10"
+       id="polygon10"
+       fill-rule=""
+       points="46.7,34.9 24.3,45.8 24.3,21.3 46.7,11.9 " />
+    <polygon
+       transform="translate(-1.3,-1.7000045)"
+       style="fill:none;stroke:#004494;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
+       stroke-miterlimit="10"
+       id="polygon12"
+       fill-rule=""
+       points="25.5,2.2 46.7,11.9 24.3,21.3 1.8,11.9 " />
+  </g>
+  <rect
+     style="opacity:0.98999999;fill:none;fill-opacity:1;stroke:#f0f7ff;stroke-width:0.09999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4573"
+     width="70.151588"
+     height="48.930988"
+     x="0.049999993"
+     y="0.049999993"
+     ry="0"
+     rx="0"
+     inkscape:export-filename="C:\Users\toohey-1\Downloads\25_OMAC\repository\packml-hmi\images\Settings.png"
+     inkscape:export-xdpi="250.60001"
+     inkscape:export-ydpi="250.60001" />
 </svg>
