@@ -369,7 +369,7 @@
             <table id="table-summary-navigation-contexts">
                 <caption>Table 1: Navigation Contexts</caption>
                 <tr>
-                    <th>Context</th>
+                    <th>Label</th>
                     <th>Icon</th>
                     <th>Description</th>
                     <th>Example Content</th>
@@ -413,7 +413,7 @@
                 <tr>
                     <td>Manual</td>
                     <td><img id="icon-manual" src="images/Manual.png" /></td>
-                    <td>Manual machine control interface.</td>
+                    <td>Manual machine control interface. This context may be hidden, as it is not applicable for all machines.</td>
                     <td>Jog, rotate, vacuum, tamp, beacon, label</td>
                 </tr>
             </table>
@@ -1648,26 +1648,28 @@
             </p>
             <h3 id="NavigationStandard">6.2 Standard Implementation</h3>
             <p>
-                <span>[0099] The PackML HMI navigation standard includes: 1) a collection of standard navigation contexts including appropriate icons and labels, </span>
-                <span>2) a pair of standard layout options for positioning of screen elements, and 3) a collection of common, yet optional, supplementary content. </span>
-                <span>These standard HMI components offer the consistency operators need to move efficiently from machine to machine. The following sections </span>
-                <span> </span>
+                <span>[0099] The PackML HMI navigation standard includes: 1) a standard top-level menu including specific icons and labels, </span>
+                <span>2) a pair of standard layout options for positioning of standard screen elements, and 3) a collection of common, </span>
+                <span>yet optional, supplementary content. These standard HMI components offer the consistency operators need to move </span>
+                <span>efficiently from machine to machine. </span>
+                <span>The following sections illustrate the proper implementation of these components, while concurrently illustrating </span>
+                <span>commonly encountered deviations that should be avoided.</span>
             </p>
             <h3 id="NavigationStandardContexts">6.2.1 Navigation Contexts</h3>
             <p>
-                <span>[0100] The standard PackML navigation template includes seven primary navigation contexts: </span>
+                <span>[0100] The standard PackML navigation template includes seven primary contexts: </span>
                 <span>a) Home, b) Products, c) Statistics, d) Settings, e) Alarms, f) Diagnostics, and g) Manual. </span>
                 <span>These contexts represent the main conceptual groupings of content within production machines. </span>
                 <span>The associated groupings have been derived from standard practice, and accommodate the most commonly encountered production-industry content. </span>
                 <span>Each context is presented on the display with a standard icon representing the associated content. </span>
-                <span>A brief description and example content for each of these contexts is provided in Table 3. </span>
-                <span>System navigation is initiated by selecting one of these elements on the display. </span>
-                <span>Subsequent navigation is then completed by choosing an element from the provided sub-menu. </span>
+                <span>Likewise, each context includes a standard label, which describes the grouping. While the labels may </span>
+                <span>be hidden if necessary (e.g., small screen displays), alternate labels should not be used. </span>
+                <span>A brief description and example content for each of context is provided in Table 4. </span>
             </p>
             <table id="navigation-contexts">
                 <caption>Table 4: Navigation Contexts</caption>
                 <tr>
-                    <th>Context</th>
+                    <th>Label</th>
                     <th>Icon</th>
                     <th>Description</th>
                     <th>Example Content</th>
@@ -1711,31 +1713,67 @@
                 <tr>
                     <td>Manual</td>
                     <td><img id="icon-manual" src="images/Manual.png" /></td>
-                    <td>Manual machine control interface.</td>
+                    <td>Manual machine control interface. This context may be hidden, as it is not applicable for all machines.</td>
                     <td>Jog, rotate, vacuum, tamp, beacon, label</td>
                 </tr>
             </table>
             <p>
-                <span>[0101] Collectively, these contexts constitute the top-level menu of the navigation system. At all times, </span>
-                <span>a single context should be uniquely highlighted to indicate that it is the active context. </span>
-                <span>While the base icon forms should not be significantly altered, additional adornments (e.g., borders, </span>
-                <span>boxes, circles) may be used to indicate that a context is currently selected. Any brand-specific styling must be designed to ensure that </span>
-                <span>operators can clearly identify that active context at all times. While specific styling (e.g., color schemes, highlighting) is </span>
+                <span>[0101] Collectively, these contexts constitute the navigation system's top-level menu. </span>
+                <span>This menu, displaying the respective icons and labels, must be shown at all times. </span>
+                <span>Navigation is initiated by selecting one of the available contexts (e.g., Home, Products, Statistics). </span>
+                <span>Subsequent navigation is then completed by selecting an individual screen from the provided machine-specific sub-menu. </span>
+                <span>The most recently selected icon will be uniquely highlighted to indicate that it is the active context. </span>
+                <span>Figure 35 demonstrates an HMI where the Statistics context is actively selected.</span>
+                <span>Home will be the default active context when a machine is started. While additional adornments (e.g., sharding, borders, boxes, circles) may be  </span>
+                <span>used to highlight the currently selected context, the base icon forms shown in Table 3 should not be significantly </span>
+                <span>altered for any other purpose. All brand-specific styling (e.g., color schemes, typography) must be designed to ensure that </span>
+                <span>operators can clearly identify that active context at all times. While branding is </span>
                 <span>intentionally outside of the scope of this standard, designs that introduces </span>
-                <span>confusion or uncertainty should be avoided. The standard icon labels must not be altered (e.g., always use "Products" not "Recipes"). </span>
-                <span>It is acceptable to hide the labels if the display or selected design styling does not offer sufficient space for the labels. </span>
+                <span>confusion or uncertainty should be avoided.</span>
+            </p>
+            <figure>
+                <img id="hmi-example" src="images/ExampleHMI.png" />
+                <figcaption>
+                    <span>Figure 35: Example HMI where Statistics is the actively selected context.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0102] Examples A through C of Figure 35 illustrate the standard icons presented together to produce a variety of horizontal menu designs. </span>
+                <span>In each example, Statistics is the active context. Example A demonstrates how modifications to the standard icons </span>
+                <span>can unintentionally increase the emphasis on an inactive context. The extra shaded circle increases the </span>
+                <span>saliency of the Home icon in a way that may convince an operator that it is the active context when it is not. </span>
+                <span>Example B offers an acceptable alternate style where only the active context <b>Statistics</b> is uniquely styled. </span>
+                <span>Example C shows another acceptable variation, where the optional Manual icon is hidden.</span>
             </p>
             <figure>
                 <img id="menu-usage" src="images/MenuHighlighting.png" />
                 <figcaption>
-                    <span>Figure 35: Proper Home icon and label usage. While no specific form is required, the simplest rendition of the House icon should be used. </span>
-                    <span>Unless applied consistently to all other icons, additional adornments (e.g., circles, boxes, shading) should </span>
-                    <span>not be applied. </span>
+                    <span>Figure 35: The top-level menu displays the standard icons, of which, one must always be highlighted to </span>
+                    <span>signify the active context. Styling of the individual icons must be done carefully to avoid misdirecting the </span>
+                    <span>operator. Example A modifies the Home icon in a way that distracts the operator from the actual active context: Statistics.</span>
+                    <span>Examples B applies styling in a more consistent manner that reduces the likelihood of confusion.</span>
+                    <span>Example C demonstrates an acceptable alternative where the optional Manual icon is hidden.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0102] The <b>Home</b> context offers operators a high-level summary of the machine's </span>
-                <span>operating status. This context is the intended to offer summary data (e.g., Throughput, Mean-Value Statistics) </span>
+                <span>[0103] Figure 36 demonstrates an acceptable alternate design concept, where each base icon has be modified </span>
+                <span>in a consistent manner. The Statistics context in Example A is still </span>
+                <span>easily distinguished as the active context despite the additional design changes to the standard icons. </span>
+                <span>Using the same styling, Example B is not permitted as the standard icon order has not been maintained. </span>
+            </p>
+            <figure>
+                <img id="menu-usage" src="images/MenuHighlighting2.png" />
+                <figcaption>
+                    <span>Figure 36: Alternate design concepts are permitted so long as the are applied consistently to all icons. </span>
+                    <span>Regardless, the specified icon ordering must be maintained. Example B is an unacceptable alternative where the </span>
+                    <span>Settings and Statistics icons have been reversed.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0104] Within the top-level menu, the individual icons direct the operator to data and configuration screens, which are sorted based </span>
+                <span>on associated operational objections.</span>
+                <span>The <b>Home</b> context, providing a high-level overview of the machine's </span>
+                <span>operating status, is intended to offer aggregate data (e.g., Throughput, Mean-Value Statistics) </span>
                 <span>that helps the operator quickly achieve situational awareness. For more </span>
                 <span>complex machinery, this summary data may be best presented using a visual representation of the </span>
                 <span>equipment where component-specific data overlays highlight key subsystems. Figure 36 offers an </span>
@@ -1750,14 +1788,14 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0103] The simplest rendition of the Home icon should always be used. While no specific shape or "Home" form is required, </span>
+                <span>[0105] The simplest rendition of the Home icon should always be used. While no specific shape or "Home" form is required, </span>
                 <span>an icon similar to that shown in Table 4 should be used. The operator's efforts to navigate through the system will be </span>
                 <span>improved if their current navigation context is always easily determined. Accordingly, it is important that the actively selected context </span>
                 <span>(i.e., the context associated with the screens they are currently viewing) can always be easily distinguished. </span>
                 <span>Any styling applied to the Home icon should therefore also be applied to the remaining standard icons (e.g., Products, Settings). </span>
                 <span>Additional adornments (e.g., circles, boxes, shading) may be incorrectly interpreted by the operator as an indication of their </span>
                 <span>current navigation context. Such confusion can be avoided by eliminating those adornments from the graphical "language". </span>
-                <span>For example, the left-most icon in Figure 37 should not be used as the standard icon unless the remaining navigation icons follow the pattern </span>
+                <span>As stated previously, the left-most icon in Figure 37 should not be used as the standard icon unless the remaining navigation icons follow the pattern </span>
                 <span>and display a circle around the base image. It is, however, perfectly reasonable to use such an adornment as the indication </span>
                 <span>of navigation context, in which case, one and only one icon would ever show the selected adornment. </span>
             </p>
@@ -1771,7 +1809,7 @@
             </figure>
             
             <p>
-                <span>[0104] The <b>Products</b> context offers all of the facilities necessary to specify the production </span>
+                <span>[0106] The <b>Products</b> context offers all of the facilities necessary to specify the production </span>
                 <span>process for a specific product. On a labeler, for example, the Products context would offer a series </span>
                 <span>of durations (e.g., Settle Time, Vacuum Delay) necessary to properly affix the label to a specific product container. </span>
                 <span>As these values are likely to be different from product to product, the interface should accommodate </span>
@@ -1780,13 +1818,13 @@
                 <span>Figure 38 demonstrates an example product setup screen for a labeling machine. </span>
             </p>
             <figure>
-                <img id="products-view" src="images/ProductsExample.png" />
+                <img id="products-view" src="images/ExampleProducts.png" />
                 <figcaption>
                     <span>Figure 38: Example Products screen where product-specific configuration parameters are defined.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0105] The term "Products" should be used unless a machine-specific term that is understood by the </span>
+                <span>[0107] The term "Products" should be used unless a machine-specific term that is understood by the </span>
                 <span>operator is determined to be more appropriate. For example, </span>
                 <span>on a palletizer, the term "Patterns" is appropriate as it represents the actual production process. </span>
                 <span>If this alternate term is understood by operators and does not interfere with navigation it should be preferred over "Products". Other </span>
@@ -1803,7 +1841,7 @@
                 </figcaption>
             </figure>                        
             <p>
-                <span>[0106] The <b>Statistics</b> section presents descriptive statistics that reflect the machine's production process. This context </span>
+                <span>[0108] The <b>Statistics</b> section presents descriptive statistics that reflect the machine's production process. This context </span>
                 <span>accommodates basic production statistics (e.g., Good Counts, Bad Counts, Throughput) as well as standard PackML OEE statistics. </span>
                 <span>While the Home context may offer one or two pieces of aggregate data, the remaining statistical content should be contained in </span>
                 <span>the Statistics context; the data contained here is essential to proper situational awareness. Understanding both short and long </span>
@@ -1818,7 +1856,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0107] Comparing time periods or individual production runs, as shown in Figure 41, gives operators additional insight with important points of comparison. </span>
+                <span>[0109] Comparing time periods or individual production runs, as shown in Figure 41, gives operators additional insight with important points of comparison. </span>
             </p>
             <figure>
                 <img id="statistics-view-B" src="images/ExampleStatisticsB.png" />
@@ -1827,7 +1865,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0108] While the term "Statistics" is relatively ubiquitous, a number of variations on the standard icon exist. </span>
+                <span>[0110] While the term "Statistics" is relatively ubiquitous, a number of variations on the standard icon exist. </span>
                 <span>The proper usage of the Statistics icon and label are shown in Figure 42. Alternate shapes, borders, and grid lines </span>
                 <span>should not be added to the basic Statistics icon. </span>
             </p>
@@ -1841,7 +1879,7 @@
                 </figcaption>
             </figure> 
             <p>
-                <span>[0107] The <b>Alarms</b> context displays all machine alarms, warnings, and events. While this standard does </span>
+                <span>[0111] The <b>Alarms</b> context displays all machine alarms, warnings, and events. While this standard does </span>
                 <span>not offer specific requirements for the data presented in the associated displays, </span>
                 <span>an example screen is demonstrated in Figure 43. </span>
             </p>
@@ -1852,11 +1890,11 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0107] Due to the amount of data that may be collected over longer production runs, it is generally useful to permit </span>
-                <span>filtering or export facilities to simplify the review of machine history. </span>
+                <span>[0112] Due to the amount of data that may be collected over longer production runs, it is generally useful to permit </span>
+                <span>filtering or export facilities to simplify offline review of machine history. </span>
             </p>
             <p>
-                <span>[0107] The single term "Alarms" will be used to label the standard icon. Additional descriptions should not be added. </span>
+                <span>[0113] The single term "Alarms" will be used to label the standard icon. Additional descriptions should not be added. </span>
                 <span>Likewise, as demonstrated in Figure 44, alternate shapes and 3D representations should not replace the standard icon. </span>
             </p>
             <figure>
@@ -1869,19 +1907,49 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0109] The <b>Settings</b> context contains all machine-level configuration (e.g., sensor positions, IP addresses). More specifically, </span>
-                <span>the Settings context provides all configuration settings that are not product-specific. </span>
+                <span>[0114] The <b>Settings</b> context contains all machine-level configuration (e.g., sensor positions, IP addresses). </span>
+                <span>More specifically, the Settings context provides all configuration settings that are not product-specific. </span>
+                <span>In many situations, machine-level settings will be paired with product-level settings that accommodate product-specific</span>
+                <span>variability. Rejectors, for example, are physically located at a fixed position, which can be precisely measured from </span>
+                <span>some relative point. Individual products, however, travel down a production in a more stochastic manner, where variability </span>
+                <span>is introduced by other system components (e.g., guiderails, belt transfers). While the rejector position can be defined </span>
+                <span>as a fixed physical distance, an additional offset may be necessary to specify the change in timing introduced by the </span>
+                <span>product's interaction with the conveyor components. In this example, the rejector's physical distance is a machine-level </span>
+                <span>value, which should be specified in the Settings context. The product-specific offset, on the other hand, should be </span>
+                <span>defined within the Products context. When these situations exist, it is helpful </span>
+                <span>to display both values so operators have total situational awareness. Figure 45 provides an example where a machine-level </span>
+                <span>rejector distance is specified, with an additional reference citing the product-specific reject delay offset. </span>
+            </p>
+            <figure>
+                <img id="statistics-view" src="images/ExampleSettings.png" />
+                <figcaption>
+                    <span>Figure 45: Example Settings screen where machine-level configuration is specified. Product-level overrides </span>
+                    <span>to machine-level settings (e.g., product-specific rejector delays) should be referenced to ensure operators </span>
+                    <span>can maintain appropriate situational awareness.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0115] While the "cog" icon is encountered most frequently, alternate icons, like that shown in Figure 46, are occasionally found. </span>
+                <span>Alternate icons should not be used. Likewise, alternate terms, should not be used. </span>
+            </p>
+            <figure>
+                <img id="alarms-usage" src="images/PackMLSettingsUsage.png" />
+                <figcaption>
+                    <span>Figure 46: Proper usage of the Settings label and icon. Alternate labels and </span>
+                    <span>icons should not be used. </span>
+                    
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0116] The <b>Diagnostics</b> section offers facilities for monitoring and tuning individual components (e.g., digital I/O, drives). </span>
             </p>
             <p>
-                <span>[0110] The <b>Diagnostics</b> section offers facilities for monitoring and tuning individual components (e.g., digital I/O, drives). </span>
-            </p>
-            <p>
-                <span>[0108] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations. These actions are often needed </span>
+                <span>[0117] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations. These actions are often needed </span>
                 <span>when commissioning a machine or when performing maintenance or troubleshooting activities.</span>
             </p>
             <h3 id="NavigationStandardLayouts">6.2.2 Screen Layout</h3>            
             <p>
-                <span>[0111] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 45, presents the array </span>
+                <span>[0118] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 45, presents the array </span>
                 <span>of primary navigation elements spread horizontally along the lower edge of the HMI. </span>
             </p>
             <figure>
@@ -1895,7 +1963,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0112] The main alternative pattern, as demonstrated in Figure 46, presents the array of primary navigation elements spread vertically </span>
+                <span>[0119] The main alternative pattern, as demonstrated in Figure 46, presents the array of primary navigation elements spread vertically </span>
                 <span>along the left edge of the HMI. As with the previous pattern, navigation is initiated by selecting  </span>
                 <span>one of the primary navigation elements positioned on the left edge of the screen. Subsequent navigation is initiated </span>
                 <span>by selecting one of the secondary-level navigation links presented along the top of the screen. </span>
@@ -1908,7 +1976,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0112] The standard offers a pair of alternate layout patterns to accommodate screens of various sizes and aspect ratios. </span>
+                <span>[0120] The standard offers a pair of alternate layout patterns to accommodate screens of various sizes and aspect ratios. </span>
                 <span>The designer should employ the pattern that best utilizes the available screen space. Wide screen displays for example, may </span>
                 <span>be an ideal fit for the vertical menu layout, whereas traditional 4:3 displays may find the horizontal display works best.</span>
             </p>
@@ -1919,24 +1987,154 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0113] Alternate layout patterns should not be used. While the pattern shown in Figure 47 is commonly </span>
+                <span>[0121] Alternate layout patterns should not be used. While the pattern shown in Figure 47 is commonly </span>
                 <span>employed in consumer devices, testing with machine HMIs demonstrated that it is not as effective as </span>
                 <span>vertically and horizontally aligned alternatives. </span>
             </p>
             <h3 id="NavigationStandardSupplements">6.2.3 Supplementary Content</h3>
             <h3 id="NavigationGuidance">6.3 Guidance</h3>
-            <h3 id="NavigationConsistency">6.3.1 Consistency</h3>
             <p>
-                <span>One of the earliest stated goals of this HMI standard was to allow operators to move from machine to machine </span>
+                <span>[0122] One of the earliest stated goals of this HMI standard was to allow operators to move from machine to machine </span>
                 <span>and from line to line efficiently. Offering a standard set of HMI icons and labels along with a standard set </span>
                 <span>of layout patterns is an incredible step toward this goal. When presented with a consistent set of icons and labels, </span>
                 <span>positioned consistently on the screen, operators will more easily identify the content required to complete their </span>
                 <span>HMI interactions. Returning to our earlier definition, this should be considered external consistency </span>
                 <span>as it establishes consistency between machines and lines. Internal consistency (i.e., consistency within a single HMI) </span>
                 <span>is equally important. While the standard itself leaves these aspect to the discretion of the individual designer, the </span>
-                <span>the following section offer guidance to help facilitate internal consistency.</span>
+                <span>the following sections offer guidance to help facilitate internal consistency wherever possible. Ironically, we </span>
+                <span>must discuss contrast to understand consistency.</span>
             </p>
             <h3 id="Navigation Contrast">6.3.1 Contrast</h3>
+            <p>
+                <span>[0123] We are naturally inclined to identify patterns. We are equally inclined to spot inconsistencies. The lone </span>
+                <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
+                <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
+                <span>visual hierarchy within the image. The blue mark is more dominant than the grey marks because of color contrast. </span>
+                <span>When used in an HMI, such applications of color are used to communicate meaning. The blue dot is significantly different; it must be important. </span>
+            </p>
+            <figure>
+                <img id="contrast" src="images/Contrast.png" />
+                <figcaption>
+                    <span>Figure 48: A single colored blue is the clear focal point in an array of similar grey marks.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0124] Adding a second highlighted point, as shown in Figure 49, splits our focus. Two points are now competing for </span>
+                <span>our attention; emphasis on the first point has been reduced. With this additional colored point, a viewer's </span>
+                <span>gaze is more likely to travel around the image. The marks are the same color. We expect a similar semantic </span>
+                <span>explanation. </span>
+            </p>
+            <figure>
+                <img id="contrast_two" src="images/Contrast2.png" />
+                <figcaption>
+                    <span>Figure 49: A pair of blue dots split the viewer's attention. However, an expectation that the marks </span>
+                    <span>have a similar meaning now exists. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0125] Contrast can also be introduced using size. In Figure 50, with our original dots still highlighted, one now </span>
+                <span>has more focus due to its size; size now means something as well. Our hierarchy is growing.</span>
+            </p>
+            <figure>
+                <img id="contrast_two" src="images/Contrast3.png" />
+                <figcaption>
+                    <span>Figure 50: With the same two dots highlighted, size is used to shift focus to the larger blue dot. </span>
+                </figcaption>
+            </figure>
+            <h3 id="Navigation Contrast">6.3.2 Squint Testing</h3>
+            <p>
+                <span>[0126] Contrast gets the viewers attention. In an HMI, it is important that the amount of contrast is proportional to </span>
+                <span>the element's importance. A quick gauge of the display's hierarchy can be achieved through "squint testing". </span>
+                <span>Simply squint your eyes as you look at an interface. Are the most important points the most salient? Figure </span>
+                <span>51 simulates a squint test for our running example. The large blue dot is still the clear focal point. As a display </span>
+                <span>expands to include more content, this technique can help the designer maintain a balanced interface.</span>
+            </p>
+            <figure>
+                <img id="squint_testing" src="images/SquintTest.png" />
+                <figcaption>
+                    <span>Figure 51: To ensure the hierarchy of a design is appropriately balanced, a viewer need only squint </span>
+                    <span>their eyes to confirm that the intended focal points are appropriately highlighted.</span>
+                </figcaption>
+            </figure>
+            <h3 id="Navigation Contrast">6.3.3 Data-Ink Ratio</h3>
+            <p>
+                <span>[0127] Squint testing is merely a technique to validate the previously discussed Data-Ink Ratio concept. The level of </span>
+                <span>contrast introduced by a screen element, should be proportional to the data it communicates. While we have still </span>
+                <span>not established any meaning for our array of dots example, it is reasonable to argue that the grey dots are less significant. </span>
+                <span>Their perceived contrast has been limited by reducing their color saturation. Colors in the natural world </span>
+                <span>help establish our perceived correlation between color saturation and proximity. Figure 51 shows a simple landscape </span>
+                <span>of rolling hills. The most distant hills are lighter with reduced saturation. The nearest hills, however, are darker </span>
+                <span>and more saturated. This explains why grey is an ideal color for content with minimal importance. We reduce the </span>
+                <span>perceived contrast of an item by reducing its level of saturation.</span>
+            </p>
+            <figure>
+                <img id="atmospheric_perspective" src="images/AtmosphericPerspective.png" />
+                <figcaption>
+                    <span>Figure 52: This landscape of rolling hills illustrates atmospheric perspective. The more distant </span>
+                    <span>hills have lighter color until they eventually match the sky. The closest hills are darker with more </span>
+                    <span>saturated colors. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0128] In our array of dots, the highly saturated blue dots have focus, while the grey dots, despite being more numerous, </span>
+                <span>fade to the background. The contrast of these marks can be reduced further by inverting their shape as shown in Figure </span>
+                <span>52. The amount of "ink" has been reduced, leaving a less dominant low contrast mark.</span>
+            </p>
+            <figure>
+                <img id="contrast_invert" src="images/Contrast4.png" />
+                <figcaption>
+                    <span>Figure 53: The contrast of the grey dots is reduced further by removing their fill cover to leave only an outline. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0129] These points all circle back to explain the limitations established for icon usage.</span>
+            </p>
+            <figure>
+                <img id="contrast_invert" src="images/PackMLStatisticsUsage.png" />
+                <figcaption>
+                    <span>Figure 53: The contrast of the grey dots is reduced further by removing their fill cover to leave only an outline. </span>
+                </figcaption>
+            </figure>
+            <h3 id="Navigation Contrast">6.3.2 Alignment</h3>
+            <p>
+                <span>[0130] Alignment affords positional contrast. Figure </span>
+                <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
+                <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
+                <span>visual hierarchy within the image. </span>
+            </p>
+            <figure>
+                <img id="alignment" src="images/Alignment.png" />
+                <figcaption>
+                    <span>Figure 50: Alternate layout patterns, like those found in consumer devices, should not be used.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0131] Alignment affords positional contrast. </span>
+                <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
+                <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
+                <span>visual hierarchy within the image. </span>
+            </p>
+            <figure>
+                <img id="alignment" src="images/Alignment2.png" />
+                <figcaption>
+                    <span>Figure 51: Alternate layout patterns, like those found in consumer devices, should not be used.</span>
+                </figcaption>
+            </figure>
+            <h3 id="Navigation Contrast">6.3.2 Atmospheric Perspective</h3>
+            <p>
+                <span>[0132] When selecting a color pallette to  </span>
+                <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
+                <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
+                <span>visual hierarchy within the image. </span>
+            </p>
+            <figure>
+                <img id="atmospheric_perspective" src="images/AtmosphericPerspective.png" />
+                <figcaption>
+                    <span>Figure 51: This landscape of rolling hills illustrates atmospheric perspective. The more distant </span>
+                    <span>hills have lighter color until they eventually match the sky. The closest hills are darker with more </span>
+                    <span>saturated colors. </span>
+                </figcaption>
+            </figure>
             <!--
             <p><span>Data-Ink Ratio</span></p>
             <p><span>Atmospheric Perspective</span></p>
