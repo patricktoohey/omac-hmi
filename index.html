@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01O</title>
+    <title>PackML HMI Implementation Guidance Draft 01P</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -108,16 +108,23 @@
                             <li><a href="#NavigationStandardLayouts" class="subsubsection">6.2.2 Screen Layout</a></li>
                             <li><a href="#NavigationStandardSupplements" class="subsubsection">6.2.3 Supplementary Content</a></li>
                         </ul>
-                        
+                        <li><a href="#NavigationGuidance">6.3 Guidance</a></li>
+                        <ul>
+                            <li><a href="#NavigationContrast" class="subsubsection">6.3.1 Contrast</a></li>
+                            <li><a href="#NavigationSquintTesting" class="subsubsection">6.3.2 Squint Testing</a></li>
+                            <li><a href="#NavigationDataInk" class="subsubsection">6.3.3 Data-Ink Ratio</a></li>
+                            <li><a href="#NavigationAlignment" class="subsubsection">6.3.4 Alignment</a></li>
+                        </ul>                        
                     </ul>
                 </li>
                 <!-- Design -->
                 <li>
-                    <a href="#Design" class="section">7. Design Evaluation</a>
+                    <a href="#DesignEvaluation" class="section">7. Design Evaluation</a>
                     <ul>
-                        <li><a href="#NavigationScope">7.1 Critique</a></li>
-                        <li><a href="#NavigationStandard">7.2 Heuristic Evaluation</a></li> 
-                        <li><a href="#NavigationStandard">7.3 Usability Testing</a></li>                       
+                        <li><a href="#DesignEvaluationBias">7.1 Overcoming Bias</a></li>
+                        <li><a href="#DesignEvaluationCritique">7.2 Critique</a></li> 
+                        <li><a href="#DesignEvaluationHeuristics">7.3 Heuristic Evaluation</a></li>
+                        <li><a href="#DesignEvaluationUsability">7.4 Usability Testing</a></li>                                               
                     </ul>
                 </li>
                 <!-- Reference -->
@@ -217,14 +224,14 @@
                     <li>
                         <a href="#tables-stacklight" class="section">4. Stacklights and Control Push-Buttons</a>
                         <ul>
-                            <li><a href="#table-stacklight-standard">Table 1: Stacklight Standard</a></li>
-                            <li><a href="#table-stacklight-standard">Table 2: Push-Button Standard</a></li>
+                            <li><a href="#table-stacklight-standard">Table 2: Stacklight Standard</a></li>
+                            <li><a href="#table-stacklight-standard">Table 3: Push-Button Standard</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#tables-navigation" class="section">6. Navigation Design</a>
                         <ul>
-                            <li><a href="#navigation-contexts">Table 3: Navigation Contexts</a></li>
+                            <li><a href="#navigation-contexts">Table 4: Navigation Contexts</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -1748,16 +1755,17 @@
                 <span>saliency of the Home icon in a way that may convince an operator that it is the active context when it is not. </span>
                 <span>Example B offers an acceptable alternate style where only the active context <b>Statistics</b> is uniquely styled. </span>
                 <span>Example C shows another acceptable variation, where the optional Manual icon is hidden. Example D goes one step further, </span>
-                <span>introducing a non-standard Start button appropriately positioned to the right of the standard buttons. Ideally, </span>
+                <span>introducing a non-standard Search button appropriately positioned to the right of the standard buttons. </span>
             </p>
             <figure>
-                <img id="menu-usage" src="images/MenuHighlighting.png" />
+                <img id="menu-usage" src="images/MenuHighlighting_B.png" />
                 <figcaption>
                     <span>Figure 35: The top-level menu displays the standard icons, of which, one must always be highlighted to </span>
                     <span>signify the active context. Styling of the individual icons must be done carefully to avoid misdirecting the </span>
                     <span>operator. Example A modifies the Home icon in a way that distracts the operator from the actual active context: Statistics.</span>
                     <span>Examples B applies styling in a more consistent manner that reduces the likelihood of confusion.</span>
-                    <span>Example C demonstrates an acceptable alternative where the optional Manual icon is hidden.</span>
+                    <span>Example C demonstrates an acceptable alternative where the optional Manual icon is hidden. Example D </span>
+                    <span>introduces a non-standard Search button to the left of the standard contexts.</span>
                 </figcaption>
             </figure>
             <p>
@@ -1938,7 +1946,7 @@
                 <span>Alternate icons should not be used. Likewise, alternate terms, should not be used. </span>
             </p>
             <figure>
-                <img id="alarms-usage" src="images/PackMLSettingsUsage.png" />
+                <img id="settings-usage" src="images/PackMLSettingsUsage.png" />
                 <figcaption>
                     <span>Figure 46: Proper usage of the Settings label and icon. Alternate labels and </span>
                     <span>icons should not be used. </span>
@@ -1947,11 +1955,45 @@
             </figure>
             <p>
                 <span>[0126] The <b>Diagnostics</b> section offers facilities for monitoring and tuning individual components (e.g., digital I/O, drives). </span>
+                <span>These facilities accommodate advanced setup and troubleshooting of machines. Given its utility in setup and troubleshooting, the </span>
+                <span>PackML state diagram &ndash; as well as those of up and downstream devices &ndash; can be co-located here. Additional tools, </span>
+                <span>like the oscilloscope demonstrated in figure 47, fit ideally in the diagnostics context.</span>
             </p>
+            <figure>
+                <img id="diagnostics-view" src="images/ExampleDiagnostics.png" />
+                <figcaption>
+                    <span>Figure 47: Example Diagnostics screen where advanced setup and troubleshooting is performed.</span>
+                </figcaption>
+            </figure>
             <p>
-                <span>[0127] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations. These actions are often needed </span>
+                <span>[0126] The stethoscope, demonstrated in Figure 48, is the standard icon for the Diagnostics context. Alternative </span>
+                <span>icons should not be used.</span>
+            </p>
+            <figure>
+                <img id="diagnostics-usage" src="images/PackMLDiagnosticsUsage.png" />
+                <figcaption>
+                    <span>Figure 46: Proper usage of the Diagnostics label and icon. Alternate labels and </span>
+                    <span>icons should not be used. </span>                    
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0127] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations (e.g., jogging a motor). These actions are often needed </span>
                 <span>when commissioning a machine or when performing maintenance or troubleshooting activities.</span>
             </p>
+            <figure>
+                <img id="manual-view" src="images/ExampleManual.png" />
+                <figcaption>
+                    <span>Figure 47: Example Manual screen where advanced setup and troubleshooting is performed.</span>
+                </figcaption>
+            </figure>
+            <figure>
+                <img id="manual-usage" src="images/PackMLManualUsage.png" />
+                <figcaption>
+                    <span>Figure 46: Proper usage of the Manual label and icon. Alternate labels and </span>
+                    <span>icons should not be used. </span>
+                    
+                </figcaption>
+            </figure>
             <h3 id="NavigationStandardLayouts">6.2.2 Screen Layout</h3>            
             <p>
                 <span>[0128] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 45, presents the array </span>
@@ -2028,7 +2070,12 @@
                 <tr>
                     <td>Current Date</td>
                     <td>The current date and/or time.</td>
-                    <td>June 19, 2020 - 11:00 AM</td>
+                    <td>
+                        <ul>
+                            <li>June 19, 2020 - 11:00 AM</li>
+                            <li>19 June 2020 - 16:30</li>
+                        </ul>
+                    </td>
                 </tr>
                 <tr>
                     <td>Operator Identification</td>
@@ -2039,6 +2086,11 @@
                     <td>Statistics</td>
                     <td>Relevant production statistics (e.g., throughput, good counts, bad counts).</td>
                     <td>600 ppm, 12045 good, 35 bad</td>
+                </tr>
+                <tr>
+                    <td>Device Status</td>
+                    <td>Status of critical internal or external components (e.g., PLC, cameras).</td>
+                    <td>Online, Offline, or other visual indicators communicating status.</td>
                 </tr>                
             </table>
             <h3 id="NavigationGuidance">6.3 Guidance</h3>
@@ -2053,7 +2105,7 @@
                 <span>the following sections offer guidance to help facilitate internal consistency wherever possible. Ironically, we </span>
                 <span>must discuss contrast to understand consistency.</span>
             </p>
-            <h3 id="Navigation Contrast">6.3.1 Contrast</h3>
+            <h3 id="NavigationContrast">6.3.1 Contrast</h3>
             <p>
                 <span>[0134] We are naturally inclined to identify patterns. We are equally inclined to spot inconsistencies. The lone </span>
                 <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
@@ -2090,7 +2142,7 @@
                     <span>Figure 50: With the same two dots highlighted, size is used to shift focus to the larger blue dot. </span>
                 </figcaption>
             </figure>
-            <h3 id="Navigation Contrast">6.3.2 Squint Testing</h3>
+            <h3 id="NavigationSquintTesting">6.3.2 Squint Testing</h3>
             <p>
                 <span>[0137] Contrast gets the viewers attention. In an HMI, it is important that the amount of contrast is proportional to </span>
                 <span>the element's importance. A quick gauge of the display's hierarchy can be achieved through "squint testing". </span>
@@ -2105,7 +2157,7 @@
                     <span>their eyes to confirm that the intended focal points are appropriately highlighted.</span>
                 </figcaption>
             </figure>
-            <h3 id="Navigation Contrast">6.3.3 Data-Ink Ratio</h3>
+            <h3 id="NavigationDataInk">6.3.3 Data-Ink Ratio</h3>
             <p>
                 <span>[0138] Squint testing is merely a technique to validate the previously discussed Data-Ink Ratio concept. The level of </span>
                 <span>contrast introduced by a screen element, should be proportional to the data it communicates. While we have still </span>
@@ -2144,7 +2196,7 @@
                     <span>Figure 53: The contrast of the grey dots is reduced further by removing their fill cover to leave only an outline. </span>
                 </figcaption>
             </figure>
-            <h3 id="Navigation Contrast">6.3.2 Alignment</h3>
+            <h3 id="NavigationAlignment">6.3.4 Alignment</h3>
             <p>
                 <span>[0141] Alignment affords positional contrast. Figure </span>
                 <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
@@ -2204,9 +2256,9 @@
             
         </div>
         <div>
-            <h2>7. Design Evaluation</h2>
+            <h2 id="DesignEvaluation">7. Design Evaluation</h2>
             <hr class="black" />
-            <h3>7.1 Overcoming Bias</h3>
+            <h3 id="DesignEvaluationBias">7.1 Overcoming Bias</h3>
             <p>
                 <span>[0144] As a design matures, it is essential to validate its usability. Again, we are discussing  </span>
                 <span>more than traditional functional verification. Satisfying, Efficient, Learnable, Memorable, Tolerant: those are our objectives. </span>
@@ -2314,7 +2366,7 @@
             <p>
                 <span>[0153] </span>
             </p>
-            <h3>7.1 Critique</h3>
+            <h3 id="DesignEvaluationCritique">7.1 Critique</h3>
             <p>
                 <span>[0154] As a design matures, it is important to perform some form of validation. Again, we argue that, </span>
                 <span>functional is not sufficient. A design that makes sense to the designer is not complete until is has been vetted in some way. </span>
@@ -2325,8 +2377,8 @@
                 <span>visual hierarchy within the image. </span>
             </p>
             <p><span>Curse of Knowledge</span></p>
-            <h3>7.2 Heuristic Evaluation</h3>
-            <h3>7.3 Usability Testing</h3>
+            <h3 id="DesignEvaluationHeuristics">7.2 Heuristic Evaluation</h3>
+            <h3 id="DesignEvaluationUsability">7.3 Usability Testing</h3>
             <p>...</p>
         </div>
         <div>
@@ -2530,13 +2582,23 @@
                             <li>Evaluation guidance introduction.</li>
                         </ul>
                     </td>
-                    <td>01N</td>
+                    <td>01O</td>
+                </tr>
+                <tr>
+                    <td>2020-07-30</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Example content for Diagnostics and Manual contexts. </li>
+                        </ul>
+                    </td>
+                    <td>01P</td>
                 </tr>
             </table>
         </div>
     </div>
 
-    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01O</a></footer>
+    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01P</a></footer>
 </body>
 
 </html>
