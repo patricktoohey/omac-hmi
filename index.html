@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01P</title>
+    <title>PackML HMI Implementation Guidance Draft 01Q</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -113,7 +113,8 @@
                             <li><a href="#NavigationContrast" class="subsubsection">6.3.1 Contrast</a></li>
                             <li><a href="#NavigationSquintTesting" class="subsubsection">6.3.2 Squint Testing</a></li>
                             <li><a href="#NavigationDataInk" class="subsubsection">6.3.3 Data-Ink Ratio</a></li>
-                            <li><a href="#NavigationAlignment" class="subsubsection">6.3.4 Alignment</a></li>
+                            <li><a href="#NavigationSignifiers" class="subsubsection">6.3.4 Signifiers</a></li>
+                            <li><a href="#NavigationAlignment" class="subsubsection">6.3.5 Alignment</a></li>
                         </ul>                        
                     </ul>
                 </li>
@@ -1646,8 +1647,7 @@
                 <span>Care has been taken to distinguish between design principles and artistic expression.</span>
                 <span>When producing new designs it is important to evaluate the current state of interface design. </span>
                 <span>While the screenshots were arguably "modern" when this standard was authored, we hope the standard's </span>
-                <span>utility will outlive </span>
-                <span>Given this disclaimer, it is important to note that a design's effectiveness is not. </span>
+                <span>utility will outlive the provided examples; a design's effectiveness is not necessarily a function of its aesthetic quality. </span>
             </p>
             <p>
                 <span>[0108] With this scope established, the following sections will outline the specific components of the standard HMI template </span>
@@ -1731,7 +1731,7 @@
                 <span>Subsequent navigation is then completed by selecting an individual screen from the provided machine-specific sub-menu. </span>
                 <span>The most recently selected icon will be uniquely highlighted to indicate that it is the active context. </span>
                 <span>Figure 35 demonstrates an HMI where the Statistics context is actively selected.</span>
-                <span>Home will be the default active context when a machine is started. </span>
+                <span>Home will be the default active context when a machine is booted. </span>
             </p>
             <p>
                 <span>[0112] While additional adornments (e.g., sharding, borders, boxes, circles) may be  </span>
@@ -1749,7 +1749,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0112] Examples A through C of Figure 35 illustrate the standard icons presented together to produce a variety of horizontal menu designs. </span>
+                <span>[0113] Examples A through C of Figure 35 illustrate the standard icons presented together to produce a variety of horizontal menu designs. </span>
                 <span>In each example, Statistics is the active context. Example A demonstrates how modifications to the standard icons </span>
                 <span>can unintentionally increase the emphasis on an inactive context. The extra shaded circle increases the </span>
                 <span>saliency of the Home icon in a way that may convince an operator that it is the active context when it is not. </span>
@@ -1769,7 +1769,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0113] Figure 36 demonstrates an acceptable alternate design concept, where each base icon has be modified </span>
+                <span>[0114] Figure 36 demonstrates an acceptable alternate design concept, where each base icon has be modified </span>
                 <span>in a consistent manner. The Statistics context in Example A is still </span>
                 <span>easily distinguished as the active context despite the additional design changes to the standard icons. </span>
                 <span>Using the same styling, Example B is not permitted as the standard icon order has not been maintained. </span>
@@ -1783,8 +1783,8 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0114] Within the top-level menu, the individual icons direct the operator to data and configuration screens, which are sorted based </span>
-                <span>on associated operational objections.</span>
+                <span>[0115] Within the top-level menu, the individual icons direct the operator to data and configuration screens, which are sorted based </span>
+                <span>on associated operational objectives. </span>
                 <span>The <b>Home</b> context, providing a high-level overview of the machine's </span>
                 <span>operating status, is intended to offer aggregate data (e.g., Throughput, Mean-Value Statistics) </span>
                 <span>that helps the operator quickly achieve situational awareness. For more </span>
@@ -1801,7 +1801,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0115] The simplest rendition of the Home icon should always be used. While no specific shape or "Home" form is required, </span>
+                <span>[0116] The simplest rendition of the Home icon should always be used. While no specific shape or "Home" form is required, </span>
                 <span>an icon similar to that shown in Table 4 should be used. The operator's efforts to navigate through the system will be </span>
                 <span>improved if their current navigation context is always easily determined. Accordingly, it is important that the actively selected context </span>
                 <span>(i.e., the context associated with the screens they are currently viewing) can always be easily distinguished. </span>
@@ -1822,7 +1822,7 @@
             </figure>
             
             <p>
-                <span>[0116] The <b>Products</b> context offers all of the facilities necessary to specify the production </span>
+                <span>[0117] The <b>Products</b> context offers all of the facilities necessary to specify the production </span>
                 <span>process for a specific product. On a labeler, for example, the Products context would offer a series </span>
                 <span>of durations (e.g., Settle Time, Vacuum Delay) necessary to properly affix the label to a specific product container. </span>
                 <span>As these values are likely to be different from product to product, the interface should accommodate </span>
@@ -1837,14 +1837,14 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0117] The term "Products" should be used unless a machine-specific term that is understood by the </span>
+                <span>[0118] The term "Products" should be used unless a machine-specific term that is understood by the </span>
                 <span>operator is determined to be more appropriate. For example, </span>
                 <span>on a palletizer, the term "Patterns" is appropriate as it represents the actual production process. </span>
                 <span>If this alternate term is understood by operators and does not interfere with navigation it should be preferred over "Products". Other </span>
                 <span>terms, specifically those inherited from the process domain (e.g., Recipe, Article, Formats, Package), </span>
-                <span>should not be used. Alternate icons should, likewise, not be used. Figure 39 demonstrates a common </span>
-                <span>icon alternatives, including an icon that is too easily confused with a bar chart, which conceptually aligns with the statistics context. </span>
-                <span>Accordingly, this icon should not be used. </span>
+                <span>should not be used. Alternate icons should, likewise, not be used. Figure 39 demonstrates common </span>
+                <span>icon alternatives, including an icon that is too easily confused with a bar chart. As this shape conceptually aligns with the statistics context, </span>
+                <span>it should not be used. </span>
             </p>
             <figure>
                 <img id="products-usage" src="images/PackMLProductsUsage.png" />
@@ -1854,7 +1854,7 @@
                 </figcaption>
             </figure>                        
             <p>
-                <span>[0118] The <b>Statistics</b> section presents descriptive statistics that reflect the machine's production process. This context </span>
+                <span>[0119] The <b>Statistics</b> section presents descriptive statistics that reflect the machine's production process. This context </span>
                 <span>accommodates basic production statistics (e.g., Good Counts, Bad Counts, Throughput) as well as standard PackML OEE statistics. </span>
                 <span>While the Home context may offer one or two pieces of aggregate data, the remaining statistical content should be contained in </span>
                 <span>the Statistics context; the data contained here is essential to proper situational awareness. Understanding both short and long </span>
@@ -1869,7 +1869,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0119] Comparing time periods or individual production runs, as shown in Figure 41, gives operators additional insight with important points of comparison. </span>
+                <span>[0120] Comparing time periods or individual production runs, as shown in Figure 41, gives operators additional insight with important points of comparison. </span>
             </p>
             <figure>
                 <img id="statistics-view-B" src="images/ExampleStatisticsB.png" />
@@ -1878,7 +1878,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0120] While the term "Statistics" is relatively ubiquitous, a number of variations on the standard icon exist. </span>
+                <span>[0121] While the term "Statistics" is relatively ubiquitous, a number of variations on the standard icon exist. </span>
                 <span>The proper usage of the Statistics icon and label are shown in Figure 42. Alternate shapes, borders, and grid lines </span>
                 <span>should not be added to the basic Statistics icon. </span>
             </p>
@@ -1892,22 +1892,22 @@
                 </figcaption>
             </figure> 
             <p>
-                <span>[0121] The <b>Alarms</b> context displays all machine alarms, warnings, and events. While this standard does </span>
+                <span>[0122] The <b>Alarms</b> context displays all machine alarms, warnings, and events. While this standard does </span>
                 <span>not offer specific requirements for the data presented in the associated displays, </span>
                 <span>an example screen is demonstrated in Figure 43. </span>
             </p>
             <figure>
                 <img id="statistics-view" src="images/ExampleAlarms.png" />
                 <figcaption>
-                    <span>Figure 43: Example Statistics screen where descriptive statistics are paired with trend data for proper situation awareness.</span>
+                    <span>Figure 43: Example Alarms screen where alarm events are collected and displayed.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0122] Due to the amount of data that may be collected over longer production runs, it is generally useful to permit </span>
+                <span>[0123] Due to the amount of data that may be collected over longer production runs, it is generally useful to permit </span>
                 <span>filtering or export facilities to simplify offline review of machine history. </span>
             </p>
             <p>
-                <span>[0123] The single term "Alarms" will be used to label the standard icon. Additional descriptions should not be added. </span>
+                <span>[0124] The single term "Alarms" will be used to label the standard icon. Additional descriptions should not be added. </span>
                 <span>Likewise, as demonstrated in Figure 44, alternate shapes and 3D representations should not replace the standard icon. </span>
             </p>
             <figure>
@@ -1920,7 +1920,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0124] The <b>Settings</b> context contains all machine-level configuration (e.g., sensor positions, IP addresses). </span>
+                <span>[0125] The <b>Settings</b> context contains all machine-level configuration (e.g., sensor positions, IP addresses). </span>
                 <span>More specifically, the Settings context provides all configuration settings that are not product-specific. </span>
                 <span>In many situations, machine-level settings will be paired with product-level settings that accommodate product-specific</span>
                 <span>variability. Rejectors, for example, are physically located at a fixed position, which can be precisely measured from </span>
@@ -1942,7 +1942,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0125] While the "cog" icon is encountered most frequently, alternate icons, like that shown in Figure 46, are occasionally found. </span>
+                <span>[0126] While the "cog" icon is encountered most frequently, alternate icons, like that shown in Figure 46, are occasionally found. </span>
                 <span>Alternate icons should not be used. Likewise, alternate terms, should not be used. </span>
             </p>
             <figure>
@@ -1954,7 +1954,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0126] The <b>Diagnostics</b> section offers facilities for monitoring and tuning individual components (e.g., digital I/O, drives). </span>
+                <span>[0127] The <b>Diagnostics</b> section offers facilities for monitoring and tuning individual components (e.g., digital I/O, drives). </span>
                 <span>These facilities accommodate advanced setup and troubleshooting of machines. Given its utility in setup and troubleshooting, the </span>
                 <span>PackML state diagram &ndash; as well as those of up and downstream devices &ndash; can be co-located here. Additional tools, </span>
                 <span>like the oscilloscope demonstrated in figure 47, fit ideally in the diagnostics context.</span>
@@ -1966,7 +1966,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0126] The stethoscope, demonstrated in Figure 48, is the standard icon for the Diagnostics context. Alternative </span>
+                <span>[0128] The stethoscope, demonstrated in Figure 48, is the standard icon for the Diagnostics context. Alternative </span>
                 <span>icons should not be used.</span>
             </p>
             <figure>
@@ -1977,7 +1977,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0127] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations (e.g., jogging a motor). These actions are often needed </span>
+                <span>[0129] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations (e.g., jogging a motor). These actions are often needed </span>
                 <span>when commissioning a machine or when performing maintenance or troubleshooting activities.</span>
             </p>
             <figure>
@@ -1986,31 +1986,34 @@
                     <span>Figure 47: Example Manual screen where advanced setup and troubleshooting is performed.</span>
                 </figcaption>
             </figure>
+            <p>
+                <span>[0130] The standard label and icon for the Manual context are demonstrated in Figure 48. Alternate shapes or labels should not be used. </span>
+            </p>
             <figure>
                 <img id="manual-usage" src="images/PackMLManualUsage.png" />
                 <figcaption>
-                    <span>Figure 46: Proper usage of the Manual label and icon. Alternate labels and </span>
+                    <span>Figure 48: Proper usage of the Manual label and icon. Alternate labels and </span>
                     <span>icons should not be used. </span>
                     
                 </figcaption>
             </figure>
             <h3 id="NavigationStandardLayouts">6.2.2 Screen Layout</h3>            
             <p>
-                <span>[0128] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 45, presents the array </span>
+                <span>[0130] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 49, presents the array </span>
                 <span>of primary navigation elements spread horizontally along the lower edge of the HMI. </span>
             </p>
             <figure>
-                <img id="navigation-horizontal" src="images/Navigation_Horizontal.png" />
+                <img id="navigation-horizontal" src="images/Navigation_Horizontal_B.png" />
                 <figcaption>
-                    <span>Figure 45: Basic template pattern where primary navigation elements are spread horizontally along the bottom of the HMI. </span> 
+                    <span>Figure 49: Basic template pattern where primary navigation elements are spread horizontally along the bottom of the HMI. </span> 
                     <span>These primary elements consist of a standard icon-label pair for representing the associated navigation context. </span>
-                    <span>A text-only submenu, listing the different sections within each context, is presented along the left edge of the interface. </span>
+                    <span>A submenu, listing the different sections within each context, is presented along the left edge of the interface. </span>
                     <span>Note that the actively-selected primary and secondary elements are presented with a higher level of contrast, which </span>
                     <span>clearly highlights their active-selection state. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0129] The main alternative pattern, as demonstrated in Figure 46, presents the array of primary navigation elements spread vertically </span>
+                <span>[0131] The main alternative pattern, as demonstrated in Figure 50, presents the array of primary navigation elements spread vertically </span>
                 <span>along the left edge of the HMI. As with the previous pattern, navigation is initiated by selecting  </span>
                 <span>one of the primary navigation elements positioned on the left edge of the screen. Subsequent navigation is initiated </span>
                 <span>by selecting one of the secondary-level navigation links presented along the top of the screen. </span>
@@ -2018,29 +2021,29 @@
             <figure>
                 <img id="navigation-vertical" src="images/Navigation_Vertical.png" />
                 <figcaption>
-                    <span>Figure 46: Alternate template pattern where primary navigation elements are spread vertically along the left edge of the HMI. </span>
+                    <span>Figure 50: Alternate template pattern where primary navigation elements are spread vertically along the left edge of the HMI. </span>
                     <span>The secondary menu is presented along the top edge of the interface.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0130] The standard offers a pair of alternate layout patterns to accommodate screens of various sizes and aspect ratios. </span>
+                <span>[0132] The standard offers a pair of alternate layout patterns to accommodate screens of various sizes and aspect ratios. </span>
                 <span>The designer should employ the pattern that best utilizes the available screen space. Wide screen displays for example, may </span>
                 <span>be an ideal fit for the vertical menu layout, whereas traditional 4:3 displays may find the horizontal display works best.</span>
             </p>
             <figure>
                 <img id="navigation-relative" src="images/Navigation_NonStandard.png" />
                 <figcaption>
-                    <span>Figure 47: Alternate layout patterns, like those found in consumer devices, should not be used.</span>
+                    <span>Figure 51: Alternate layout patterns, like those found in consumer devices, should not be used.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0131] Alternate layout patterns should not be used. While the pattern shown in Figure 47 is commonly </span>
+                <span>[0133] Alternate layout patterns should not be used. While the pattern shown in Figure 51 is commonly </span>
                 <span>employed in consumer devices, testing with machine HMIs demonstrated that it is not as effective as </span>
                 <span>vertically and horizontally aligned alternatives. </span>
             </p>
             <h3 id="NavigationStandardSupplements">6.2.3 Supplementary Content</h3>
             <p>
-                <span>[0132] Beyond the standard menus, HMIs general provide specific contextual information, </span>
+                <span>[0134] Beyond the standard menus, HMIs general provide specific contextual information, </span>
                 <span>which helps the operator maintain situational awareness. This content is optional and should only be </span>
                 <span>shown if the information can be displayed effectively. When possible, the information should be </span>
                 <span>in a fixed location, which is always visible to the operator regardless current display context.</span>
@@ -2072,8 +2075,8 @@
                     <td>The current date and/or time.</td>
                     <td>
                         <ul>
-                            <li>June 19, 2020 - 11:00 AM</li>
-                            <li>19 June 2020 - 16:30</li>
+                            <li class="example">June 19, 2020 - 11:00 AM</li>
+                            <li class="example">19 June 2020 - 16:30</li>
                         </ul>
                     </td>
                 </tr>
@@ -2095,20 +2098,20 @@
             </table>
             <h3 id="NavigationGuidance">6.3 Guidance</h3>
             <p>
-                <span>[0133] One of the earliest stated goals of this HMI standard was to allow operators to move from machine to machine </span>
-                <span>and from line to line efficiently. Offering a standard set of HMI icons and labels along with a standard set </span>
-                <span>of layout patterns is an incredible step toward this goal. When presented with a consistent set of icons and labels, </span>
-                <span>positioned consistently on the screen, operators will more easily identify the content required to complete their </span>
-                <span>HMI interactions. Returning to our earlier definition, this should be considered external consistency </span>
+                <span>[0135] Allowing operators to efficiently move from machine to machine was the earliest stated </span>
+                <span>goal of this HMI guidance. The standard HMI icons and labels established here, along with the standard set </span>
+                <span>of layout patterns, is an incredible step toward this goal. When presented with a consistent set of icons and labels &ndash; </span>
+                <span>each positioned consistently on the screen &ndash; operators will more easily identify the content required to complete their </span>
+                <span>HMI interactions. Returning to our earlier definition of consistency, this should be considered external consistency, </span>
                 <span>as it establishes consistency between machines and lines. Internal consistency (i.e., consistency within a single HMI) </span>
-                <span>is equally important. While the standard itself leaves these aspect to the discretion of the individual designer, the </span>
-                <span>the following sections offer guidance to help facilitate internal consistency wherever possible. Ironically, we </span>
-                <span>must discuss contrast to understand consistency.</span>
+                <span>is equally important. While this standard leaves these aspects to the discretion of the individual designer, the </span>
+                <span>following sections offer additional guidance to help facilitate internal consistency wherever possible. Ironically, we </span>
+                <span>must first discuss contrast to fully appreciate consistency.</span>
             </p>
             <h3 id="NavigationContrast">6.3.1 Contrast</h3>
             <p>
-                <span>[0134] We are naturally inclined to identify patterns. We are equally inclined to spot inconsistencies. The lone </span>
-                <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
+                <span>[0136] We are naturally inclined to identify patterns. We are equally inclined to spot inconsistencies. The lone </span>
+                <span>blue dot in Figure 52 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
                 <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
                 <span>visual hierarchy within the image. The blue mark is more dominant than the grey marks because of color contrast. </span>
                 <span>When used in an HMI, such applications of color are used to communicate meaning. The blue dot is significantly different; it must be important. </span>
@@ -2116,134 +2119,387 @@
             <figure>
                 <img id="contrast" src="images/Contrast.png" />
                 <figcaption>
-                    <span>Figure 48: A single colored blue mark is the clear focal point in an array of similar grey marks.</span>
+                    <span>Figure 52: A single colored blue mark is the clear focal point in an array of similar grey marks.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0135] Adding a second highlighted point, as shown in Figure 49, splits our focus. Two points are now competing for </span>
+                <span>[0137] Figure 53 demonstrates how adding a second highlighted point will split our focus. Two points are now competing for </span>
                 <span>our attention; emphasis on the first point has been reduced. With this additional colored point, a viewer's </span>
-                <span>gaze is more likely to travel around the image. The marks are the same color. We expect a similar semantic </span>
-                <span>explanation. </span>
+                <span>gaze is more likely to travel around the image. Noting that the marks are the same color, we naturally expect a similar semantic </span>
+                <span>explanation; if we know why the first dot is blue, we assume the second dot is blue for the same reason. </span>
             </p>
             <figure>
                 <img id="contrast_two" src="images/Contrast2.png" />
                 <figcaption>
-                    <span>Figure 49: A pair of blue dots split the viewer's attention. However, an expectation that the marks </span>
+                    <span>Figure 53: A pair of blue dots split the viewer's attention. However, an expectation that the marks </span>
                     <span>have a similar meaning now exists. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0136] Contrast can also be introduced using size. In Figure 50, with our original dots still highlighted, one now </span>
-                <span>has more focus due to its size; size now means something as well. Our hierarchy is growing.</span>
+                <span>[0138] If a different semantic meaning is required, an alternate color should be introduced; keeping in mind that </span>
+                <span>a good rule-of-thumb suggests no more than 2-3 different colors in an interface. Figure 54 demonstrates the previous </span>
+                <span>example modified to include a second color, which now holds some other meaning. Here, the opposite expectation is in place. </span>
+                <span>If a second color is used, it should have a second meaning. We should not add another color just to make the display "pretty". </span>
+                <span>Given the context of use for our equipment, the operator likely expects alternate colors to have alternate meanings.</span>
+            </p>
+            <figure>
+                <img id="contrast_two_color" src="images/Contrast2B.png" />
+                <figcaption>
+                    <span>Figure 54: If the highlighted dots in Figure 53 do not carry the same meaning, an alternate color should be used. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0139] In the preceding examples, color alone was used to produce the intended contrast. </span>
+                <span>When more granularity is required, contrast can also be introduced using size. </span>
+                <span>In Figure 55, with our original dots still highlighted, one now </span>
+                <span>has more focus due to its size; size now means something as well. Our hierarchy is growing...</span>
             </p>
             <figure>
                 <img id="contrast_two" src="images/Contrast3.png" />
                 <figcaption>
-                    <span>Figure 50: With the same two dots highlighted, size is used to shift focus to the larger blue dot. </span>
+                    <span>Figure 55: With the same two dots highlighted, size is used to shift focus to the larger blue dot. </span>
                 </figcaption>
             </figure>
             <h3 id="NavigationSquintTesting">6.3.2 Squint Testing</h3>
             <p>
-                <span>[0137] Contrast gets the viewers attention. In an HMI, it is important that the amount of contrast is proportional to </span>
+                <span>[0140] Contrast is used to get the viewers attention. In an HMI, it is important that the amount of contrast is proportional to </span>
                 <span>the element's importance. A quick gauge of the display's hierarchy can be achieved through "squint testing". </span>
                 <span>Simply squint your eyes as you look at an interface. Are the most important points the most salient? Figure </span>
-                <span>51 simulates a squint test for our running example. The large blue dot is still the clear focal point. As a display </span>
-                <span>expands to include more content, this technique can help the designer maintain a balanced interface.</span>
+                <span>56 simulates a squint test for our running example. The large blue dot is still the clear focal point. As a display </span>
+                <span>expands to include more content, this technique can help the designer maintain a balanced interface. It is important </span>
+                <span>to strike an appropriate balance in contrast. Too little contrast and the viewer has no direction; too much contrast </span>
+                <span>and the viewer's gaze is drawn in too many directions.</span>
             </p>
             <figure>
                 <img id="squint_testing" src="images/SquintTest.png" />
                 <figcaption>
-                    <span>Figure 51: To ensure the hierarchy of a design is appropriately balanced, a viewer need only squint </span>
+                    <span>Figure 56: To ensure the hierarchy of a design is appropriately balanced, a viewer need only squint </span>
                     <span>their eyes to confirm that the intended focal points are appropriately highlighted.</span>
                 </figcaption>
             </figure>
             <h3 id="NavigationDataInk">6.3.3 Data-Ink Ratio</h3>
             <p>
-                <span>[0138] Squint testing is merely a technique to validate the previously discussed Data-Ink Ratio concept. The level of </span>
+                <span>[0141] Squint testing is merely a technique to validate the previously discussed Data-Ink Ratio concept. The level of </span>
                 <span>contrast introduced by a screen element, should be proportional to the data it communicates. While we have still </span>
-                <span>not established any meaning for our array of dots example, it is reasonable to argue that the grey dots are less significant. </span>
+                <span>not established any meaning for our array of dots, it is reasonable to argue that the grey dots are less significant. </span>
                 <span>Their perceived contrast has been limited by reducing their color saturation. Colors in the natural world </span>
-                <span>help establish our perceived correlation between color saturation and proximity. Figure 51 shows a simple landscape </span>
-                <span>of rolling hills. The most distant hills are lighter with reduced saturation. The nearest hills, however, are darker </span>
-                <span>and more saturated. This explains why grey is an ideal color for content with minimal importance. We reduce the </span>
-                <span>perceived contrast of an item by reducing its level of saturation.</span>
+                <span>help establish our perceived correlation between color saturation and proximity. Figure 57 shows a simple landscape </span>
+                <span>of rolling hills. While the most distant hills are lighter with reduced saturation, the nearest hills are darker </span>
+                <span>and more saturated. The distant hills fade until their color almost matches that of the sky. This helps explain why grey is an </span>
+                <span>ideal color for content with minimal importance. Given the white background of this document the grey dots have a low  </span>
+                <span>level of contrast. In general, we reduce the perceived contrast of an item by lightening and reducing its level of saturation.</span>
+                <span>In terms of interface hierarchy, reducing contrast pushes an item toward the background, while increasing contrast moves it forward.</span>
             </p>
             <figure>
                 <img id="atmospheric_perspective" src="images/AtmosphericPerspective.png" />
                 <figcaption>
-                    <span>Figure 52: This landscape of rolling hills illustrates atmospheric perspective. The more distant </span>
+                    <span>Figure 57: This landscape of rolling hills illustrates atmospheric perspective. The more distant </span>
                     <span>hills have lighter color until they eventually match the sky. The closest hills are darker with more </span>
                     <span>saturated colors. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0139] In our array of dots, the highly saturated blue dots have focus, while the grey dots, despite being more numerous, </span>
-                <span>fade to the background. The contrast of these marks can be reduced further by inverting their shape as shown in Figure </span>
-                <span>52. The amount of "ink" has been reduced, leaving a less dominant low contrast mark.</span>
+                <span>[0142] In our array of dots, the highly saturated blue dots have focus, while the grey dots, despite being more numerous, </span>
+                <span>fade to the background. We can employ these same techniques to appropriately balance the components of our interface. </span>
+                <span>Recalling the characteristics of a "usable" interface, we must concurrently offer learnability and efficiency. </span>
+                <span>We have already argued that contrast is necessary to get the operator's attention; in order to afford learnability, we must have contrast. </span>
+                <span>However, once we have learned the interface, any excess contrast becomes a distraction reducing efficiency. If the contrast is overwhelming it does more harm than good. </span>
+                <span>Figure 58 shows the numeric entry box from our Settings-screen example refactored to use a more appropriate level of contrast. </span>
+                <span>Once the screen has been learned, the label "Duration" can fade to the background. We accommodate this </span>
+                <span>by adjusting its size and darkness to reduce the percieved contrast. The same technique is applied to the units label. </span>
+                <span>Units are merely presented to provide context for the associate value, which should be the primary focal point of the control. </span>
+                <span>Accordingly, the emphasis on the units is also reduced; color and size are adjusted appropriately. </span>
+                <span>Finally, the surrounding border, a signifier indicating that the element is clickable, has been likewise muted by reducing the stroke thickness </span>
+                <span>and darkness. The resulting interface is still learnable without the excessive contrast that could </span>
+                <span>serve as a distraction to the viewer. Along the way, it is reasonable to argue that the new box is also more aesthetically pleasing.</span>                
+            </p>
+            <figure>
+                <img id="contrast_refactored" src="images/ContrastRefactored.png" />
+                <figcaption>
+                    <span>Figure 58: In a numeric entry box &ndash; like that used in our example screens &ndash; the value 250 </span>
+                    <span>is given visual priority with a larger size and darker color. This is a functional and aesthetic improvement </span>
+                    <span>over the alternative shown on the left.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0143] The Data-Ink ratio is used in an iterative fashion to control the importance of screen elements. </span>
+                <span>In our working dot-array example, if necessary, the contrast of the grey marks can be further reduced by inverting their shape as shown in Figure </span>
+                <span>59. The amount of "ink" has been reduced, leaving a less dominant low contrast mark. When the marks cannot simply </span>
+                <span>by removed all together, reversing polarity is an effective alternative.</span>
             </p>
             <figure>
                 <img id="contrast_invert" src="images/Contrast4.png" />
                 <figcaption>
-                    <span>Figure 53: The contrast of the grey dots is reduced further by removing their fill cover to leave only an outline. </span>
+                    <span>Figure 59: The contrast of the grey dots is reduced further by removing their fill color to leave only an outline. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0140] These points all circle back to explain the limitations established for icon usage.</span>
+                <span>[0144] These points all circle back to explain the limitations established for icon usage. Recalling the application </span>
+                <span>notes for the Statistics icon, we intentionally restricted the use of additional borders, faux gridlines, </span>
+                <span>and added marks, which utilized unnecessary "ink" and, therefore, increased contrast without adding </span>
+                <span>any useful semantic meaning. Figure 60 presents a few of our Statistics guidelines. Gratuitous 3D effects </span>
+                <span>and aggressive gradients are the other most commonly abused decorations </span>
+                <span>that push an elements contrast beyond the necessary level of effectiveness.</span>
             </p>
             <figure>
-                <img id="contrast_invert" src="images/PackMLStatisticsUsage.png" />
+                <img id="contrast_invert" src="images/PackMLStatisticsUsageB.png" />
                 <figcaption>
-                    <span>Figure 53: The contrast of the grey dots is reduced further by removing their fill cover to leave only an outline. </span>
+                    <span>Figure 60: The extra "ink" in the Statistics icon is removed to leave a basic shape with sufficient contrast. </span>
                 </figcaption>
             </figure>
-            <h3 id="NavigationAlignment">6.3.4 Alignment</h3>
+            <h3 id="NavigationSignifiers">6.3.4 Signifiers</h3>
             <p>
-                <span>[0141] Alignment affords positional contrast. Figure </span>
-                <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
-                <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
-                <span>visual hierarchy within the image. </span>
+                <span>[0145] With the transition from physical buttons to touch screen displays, designers needed a way to communicate "clickability" </span>
+                <span>to their operators. This was initially achieved by making the on-screen representation of a button look like a physical button. </span>
+                <span>The aesthetic attributes used to communicate "clickability" are termed signifiers; they signify "clickability". Borders that highlight a clickable area </span>
+                <span>are the most commonly encountered signifiers. Today, touchable interfaces are a staple of our daily lives. Accordingly, we are less </span>
+                <span>reliant on the signfiers that were necessary during the transition from physical interfaces. Figure 61 shows a reasonable </span>
+                <span>representation of the evolution of the on-screen button. </span>
+            </p>
+            <figure>
+                <img id="signifiers_clickme" src="images/ClickMe.png" />
+                <figcaption>
+                    <span>Figure 61: Today, "clickable" on-screen buttons are rarely designed with the appearance of physical buttons. </span>
+                    <span>Bezels, gradients, and drop shadows &ndash; that were common in early digital interfaces &ndash; are no longer needed to communicate button function. </span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0146] Gone are the button bezels that helped solidify the mental model for </span>
+                <span>operators. Gone are the drop shadows and gradients that mimic light falling on a physical button. Often, now, particularly </span>
+                <span>for icon-based buttons, the surrounding borders that illustrate the clickable area can be removed as well. While there is nothing </span>
+                <span>wrong with the bordered button shown in the middle of Figure 61, the included border is "ink" that can be removed. The bare icon </span>
+                <span>shown on the far right is self-sufficient, communicating "clickable" effectively and efficiently without a surrounding </span>
+                <span>border. With the borders removed, the result is an interface with additional whitespace, which produces a more relaxing tone </span>
+                <span>that operators will likely appreciate. </span>
+                <span>As demonstrated in Figure 62, borders often require ancillary whitespace, which effectively reduces the usable screen area. </span>
+                <span>Removing the borders eliminates the associated congestion and the awkward spacing between elements. </span>
+            </p>
+            <figure>
+                <img id="signifiers_clickme_b" src="images/ClickMeB.png" />
+                <figcaption>
+                    <span>Figure 62: Awkward whitespace between bordered buttons should be avoided. Place the buttons butt-to-butt </span>
+                    <span>or remove the borders all together.</span>
+                </figcaption>
+            </figure>
+            <h3 id="NavigationAlignment">6.3.5 Alignment</h3>
+            <p>
+                <span>[0147] Whereas color offers contrast using light, alignment affords contrast via position. Figure 63 </span>
+                <span>offers two new dot arrays; both grey, but with one key distinction. The grid on the right is </span>
+                <span>perfectly aligned, whereas the grid on the left includes arbitrary alignment deviations. Again, </span>
+                <span>while subtle, these deviations are likely to draw the viewer's attention. This is quite effective </span>
+                <span>if that is the intention, but that is rarely the case. More often, interfaces simply lack the careful alignment that would otherwise bring harmony to the composition. </span>
             </p>
             <figure>
                 <img id="alignment" src="images/Alignment.png" />
                 <figcaption>
-                    <span>Figure 50: Alternate layout patterns, like those found in consumer devices, should not be used.</span>
+                    <span>Figure 63: The array on the right offers perfect horizontal and vertical alignment, whereas the array on the left </span>
+                    <span>includes arbitrary deviations. These subtle alignment changes are likely to draw undue attention.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0142] Alignment affords positional contrast. </span>
-                <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
-                <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
-                <span>visual hierarchy within the image. </span>
+                <span>[0148] In general, we are seeking consistency in alignment; contrast in this dimension should be avoided. This consistency is most commonly achieved using </span>
+                <span>grids, which align and distribute our screen elements effectively. While the characteristics of the underlying grid </span>
+                <span>will vary from machine to machine based on required content and available screen space, the basic application of </span>
+                <span>a grid is demonstrated in Figure 64.</span>
             </p>
             <figure>
-                <img id="alignment" src="images/Alignment2.png" />
+                <img id="grid" src="images/ExampleHMI_B_Grid.png" />
                 <figcaption>
-                    <span>Figure 51: Alternate layout patterns, like those found in consumer devices, should not be used.</span>
+                    <span>Figure 64: A 12-column grid is used to distribute the content for the Batch Statistics screen.</span>
                 </figcaption>
             </figure>
-            <h3 id="Navigation Contrast">6.3.2 Atmospheric Perspective</h3>
+            <h3 id="NavigationGrid">6.3.6 Grid Design</h3>
             <p>
-                <span>[0143] When selecting a color pallette to  </span>
-                <span>blue dot in Figure 48 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
-                <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
-                <span>visual hierarchy within the image. </span>
+                <span>[0149] The example in Figure 64 shows a 12-column grid; 10 and 12-column grids are frequently encountered, with </span>
+                <span>most grid designs offering a column count that is divisible by 2 such that the screen can be split neatly in half to </span>
+                <span>evenly accommodate larger content. In this example, 12 columns is a good compromise as the amount of content </span>
+                <span>in the HMI would likely overwhelm a 10-column grid. The grid is constructed by first allocating some margin to the left and </span>
+                <span>right sides of the screen; we don't want any content flush with the edge of our display. The remaining screen space is then </span>
+                <span>divided up to produce the desired column count; gutters between the columns provide some breathing room for our content. </span>
+                <span>While the number of columns is up to the designer, a grid that is too granular will accommodate the small variations in alignment </span>
+                <span>that produced the disorienting dot-array shown earlier; keeping the column count reasonable (e.g., 12 columns) manages this problem.</span>
+                <span>Figure 65 illustrates the grid design process.</span>
             </p>
             <figure>
-                <img id="atmospheric_perspective" src="images/AtmosphericPerspective.png" />
+                <img id="grid" src="images/ExampleHMI_B_Grid_Margin.png" />
                 <figcaption>
-                    <span>Figure 51: This landscape of rolling hills illustrates atmospheric perspective. The more distant </span>
-                    <span>hills have lighter color until they eventually match the sky. The closest hills are darker with more </span>
-                    <span>saturated colors. </span>
+                    <span>Figure 65: The grid design is established by first accommodating a margin to the left and right sides of the screen. </span>
+                    <span>The remaining space is then split into a fixed number of columns, each separated by a small gutter.</span>
                 </figcaption>
             </figure>
+            <p>
+                <span>[0150] Once the grid is designed, content within the screen is simply aligned to the columns; Figure 66 demonstrates. </span>
+                <span>The Statistics context label is aligned to the left-edge of the first column; likewise for the associated menu (i.e., Total, Hour, Interval, Batch). </span>
+                <span>The SKU and the PackML Mode and States labels are aligned to the left edge of the third column. Where appropriate, </span>
+                <span>extra margins within the columns can be used to provide extra space; consistency is the key. The grid </span>
+                <span>is simply a guide for layout of the content. In this example, "Batch" is the currently selected menu </span>
+                <span>within the Statistics context. The associated menu item is highlighted in light grey to provide focus. How wide should the </span>
+                <span>highlighted region span? Simply align it to the grid and do so with all other menus to provide consistency </span>
+                <span>between screens. As the design evolves, the grid design may need to be modified to accommodate the content.</span>
+            </p>
+            <figure>
+                <img id="grid" src="images/ExampleHMI_B_Grid_Alignment.png" />
+                <figcaption>
+                    <span>Figure 66: The Statistics menu is left-aligned to the 1st column. The SKU and PackML status is left-aligned </span>
+                    <span>to the 3rd column. The highlighting of the actively selected Batch menu spans from the left edge to the </span>
+                    <span>right edge of column 2.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0151] Some content will be center-aligned, other content will be right-aligned. Figure 67 demonstrates. </span>
+                <span>In the figure, we see that the operator image is center-aligned to the 12th column. It could just as easily </span>
+                <span>have been left or right-aligned to the column. Here, center-alignment offered a nice balance of whitespace between </span>
+                <span>the text and the left-edge of the screen. The operator's name and time are right-aligned. Again, this is another </span>
+                <span>decision left to the designer. The proximity between the name and image is minimal using right-alignment on the 11th </span>
+                <span>column.</span>
+                
+            </p>
+            <figure>
+                <img id="grid" src="images/ExampleHMI_B_Grid_AlignmentB.png" />
+                <figcaption>
+                    <span>Figure 67: The operator image is center-aligned in the 12th column, whereas the operator name and the current time is </span>
+                    <span>right-aligned to the 11th column. These decisions balance whitespace and optimize the proximity between the operator's </span>
+                    <span>name and picture.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0152] Content may span multiple columns as needed. The 12 column design is popular for this specific reason; it can be </span>
+                <span>divided in half, thirds, or quarters to produce a variety of layouts. The main menu offers an interesting design decision. </span>
+                <span>With 8 elements and 12 columns, how do we align the content. Each element could be assigned a separate column, as shown in </span>
+                <span>Figure 68, or the group can be arbitrarily spaced and centered across the full 12 columns, as shown in Figure 69. There really is no wrong answer here.</span>
+            </p>
+            <figure>
+                <img id="grid" src="images/ExampleHMI_B_Grid_MainMenu.png" />
+                <figcaption>
+                    <span>Figure 68: The main menu icons are each aligned to a single column. With the non-standard "Search" icon intentionally separated </span>
+                    <span>and presented in the 12th column.</span>
+
+                </figcaption>
+            </figure>
+            <figure>
+                <img id="grid" src="images/ExampleHMI_B_Grid_MainMenuB.png" />
+                <figcaption>
+                    <span>Figure 69: The main menu icons consistently spaced and aligned as a group spanning the full 12-column width.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0153] Given the layout established in this standard, the preceding components (e.g., operator, menu, submenu, PackML status) will likely </span>
+                <span>maintain a fixed position from screen to screen. The grid has helped establish a fitting home for these pieces. </span>
+                <span>The remaining content &ndash; that which will vary from screen to screen &ndash; will fill the remainder of the interface. </span>
+                <span>Utilizing the grid in a consistent manner will provide the desirable internal consistency discussed earlier. </span>
+                <span>Our example Products and Settings screens offer a consistent feel because they utilize the same grid ratios. </span>
+                <span>In Figure 70, we don't even need to illustrate the underlying 12-column grid; the consistency is clear without annotations. </span>
+                <span>This consistency will likely be appreciated by the operator transitioning between these screens.</span>
+            </p>
+            <figure>
+                <img id="grid" src="images/InternalConsistency.png" />
+                <figcaption>
+                    <span>Figure 70: The Products and Settings screens demonstrate internal consistency, which they derive </span>
+                    <span>from the matching 12-column grid used in their design. </span>
+                    <span>While the on-screen components are not always the same width, the underlying grid brings harmony, which communicates consistency.</span>
+                </figcaption>
+            </figure>
+            <h3 id="NavigationGrid">6.3.7 White Space</h3>
+            <p>
+                <span>[0154] Once an effective grid is in place, the content layout process can begin. The previous section demonstrated how </span>
+                <span>a grid provides guidance, but leaves many decisions to the designer. In general, as discussed previously, an interface </span>
+                <span>with adequate white space will be more satisfying for the operator. Given the complexity of the typical production machine, </span>
+                <span>it is understandable that some screens will be packed tightly with content. Careless use of white space aggravates this </span>
+                <span>issue. Often, we must merely remove some problematic "ink" to rectify the situation. Consider the example in Figure 71.</span>
+            </p>
+            <figure>
+                <img id="grid" src="images/WhiteSpace.png" />
+                <figcaption>
+                    <span>Figure 71: Example summary screen with 27 data points. The example relies heavily on borders to help group the items.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0155] The example relies heavily on borders; likely to help group elements. The borders on the left and right are different sizes, so, </span>
+                <span>if a grid is being used, it is likely too granular. Moreover, the alignment of the right-hand borders conflict with the alignment of the exit button. </span>
+                <span>Regardless, despite the 27 data points in the display, </span>
+                <span>this interface is not too overwhelming. However, the borders add lots of "ink" that introduces unnecessary noise and alignment conflicts. Figure 72 shows </span>
+                <span>the same display with the borders removed. </span>
+            </p>
+            <figure>
+                <img id="grid" src="images/WhiteSpaceB.png" />
+                <figcaption>
+                    <span>Figure 72: With the borders removed, and no other changes, the groupings are still evident.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0156] The borders simply reinforced an existing hierarchy within the display. The hierarchy introduced by </span>
+                <span>the font size establishes 3 main groups (i.e., Processor, Major Faults, and Minor Faults); no borders required. </span>
+                <span>White space and alignment can reinforce these boundaries without the need for "ink". Our trusty array of dots can </span>
+                <span>help illustrate this point.</span>
+            </p>
+            <figure>
+                <img id="grid" src="images/WhiteSpaceC.png" />
+                <figcaption>
+                    <span>Figure 73: Removing elements from our grid introduces groups without the need for extra "ink".</span>
+                    <span>Our original grid on the left is transformed into the 3 groups on the right by adding white space </span>
+                    <span>between the elements.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0157] In Figure 73, beginning with our original array of dots on the left, we remove elements to introduce white space, </span>
+                <span>which establishes 3 groups of dots. We interpret the grouping because the member elements are aligned, they are in close proximity to each other, </span>
+                <span>and there is white space between the respective groups. The extra borders introduced in Figure 74 are not required; </span>
+                <span>the groupings are clear without a container.</span>
+            </p>
+            <figure>
+                <img id="grid" src="images/WhiteSpaceD.png" />
+                <figcaption>
+                    <span>Figure 74: The groupings are evident without the need for borders. Removing the borders adds additional </span>
+                    <span>white space without impacting the effective grouping.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0158] Returning to our working example, shown again for review in Figure 75, we note a few issues </span>
+                <span>that can now be corrected. First, the alignment is not consistent. The content in the Minor Faults </span>
+                <span>section appears to be center aligned, whereas the content in the Processor and Major Faults sections </span>
+                <span>appear left-aligned. Additionally, with the borders now removed, we more readily notice the black </span>
+                <span>stroke around our fault LEDs. Also, curiously, the text in the Minor Faults section is larger than </span>
+                <span>the text in the other sections. Finally, the alignment in the processor section adds lots of trapped </span>
+                <span>negative space that can be improved. Figure 76 shows a redesign where these issues have been addressed. </span>
+            </p>
+            <figure>
+                <img id="grid" src="images/WhiteSpaceB.png" />
+                <figcaption>
+                    <span>Figure 75: Improvements can still be made to the interface. The alignment is inconsistent and the white space can be improved.</span>
+                </figcaption>
+            </figure>
+            <figure>
+                <img id="grid" src="images/WhiteSpaceE.png" />
+                <figcaption>
+                    <span>Figure 76: With updated alignment and consistent font sizing, the resulting interface has less "ink" and equivalent function.</span>
+                </figcaption>
+            </figure>
+            <h3 id="NavigationProximity">6.3.8 Proximity</h3>
+            <p>
+                <span>[0159] In general, we prefer to keep related item close to each other (i.e., in close proximity). This reinforces the relationship between </span>
+                <span>the items, and, helps ensure the operator can find them. In our earlier example, we showed that the operator's image and name </span>
+                <span>were positioned in close proximity on the upper system tray. While minimally impactful, this same technique can be applied to our working </span>
+                <span>example. Figure 77 shows our screen updated to move the Fault LEDs for better proximity to the associated labels. This change </span>
+                <span>has the added benefit or releasing the trapped white space between the LEDs and labels.</span>
+            </p>
+            <figure>
+                <img id="grid" src="images/WhiteSpaceF.png" />
+                <figcaption>
+                    <span>Figure 77: The LED and label positions are reversed to improve the proximity of the elements.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0160] Wherever possible, the proximitty between related elements should be optimized. This is often achieved with low-level </span>
+                <span>design rules (e.g., "LEDs go to the left of labels"), which</span>
+            </p>
+            <h3 id="NavigationProximity">6.3.9 Hierarchy</h3>
+            <p>
+                <span>[0160] The examples provided throughout have noted that hierarchy is established by </span>
+            </p>
             <!--
-            <p><span>Data-Ink Ratio</span></p>
-            <p><span>Atmospheric Perspective</span></p>
-            <p><span>Contrast</span></p>
+            <p><span>Orientation Icons</span></p>
+            <p><span>Proximity</span></p>
             <p><span>Information Density</span></p>
-            <p><span>Whitespace</span></p>
-            <p><span>Alignment</span></p>
-            <p><span>Grid Design</span></p>
             <p><span>Typographic Scale</span></p>
             <p><span>Compressed Fonts</span></p>
             <p><span>Color Typography Notes</span></p>
@@ -2251,7 +2507,6 @@
             <p><span>Visualizations</span></p>
             <p><span>Gratuitous 3D</span></p>
             <p><span>Chunking</span></p>
-            <p><span>Squint Test</span></p>
             -->
             
         </div>
@@ -2260,14 +2515,14 @@
             <hr class="black" />
             <h3 id="DesignEvaluationBias">7.1 Overcoming Bias</h3>
             <p>
-                <span>[0144] As a design matures, it is essential to validate its usability. Again, we are discussing  </span>
+                <span>[0146] As a design matures, it is essential to validate its usability. Again, we are discussing  </span>
                 <span>more than traditional functional verification. Satisfying, Efficient, Learnable, Memorable, Tolerant: those are our objectives. </span>
                 <span>An interface that makes sense to its designer is not complete until it has been vetted by another set of eyes. </span>
                 <span>The designer's own "it looks good to me" assertion is not a sufficient form of validation. Even the well trained, well intentioned, </span>
                 <span>designer will benefit from some form of supplementary design review. Why?</span>
             </p>
             <p>
-                <span>[0145] We all suffer from bias. One that is particularly challenging &ndash; specifically for engineers </span>
+                <span>[0147] We all suffer from bias. One that is particularly challenging &ndash; specifically for engineers </span>
                 <span>functioning as designers &ndash; is the "curse of knowledge". Coined in Camerer, Loewenstein, and Weber (1989), </span>
                 <span>the curse of knowledge is an inherent inability to see things from the target audience's perspective. </span>
                 <span>The cause of this bias: experience. Despite daily dialogues and interactions with my operators, I simply cannot, with </span>
@@ -2279,7 +2534,7 @@
                 <span>in the operator's eyes, are more serious usability issues.</span>
             </p>
             <p>
-                <span>[0146] At the very least, I understand that this bias exists. I can use caution as I design; always </span>
+                <span>[0148] At the very least, I understand that this bias exists. I can use caution as I design; always </span>
                 <span>mindful that my preferences may conflict with the operator's. On the opposite end of the spectrum, </span>
                 <span>without such awareness or caution, bigger problems can occur. </span>
                 <span>The curse of knowledge is responsible for those acronym filled error messages that are </span>
@@ -2293,14 +2548,14 @@
                 <span>usability anti-pattern, the designer must do the leg work in advance to determine where the operator thinks that parameter should be. </span>
             </p>
             <p>
-                <span>[0147] To make matters worse, the curse of knowledge grows with the design itself. As the designer </span>
+                <span>[0149] To make matters worse, the curse of knowledge grows with the design itself. As the designer </span>
                 <span>molds their interface, they become enamored with its nuance and, unfortunately, comfortable with its flaws. Screens </span>
                 <span>overflowing with content are easily interpreted by the designer that managed to squeeze yet another textbox into the </span>
                 <span>display. Unfortunately, the result is likely overwhelming and completely frustrating to the production </span>
                 <span>operator that is tasked with increasing throughput to hit a quota late in their production shift.</span>
             </p>
             <p>
-                <span>[0148] Fortunately, the cure for this bias is simple; it's humility. Kleon (2012) offered a list of important characteristics </span>
+                <span>[0150] Fortunately, the cure for this bias is simple; it's humility. Kleon (2012) offered a list of important characteristics </span>
                 <span>that all "artists" should have. As an engineer studying design, I felt that "a willingness to look stupid" was the </span>
                 <span>key. The arrogant engineer, so proud of his work, releases it without the validation it needs. I've been there. </span>
                 <span>"Wow, that looks cool... ship it." I shiver a bit when I think about the designs I've shipped without ever putting them </span>
@@ -2309,7 +2564,7 @@
                 
             </p>
             <p>
-                <span>[0149] Balancing display density, information architecture, and aesthetic design is an iterative process. </span>
+                <span>[0151] Balancing display density, information architecture, and aesthetic design is an iterative process. </span>
                 <span>Getting these right the first time is not just challenging, it's unlikely. It doesn't matter how smart you are, </span>
                 <span>or what degrees you have. So, as designers, we often cheat; we need to. We look at existing designs </span>
                 <span>that resonate with us. We model our interfaces after those we find impressive. We figure we will get </span>
@@ -2319,7 +2574,7 @@
                 <span>there are a few risks to keep in mind.</span>
             </p>
             <p>
-                <span>[0150] First, going back to the previous point, I am not an operator. If I find something "intriguing" does that mean my </span>
+                <span>[0152] First, going back to the previous point, I am not an operator. If I find something "intriguing" does that mean my </span>
                 <span>operators will as well? Moreover, will it help them be more effective as an operator? Or will I simply burden them with some </span>
                 <span>clunky widget &ndash; like a talking paperclip &ndash; </span>
                 <span>that they will just find annoying? Engineers armed with a fancy graphical control library are more likely to gold-plate their interfaces. </span>
@@ -2329,7 +2584,7 @@
                 <span>misguided decisions.</span>
             </p> 
             <p>
-                <span>[0151] The second risk, which doesn't necessarily apply to the traditional artist, </span>
+                <span>[0153] The second risk, which doesn't necessarily apply to the traditional artist, </span>
                 <span>is the nature of our domain. Poor design in our world costs money. </span>
                 <span>An artist grows through creativity; the more carefree the better. An artist cannot be held back by fear. </span>
                 <span>They must take risks; their growth depends on it. They share their work with others openly. They crave the feedback of their peers. </span>
@@ -2349,7 +2604,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0152] It is important that we design with the creativity of an artist, while accommodating the risks </span>
+                <span>[0154] It is important that we design with the creativity of an artist, while accommodating the risks </span>
                 <span>brought on by the curse of knowledge and the requirements of our domain. We want to produce  To do this, we must rely on others to review our work; that is where humility steps in. </span>
                 <span>Our discussion thus far suggests that this is not a simple task. Is it sufficient to simply ask other engineers their opinion? Probably not. </span>
                 <span>Are they operators? Are they graphic designers? Are they impervious to the curse of knowledge? Is the operator at the forefront of their mind? </span>
@@ -2358,17 +2613,17 @@
                 <span>interface for the first time ever again. Flaws you intend to fix in the future can spoil their first impression. </span>
                 <span>We will have wasted our best chance to actually measure one of our core usability qualities: learnability. </span>
             </p>
-                <span>There are plenty of potential pitfalls at the evaluation stage. We will  </span>
+                <span>[0155] There are plenty of potential pitfalls at the evaluation stage. We will  </span>
                 <span>the design. Critique, the first evaluation method we will discuss, is the perfect example of a casual, </span>
                 <span>"low-cost", validation technique. Critique is simply  contrast. In this example color is used to highlight </span>
                 <span>The scope of this guidance's standard is quite narrow. </span>
             </p>
             <p>
-                <span>[0153] </span>
+                <span>[0156] </span>
             </p>
             <h3 id="DesignEvaluationCritique">7.1 Critique</h3>
             <p>
-                <span>[0154] As a design matures, it is important to perform some form of validation. Again, we argue that, </span>
+                <span>[0157] As a design matures, it is important to perform some form of validation. Again, we argue that, </span>
                 <span>functional is not sufficient. A design that makes sense to the designer is not complete until is has been vetted in some way. </span>
                 <span>The designer's "it looks good to me" opinion is not a sufficient form of validation. For each evaluation technique, the level </span>
                 <span>of formality can scale to accommodate the nature of the design. Critique, the first evaluation method </span>
@@ -2594,11 +2849,21 @@
                     </td>
                     <td>01P</td>
                 </tr>
+                <tr>
+                    <td>2020-08-13</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Navigation guidance content (e.g., grid design, contrast, proximity, alignment). </li>
+                        </ul>
+                    </td>
+                    <td>01Q</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01P</a></footer>
+    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01Q</a></footer>
 </body>
 
 </html>
