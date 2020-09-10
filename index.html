@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01Q</title>
+    <title>PackML HMI Implementation Guidance Draft 01R</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -2272,7 +2272,8 @@
                 <span>border. With the borders removed, the result is an interface with additional whitespace, which produces a more relaxing tone </span>
                 <span>that operators will likely appreciate. </span>
                 <span>As demonstrated in Figure 62, borders often require ancillary whitespace, which effectively reduces the usable screen area. </span>
-                <span>Removing the borders eliminates the associated congestion and the awkward spacing between elements. </span>
+                <span>Removing the borders eliminates the associated congestion and the awkward spacing between elements. Ultimately, </span>
+                <span>however, usability testing should be employed to ensure operators correctly identify clickable content.</span>
             </p>
             <figure>
                 <img id="signifiers_clickme_b" src="images/ClickMeB.png" />
@@ -2489,12 +2490,59 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0160] Wherever possible, the proximitty between related elements should be optimized. This is often achieved with low-level </span>
-                <span>design rules (e.g., "LEDs go to the left of labels"), which</span>
+                <span>[0160] Wherever possible, the proximity between related elements should be optimized. This is often achieved with low-level </span>
+                <span>design rules or style guides (e.g., "LEDs go to the left of labels"), which ensure that screens are designed consistently, </span>
+                <span>especially when a team of designers work on a single project.</span>
             </p>
-            <h3 id="NavigationProximity">6.3.9 Hierarchy</h3>
+            <h3 id="NavigationHierarchy">6.3.9 Hierarchy</h3>
             <p>
-                <span>[0160] The examples provided throughout have noted that hierarchy is established by </span>
+                <span>[0161] The examples provided throughout have noted that hierarchy can be established using contrast in color and size. A higher level of color </span>
+                <span>contrast produces screen elements that are more dominant (i.e., higher in the hierarchy). Lower color contrast pushes the element down </span>
+                <span>in the hierarchy (i.e., the item is less important). Size is used in the same manner. Items that are larger (e.g., font size) are more important. </span>
+                <span>Items that are smaller, less so. We interpret these relationships subconsciously. We quickly identify the dominant items and turn our attention to them. </span>
+                <span>Elements that are inappropriately sized or colored will distract the viewer and interfere with the intended activity. In addition to color and size, </span>
+                <span>position communicates hierarchy as well.</span>
+            </p>
+            <h3 id="NavigationOrientation">6.3.10 Orientation</h3>
+            <p>
+                <span>[0162] In most western cultures, written material travels from left to right and top to bottom. This cultural influence impacts the way </span>
+                <span>we view digital displays as well. When we scan content on digital displays, we tend to follow the same patterns employed when reading. </span>
+                <span>Interactive screens generally include primary content in the upper-left region of the screen, followed by a call to action in the lower portion. </span>
+                <span>Our example print dialog, shown again in Figure 78, demonstrates this pattern.</span>
+            </p>
+            <figure>
+                <img id="print-dialog" src="images/print.png" />
+                <figcaption>
+                    <span>Figure 78: Context is established at the top of the dialog (i.e., the file name), followed by parameters for the </span>
+                    <span>print action. After reviewing down and across the screen, the Print button is located in the lower right corner.</span>
+                </figcaption>
+            </figure>
+            <p>
+                <span>[0163] The example expects the viewer's focus to begin in the upper left-corner of the screen where the title of the printed document is displayed. </span>
+                <span>Having established the context of the printout, the parameters of the print operation are displayed. The viewer is expected to review this content from the top </span>
+                <span>of the screen to the bottom. Once the settings have been reviewed down and across the display, the viewer reaches the Print button at the lower right </span>
+                <span>corner of the display and can decide whether to print or make changes. This is the same order we read print media; starting at the top-left corner, ending in the bottom-right.</span>
+                <span>Situational awareness begins at the top-left and grows until reaching the point of a decision.</span>
+            </p>
+            <p>
+                <span>[0164] The standard PackML menu orientation is designed to accommodate this pattern. The Home menu is the default context when a machine is turned on. </span>
+                <span>It is, arguably, the most frequently used menu button. Accordingly, </span>
+                <span>it is positioned at the top of a vertical menu and on the left edge of a horizontal </span>
+                <span>menu. If the operator is scanning the screen for a specific menu, we expect </span>
+                <span>that they will begin looking at a specific part of the screen. Ideally, the most frequently </span>
+                <span>used content will be found in that location. It follows that the Manual button, which may not exist on some machines, </span>
+                <span>is provided the opposite priority; it is positioned at the bottom of a vertical menu and to the right side of a horizontal menu. This leaves an </span>
+                <span>interesting design decision; where should the menus be positioned? Should the horizontal menu be at the bottom or the top of the screen? </span>
+                <span>Should the vertical menu be on the left or the right? Traditionally, key panels have been positioned below their displays. </span>
+                <span>This position offers a more convenient button location, particularly for displays that are mounted around eye-level. </span>
+                <span>For the vertical menu, an opposing approach was employed. While it was argued that the majority of operators are right-handed, </span>
+                <span>the vertical menu is positioned on the left side of the screen to accommodate the left-to-right reading order of western cultures.</span>
+            </p>
+            <p>
+                <span>[0165] As noted previously, the scope of the PackML HMI standard is intentionally limited. While specific orientation requirements will not be offered, </span>
+                <span>the provided orientation guidance should, nonetheless, be considered during design. With the understanding that reading orientation of western cultures transcends to </span>
+                <span>display scanning, it is important to design screens to accommodate these patterns. Place "critical" content in the upper-left region; it will get more attention there. Push less critical content </span>
+                <span>to the lower-right. If possible, move advanced material (i.e., those only used by "powerusers") off to another screen all together.</span>
             </p>
             <!--
             <p><span>Orientation Icons</span></p>
@@ -2515,14 +2563,14 @@
             <hr class="black" />
             <h3 id="DesignEvaluationBias">7.1 Overcoming Bias</h3>
             <p>
-                <span>[0146] As a design matures, it is essential to validate its usability. Again, we are discussing  </span>
+                <span>[0166] As a design matures, it is essential to validate its usability. Again, we are discussing  </span>
                 <span>more than traditional functional verification. Satisfying, Efficient, Learnable, Memorable, Tolerant: those are our objectives. </span>
                 <span>An interface that makes sense to its designer is not complete until it has been vetted by another set of eyes. </span>
                 <span>The designer's own "it looks good to me" assertion is not a sufficient form of validation. Even the well trained, well intentioned, </span>
                 <span>designer will benefit from some form of supplementary design review. Why?</span>
             </p>
             <p>
-                <span>[0147] We all suffer from bias. One that is particularly challenging &ndash; specifically for engineers </span>
+                <span>[0167] We all suffer from bias. One that is particularly challenging &ndash; specifically for engineers </span>
                 <span>functioning as designers &ndash; is the "curse of knowledge". Coined in Camerer, Loewenstein, and Weber (1989), </span>
                 <span>the curse of knowledge is an inherent inability to see things from the target audience's perspective. </span>
                 <span>The cause of this bias: experience. Despite daily dialogues and interactions with my operators, I simply cannot, with </span>
@@ -2534,7 +2582,7 @@
                 <span>in the operator's eyes, are more serious usability issues.</span>
             </p>
             <p>
-                <span>[0148] At the very least, I understand that this bias exists. I can use caution as I design; always </span>
+                <span>[0168] At the very least, I understand that this bias exists. I can use caution as I design; always </span>
                 <span>mindful that my preferences may conflict with the operator's. On the opposite end of the spectrum, </span>
                 <span>without such awareness or caution, bigger problems can occur. </span>
                 <span>The curse of knowledge is responsible for those acronym filled error messages that are </span>
@@ -2548,14 +2596,14 @@
                 <span>usability anti-pattern, the designer must do the leg work in advance to determine where the operator thinks that parameter should be. </span>
             </p>
             <p>
-                <span>[0149] To make matters worse, the curse of knowledge grows with the design itself. As the designer </span>
+                <span>[0169] To make matters worse, the curse of knowledge grows with the design itself. As the designer </span>
                 <span>molds their interface, they become enamored with its nuance and, unfortunately, comfortable with its flaws. Screens </span>
                 <span>overflowing with content are easily interpreted by the designer that managed to squeeze yet another textbox into the </span>
                 <span>display. Unfortunately, the result is likely overwhelming and completely frustrating to the production </span>
                 <span>operator that is tasked with increasing throughput to hit a quota late in their production shift.</span>
             </p>
             <p>
-                <span>[0150] Fortunately, the cure for this bias is simple; it's humility. Kleon (2012) offered a list of important characteristics </span>
+                <span>[0170] Fortunately, the cure for this bias is simple; it's humility. Kleon (2012) offered a list of important characteristics </span>
                 <span>that all "artists" should have. As an engineer studying design, I felt that "a willingness to look stupid" was the </span>
                 <span>key. The arrogant engineer, so proud of his work, releases it without the validation it needs. I've been there. </span>
                 <span>"Wow, that looks cool... ship it." I shiver a bit when I think about the designs I've shipped without ever putting them </span>
@@ -2564,7 +2612,7 @@
                 
             </p>
             <p>
-                <span>[0151] Balancing display density, information architecture, and aesthetic design is an iterative process. </span>
+                <span>[0171] Balancing display density, information architecture, and aesthetic design is an iterative process. </span>
                 <span>Getting these right the first time is not just challenging, it's unlikely. It doesn't matter how smart you are, </span>
                 <span>or what degrees you have. So, as designers, we often cheat; we need to. We look at existing designs </span>
                 <span>that resonate with us. We model our interfaces after those we find impressive. We figure we will get </span>
@@ -2574,7 +2622,7 @@
                 <span>there are a few risks to keep in mind.</span>
             </p>
             <p>
-                <span>[0152] First, going back to the previous point, I am not an operator. If I find something "intriguing" does that mean my </span>
+                <span>[0172] First, going back to the previous point, I am not an operator. If I find something "intriguing" does that mean my </span>
                 <span>operators will as well? Moreover, will it help them be more effective as an operator? Or will I simply burden them with some </span>
                 <span>clunky widget &ndash; like a talking paperclip &ndash; </span>
                 <span>that they will just find annoying? Engineers armed with a fancy graphical control library are more likely to gold-plate their interfaces. </span>
@@ -2584,7 +2632,7 @@
                 <span>misguided decisions.</span>
             </p> 
             <p>
-                <span>[0153] The second risk, which doesn't necessarily apply to the traditional artist, </span>
+                <span>[0173] The second risk, which doesn't necessarily apply to the traditional artist, </span>
                 <span>is the nature of our domain. Poor design in our world costs money. </span>
                 <span>An artist grows through creativity; the more carefree the better. An artist cannot be held back by fear. </span>
                 <span>They must take risks; their growth depends on it. They share their work with others openly. They crave the feedback of their peers. </span>
@@ -2592,20 +2640,20 @@
                 <span>time. So, if </span>
                 <span>we are going to "steal" ideas for our production equipment, it's probably </span>
                 <span>a good idea to pull insight from companies that have an impressive track record of great design; like Apple. </span>
-                <span>Consider, however, the early versions of Apple's Health App demonstrated in Figure 51. Interesting? Sure. Do I want to force my operators </span>
+                <span>Consider, however, the early versions of Apple's Health App demonstrated in Figure 79. Interesting? Sure. Do I want to force my operators </span>
                 <span>to stare at this all day? Certainly not. We must steal with care. Context is important. That Health App was not </span>
                 <span>designed for use on a piece of industrial equipment. It is not suitable for our domain.</span>
             </p>
             <figure>
                 <img id="alignment" src="images/StealWithCare.png" />
                 <figcaption>
-                    <span>Figure 51: The early Apple Health App used highly saturated colors paired with superfluous gradients. The result suffered from reduced legibility </span>
+                    <span>Figure 79: The early Apple Health App used highly saturated colors paired with superfluous gradients. The result suffered from reduced legibility </span>
                     <span>that would likely cripple an production device.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0154] It is important that we design with the creativity of an artist, while accommodating the risks </span>
-                <span>brought on by the curse of knowledge and the requirements of our domain. We want to produce  To do this, we must rely on others to review our work; that is where humility steps in. </span>
+                <span>[0174] It is important that we design with the creativity of an artist, while accommodating the risks </span>
+                <span>brought on by the curse of knowledge and the requirements of our domain. To do this, we must rely on others to review our work; that is where humility steps in. </span>
                 <span>Our discussion thus far suggests that this is not a simple task. Is it sufficient to simply ask other engineers their opinion? Probably not. </span>
                 <span>Are they operators? Are they graphic designers? Are they impervious to the curse of knowledge? Is the operator at the forefront of their mind? </span>
                 <span>Ideally, we need to put our designs in front of actual operators. Should we do that with our first draft? </span>
@@ -2613,26 +2661,74 @@
                 <span>interface for the first time ever again. Flaws you intend to fix in the future can spoil their first impression. </span>
                 <span>We will have wasted our best chance to actually measure one of our core usability qualities: learnability. </span>
             </p>
-                <span>[0155] There are plenty of potential pitfalls at the evaluation stage. We will  </span>
-                <span>the design. Critique, the first evaluation method we will discuss, is the perfect example of a casual, </span>
-                <span>"low-cost", validation technique. Critique is simply  contrast. In this example color is used to highlight </span>
-                <span>The scope of this guidance's standard is quite narrow. </span>
-            </p>
             <p>
-                <span>[0156] </span>
+                <span>[0175] Accordingly, we will employ an iterative approach. In the following sections we introduce the critique and heuristic evaluation. </span>
+                <span>These steps set the stage for usability testing, where the operator will finally evaluate a potentially finished product. Critique and </span>
+                <span>heuristic evaluation help get us their. Each of these evaluation techniques relies on others to evaluate and provide feedback. </span>
+                <span>Ultimately, the designer is responsible for sythesizing that feedback into an interface that addresses our usability criteria: </span>
+                <span>learnable, memorable, efficient, tolerant, and, satisfying.</span>
             </p>
             <h3 id="DesignEvaluationCritique">7.1 Critique</h3>
             <p>
-                <span>[0157] As a design matures, it is important to perform some form of validation. Again, we argue that, </span>
-                <span>functional is not sufficient. A design that makes sense to the designer is not complete until is has been vetted in some way. </span>
-                <span>The designer's "it looks good to me" opinion is not a sufficient form of validation. For each evaluation technique, the level </span>
-                <span>of formality can scale to accommodate the nature of the design. Critique, the first evaluation method </span>
-                <span>we will discuss, is the perfect example of a casual, "low-cost", validation technique. Critique is simply  </span>
-                <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
-                <span>visual hierarchy within the image. </span>
+                <span>[0177] Design critique is focused primarily on the effectiveness of aesthetic design decisions. Is the contrast appropriate? Is information density overwhelming? </span>
+                <span>Is the typographic scale effective? In order to properly evaluate the relevant design characteristics, the designer must receive criticism from peers </span>
+                <span>skilled in the discipline. The designer must solicit advice from others who can adequately evaluate the interface from an aesthetic </span>
+                <span>perspective; someone who will do so with a fresh set of eyes. Again, the designer is cursed by their design endeavor and they requires honest feedback from </span>
+                <span>a qualified expert. Finding such an expert is not as difficult as one would expect.</span>
             </p>
-            <p><span>Curse of Knowledge</span></p>
+            <p>
+                <span>[0178] Many companies include an in-house design team responsible for maintaining corporate brand guidelines. These design experts </span>
+                <span>understand that critique is an important part of the process and are generally excited to help fellow designers improve their work. </span>
+                <span>When an in-house team is not available, assistance is likely available within the respective design community. Experts within OMAC, for </span>
+                <span>example, enjoy the challenge of design and are equally likely to assist a designer in need. Such experts are often preferred over in-house designers, as they </span>
+                <span>are more likely to have an inherent understanding of the production operators that will ultimately utilize the design.</span>
+            </p>
+            <p>
+                <span>[0179] At its simplest, critique takes the form of a conversation between the designer and a group of reviewers. The level of formality is up to the group. </span>
+                <span>A 15-minute web conference is often sufficient to review a design and collect some valuable insight. </span>
+                <span>Ideally, the designer has a specific set of questions for which feedback is needed. The designer should be prepared to explain the relevant design principles for a given concept, the decisions </span>
+                <span>that were made, and ask for feedback on the current state of the work. This is where being vulnerable is most important. Hours of work on </span>
+                <span>the designer's part will now be reviewed by other experts who will see flaws the designer missed. This is essential, but it takes trust and humility. </span>
+                <span>A less practiced designer should embrace the critique process as an opportunity to expand their skillset and their own critical eye.</span>
+            </p>
+            <p>
+                <span>[0180] The critique is intended to be a place of growth for all involved. The reviewers experience a new design with new challenges, and, </span>
+                <span>in turn, are challenged to offer guidance. The designer will hear fresh perspectives and new recommendations that help them grow. </span>
+                <span>Often, the designer will present a variety of design alternatives to help illustrate the challenge to be resolved. After a short review, </span>
+                <span>critique participants will provide concrete feedback in terms of core design principles (e.g., balance, contrast, hierarchy); vague uninformed feedback is of little use to the designer. </span>
+                <span>Ultimately, the designer must decide evaluate the feedback and decide if any changes are necessary. </span>
+            </p>
+            <p>
+                <span>[0181] Critique is often employed early on in the design process when the basic design concept is still being established. Once an overall </span>
+                <span>design style is established, broader development can begin. The output from this early phase may include a style guide to help formalize </span>
+                <span>the underlying design decisions. Such tools are helpful when there a multiple members in the design team. After a functional design has matured </span>
+                <span>beyond the concept phase, heuristic evaluation becomes a more appropriate tool for refining the design.</span>
+            </p>
             <h3 id="DesignEvaluationHeuristics">7.2 Heuristic Evaluation</h3>
+            <p>
+                <span>[0182] More formal than design critiques, heuristics evaluation establishes a list of best practices that will </span>
+                <span>be used to validate a functional interface design. While the most commonly employed heuristics all sound like </span>
+                <span>common sense, when evaluated holistically, even the most carefully designed interface will fall astray in some areas. </span>
+                <span>Nielson (1993) offered a set of 10 basic usability heuristics, which include "Speak the Users' Language". Sounds </span>
+                <span>obvious, why wouldn't we? However, when we review an interface we begin to wonder if we are truly complying with </span>
+                <span>these basic expectations.</span>
+            </p>
+            <p>
+                <span>[0183] Heuristic evaluation goes one step further by formalizing the list of required heuristics and tasking multiple </span>
+                <span>evaluators with reviewing an interface to ensure that the heuristics are accommodated. While the selected set of heuristics </span>
+                <span>will ideally be designed specifically for the target context and the associated operators, Nielson's list is always a good place to start </span>
+                <span>as it establishes a finite list that addresses many essential aspects of usability. </span>
+            </p>
+            <p>
+                <span>[0184] Multiple evaluators should be employed, where possible, to increase the likelihood of identifying flaws that conflict </span>
+                <span>with the heuristics. Evaluators can review the design independently or with the designer so that the feedback is more easily </span>
+                <span>communicated. Once the feedback from multiple evaluators has been collected, the designer is tasked, again, with reviewing </span>
+                <span>the feedback and making appropriate changes.</span>
+            </p>
+            <p>
+                <span>[0185] As with design critiques, the designer must view this exercise as a growth opportunity; especially if they intend </span>
+                <span>to shadow the heuristic evaluators. Whereas as design critique is dependent on </span>
+            </p>
             <h3 id="DesignEvaluationUsability">7.3 Usability Testing</h3>
             <p>...</p>
         </div>
@@ -2859,11 +2955,21 @@
                     </td>
                     <td>01Q</td>
                 </tr>
+                <tr>
+                    <td>2020-09-10</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Added design critique and heuristic evaluation content.</li>
+                        </ul>
+                    </td>
+                    <td>01R</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01Q</a></footer>
+    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01R</a></footer>
 </body>
 
 </html>
