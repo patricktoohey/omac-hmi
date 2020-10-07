@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01S</title>
+    <title>PackML HMI Implementation Guidance Draft 01T</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -183,7 +183,7 @@
                 <li>
                     <a href="#StateModel" class="section">5. PackML State Model Representations</a>
                     <ul>
-                        <li><a href="#packml_state_model_representation">Figure 14: TR88 2020 PackML Diagram</a></li>
+                        <li><a href="#packml_state_model_representation">Figure 14: TR88 2021 PackML Diagram</a></li>
                         <li><a href="#packml_state_model_level1">Figure 15: Proper State Model Alignment</a></li>
                         <li><a href="#packml_state_model_level2">Figure 16: Displaying Pass-Through States</a></li>
                         <li><a href="#packml_state_model_level1a">Figure 17: Minimal Acceptable Alternative Display</a></li>
@@ -393,7 +393,7 @@
                 <span>also shown in the figure, is optionally applied to available horns and illuminated HMI push-buttons. </span>
             </p>
             <figure>
-                <img id="summary-lightstack-table" src="images/LightStackTable8.png" />
+                <img id="summary-lightstack-table" src="images/LightStackTable9.png" />
                 <figcaption>
                     <span>Figure 1: Summary table of lamp color and sequence associated with PackML states and machine conditions, </span>
                     <span>including the associated response for integrated horns and illuminated Start and Reset buttons. </span>
@@ -407,6 +407,7 @@
                 <span>Completed, c) Resetting, Unsuspending, Suspended, Suspending, and d) Stopped, Stopping, Clearing, Aborted, Aborting.</span>
                 <span>Vertical alignment is likewise required for the following groups: a) Idle, Resetting, Stopped, b) Unholding, Starting, Unsuspending, </span>
                 <span>Stopping, c) Held, Execute, Suspended, Clearing, d) Holding, Completing, Suspending, Aborted, and e) Completed, Aborting. </span>
+                <span>Localization of the PackML state names is beyond the scope of this document.</span>
             </p>
             <figure>
                 <img id="summary-packml-state-model" src="images/packml_diagram_standard.png" />
@@ -423,7 +424,8 @@
             </p>
             <h3 id="AbstractNavigation">2.4.3 Navigation Design Abstract</h3>
             <p>
-                <span>[0016] The standard PackML Navigation Template requires a primary menu utilizing the icons and labels displayed in Table 1.</span>
+                <span>[0016] The standard PackML Navigation Template requires a primary menu utilizing the icons and labels displayed in Table 1. </span>
+                <span>Localization of the navigation labels is beyond the scope of this document.</span>
             </p>
             <table id="table-summary-navigation-contexts">
                 <caption>Table 1: Navigation Contexts</caption>
@@ -687,7 +689,7 @@
             <h3 id="StacklightsScope">4.1 Scope</h3>
             <p>
                 <span>[0039] This section of the guidance will specify the mapping between the </span>
-                <span>standard ANSI/ISA TR88 2020 PackML state model &ndash; demonstrated in Figure 6 &ndash; and the associated stacklight </span>
+                <span>standard ANSI/ISA TR88 2021 PackML state model &ndash; demonstrated in Figure 6 &ndash; and the associated stacklight </span>
                 <span>and push-button control implementation standards established here. The mapping will address </span>
                 <span>(a) color coding of stacklight lamps for respective PackML states, (b) related lamp sequences (i.e., flashing or solid), and </span>
                 <span>(c) proper integration of the push-buttons to communicate required operator interactions. </span>
@@ -695,7 +697,7 @@
             <figure>
                 <img id="packml_state_model" src="images/base_diagram_packml.png" />
                 <figcaption>
-                    <span>Figure 6: The standard PackML state model as presented in TR88 2020. </span>
+                    <span>Figure 6: The standard PackML state model as presented in TR88 2021. </span>
                 </figcaption>
             </figure>
             <p>
@@ -719,7 +721,7 @@
             <h3 id="StacklightsStandard">4.2 Standard Implementation</h3>
             <p>
                 <span>[0041] The standard PackML stacklight contains four lamps to represent the </span>
-                <span>PackML states described in ANSI/ISA TR88 2020. </span>
+                <span>PackML states described in ANSI/ISA TR88 2021. </span>
                 <span>Ordered from the top down as demonstrated in Figure 7, the lamps will </span>
                 <span>be illuminated in a specific sequence (i.e., off, solid, or flashing) based on the current PackML state. The </span>
                 <span>standard order &ndash; derived from the indicator light specification in IEC 60204-1:2016 &ndash; </span>
@@ -848,6 +850,11 @@
                     <td>Solid</td>
                 </tr>
                 <tr>
+                    <td></td>
+                    <td>Unsuspending</td>
+                    <td>Solid</td>
+                </tr>
+                <tr>
                     <td>Reset Button Light</td>
                     <td>Aborted</td>
                     <td>Flashing</td>
@@ -946,7 +953,7 @@
             <p>
                 <span>[0049] As demonstrated in Figure 10, the Suspended branch of the PackML state diagram is addressed according to the directional cause </span>
                 <span>of the event. Upstream equipment issues will transition the stacklight to a flashing amber state. Whereas </span>
-                <span>downstream events will trigger a solid amber lamp. With the exception of the Unsuspending state, the Start </span>
+                <span>downstream events will trigger a solid amber lamp. The Start </span>
                 <span>button will remain illuminated throughout. </span>
             </p>
             <figure>
@@ -1188,7 +1195,7 @@
             <h3 id="StateModelScope">5.1 Scope</h3>
             <p>
                 <span>[0066] This section of the guidance will specify the steps necessary to present the standard ANSI/ISA </span>
-                <span>TR88.00.02-2020 PackML state model in a consistent and effective manner. More specifically, this section focuses </span>
+                <span>TR88.00.02-2021 PackML state model in a consistent and effective manner. More specifically, this section focuses </span>
                 <span>on the unique requirements for presenting the state model on a machine's HMI. In keeping with the themes </span>
                 <span>expressed previously, the guidance and associated design requirements prioritize the goals of the production-line operator. </span>
                 <span>The guidance illustrates the typical design challenges that designers must overcome and offers specific recommendations </span>
@@ -1596,7 +1603,7 @@
             </p>
             <h3 id="SummaryStateModel">5.8 Summary</h3>
             <p>
-                <span>[0100] The PackML state model &ndash; most recently revised in TR88.00.02-2020 &ndash; is typically represented </span>
+                <span>[0100] The PackML state model &ndash; most recently revised in TR88.00.02-2021 &ndash; is typically represented </span>
                 <span>visually as a flow chart illustrating viable state transitions. When presented on an HMI, this same state model </span>
                 <span>visualization is used to communicate the active machine-state to operators. To avoid confusing operators, </span>
                 <span>appropriately designed on-screen state-model visualizations must maintain the orientation and alignment utilized in </span>
@@ -2663,7 +2670,7 @@
                 <span>I have seen behind the curtain. I understand the inner workings of my equipment at a level my operator's should never need to comprehend. </span>
                 <span>There is a significant risk that my bias will bleed through; that I will design an interface that is suitable </span>
                 <span>for an engineer, but unsatisfying for an operator. I am more likely to explain away what I feel are simply "quirks" in the interface, which, </span>
-                <span>in the operator's eyes, are more serious usability issues.</span>
+                <span>in the eyes of an operator, are more serious usability issues.</span>
             </p>
             <p>
                 <span>[0173] At the very least, I understand that this bias exists. I can use caution as I design; always </span>
@@ -2710,7 +2717,7 @@
                 <span>clunky widget &ndash; like a talking paperclip &ndash; </span>
                 <span>that they will just find annoying? Engineers armed with a fancy graphical control library are more likely to gold-plate their interfaces. </span>
                 <span>That 15-slice 3D pie chart, with the fancy animation, is not the best tool to communicate with an </span>
-                <span>an operator. Such tools often impress interface designers without offering their operators any actual benefit. </span>
+                <span>operator. Such tools often impress interface designers without offering their operators any actual benefit. </span>
                 <span>On the contrary, these interfaces make it more difficult to interpret the data, which leads to poor situational awareness and </span>
                 <span>misguided decisions.</span>
             </p> 
@@ -2745,18 +2752,18 @@
                 <span>We will have wasted our best chance to actually measure one of our core usability qualities: learnability. </span>
             </p>
             <p>
-                <span>[0180] Accordingly, we will employ an iterative approach. In the following sections we introduce the critique and heuristic evaluation. </span>
+                <span>[0180] Accordingly, we will employ an iterative approach. In the following sections we introduce the critique and heuristic evaluation methods. </span>
                 <span>These steps set the stage for usability testing, where the operator will finally evaluate a potentially finished product. Critique and </span>
-                <span>heuristic evaluation help get us their. Each of these evaluation techniques relies on others to evaluate and provide feedback. </span>
+                <span>heuristic evaluation help get us their. Each of these techniques relies on others to evaluate and provide feedback. </span>
                 <span>Ultimately, the designer is responsible for synthesizing that feedback into an interface that addresses our usability criteria: </span>
                 <span>learnable, memorable, efficient, tolerant, and, satisfying.</span>
             </p>
             <h3 id="DesignEvaluationCritique">7.2 Critique</h3>
             <p>
-                <span>[0181] Design critique is focused primarily on the effectiveness of aesthetic design decisions. Is the contrast appropriate? Is information density overwhelming? </span>
+                <span>[0181] Design critique is focused primarily on the effectiveness of aesthetic design decisions. Is the contrast appropriate? Is the information density overwhelming? </span>
                 <span>Is the typographic scale effective? In order to properly evaluate the relevant design characteristics, the designer must receive criticism from peers </span>
                 <span>skilled in the discipline. The designer must solicit advice from others who can adequately evaluate the interface from an aesthetic </span>
-                <span>perspective; someone who will do so with a fresh set of eyes. Again, the designer is cursed by their design endeavor and they requires honest feedback from </span>
+                <span>perspective; someone who will do so with a fresh set of eyes. Again, the designer is cursed by their design endeavor and they require honest feedback from </span>
                 <span>a qualified expert. Finding such an expert is not as difficult as one would expect.</span>
             </p>
             <p>
@@ -2781,45 +2788,63 @@
                 <span>in turn, are challenged to offer guidance. The designer will hear fresh perspectives and new recommendations that help them grow. </span>
                 <span>Often, the designer will present a variety of design alternatives to help illustrate the challenge to be resolved. After a short review, </span>
                 <span>critique participants will provide concrete feedback in terms of core design principles (e.g., balance, contrast, hierarchy); vague uninformed feedback is of little use to the designer. </span>
-                <span>Ultimately, the designer must decide evaluate the feedback and decide if any changes are necessary. </span>
+                <span>Ultimately, the designer must digest the feedback and decide if any changes are necessary. </span>
             </p>
             <p>
-                <span>[0185] Critique is often employed early on in the design process when the basic design concept is still being established. Once an overall </span>
-                <span>design style is established, broader development can begin. The output from this early phase may include a style guide to help formalize </span>
-                <span>the underlying design decisions. Such tools are helpful when there a multiple members in the design team. After a functional design has matured </span>
-                <span>beyond the concept phase, heuristic evaluation becomes a more appropriate tool for refining the design.</span>
+                <span>[0185] Critique is often employed early on in the design process when the basic concept is still being established. </span>
+                <span>The output from this early phase may include a style guide document, which formalizes and demonstrates </span>
+                <span>the underlying design concepts and associated decisions. Such design artifacts are helpful in communicating </span>
+                <span>the finer points of the style to distributed teams. Once the design language has matured, broader development </span>
+                <span>of functional prototypes can begin. With this new phase, heuristic evaluation becomes an appropriate tool for </span>
+                <span>refining the design. While design critiques will continue to offer value throughout the development process &ndash; </span>
+                <span>particularly when applying the style in contexts that were not originally considered &ndash; heuristic </span>
+                <span>evaluation offers a more concrete process while increasing evaluation bandwidth by incorporating additional reviewers.</span>
             </p>
             <h3 id="DesignEvaluationHeuristics">7.3 Heuristic Evaluation</h3>
             <p>
-                <span>[0186] More formal than design critiques, heuristics evaluation establishes a list of best practices that will </span>
-                <span>be used to validate a functional interface design. While the most commonly employed heuristics all sound like </span>
-                <span>common sense, when evaluated holistically, even the most carefully designed interface will fall astray in some areas. </span>
-                <span>Nielson (1993) offered a set of 10 basic usability heuristics, which include "Speak the Users' Language". Sounds </span>
-                <span>obvious, why wouldn't we? However, when we review an interface we begin to wonder if we are truly complying with </span>
-                <span>these basic expectations.</span>
+                <span>[0186] Generally more formal than design critiques, heuristic evaluations establish a list of general </span>
+                <span>design principles that will be evaluated by a pool of reviewers. The resulting reviews combine to offer </span>
+                <span>a qualitative evaluation of the interface's usability. While the most commonly employed heuristics all sound like </span>
+                <span>common sense, even the most carefully designed interface will likely fall astray in some areas. </span>
+                <span>Nielsen (1993) offered a set of 10 basic usability heuristics, which included general guidance like, </span>
+                <span>"Be Consistent" and "Speak the Users' Language". Sounds </span>
+                <span>obvious, why wouldn't we? However, when we review an interface with an eye for these specific objectives, we </span>
+                <span>may begin to wonder if we are accommodating these basic expectations.</span>
             </p>
             <p>
-                <span>[0187] Heuristic evaluation goes one step beyond design critiques by formalizing a list of required heuristics and tasking multiple </span>
-                <span>evaluators with reviewing the target interface to ensure that the heuristics are accommodated. While the ideal set of heuristics </span>
-                <span>is designed specifically for the target context (e.g., touchscreen devices on a production floor) and the associated users </span>
-                <span>(e.g., production operators), Nielson's list is always a good place to start </span>
-                <span>as it is compact, yet addresses many common usability flaws. </span>
+                <span>[0187] Heuristics effectively constitute a checklist for usability; accommodate the heuristics and usability should follow naturally. </span>
+                <span>When evaluating the heuristics, reviewers must be sure to consider the actual domain-users and the specific </span>
+                <span>context of use. Operators using touchscreen interfaces on a </span>
+                <span>production floor have different goals than an online shopper. The heuristics must be considered from the appropriate perspective. </span>
+                <span>Nielsen's list of heuristics is always a good place to start; it is compact and highlights many common usability </span>
+                <span>flaws. However, it is generic and does not address the specific demands of the production domain. The designer and </span>
+                <span>evaluators are responsible for filling the gap between the generically defined heuristic and the target domain. </span>
+                <span>Additional heuristics should be added as needed to address any unique requirements for a given device. </span>
             </p>
             <p>
-                <span>[0188] Heuristic evaluations should employ multiple evaluators if possible; the exercise will likely uncover more flaws with more evaluators. </span>
-                <span>Evaluators can review the design independently or with the designer so that their feedback is more easily </span>
-                <span>communicated. As with design critiques, the designer should view this exercise as a growth opportunity; especially if they intend </span>
-                <span>to shadow the heuristic evaluators. Whereas as design critique is dependent on evaluators with a background in graphic design, </span>
-                <span>heuristic evaluations can be performed by anyone who is familiar with the specified heuristics. This flexibility increases the likelihood </span>
-                <span>that the designer's peers will be included in the pool of evaluators. The designer should expect </span>
-                <span>a large amount of criticism from evaluators with a good critical eye. As such, humility is essential; the designer must not  </span>
-                <span>be defensive as this will skew the results. The more feedback, the better. Keep in mind, that this </span>
+                <span>[0188] "Speak the Users' Language" has a different meaning in a production environment than in an mobile app. </span>
+                <span>"Oops, something went wrong..." is a fun error code for a web browser, but is probably not an acceptable error message </span>
+                <span>on a piece of manufacturing equipment. It lacks the level of professionalism one would expect from an industrial machine. </span>
+                <span>"Object not defined" is equally inappropriate; an operator should never see engineer-speak. The correct tone is somewhere in between. </span>            
+                <span>A heuristic evaluation should employ multiple reviewers for this very reason. While additional reviewers will not only </span>
+                <span>increase the likelihood of spotting an issue, each evaluator will bring their own flavor to the evaluation.  </span>
+                <span>"Speak the Users' Language" will resonate differently with each evaluator. Accordingly, a sizeable pool of reviewers </span>
+                <span>should help ensure the feedback is well rounded.</span>
+            </p>
+            <p>
+                <span>[0189] Evaluators can review the design independently, in pairs, or directly with the designer. While direct designer-evaluator reviews </span>
+                <span>risk biasing the results, they do ensure that the feedback is effectively communicated. As with design critiques, the designer should </span>
+                <span>view this exercise as a growth opportunity; especially if they intend to shadow the heuristic evaluators. Whereas as design critique </span>
+                <span>is dependent on evaluators with a background in graphic design, heuristic evaluations can be performed by anyone who is familiar with </span>
+                <span>the specified heuristics and the target domain. This flexibility increases the likelihood that the designer's peers will be included </span>
+                <span>in the pool of evaluators. The designer should expect a large amount of criticism from evaluators with a good critical eye. As such, </span>
+                <span>humility is essential; the designer must not be overly defensive as this will skew the results. The more feedback, the better. Keep in mind, that this </span>
                 <span>effort is being put forth for the benefit of the operator. Declaring that objective upfront, will help keep all involved </span>
                 <span>focused on the appropriate goal and with the right mindset.</span>
             </p>
             <p>
-                <span>[0189] Once the feedback from multiple evaluators has been collected, the designer is tasked, again, with reviewing </span>
-                <span>the feedback and making appropriate changes. This may require fundamental changes to the interface design, which </span>
+                <span>[0190] Once the feedback from multiple evaluators has been collected, the designer is tasked, again, with reviewing </span>
+                <span>the feedback and making appropriate changes. This may require fundamental conceptual changes to the interface design, which </span>
                 <span>could warrant a subsequent round of evaluations. After an appropriate number of iterations, the design will be </span>
                 <span>ready for review by those with the most important voice; the operators.</span>
             </p>
@@ -2827,27 +2852,106 @@
             <p>
                 <span>[0190] When the design has matured &ndash; after the styling is optimized, after consistency is considered, after the bugs </span>
                 <span>have been fixed &ndash; the effort will turn to usability testing. This testing will place the interface in front of </span>
-                <span>actual operators; ideally in a realistic production setting. This is the first time operators will see the new interface. </span>
-                <span>Accordingly, this is the best opportunity to evaluate the interface's perceived level of "Learnability". This key usability characteristic </span>
-                <span>will help us determine how easily an operator can move to such a machine and become productive.</span>
+                <span>actual operators for the first time; ideally in a realistic production setting. </span>
+                <span>This is the best opportunity to evaluate the interface's perceived level of "learnability". </span>
+                <span>This key usability characteristic will help us determine how easily an operator can move </span>
+                <span>to such a machine and become productive. Properly managing this key phase of development </span>
+                <span>will help maximize the benefit to operators.</span>
             </p>
             <p>
                 <span>[0191] Usability testing should aim to collect both quantitative and qualitative feedback. How many clicks does it take </span>
                 <span>to complete a specific task? How long does it take to find a screen? Would an operator prefer this new interface over their </span>
-                <span>existing interfaces? To answer these questions, the designer must orchestrate a number of testing activities that sufficiently </span>
+                <span>existing interface? To answer these questions, the designer must orchestrate a number of testing activities that sufficiently </span>
                 <span>exercise the interface. This typically takes the form of A/B testing, where an operator will perform a number of tasks on a </span>
-                <span>pair of competing designs (e.g., old design and new design) to determine if the usability has improved given the new design effort.</span>
+                <span>pair of competing designs (e.g., old design and new design) to determine if the new design has improved the system's usability.</span>
             </p>
             <p>
-                <span>[0192] The designer should develop a formal testing protocol, which will guide an operator through the activities in a manner </span>
-                <span>that ensures the desired quantitative and qualitative measures can be collected.</span>
+                <span>[0192] The designer should develop a formal testing protocol, which will guide the operator through a series of activities </span>
+                <span>that will paint a picture of the relative system usability. Care should be taken to ensure that the test instructions </span>
+                <span>make the desired outcome clear without specifically outlining the steps required to succeed. We want the participant to </span>
+                <span>explore the interface how they see fit; this is not a bug testing exercise, the correct path is the one the operator chooses. </span>
+            </p>
+            <p>
+                <span>[0193] The protocol may include an </span>
+                <span>evaluation of the operator's confidence and perceived level of difficulty. This helps distinguish between simple functionality and actual usability. </span>
+                <span>For example, if instructed to use the interface to changeover from product A to product B, the operator may complete the task </span>
+                <span>correctly, but, due to insufficient feedback, have a low level of confidence that the operation was indeed successful. We certainly </span>
+                <span>want to know if this is the case. Conversely, the operator may fail to complete the task correctly, but have a high level of </span>
+                <span>confidence that they did. Or, more simply, the operator may complete the task successfully and with a high level of confidence, </span>
+                <span>but communicate that the task was quite difficult to complete.</span>
+            </p>
+            <p>
+                <span>[0194] Having a formal test protocol helps ensure that testing is performed consistently between operators. When analyzing </span>
+                <span>test results, it is often useful to compare the outcomes of individual sessions. Such comparisons are not </span>
+                <span>necessarily valid unless the standard protocol is followed consistently. With a formal protocol, the results </span>
+                <span>of multiple sessions can be compared regardless of when they are performed. Ideally, each detail of testing should </span>
+                <span>be repeatable. The instructions provided to the participant, the starting conditions of the equipment, the tasks required, </span>
+                <span>the testing environment; it should all be repeated precisely to guarantee that valid comparisons can be made. </span>
+                <span>With this structure in place, it is more likely that the results will help us identify patterns that will lead to </span>
+                <span>better designs.</span>
+            </p>
+            <p>
+                <span>[0195] The test protocol should be designed to ensure that the key interface components are all sufficiently exercised. </span>
+                <span>Are the basic facilities effective? Does the keyboard work well? Designing activities that require those tools gives the designer a perspective </span>
+                <span>that is no longer impaired by their own curse of knowledge. Does the operator see the "obvious" next step? How did they miss </span>
+                <span>that button? Usability testing can help provide statistical evidence that either supports the existing design or suggests that a redesign is </span>
+                <span>needed.</span>
+            </p>
+            <p>
+                <span>[0196] Ideally, the bulk of the usability testing effort (e.g., a formal study with 30+ participants) should be preceded by one or more pilot test </span>
+                <span>that will help ensure the testing protocol itself is sound. It would be unfortunate to waste time with key test users learning that the </span>
+                <span>instructions don't make sense to them. It is best to learn those lessons with a pilot study that confirms you are ready to schedule time with </span>
+                <span>the larger, more critical, test population.</span>
+            </p>
+            <p>
+                <span>[0197] It is important to assure the individual participants that they are not the ones being evaluated. Usability testing is an evaluation of the system </span>
+                <span>interface, not the operator; be sure to make this distinction clear before testing begins. Communicate that the effort is searching for </span>
+                <span>flaws in the interface and that the operator's participation is necessary to uncover </span>
+                <span>those flaws. This message should help ease any anxiety on the part of the participant being observed. This </span>
+                <span>helps establish trust between the moderator and the participant to improve the chances of unbiased dialog regarding </span>
+                <span>perceived usability.</span>
+            </p>
+            <p>
+                <span>[0198] Additionally, it is generally useful to include a small questionnaire during the participant selection process or at the beginning of each session. This will help appropriately </span>
+                <span>characterize the participant to accommodate statistical comparisons. What type of equipment do they typically operate? How many years of </span>
+                <span>experience do they have? These demographic questions can help explain patterns in the observation data.</span>
+            </p>
+            <p>
+                <span>[0199] When serving as the moderator for your evaluation be sure not to interfere unless absolutely necessary. </span>
+                <span>Avoid giving hints or assistance, as this may bias your quantitative and qualitative measures. Discuss any </span>
+                <span>observed issues during a debriefing session after the testing has been completed. It is helpful, however, to ask and remind the </span>
+                <span>operator to "think aloud" as they explore the interface. "...so, I will click this button, and I see that the dialog </span>
+                <span>closed, so, I think I am done." Such dialogue will help facilitate the debriefing conversation without interfering </span>
+                <span>with the operator's instincts. While this may impact any time-based metrics in your study, the technique helps illustrate </span>
+                <span>the interface from the operator's perspective; that is a worthwhile benefit.</span>
+            </p>
+            <p>
+                <span>[0200] To simplify collection of quantitative data, it is often advantageous to capture a video recording of the session. </span>
+                <span>Counting "clicks" is much easier in a video that can be reviewed after the fact. Moreover, a recording will help compare </span>
+                <span>issues observed with multiple participants. Likewise, a recording will help with sharing the sessions with additional reviewers without crowding </span>
+                <span>the participant with additional bodies and extra sets of eyes. Again, more reasons to communicate upfront that the activity is testing the interface, </span>
+                <span>not the participant.</span>
+            </p>
+            <p>
+                <span>[0201] Testing may quickly illustrate opportunities for improvement. Ideally such issues are exposed in the pilot study, </span>
+                <span>while others may not become clear until a number of operators have exercised the interface. Once the full round </span>
+                <span>of testing is complete, statistical analysis can be used to evaluate the collected quantitative data. Is design A better than design B? </span>
+                <span>The numbers should help answer that question, but will not tell the whole story. Maybe it takes more clicks to accomplish a task in one design, but doing so takes less time because the required decisions </span>
+                <span>are easier to make. Overall, the testing effort should highlight the good and bad aspects of the interface. </span>
+            </p>
+            <p>
+                <span>[0202] The qualitative data (e.g., non-numeric), particularly that collected during the debriefing segment of each test, should </span>
+                <span>prove equally valuable. A moderator familiar with the interface can ask pointed questions to identify why an operator had difficulty </span>
+                <span>with particular segments of the interface. Perhaps a particular control was not highlighted sufficiently, or was tucked away in an </span>
+                <span>area the operator missed. Combined with the raw quantitative data, the qualitative data will paint a well rounded picture to guide </span>
+                <span>any necessary redesign.</span>
             </p>
             <h3 id="DesignEvaluationSummary">7.5 Summary</h3>
             <p>
-                <span>[0200] The techniques describes here merely scratch the surface. Many more evaluation and design techniques exist. </span>
-                <span>We have offered a few common techniques, detailing the who, how, and why for evaluating the aesthetic design and general usability. As a designer </span>
-                <span>walks through these steps, they will determine what works and what does not. Different phases of development can be supplemented </span>
-                <span>by additional techniques like card sorting, which helps a designer determine where to put that parameter to increase the likelihood </span>
+                <span>[0203] The techniques describes here merely scratch the surface. Many more evaluation and design techniques exist. </span>
+                <span>We have offered a few common exercises, detailing the who, how, and why for evaluating the aesthetic design and general usability. As a designer </span>
+                <span>walks through these steps, they will determine what works well and what does not. Different phases of development can be supplemented </span>
+                <span>with additional techniques like card sorting, which helps a designer determine where to put that parameter to increase the likelihood </span>
                 <span>that operators will find it where they expect. Ultimately, as discussed throughout, every step of the design effort should be focused </span>
                 <span>on improving the work environment for the operator. </span>
             </p>
@@ -2855,10 +2959,10 @@
         <div>
             <h2 id="Reference">8. References</h2>
             <hr class="black" />
-            <p class="reference" title="Update with 2020 reference when known">ANSI/ISA-TR88.00.02-2020, Machine and unit/machine States, An Implementation example of ANSI/ISA-88.00.01.</p>
+            <p class="reference" title="Update with 2021 reference when known">ANSI/ISA-TR88.00.02-2021, Machine and unit/machine States, An Implementation example of ANSI/ISA-88.00.01.</p>
             <p class="reference">Endsley, M.R. (1995). Toward a theory of situation awareness in dynamic systems. <em>Human Factors, 37</em>, 85-104</p>
             <p class="reference">IEC 60204-1:2009, Safety of machinery - Electrical equipment of machines - Part 1: General requirements</p>
-            <p class="reference">Nielson, J. (1993). <em>Usability engineering</em>. Cambridge, MA: Academic Press Professional.</p>
+            <p class="reference">Nielsen, J. (1993). <em>Usability engineering</em>. Cambridge, MA: Academic Press Professional.</p>
             <p class="reference">Nokleby, C. (2016). <em>PackML Unit/Machine Implementations Guide</em> - Part 1: PackML Interface State Manager</p>
             <p class="reference">Mills, J.A., and Caldwell, B.S. 1997. Simplified English for computer displays. In <em>Advances in Human Factors and Ergonomics. Design of Computing Systems: Cognitive Considerations. Proceedings of the Seventh International Conference on Human-Computer Interaction</em>, ed. G. Salvendy, M.J. Smith, and R.J. Koubek. San Francisco, CA, August.</p>
             <p class="reference">Schlatter, T. and Levinson, D. (2013). Visual Usability: Principles and Practices for Designing Digital Applications. Waltham, MA: Elsevier, Inc.</p>
@@ -3098,11 +3202,23 @@
                     </td>
                     <td>01S</td>
                 </tr>
+                <tr>
+                    <td>2020-10-07</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>TR88 reference incremented to 2021</li>
+                            <li>Start button illuminated in Unsuspending</li>
+                            <li>Revisions to critique, heuristic evaluation, and usability testing sections.</li>
+                        </ul>
+                    </td>
+                    <td>01T</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01S</a></footer>
+    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01T</a></footer>
 </body>
 
 </html>
