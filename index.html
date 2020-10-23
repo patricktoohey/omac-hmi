@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PackML HMI Implementation Guidance Draft 01T</title>
+    <title>PackML HMI Implementation Guidance Draft 01U</title>
 
     <meta name="author" content="Patrick Toohey">
     <meta name="designer" content="Patrick Toohey">
@@ -57,7 +57,7 @@
                         <li><a href="#Abstract" class="subsection">2.4 Standard Executive Summary</a></li>
                         <ul>
                             <li><a href="#AbstractStacklights" class="subsubsection">2.4.1 Stacklights and Control Push-Buttons</a></li>
-                            <li><a href="#AbstractStateModel" class="subsubsection">2.4.2 PackML State Diagram Representations</a></li>
+                            <li><a href="#AbstractStateModel" class="subsubsection">2.4.2 PackML State-Diagram Representations</a></li>
                             <li><a href="#AbstractNavigation" class="subsubsection">2.4.3 Navigation Design</a></li>
                         </ul>                        
                     </ul>
@@ -183,7 +183,7 @@
                 <li>
                     <a href="#StateModel" class="section">5. PackML State Model Representations</a>
                     <ul>
-                        <li><a href="#packml_state_model_representation">Figure 14: TR88 2021 PackML Diagram</a></li>
+                        <li><a href="#packml_state_model_representation">Figure 14: TR88-2021 PackML Diagram</a></li>
                         <li><a href="#packml_state_model_level1">Figure 15: Proper State Model Alignment</a></li>
                         <li><a href="#packml_state_model_level2">Figure 16: Displaying Pass-Through States</a></li>
                         <li><a href="#packml_state_model_level1a">Figure 17: Minimal Acceptable Alternative Display</a></li>
@@ -352,7 +352,7 @@
             <h3 id="GuidanceStructure">2.3 Guidance Structure</h3>
             <p>
                 <span>[0008] This executive summary concludes with section 2.4, which provides a complete, yet succinct, listing of </span>
-                <span>the individual HMI standards (i.e., stacklights, state model diagrams, and navigation systems). </span>
+                <span>the individual HMI standards (i.e., stacklights, state-model diagrams, and navigation systems). </span>
                 <span>These "standard executive summaries" provide only those details necessary to comply with the requirements. </span>
                 <span>The abbreviated versions are expanded in the later </span>
                 <span>sections of the document, where more detailed explanations are paired with numerous examples to </span>
@@ -400,25 +400,30 @@
                     <span>State labeled S indicate a solid lamp, whereas F indicates flashing.</span>
                 </figcaption>
             </figure>
-            <h3 id="AbstractStateModel">2.4.2 PackML State Diagram Representations</h3>
+            <h3 id="AbstractStateModel">2.4.2 PackML State-Diagram Representations</h3>
             <p>
-                <span>[0014] Visual representations of the PackML state model must follow the alignment demonstrated in Figure 2. </span>
-                <span>Horizontal alignment is required for the following groupings: a) Unholding, Held, Holding, b) Idle, Starting, Execute, Completing, </span>
-                <span>Completed, c) Resetting, Unsuspending, Suspended, Suspending, and d) Stopped, Stopping, Clearing, Aborted, Aborting.</span>
-                <span>Vertical alignment is likewise required for the following groups: a) Idle, Resetting, Stopped, b) Unholding, Starting, Unsuspending, </span>
-                <span>Stopping, c) Held, Execute, Suspended, Clearing, d) Holding, Completing, Suspending, Aborted, and e) Completed, Aborting. </span>
+                <span>[0014] Visual representations of the PackML state model must include the TR88-2021 model features while </span>
+                <span>maintaining the alignment demonstrated in Figure 2. More specifically, the TR88-2021 state-model representations must </span>
+                <span>include: (a) an Execute-Suspended boundary transitioning to Holding, (b) a Held-Execute-Suspended boundary transitioning to Completing, </span>
+                <span>(c) a Completed state to replace Complete, and (d) a single grouped transition to the Execute state. Within this model, horizontal alignment </span>
+                <span>is required for the following groupings: (a) Unholding, Held, Holding, (b) Idle, Starting, Execute, Completing, </span>
+                <span>Completed, (c) Resetting, Unsuspending, Suspended, Suspending, and (d) Stopped, Stopping, Clearing, Aborted, Aborting.</span>
+                <span>Vertical alignment is likewise required for the following groups: (a) Idle, Resetting, Stopped, (b) Unholding, Starting, Unsuspending, </span>
+                <span>Stopping, (c) Held, Execute, Suspended, Clearing, (d) Holding, Completing, Suspending, Aborted, and (e) Completed, Aborting. </span>
                 <span>Localization of the PackML state names is beyond the scope of this document.</span>
             </p>
             <figure>
-                <img id="summary-packml-state-model" src="images/packml_diagram_standard.png" />
+                <img id="summary-packml-state-model" src="images/packml_2021_standard.png" />
                 <figcaption>
-                    <span>Figure 2: States must be aligned as demonstrated here. Only the active state (e.g., Execute) should be highlighted.</span>
-                    <span>Unavailable states (i.e., those not supported by current mode) will be visible, but displayed with a "greyed-out" effect.</span>
+                    <span>Figure 2: States must be aligned as demonstrated here. Only the active state (e.g., Execute) should be highlighted. </span>
+                    <span>Unavailable states (i.e., those not supported by the current mode) will be visible, but displayed with a "greyed-out" effect. </span>
+                    <span>The new features of the 2021 state-model should be displayed, including: (a) boundary box on the Execute-Suspended group transitioning to Holding, (b) bounding </span>
+                    <span>box around Held-Execute-Suspended group transitioning to Completing, (c) a state named Completed replacing Complete, and (d) a grouped transition to Execute.</span>
                 </figcaption>
             </figure>
             <p>
                 <span>[0015] While no specific color conventions are required, only the active state should be "highlighted". The figure demonstrates </span>
-                <span> a color scheme where the active state (i.e., Execute) is colored to match the stacklight standard. This coloring scheme is not required. </span>
+                <span> a color scheme where the active state (i.e., Execute) is colored to match the stacklight standard. This specific coloring scheme is not required. </span>
                 <span>Additionally, any states that are not supported by the current mode (e.g., Completing, Completed) should be visible, but "greyed-out".</span>
                 <span>If the host display is not large enough to present a properly aligned diagram, then the full diagram should not be shown (i.e., show only the current state name).</span>
             </p>
@@ -480,7 +485,7 @@
             </table>
             <p>
                 <span>[0017] Adornments to the basic icon forms (e.g., other shapes or borders), which may confuse the operator, </span>
-                <span>should not be added. Likewise, alternate labels should not be used. If the displays lacks sufficient space to display </span>
+                <span>should not be added. Likewise, alternate labels should not be used. If the display lacks sufficient space to display </span>
                 <span>the standard label, the icon should be shown without a label. </span>
             </p>
             <p>
@@ -538,14 +543,14 @@
                     <span>and Tolerance, and (e) the level of Satisfaction experienced by the operator.</span>
                 </p>
                 <p>
-                    <span>[0025] Within the scope of production environments, system learnability is most relevant for operators interacting with a piece of </span>
-                    <span>equipment for the first time. Here, the operator's ability to quickly build fluency in the associated machine interface is a key measure </span>
+                    <span>[0025] Within the scope of production environments, system learnability is most relevant for operators interacting with an unfamiliar piece of </span>
+                    <span>equipment for the first time. Here, the operator's ability to quickly build fluency with the associated interface is a key measure </span>
                     <span>of the designer's success. Similarly, an operator's ability to become productive when transitioning from one </span>
                     <span>machine to another is a function of the latter machine's level of learnability; standardization is a big help in this scenario.  </span>
                     <span>It is important to note, however, that expert users (i.e., those executing advanced functionality) will still require </span>
                     <span>specialized training and significant practice before they are able to effectively perform certain higher-level </span>
-                    <span>tasks. This is completely acceptable; the learnability characteristic is simply not applicable in these </span>
-                    <span>cases. Learnability optimizations are generally not a substitute for proper training and practice. Design techniques like </span>
+                    <span>tasks. This is completely acceptable; the learnability characteristic must consider the context of use and the type of user. </span>
+                    <span>Learnability optimizations are generally not a substitute for proper training and practice. Design techniques like </span>
                     <span>Progressive Disclosure help illustrate this distinction. </span>
                 </p>
                 <p>
@@ -605,21 +610,21 @@
                 </p>
                 <p>
                     <span>[0031] Likewise, a system that helps operators avoid errors will likely pay dividends in both the efficiency and </span>
-                    <span>satisfaction categories. Extra, unnecessary HMI steps performed due to uncertainty on the part of </span>
-                    <span>the operator are a prime example of waste when considered from the lean manufacturing viewpoint. </span>
-                    <span>Producing designs that minimize such waste accommodate the Fault Resistance objective. Moreover, </span>
-                    <span>a system that can efficiently resolve slips or mistakes (e.g., undo to recover from accidentally </span>
-                    <span>deleting a product configuration) warrants additional points in the fault tolerance category. Facilities </span>
-                    <span>that accommodate fault tolerance will generally improve efficiency and overall operator satisfaction as well.</span>
+                    <span>satisfaction categories. Unnecessary HMI interactions, particularly those performed due to operator uncertainty, </span>
+                    <span>are a prime example of waste when considered from the lean manufacturing viewpoint. </span>
+                    <span>Designs that minimize such waste accommodate the Fault-Resistance objective. </span>
+                    <span>A system that can efficiently resolve slips or mistakes (e.g., undo to recover from accidentally </span>
+                    <span>deleting a product configuration) warrants additional points in the fault-tolerance category. Facilities </span>
+                    <span>that accommodate fault tolerance will generally improve efficiency and overall operator satisfaction.</span>
                 </p>
                 <p>
-                    <span>[0032] While the Learnability, Memorability, Efficiency, and Fault Awareness characteristics are well </span>
-                    <span>aligned with quantitative metrics, the Satisfaction characteristic is much more qualitative in </span>
+                    <span>[0032] While the learnability, memorability, efficiency, and fault-awareness characteristics are all well </span>
+                    <span>aligned with quantitative metrics (e.g., task time, taps), the satisfaction characteristic is much more qualitative in </span>
                     <span>nature. The subjective opinions of the operator can be difficult to accommodate. Designing a </span>
                     <span>satisfying interface generally requires (a) a good understanding of the operator, (b) an understanding of the context </span>
                     <span>of use, and (c) an understanding of the operator's goals. When the operator and the associated work environment are at </span>
-                    <span>the forefront of the designer's mind, they will be better able to comprehend the subjective envelope of satisfaction. </span>
-                    <span>With that understanding in place, proper application of basic design principles will likely yield an interface that is satisfying. </span>
+                    <span>the forefront of the designer's mind, they will be better able to comprehend the subjective envelope of "satisfaction". </span>
+                    <span>With that understanding in place, proper application of basic design principles will likely yield an interface that is considered satisfying. </span>
                 </p>
                 <h3 id="SituationAwareness">3.3 Situational Awareness</h3>
                 <p>
@@ -689,7 +694,7 @@
             <h3 id="StacklightsScope">4.1 Scope</h3>
             <p>
                 <span>[0039] This section of the guidance will specify the mapping between the </span>
-                <span>standard ANSI/ISA TR88 2021 PackML state model &ndash; demonstrated in Figure 6 &ndash; and the associated stacklight </span>
+                <span>standard ANSI/ISA TR88-2021 PackML state model &ndash; demonstrated in Figure 6 &ndash; and the associated stacklight </span>
                 <span>and push-button control implementation standards established here. The mapping will address </span>
                 <span>(a) color coding of stacklight lamps for respective PackML states, (b) related lamp sequences (i.e., flashing or solid), and </span>
                 <span>(c) proper integration of the push-buttons to communicate required operator interactions. </span>
@@ -697,14 +702,14 @@
             <figure>
                 <img id="packml_state_model" src="images/base_diagram_packml.png" />
                 <figcaption>
-                    <span>Figure 6: The standard PackML state model as presented in TR88 2021. </span>
+                    <span>Figure 6: The standard PackML state model as presented in TR88-2021. </span>
                 </figcaption>
             </figure>
             <p>
                 <span>[0040] As noted previously, the implementation guidance in these areas </span>
                 <span>offers a unique opportunity to illustrate the basic usability </span>
                 <span>principles that will be essential in the far more flexible areas of the </span>
-                <span>HMI (e.g., navigation system, user-interface displays). Whereas stacklight designs are </span>
+                <span>HMI (e.g., the navigation system and user-interface displays). Whereas stacklight designs are </span>
                 <span>naturally constrained to a simple ordered collection of colored lamps </span>
                 <span>illuminated in a specific manner based on the machine state, </span>
                 <span>the graphical display portion of the HMI affords the designer a more limitless </span>
@@ -720,8 +725,8 @@
             </p>
             <h3 id="StacklightsStandard">4.2 Standard Implementation</h3>
             <p>
-                <span>[0041] The standard PackML stacklight contains four lamps to represent the </span>
-                <span>PackML states described in ANSI/ISA TR88 2021. </span>
+                <span>[0041] The standard PackML stacklight contains four lamps representing the </span>
+                <span>PackML states described in ANSI/ISA TR88-2021. </span>
                 <span>Ordered from the top down as demonstrated in Figure 7, the lamps will </span>
                 <span>be illuminated in a specific sequence (i.e., off, solid, or flashing) based on the current PackML state. The </span>
                 <span>standard order &ndash; derived from the indicator light specification in IEC 60204-1:2016 &ndash; </span>
@@ -737,7 +742,7 @@
             <p>
                 <span>[0042] Under most conditions, only a single lamp in the stack will be illuminated at </span>
                 <span>a given time. However, when a Hold Warning exists (e.g., a material shortage will occur soon, reject bin approaching capacity), </span>
-                <span>the blue lamp will begin flashing while the active state lamp (e.g., red, amber, or green) will maintain its current sequence. </span>
+                <span>the blue lamp will begin flashing while the active-state lamp (e.g., red, amber, or green) will maintain its current sequence. </span>
                 <span>Table 2 summarizes the relationships between the stacklight activity, the related machine state, and the associated responsibilities </span>
                 <span>of personnel for respective equipment. </span>
             </p>
@@ -879,7 +884,7 @@
                 <span>[0043] The associated standard PackML implementation for push-button controls (e.g., start, stop, reset) follows </span>
                 <span>conventions like those defined for stacklights. While adhering to the basic </span>
                 <span>color and marking requirements for push-buttons specified in IEC 60204-1:2016, the PackML </span>
-                <span>standard requires that illuminated push-button actuators use the sequence mapping detailed in Figure 7 and Table 1. </span>
+                <span>standard requires that illuminated push-button actuators use the sequence mapping detailed in Figure 7 and Table 2. </span>
                 <span>The Reset and Start buttons will flash to communicate that the operator must press the respective button to initiate </span>
                 <span>a transition to the subsequent PackML state (i.e., Clearing, Resetting, Starting). Illuminating the Stop button is not  </span>
                 <span>required. Also, note that the flashing-green Start button is aligned exclusively with the flashing-green lamp, </span>
@@ -930,18 +935,21 @@
                 <span>Aborting state when the E-Stop is engaged. On this transition, the red lamp </span>
                 <span>will begin flashing. When the system reaches the Aborted state, the Reset button will begin flashing. </span>
                 <span>Once the E-Stop is cleared and the Reset button is pressed, the system will transition through the </span>
-                <span>Clearing state until the transition to the Stopped state completes, where the red lamp will light solid. </span>
+                <span>Clearing state until the transition to the Stopped state completes, at which point the red lamp will light solid. </span>
             </p>
             <p>
-                <span>[0048] The sequence demonstrated in diagram Figure 9 will execute on systems that employ the Completing transition. </span>
-                <span>The Complete command will initiate the sequence sending the machine through the Completing state where the green </span>
-                <span>lamp will remain on and the Start button will remain illuminated. When the Completed state is reached, the green </span>
+                <span>[0048] The sequence demonstrated in Figure 9 will execute on systems that employ the Completing transition. </span>
+                <span>The Complete command &ndash; when initiated from the Execute state &ndash; will transition the machine to Completing with the green </span>
+                <span>lamp remaining on and the Start button remaining illuminated. When the Completed state is reached, the green </span>
                 <span>lamp will clear, and the red lamp will light. At this point, the Start button will clear and the Reset button will </span>
                 <span>begin flashing. This condition matches the equivalent response that occurs when the system reaches the Stopped </span>
-                <span>state presented as the entry point in Figure 9.</span>
+                <span>state, which is presented as the entry point on the left side of the diagram. As introduced in TR88-2021, similar sequences exist when </span>
+                <span>the Complete command is issued from the Held or Suspended states. These states offer an equivalent transition through the Completing </span>
+                <span>state to Completed. While transitions to Completing from Suspended and Held are not specifically required, they are </span>
+                <span>potential pathways in the TR88-2021 state machine.</span>
             </p>
             <figure>
-                <img id="green-red-completing-diagram" src="images/Green-Red_Complete.png" />
+                <img id="green-red-completing-diagram" src="images/Green-Red_Complete_2021.png" />
                 <figcaption>
                     <span>Figure 9: Stacklight and Push-Button conditions associated with the Completing </span>
                     <span>sequence. When the transition from Execute to Completing occurs in response to the </span>
@@ -952,7 +960,7 @@
             </figure>
             <p>
                 <span>[0049] As demonstrated in Figure 10, the Suspended branch of the PackML state diagram is addressed according to the directional cause </span>
-                <span>of the event. Upstream equipment issues will transition the stacklight to a flashing amber state. Whereas </span>
+                <span>of the event. Upstream-equipment issues will transition the stacklight to a flashing amber state. Whereas </span>
                 <span>downstream events will trigger a solid amber lamp. The Start </span>
                 <span>button will remain illuminated throughout. </span>
             </p>
@@ -967,30 +975,36 @@
             </figure>
             <p>
                 <span>[0050] Figure 11 demonstrates the stacklight responses associated with the Held state. </span>
-                <span>The sequence is initiated by the Holding transition (e.g., material exhausted, reject bin full). This </span>
-                <span>state change will disable the green lamp and illuminate the blue lamp solid. The lamp </span>
-                <span>will remain solid through the transition to the Held state. When the Hold condition is resolved (e.g., material replenished, reject bin emptied), </span>
-                <span>the blue lamp will clear and the green lamp will turn solid to signify the transition back to </span>
-                <span>the execute state. Note that the Start button will not be lit within the Holding and Held states.</span>
+                <span>This sequence is initiated by the Hold command (e.g., material exhausted, reject bin full), </span>
+                <span>which can be triggered from either Execute or Suspended utilizing the Holding transition. This </span>
+                <span>state change will disable either the amber or green lamp and will illuminate the blue lamp solid. </span>
+                <span>The lamp will remain solid through the transition to the Held state. When the Hold condition is </span>
+                <span>resolved (e.g., material replenished, or reject bin emptied), the blue lamp will clear. </span>
+                <span>If a concurrent Suspended condition exists, the amber lamp will activate. Otherwise, the green lamp will turn solid to signify the transition back to </span>
+                <span>the execute state. Note that the Start button will not be lit within the Holding and Held states. </span>
+                <span>While transitions to Holding from Suspended are not specifically required, they do represent </span>
+                <span>a potential pathway of the TR88-2021 state machine.</span>
             </p>
             <figure>
-                <img id="green-blue-diagram" src="images/Green-Blue.png" />
+                <img id="green-blue-diagram" src="images/Green-Blue_2021.png" />
                 <figcaption>
                     <span>Figure 11: Stacklight and Push-Button conditions in states associated with the solid blue </span>
-                    <span>lamp transition. The sequence is initiated by the Holding transition (e.g., material exhausted) </span>
-                    <span>and is maintained until the condition is resolved (e.g., material replenished). </span>
+                    <span>lamp transition. The sequence is initiated by the Hold command (e.g., material exhausted) </span>
+                    <span>and is maintained until the condition is resolved (e.g., material replenished). The green </span>
+                    <span>and amber lamps will clear on a transition to solid blue. The appropriate lamp (i.e., amber or green) will reactivate </span>
+                    <span>when the Held condition is resolved.</span>
                 </figcaption>
             </figure>
             <p>
                 <span>[0051] The blue lamp will also be utilized to communicate required preventative measures </span>
-                <span>for any internal conditions that would prevent proper machine operation and an associated transition to the Held state. </span>
+                <span>for any internal conditions that would prevent proper machine operation. This condition constitutes a transition to the Held state. </span>
                 <span>For example, should the machine determine that its local material store is critically low, this condition </span>
                 <span>will be communicated to the operator by flashing the blue lamp. The operator will then have </span>
                 <span>a set period of time to replenish the material store before the machine reaches the Held condition, </span>
                 <span>which indicates that material has been exhausted to the point where production can no longer proceed. </span>
                 <span>As demonstrated in Figure 12, the flashing blue lamp will accompany a second lamp, which indicates the </span>
                 <span>current machine state. The lamps will be lit simultaneously to communicate the Hold warning and the active machine state. </span>
-                <span>If the Held state is reached, the blue lamp will then be lit solid where is will stay until the material </span>
+                <span>If the Held state is reached, the blue lamp will then be lit solid where it will stay until the material </span>
                 <span>is restored to an adequate level. </span>
             </p>
             <figure>
@@ -1213,7 +1227,7 @@
             <figure>
                 <img id="packml_state_model_representation" src="images/base_diagram_packml.png" />
                 <figcaption>
-                    <span>Figure 14: The standard PackML state model as presented in ANSI/ISA TR88.00.02-2020. </span>
+                    <span>Figure 14: The standard PackML state model as presented in ANSI/ISA TR88.00.02-2021. </span>
                 </figcaption>
             </figure>
             <p>
@@ -1238,33 +1252,45 @@
                 <span>Idle, Starting, Execute, Completing, and Completed states must be maintained. If a properly aligned diagram cannot be displayed </span>
                 <span>(e.g., screen size too small) then the full diagram should not be displayed.</span>
             </p>
+            <p>
+                <span>[0071] Additionally, on-screen state-model representations should present the features of the 2021 state model diagram. </span>
+                <span>More specifically, the displayed model must include the Execute-Suspended boundary &ndash; which transitions to Holding &ndash; </span>
+                <span>as well as the Held-Execute-Suspended boundary, which transitions to Completing. The model must transition from </span>
+                <span>Completing to Completed and the Unholding, Starting, and Unsuspending states must transition to the Execute state: </span>
+                <span>not one of the bounding boxes. These features should be displayed on all machines, including those that do not yet implement </span>
+                <span>these specific 2021 transitions. For example, a machine that will only ever transition to Completing from Execute </span>
+                <span>should still display the 2021 boundary around the Held-Execute-Suspended state grouping; this diagram feature will not </span>
+                <span>interfere with the operator's situational awareness and should therefore be included to maintain consistency between machines. </span>
+                <span>Machines with a "legacy" state model, for example, will simply follow the </span>
+                <span>Suspended-Unsuspending-Execute-Completing path, which is still fully supported by the 2021 diagram.</span>
+            </p>
             <figure>
-                <img id="packml_state_model_level1" src="images/packml_diagram_level1.png" />
+                <img id="packml_state_model_level1" src="images/packml_2021_level1.png" />
                 <figcaption>
-                    <span>Figure 15: The figure on the left does not observe the standard alignment requirements of the PackML state </span>
-                    <span>model diagram. States were repositioned from the standard layout to accommodate the small screen size on the target machine. </span>
-                    <span>If the alignment demonstrated in the right-hand example cannot be maintained, then the full diagram should not be displayed. </span>
+                    <span>Figure 15: The figure on the left does not observe the standard alignment requirements or the new features of the 2021 PackML state </span>
+                    <span>model. In the left-hand example, states were repositioned from the standard layout to accommodate the small screen size on the target machine. </span>
+                    <span>If the alignment and features demonstrated in the right-hand example cannot be maintained, then the full diagram should not be displayed. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0071] When displaying the state model, all states should be displayed regardless of their implementation in the active </span>
+                <span>[0072] When displaying the state model, all states should be displayed regardless of their implementation in the active </span>
                 <span>PackML mode. If &ndash; for example &ndash; the Completing and Completed states are not implemented in the current PackML mode, </span>
                 <span>these states should still be displayed in the diagram. Their representation, however, should be muted to communicate that </span>
                 <span>they are not active within the model. Figure 16 demonstrates a representation of the state model where the </span>
                 <span>Completing and Completed states have no functional purpose (i.e., they are pass-through states) and are therefore presented with a reduced level of contrast.</span>
             </p>
             <figure>
-                <img id="packml_state_model_level2" src="images/packml_diagram_level2.png" />
+                <img id="packml_state_model_level2" src="images/packml_2021_level2.png" />
                 <figcaption>
                     <span>Figure 16: For a given machine where the Completing and Completed states are not applicable, the resulting state model diagram </span>
                     <span>should present those states with a reduced level of contrast to communicate their absence in the state model. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0072] If the full model cannot be displayed with proper alignment, the simplest acceptable alternative is to merely display the active PackML state. </span>
+                <span>[0073] If the full model cannot be displayed with proper alignment, the simplest acceptable alternative is to merely display the active PackML state. </span>
                 <span>When compared to the example on the left, the redesigned alternative in Figure 17 presents the operator with just as much information; </span>
                 <span>the machine is in the Execute state. That is not to say, however, that the minimalist representation is sufficient. The redesigned alternative </span>
-                <span>in Figure 13 can now accommodate additional information, which will enhance the operator's situational awareness. </span>
+                <span>in Figure 17 can now accommodate additional information, which will enhance the operator's situational awareness. </span>
             </p>
             <figure>
                 <img id="packml_state_model_level1a" src="images/packml_diagram_level1a.png" />
@@ -1273,7 +1299,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0073] While the specific metrics used to effectively report system state must be decided on a per-machine basis, the example in Figure 18 </span>
+                <span>[0074] While the specific metrics used to effectively report system state must be decided on a per-machine basis, the example in Figure 18 </span>
                 <span>demonstrates a visualization that has been designed to report both the machine state, as well as other data points that will enhance </span>
                 <span>the operator's situational awareness. These specific metrics are not required and only represent one possible way of effectively reporting </span>
                 <span>machine conditions. </span>
@@ -1286,20 +1312,20 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0074] With these requirements and recommendations in place, the remaining sections will present additional guidance, </span>
-                <span>specific design recommendations, and general visualization theory aimed at effectively presenting the PackML State Model diagram. </span>
+                <span>[0075] With these requirements and recommendations in place, the remaining sections will present additional guidance, </span>
+                <span>specific design recommendations, and general visualization theory aimed at effectively presenting the PackML State-Model diagram. </span>
             </p>
             <h3 id="StateModelDataInk">5.3 Data-Ink Ratio</h3>
             <p>
-                <span>[0075] Tufte (1983) argued that the data communicated by a given display should always be optimized and that unnecessary noise should be eliminated. </span>
+                <span>[0076] Tufte (1983) argued that the data communicated by a given display should always be optimized and that unnecessary noise should be eliminated. </span>
                 <span>Originally considered in the context of </span>
                 <span>print media, the optimal data-ink ratio is one where every drop of ink contributes value equal to its intensity. If the ink does not </span>
                 <span>communicate any data then its place on the page cannot be justified; zero value, zero ink. Carrying the argument further, if the ink contributes </span>
                 <span>only a small amount of data value it should be presented with a limited amount of visual impact (e.g., small, low contrast). Figure 19 presents </span>
                 <span>a scatter plot redesigned to optimize the data-ink ratio. In this example, the outer border of the plot is completely removed as it holds no </span>
                 <span>data value. The grid lines and axes are redrawn in a less dominant grey color, which replaces the more bold black color used in the original. </span>
-                <span>The individual data points are redrawn without an inner fill, which is more conducive displaying overlapping points while also presenting a </span>
-                <span>more light-weight esthetic. Each of these changes contributes to a higher data-ink ratio. Overall, the impact of non-data-ink is reduced, </span>
+                <span>The individual data points are redrawn without an inner fill, which displays overlapping points more effectively leaving a </span>
+                <span>relatively light-weight aesthetic. Each of these changes contributes to a higher data-ink ratio. Overall, the impact of non-data-ink is reduced, </span>
                 <span>therefore, the ratio is improved. </span>
             </p>
             <figure>
@@ -1311,7 +1337,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0076] This simple concept facilitated the more heavy-handed redesign demonstrated in Figure 17. </span>
+                <span>[0077] This simple concept facilitated the more heavy-handed redesign demonstrated in Figure 17. </span>
                 <span>Often, it is far too easy to add digital ink to a display. The urgency to fill every empty space with content is natural for those </span>
                 <span>confined within the borders of a QVGA display. However &ndash; from the operator's perspective &ndash; the majority of the PackML state model </span>
                 <span>is digital noise. The inactive PackML states (i.e., those states supported by the machine, that are not currently active) provide no additional </span>
@@ -1320,10 +1346,10 @@
                 <span>the complete diagram can: what is the current state?</span>
             </p>
             <p>
-                <span>[0077] The redesigned alternative, however, is not necessarily sufficient as it leaves gaps in the operator's situational awareness. </span>
+                <span>[0078] The redesigned alternative, however, is not necessarily sufficient as it leaves gaps in the operator's situational awareness. </span>
                 <span>With the space reclaimed by eliminating the non-data-ink, the design can now accommodate additional data that could not be rendered </span>
                 <span>in the previous visualization. Additional questions can now be answered. How long has the machine been in the Execute state? </span>
-                <span>What is the current OEE? How many times has the machine been Suspended or Held since Starting? Presenting such data offers far more </span>
+                <span>What is the current OEE? How many times has the machine been Suspended or Held since starting? Presenting such data offers far more </span>
                 <span>value than rendering 17 inactive machine states. As stated previously, the appropriate questions will depend on the target machine </span>
                 <span>and the associated production environment. The Data-Ink Ratio concept simply guides the designer to ensure that the rendered content </span>
                 <span>is focused, first and foremost, on communicating data. Every pixel should be optimized to ensure it communicates either data or nothing. Accomplishing </span>
@@ -1331,7 +1357,7 @@
             </p>
             <h3 id="StateModelContrast">5.4 Contrast</h3>
             <p>
-                <span>[0078] An HMI with properly applied contrast will help the operator focus their attention on the areas of a display that are most </span>
+                <span>[0079] An HMI with properly applied contrast will help the operator focus their attention on the areas of a display that are most </span>
                 <span>relevant to the task at hand. An interface that is densely populated with content can still highlight key pieces of data without </span>
                 <span>the noise of supplementary data distracting the operator's attention. Contrast is achieved by varying the intensity of the elements </span>
                 <span>displayed on the screen. For text elements, contrast can be achieved by varying the font size used to display the associated content. </span>
@@ -1356,23 +1382,23 @@
             </figure>
             <h3 id="StateModelConsistency">5.5 Consistency</h3>
             <p>
-                <span>[0079] Given the previous argument that all non-data-ink should be eliminated, it is reasonable to question the decision to display </span>
+                <span>[0080] Given the previous argument that all non-data-ink should be eliminated, it is reasonable to question the decision to display </span>
                 <span>PackML states that are not supported in a particular mode for a given machine type. Since these states do not communicate any data, the display's data-ink </span>
                 <span>ratio would clearly be improved if they were hidden. In this scenario, however, we argue that establishing consistency </span>
-                <span>of the display should take precedence over the data-ink ratio. The goal of providing the operator a consistent interface while </span>
+                <span>in the display should take precedence over the data-ink ratio. The goal of providing the operator a consistent interface while </span>
                 <span>concurrently reducing the data-ink ratio is achieved by reducing the effective contrast of the PackML states that are not </span>
                 <span>represented in the active machine mode. A muted representation for one or more states, as demonstrated in Figure 16, is sufficient to communicate </span>
                 <span>the fact that the associated states are not part of the target machine's PackML State Model. </span>
             </p>            
             <p>
-                <span>[0080] Consistency is therefore employed to avoid any distractions to the operator. Maintaining proper alignment within the state model </span>
+                <span>[0081] Consistency is therefore employed to avoid any distractions to the operator. Maintaining proper alignment within the state model </span>
                 <span>avoids unnecessary confusion. By following the standard, the operator will not interpret misaligned states as something meaningful. The </span>
                 <span>operator will never question why there are gaps in the state model. Muting inactive states is a necessary compromise to both maintain </span>
                 <span>consistency in content and alignment, while concurrently communicating the nature of those states within the model.</span>
             </p>
             <h3 id="StateModelColorDesign">5.6 Color Design</h3>
             <p>
-                <span>[0081] The previous discussion of contrast hinted to the effectiveness of color in highlighting elements on the screen. The example </span>
+                <span>[0082] The previous discussion of contrast hinted to the effectiveness of color in highlighting elements on the screen. The example </span>
                 <span>in Figure 20 demonstrates that the pure black text provides the maximum level of contrast against a white background. Demonstrated </span>
                 <span>again here in Figure 21, we see that increasing the level of brightness in a color transitions that color toward pure white, which </span>
                 <span>provides no contrast against a white background. The grey levels achieved in between pure black and pure white allow the designer to </span>
@@ -1387,7 +1413,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0082] When a specific hue is selected, like the cyan background of our sample PackML diagram, the level of impact contributed by the color is correlated to the saturation level. </span>
+                <span>[0083] When a specific hue is selected, like the cyan background of our sample PackML diagram, the level of impact contributed by the color is correlated to the saturation level. </span>
                 <span>Figure 22 demonstrates the impact of reducing the saturation of a cyan hue (i.e., RGB: 0, 217, 255). </span>
             </p>
             <figure>
@@ -1398,10 +1424,10 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0083] When used together, the hue, saturation, and brightness (HSB) properties provide a convenient alternative to the more common RGB color model as </span>
+                <span>[0084] When used together, the hue, saturation, and brightness (HSB) properties provide a convenient alternative to the more common RGB color model as </span>
                 <span>the HSB model provides a more intuitive approach to color design. Given a specific color, adjustments to the saturation and brightness properties </span>
                 <span>will produce a second color that appropriately complements the original, while being more subdued or more bold. Figure 23 demonstrates some of the </span>
-                <span>shades and tints that can be produced from the pure red sample color.</span>
+                <span>shades and tints that can be produced from the cyan sample color.</span>
             </p>
             <figure>
                 <img id="packml_state_model_hsb" src="images/ShadesTints.png" />
@@ -1411,7 +1437,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0084] Most dedicated design tools offer access to the RGB and HSB models. This facilitates design of a color palette using the HSB model, </span>
+                <span>[0085] Most dedicated design tools offer access to the RGB and HSB models. This facilitates design of a color palette using the HSB model, </span>
                 <span>with concurrent access to the associated RGB values required by most development platforms. Figure 24 demonstrates the color design tools </span>
                 <span>offered by Adobe Illustrator. Similar tools exist in Paint.Net and Inkscape. </span>
             </p>
@@ -1423,27 +1449,27 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0085] Careful tuning of the saturation and brightness properties produced the inactive-state colors employed in Figure 25.</span>
+                <span>[0086] Careful tuning of the saturation and brightness properties produced the inactive-state colors employed in Figure 25.</span>
                 <span>The color design originated with the cyan background color of the inner-states border. The HSB values were then adjusted to produce </span>
                 <span>shades of the original hue. These shades provide high levels of contrast when applied together while maintaining harmony with the original hue. </span>
             </p>
             <figure>
-                <img id="packml_state_model_colors" src="images/packml_diagram_color_design.png" />
+                <img id="packml_state_model_colors" src="images/packml_2021_color_design.png" />
                 <figcaption>
                     <span>Figure 25: Subtle adjustments in the saturation and brightness of the cyan background color produce sufficient contrast to </span>
                     <span>communicate the disabled condition of the Completing and Completed PackML states. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0086] In general, highly saturated colors should be reserved for the select interface components requiring the most attention. </span>
+                <span>[0087] In general, highly saturated colors should be reserved for the select interface components requiring the most attention. </span>
                 <span>In this example (i.e., the background colors of the PackML state diagram) it is difficult to argue that such a highly </span>
                 <span>saturated color is warranted. While there is sufficient contrast between the active state (i.e., Execute) and the background, </span>
                 <span>a more neutral background is likely warranted. In this situation a more desaturated color would make a more suitable backdrop </span>
-                <span>for the state diagram. Additionally, considering data ink ratio once again, it is also reasonable to remove the solid black border </span>
-                <span>that outlines the inner-state background area. These changes are demonstrated in Figure 26. </span>
+                <span>for the state diagram. Additionally, considering the data-ink ratio once again, it is also reasonable to remove the solid black borders </span>
+                <span>that outline the respective state groupings. These changes are demonstrated in Figure 26. </span>
             </p>
             <figure>
-                <img id="packml_state_model_level3" src="images/packml_diagram_level3.png" />
+                <img id="packml_state_model_level3" src="images/packml_2021_level3.png" />
                 <figcaption>
                     <span>Figure 26: A redesigned state model diagram where the background shapes have been desaturated and the black outline strokes </span>
                     <span>have been removed. The disabled states (i.e., Completing and Completed have been redesigned to accommodate the desaturated background color. </span>
@@ -1451,45 +1477,45 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0087] Continuing the application of the data-ink-ratio concept, Figure 27 shows the result of removing the solid borders surrounding </span>
-                <span>the individual state elements. Additionally, the redesign increases the brightness of the state transition arrows from solid black to grey to reduce the </span>
-                <span>visual impact they introduce. The typeface has been replaced with a more condensed design where less horizontal space is required to display each label. </span>
+                <span>[0088] Continuing the application of the data-ink-ratio concept, Figure 27 shows the result of removing the solid borders surrounding </span>
+                <span>the individual state elements. Additionally, the redesign increases the brightness of the state-transition arrows from solid black to grey, which likewise reduces their </span>
+                <span>visual impact. The typeface has been replaced with a more condensed design where less horizontal space is required to display each label. </span>
                 <span>Finally, the size of the inactive state labels has been reduced &ndash; from 10pt to 8pt &ndash; leaving the active state more visually dominant within the display. </span>
                 <span>These changes demonstrate some of the possible methods for optimizing any operator interface. While these changes may not be possible in all environments, </span>
                 <span>it is worth understanding the available flexibility and potential impact for each design.</span>
                 
             </p>
             <figure>
-                <img id="packml_state_model_level4" src="images/packml_diagram_level4.png" />
+                <img id="packml_state_model_level4" src="images/packml_2021_level4.png" />
                 <figcaption>
-                    <span>Figure 27: The data-ink-ratio is improved in this redesign where a) the individual state borders are removed, b) color of the transition arrows are </span>
-                    <span>brightened, c) a more condensed typeface is used, d) the color of the state labels are brightened, and e) the size of the inactive state labels are reduced. </span>
+                    <span>Figure 27: The data-ink-ratio is improved in this redesign where (a) the individual state borders are removed, (b) color of the transition arrows are </span>
+                    <span>brightened, (c) a more condensed typeface is used, (d) the color of the state labels are brightened, and (e) the size of the inactive state labels are reduced. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0088] One final modification to the original design brings the display in better alignment with the previously defined stack light specification. </span>
+                <span>[0089] One final modification to the original design brings the display in better alignment with the previously defined stack light specification. </span>
                 <span>By replacing the original blue highlight of the Execute state with a green highlight the state diagram matches the color scheme of the light stack. </span>
-                <span>Carrying the concept further by updating the color scheme of the other machine states produces the designs shown in Figure 28. </span>
+                <span>Carrying the concept further &ndash; by updating the color scheme of the other machine states &ndash; produces the designs shown in Figure 28. </span>
             </p>
             <figure>
-                <img id="packml_state_model_highlights" src="images/packml_diagram_highlights.png" />
+                <img id="packml_state_model_highlights" src="images/packml_2021_highlights.png" />
                 <figcaption>
                     <span>Figure 28: Highlighting the active states in colors aligned with the stack light standard provides consistency with aesthetic appeal. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0089] When selecting colors, it is often important to address accessibility concerns; specifically, accessibility for color blindness. Figure 29 demonstrates </span>
-                <span>the Figure 24 concepts as they would be seen by an operator with protanopia-type color blindness. Figure 30 demonstrates the equivalent for </span>
+                <span>[0090] When selecting colors, it is often important to address accessibility concerns; specifically, accessibility for color blindness. Figure 29 demonstrates </span>
+                <span>the Figure 28 concepts as they would be seen by an operator with protanopia-type color blindness. Figure 30 demonstrates the equivalent for </span>
                 <span>deuteranopia-type color blindness. </span>
             </p>
             <figure>
-                <img id="packml_state_model_highlights_p_type" src="images/p-type.png" />
+                <img id="packml_state_model_highlights_p_type" src="images/p-type_2021.png" />
                 <figcaption>
                     <span>Figure 29: Active state colors as viewed by an operator with protanopia-type color blindness. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0090] In these diagrams, color has been applied merely as a mechanism to align with the stack light standard. Misinterpretation of colors </span>
+                <span>[0091] In these diagrams, color has been applied merely as a mechanism to align with the stack light standard. Misinterpretation of colors </span>
                 <span>in this context is of little concern as only one state will be highlighted at a time. More care must be taken when misinterpretation of color </span>
                 <span>can cause a misunderstanding on the part of the operator. A carefully designed color palette will help ensure that color-blind operators </span>
                 <span>are accommodated. The examples in Figures 29 and 30 were generated using a special color-blindness filter available in Adobe Illustrator. </span>
@@ -1497,14 +1523,14 @@
                 <span>(e.g., color plus text) is recommended in more complicated contexts.</span>
             </p>
             <figure>
-                <img id="packml_state_model_highlights_d_type" src="images/d-type.png" />
+                <img id="packml_state_model_highlights_d_type" src="images/d-type_2021.png" />
                 <figcaption>
                     <span>Figure 30: Active state colors as viewed by an operator with deuteranopia-type color blindness. </span>
                 </figcaption>
             </figure> 
             <h3 id="StateModelTypography">5.7 Typography</h3>
             <p>
-                <span>[0091] When presenting text on screen, the designer can employ a few simple techniques to help maximize readability </span> 
+                <span>[0092] When presenting text on screen, the designer can employ a few simple techniques to help maximize readability </span> 
                 <span>and establish the hierarchy that will guide the viewer effectively and efficiently through the screen's content. The example in Figure 20 demonstrates </span>
                 <span>how varying the relative size of text elements can help construct this hierarchy. As expected, larger text draws more attention. The primary focal </span>
                 <span>point in the example &ndash; the text presenting the PackML Execute state &ndash; is highlighted using a relatively dominant 52-point text size. </span>
@@ -1512,15 +1538,15 @@
                 <span>purposes in this specific screen, it should be reused consistently elsewhere whenever a dominant focal point is required.</span>
             </p>
             <p>
-                <span>[0092] The importance of this primary data display is further highlighted by a distinct pair of smaller text elements </span>
-                <span>&ndash; each dedicated to a specific purpose &ndash; that bring order and communicate purpose for the remaining content. </span>
+                <span>[0093] The importance of this primary data display is further highlighted by a distinct pair of smaller text elements </span>
+                <span>&ndash; each dedicated to a specific class of content &ndash; to bring order and communicate purpose. </span>
                 <span>This unique combination of text sizes (i.e., 16 pt and 29 pt in grey and dark grey respectively) introduces a pattern that the </span>
                 <span>viewer can anticipate and easily interpret. By consistently using these same sizes for the same purpose in the other </span>
                 <span>areas of the HMI, the viewer will quickly identify data values and labels in a more instinctive manner. This improves both </span>
                 <span>the learnability and memorability qualities of the interface.</span>
             </p>  
             <p>
-                <span>[0093] Instead of using an arbitrary collection of text sizes, the example employs typographic scaling, which brings harmony to the display </span>
+                <span>[0094] Instead of using an arbitrary collection of text sizes, the example employs typographic scaling, which brings harmony to the display </span>
                 <span>using a fixed multiplier that builds each successive text size from the last. </span>
                 <span>The scale ensures that there is sufficient visual contrast between the display's effective </span>
                 <span>levels (e.g., machine state, data values, data labels) such that the underlying hierarchy is more easily interpreted. </span>
@@ -1529,13 +1555,13 @@
             <figure>
                 <img id="typographic-scale" src="images/typographic-scale.png" />
                 <figcaption>
-                    <span>Figure 31: Smaller typographic scales offer less effective hierarchy in the display. Larger scales offer more contrast, but </span>
+                    <span>Figure 31: Smaller typographic scales (i.e., multipliers) offer less effective hierarchy in the display. Larger scales offer more contrast, but </span>
                     <span>are more difficult to accommodate on smaller screens or more densely populated displays. Utilizing color is an effective </span>
                     <span>alternative to produce hierarchy at smaller scales. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0094] An effective typographic scale is established by first identifying </span>
+                <span>[0095] An effective typographic scale is established by first identifying </span>
                 <span>the smallest effective text size. In this sample, a modest 16 pt text size has been selected. In keeping with the data-ink ratio concept,  </span>
                 <span>this minimum text size will be used to present the least data-rich content (i.e., data labels). In practice, the appropriate minimum text </span>
                 <span>size will be impacted by the size of the screen, the viewing distance and angle, the quality of the display, and several other </span>
@@ -1545,35 +1571,36 @@
                 <span>otherwise be available on a display with more densely populated content. </span>                
             </p>
             <p>
-                <span>[0095] The smallest scale in the example (i.e., 1.3x) provides less natural hierarchy via size. The hierarchy is enhanced through color, where </span>
+                <span>[0096] The smallest scale in the example (i.e., 1.3x) provides less natural hierarchy via size. The hierarchy is therefore enhanced through color, where </span>
                 <span>the smallest text is presented in grey to produce additional contrast. At a scale of 1.8x, the hierarchy is more pronounced. The grey coloring on the data label </span>
                 <span>is still utilized as there is no reason to increase the emphasis on that content. Progressing to the 2.5x scale shows more dynamic contrast, which </span>
                 <span>is certainly more pronounced, but does not necessarily produce a more functional or aesthetically rich display. </span>
                 <span>Altering the typeface itself, however, does offer an opportunity to improve both the aesthetic and functional characteristics of the interface. </span>
             </p>
             <figure>
-                <img id="typeface-comparison" src="images/typeface-comparison.png" />
+                <img id="typeface-comparison" src="images/typeface-comparisonB.png" />
                 <figcaption>
                     <span>Figure 32: The typeface used to display a given element impacts both the personality of the interface as well as the display's readability and </span>
-                    <span>functional efficiency. A comparison of narrow, regular, light, and small caps fonts from the Arial and Halis typeface families is demonstrated here.  </span>
+                    <span>functional efficiency. The serifed Times New Roman is contrasted with narrow, regular, light, and small caps fonts from the sans-serif Arial and Halis typeface families. </span>
+                    <span>Whereas serifed typefaces are more commonly employed in longer bodies of text, a sans-serif typeface is generally more suitable for interface design. </span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0096] Figure 32 illustrates some of the flexibility offered by various typefaces. While Arial Regular and Halis Rounded Book </span>
+                <span>[0097] Figure 32 illustrates some of the flexibility offered by various typefaces. While Arial Regular and Halis Rounded Book </span>
                 <span>offer similar personalities, variants like Arial Narrow help illustrate the functional benefits that some alternative fonts can afford. With a more compact </span>
                 <span>body, Arial Narrow requires less horizontal space to display equivalent content without sacrificing height and, therefore, legibility. </span>
                 <span>The demonstrated Halis fonts help illustrate the dynamic contrast afforded by light weight and small cap fonts. Light fonts are simply </span>
                 <span>the opposite of more commonly utilized bold fonts. An alternative to smaller font sizes or lower contrast colors, a light font positioned </span>
-                <span>adjacent to a regular font will likely draw less attention, while adding a clean and efficient aesthetic to the display. The small caps variants </span>
+                <span>adjacent to a regular font will likely draw less attention, while adding a clean and efficient aesthetic to the display. The small-caps variants </span>
                 <span>offer another method for drawing extra attention to an element. While it is more difficult to read content that is capitalized, it will draw extra </span>
-                <span>attention from the viewer. Accordingly, caps and small caps should be avoided for longer text segments, but are appropriate for alarms and warnings. </span>
+                <span>attention from the viewer. Accordingly, caps and small-caps should be avoided for longer text segments, but may be appropriate for alarms and warnings. </span>
             </p>
             <p>
-                <span>[0097] Figure 33 illustrates the differences between a true small caps font displaying the letters "Execute" and a normal font displaying the </span>
-                <span>characters "EXECUTE". The illustration shows the the small caps font produces a larger leading letter "E", while displaying smaller capital letters </span>
-                <span>for the remainder of the word. Contrasted with the fully capitalized "EXECUTE" rendered in the normal font, we see that the more horizontal space is </span>
-                <span>used and that there is more space between the individual letters. The small caps font is specifically designed to provide a more aesthetically pleasing </span>
-                <span>rendering of the fully capitalized equipment. With less space between the letters, the small-caps version produces a visual that appears to be more fluid. </span>
+                <span>[0098] Figure 33 illustrates the differences between a true small-caps font displaying the letters "Execute" and a normal font displaying the </span>
+                <span>characters "EXECUTE". The illustration shows that the small-caps font produces a larger leading letter "E", while displaying smaller capital letters </span>
+                <span>for the remainder of the word. Contrasted with the fully capitalized "EXECUTE" rendered in the normal font, we see that more horizontal space is </span>
+                <span>used and that there is more space between the individual letters. The small-caps font is specifically designed to provide a more aesthetically pleasing </span>
+                <span>rendering of the fully capitalized text. With less space between the letters, the small-caps version produces a more fluid visual appearance. </span>
             </p>
             <figure>
                 <img id="small-caps" src="images/small-caps.png" />
@@ -1584,7 +1611,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0098] When longer runs of text are required, it is important to consider line spacing and line length. It is generally accepted that longer line </span>
+                <span>[0099] When longer runs of text are required, it is important to consider line spacing and line length. It is generally accepted that longer line </span>
                 <span>lengths slow down reading speed. Additionally, it is more difficult to read text where the distance between lines is too small. Figure 34 </span>
                 <span>demonstrates the impact line height has on legibility. Utilizing the preferred 120% guideline produces a more readable body of text.</span>
             </p>
@@ -1597,13 +1624,13 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0099] While efficient use of screen space is a lofty goal, it should not come at the expense of the operator. Poor legibility </span>
+                <span>[0100] While efficient use of screen space is a lofty goal, it should not come at the expense of the operator. Poor legibility </span>
                 <span>will impair operator performance, particularly under stressful conditions. Accordingly, line height should be optimized </span>
                 <span>whenever the underlying design tools will accommodate such control. </span>
             </p>
             <h3 id="SummaryStateModel">5.8 Summary</h3>
             <p>
-                <span>[0100] The PackML state model &ndash; most recently revised in TR88.00.02-2021 &ndash; is typically represented </span>
+                <span>[0101] The PackML state model &ndash; most recently revised in TR88.00.02-2021 &ndash; is typically represented </span>
                 <span>visually as a flow chart illustrating viable state transitions. When presented on an HMI, this same state model </span>
                 <span>visualization is used to communicate the active machine-state to operators. To avoid confusing operators, </span>
                 <span>appropriately designed on-screen state-model visualizations must maintain the orientation and alignment utilized in </span>
@@ -1624,7 +1651,7 @@
             <hr class="black" />
             <h3 id="NavigationScope">6.1 Scope</h3>
             <p>
-                <span>[0101] For most production operators, time spent manipulating an HMI is time wasted. Engineers that </span>
+                <span>[0102] For most production operators, time spent manipulating an HMI is time wasted. Engineers that </span>
                 <span>design machine interfaces have an important responsibility to ensure that their operators perform </span>
                 <span>effectively. If an operator is not effective when utilizing a designer's interface, it is the </span>
                 <span>designer who has failed, not the operator. In an effort to increase the likelihood of success for </span> 
@@ -1634,7 +1661,7 @@
                 <span>when the practices are applied across full production lines. </span>
             </p>
             <p>
-                <span>[0102] Understandably, given the vast array of facilities in a typical interface, </span>
+                <span>[0103] Understandably, given the vast array of facilities in a typical interface, </span>
                 <span>establishing an appropriate scope for this section of the standard was the first critical milestone. </span>
                 <span>When compared to the relatively finite number of possible variations available in </span>
                 <span>the stacklight standard &ndash; where machine state is succinctly represented with nothing more than color, </span> 
@@ -1644,8 +1671,8 @@
                 <span>the ideal scope for use here in the graphical interface section. </span>
             </p>
             <p>
-                <span>[0103] Considering the situational awareness model once again, we are reminded that an effective interface </span>
-                <span>a) communicates the state of the world, b) affords insight into future conditions, and c) aids the </span>
+                <span>[0104] Considering the situational awareness model once again, we are reminded that an effective interface </span>
+                <span>(a) communicates the state of the world, (b) affords insight into future conditions, and (c) aids the </span>
                 <span>operator's decision making process. The PackML stacklight offers situational awareness with incredible efficiency. </span>
                 <span>A single flashing blue lamp, for example, is all that is needed to inform a remote line operator that </span>
                 <span>an internal machine issue must be addressed. Ironically, it is the stacklight's inherent constraints </span>
@@ -1658,10 +1685,10 @@
                 </ul>
             </p>
             <p>
-                <span>[0104] These limitations and the resulting consistency are paramount to the stacklight's effectiveness. </span>                
+                <span>[0105] These limitations and the resulting consistency are paramount to the stacklight's effectiveness. </span>                
             </p>
             <p>    
-                <span>[0105] Carrying the analogy to the opposite extreme, the HMI terminal is nothing more than </span>
+                <span>[0106] Carrying the analogy to the opposite extreme, the HMI terminal is nothing more than </span>
                 <span>a 2-dimensional stacklight; it is reasonable to argue that the same benefits should be easily achieved. </span>
                 <span>Unfortunately, the potential for chaos is far greater in the graphical domain. </span>
                 <span>Whereas the stacklight's physical design provides natural hierarchy and content alignment, </span>
@@ -1675,7 +1702,7 @@
                 <span>The HMI working group began their effort with these challenges in mind.</span>
             </p>
             <p>
-                <span>[0106] From the earliest stages of the standardization effort, agreement existed that the graphical-interface </span>
+                <span>[0107] From the earliest stages of the standardization effort, agreement existed that the graphical-interface </span>
                 <span>portion of the PackML HMI standard would need to be narrowly focused. It was argued that </span>
                 <span>the scope should be limited to the small intersection of operator-interface components that are </span>
                 <span>most commonly encountered on production equipment; expanding standardization beyond this </span>
@@ -1685,7 +1712,7 @@
                 <span>either currently in use or proposed for use in a production line.</span>
             </p>
             <p>
-                <span>[0107] In an effort to quantify the effectiveness of these sample interfaces, </span>
+                <span>[0108] In an effort to quantify the effectiveness of these sample interfaces, </span>
                 <span>the group conducted a formal usability study, which aimed to produce an unbiased </span>
                 <span>evaluation of the respective systems. The study presented participants with a </span>
                 <span>collection of interfaces, each of which organized screen content in a unique </span>
@@ -1699,23 +1726,23 @@
                 <span>without inhibiting innovation.</span>
             </p>            
             <p>
-                <span>[0108] Returning to the high-level HMI standardization goals &ndash; where </span>
+                <span>[0109] Returning to the high-level HMI standardization goals &ndash; where </span>
                 <span>the efficiency and effectiveness of line operators is the overarching priority &ndash; </span>
                 <span>the effective transition from one interface to the next </span>
-                <span>represents the primary benefit of the HMI template. This objective suggests </span>
+                <span>represents the primary benefit of a standard HMI template. This objective suggests </span>
                 <span>that learnability, memorability, and efficiency are the key usability characteristics </span>
                 <span>driving the template's design. Accordingly, it is reasonable to argue that the ideal </span>
-                <span>template: a) follows expected conventions, b) maximizes consistency between machines, </span>
-                <span>and c) ensures the operator feels they are in control. Given these criteria, the  </span>
+                <span>template: (a) follows expected conventions, (b) maximizes consistency between machines, </span>
+                <span>and (c) ensures the operator feels they are in control. Given these criteria, the  </span>
                 <span>standard PackML HMI template: </span>                
             </p>
             <ul class="points">
                 <li>establishes a set of standard navigation elements</li>
                 <li>specifies standard alignment and orientation patterns for these elements</li>
-                <li>defines the auxiliary content operators rely on to make decisions in a production</li>
+                <li>defines the auxiliary content operators rely on to make decisions in a typical production setting</li>
             </ul>
             <p>
-                <span>[0109] The standard navigation elements represent the most frequently encountered </span>
+                <span>[0110] The standard navigation elements represent the most frequently encountered </span>
                 <span>menus and content groups found in production equipment. Following the best practices illustrated by the analysis of the stacklight </span>
                 <span>design, each element is assigned a fixed position in the HMI's menu along with a </span>
                 <span>standard name and icon representing the associated context. The template's alignment and </span>
@@ -1726,7 +1753,7 @@
                 <span>These limitations are noted where appropriate. </span>
             </p>
             <p>
-                <span>[0110] The following sections include numerous screenshots, which are provided to communicate </span>
+                <span>[0111] The following sections include numerous screenshots, which are provided to communicate </span>
                 <span>the underlying standards and guidelines. Unless specifically noted, these screen designs </span>
                 <span>(e.g., coloring, typography, layout) are offered solely as a means to communicate well established design principles. </span>
                 <span>Interface design is a continuously evolving craft. While specific aesthetic design techniques quickly become passé, </span>
@@ -1737,12 +1764,12 @@
                 <span>utility will outlive the provided examples; a design's effectiveness is not necessarily a function of its aesthetic quality. </span>
             </p>
             <p>
-                <span>[0111] With this scope established, the following sections will outline the specific components of the standard HMI template </span>
+                <span>[0112] With this scope established, the following sections will outline the specific components of the standard HMI template </span>
                 <span>as well as general guidance related to graphical interface design in production devices.</span>
             </p>
             <h3 id="NavigationStandard">6.2 Standard Implementation</h3>
             <p>
-                <span>[0112] The PackML HMI navigation standard includes: 1) a standard top-level menu including specific icons and labels, </span>
+                <span>[0113] The PackML HMI navigation standard includes: 1) a standard top-level menu including specific icons and labels, </span>
                 <span>2) a pair of standard layout options for positioning of standard screen elements, and 3) a collection of common, </span>
                 <span>yet optional, supplementary content. These standard HMI components offer the consistency operators need to move </span>
                 <span>efficiently from machine to machine. </span>
@@ -1751,14 +1778,14 @@
             </p>
             <h3 id="NavigationStandardContexts">6.2.1 Navigation Contexts</h3>
             <p>
-                <span>[0113] The standard PackML navigation template includes seven primary contexts: </span>
-                <span>a) Home, b) Products, c) Statistics, d) Settings, e) Alarms, f) Diagnostics, and g) Manual. </span>
+                <span>[0114] The standard PackML navigation template includes seven primary contexts: </span>
+                <span>(a) Home, (b) Products, (c) Statistics, (d) Settings, (e) Alarms, (f) Diagnostics, and (g) Manual. </span>
                 <span>These contexts represent the main conceptual groupings of content within production machines. </span>
                 <span>The associated groupings have been derived from standard practice, and accommodate the most commonly encountered production-industry content. </span>
                 <span>Each context is presented on the display with a standard icon representing the associated content. </span>
                 <span>Likewise, each context includes a standard label, which describes the grouping. While the labels may </span>
                 <span>be hidden if necessary (e.g., small screen displays), alternate labels should not be used. </span>
-                <span>A brief description and example content for each of context is provided in Table 4. </span>
+                <span>A brief description and example content for each context is provided in Table 4. </span>
             </p>
             <table id="navigation-contexts">
                 <caption>Table 4: Navigation Contexts</caption>
@@ -1812,8 +1839,8 @@
                 </tr>
             </table>
             <p>
-                <span>[0114] Collectively, these contexts constitute the navigation system's top-level menu. </span>
-                <span>This menu, displaying the respective icons and labels, must be shown at all times. </span>
+                <span>[0115] Collectively, these contexts constitute the navigation system's top-level menu. </span>
+                <span>This menu, displaying the respective icons and labels, will have a fixed position and should be visible whenever navigation is supported. </span>
                 <span>Navigation is initiated by selecting one of the available contexts (e.g., Home, Products, Statistics). </span>
                 <span>Subsequent navigation is then completed by selecting an individual screen from the provided machine-specific sub-menu. </span>
                 <span>The most recently selected icon will be uniquely highlighted to indicate that it is the active context. </span>
@@ -1821,10 +1848,10 @@
                 <span>Home will be the default active context when a machine is booted. </span>
             </p>
             <p>
-                <span>[0115] While additional adornments (e.g., sharding, borders, boxes, circles) may be  </span>
-                <span>used to highlight the currently selected context, the base icon forms shown in Table 3 should not be significantly </span>
+                <span>[0116] While additional adornments (e.g., shading, borders, boxes, circles) may be  </span>
+                <span>used to highlight the currently selected context, the base icon forms shown in Table 4 should not be significantly </span>
                 <span>altered for any other purpose. All brand-specific styling (e.g., color schemes, typography) must be designed to ensure that </span>
-                <span>operators can clearly identify that active context at all times. While branding is </span>
+                <span>operators can clearly identify the active context at all times. While branding is </span>
                 <span>intentionally outside of the scope of this standard, designs that introduces </span>
                 <span>confusion or uncertainty should be avoided. Additional machine-specific contexts and controls may be added to the standard </span>
                 <span>menu, but must be positioned after the standard icons.</span>
@@ -1836,7 +1863,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0116] Examples A through C of Figure 35 illustrate the standard icons presented together to produce a variety of horizontal menu designs. </span>
+                <span>[0117] Examples A through D of Figure 36 illustrate the standard icons presented together to produce a variety of horizontal menu designs. </span>
                 <span>In each example, Statistics is the active context. Example A demonstrates how modifications to the standard icons </span>
                 <span>can unintentionally increase the emphasis on an inactive context. The extra shaded circle increases the </span>
                 <span>saliency of the Home icon in a way that may convince an operator that it is the active context when it is not. </span>
@@ -1852,31 +1879,31 @@
                     <span>operator. Example A modifies the Home icon in a way that distracts the operator from the actual active context: Statistics.</span>
                     <span>Examples B applies styling in a more consistent manner that reduces the likelihood of confusion.</span>
                     <span>Example C demonstrates an acceptable alternative where the optional Manual icon is hidden. Example D </span>
-                    <span>introduces a non-standard Search button to the left of the standard contexts.</span>
+                    <span>introduces a non-standard Search button to the right of the standard contexts.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0117] Figure 36 demonstrates an acceptable alternate design concept, where each base icon has be modified </span>
+                <span>[0118] Figure 37 demonstrates an acceptable alternate design concept, where each base icon has be modified </span>
                 <span>in a consistent manner. The Statistics context in Example A is still </span>
                 <span>easily distinguished as the active context despite the additional design changes to the standard icons. </span>
-                <span>Using the same styling, Example B is not permitted as the standard icon order has not been maintained. </span>
+                <span>Using the same styling, Example B is not permitted, as the standard icon order has not been maintained. </span>
             </p>
             <figure>
                 <img id="navigation-icon-orientation" src="images/MenuHighlighting2.png" />
                 <figcaption>
-                    <span>Figure 37: Alternate design concepts are permitted so long as the are applied consistently to all icons. </span>
+                    <span>Figure 37: Alternate design concepts are permitted so long as they are applied consistently to all icons. </span>
                     <span>Regardless, the specified icon ordering must be maintained. Example B is an unacceptable alternative where the </span>
                     <span>Settings and Statistics icons have been reversed.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0118] Within the top-level menu, the individual icons direct the operator to data and configuration screens, which are sorted based </span>
+                <span>[0119] Within the top-level menu, the individual icons direct the operator to data and configuration screens, which are sorted based </span>
                 <span>on associated operational objectives. </span>
                 <span>The <b>Home</b> context, providing a high-level overview of the machine's </span>
                 <span>operating status, is intended to offer aggregate data (e.g., Throughput, Mean-Value Statistics) </span>
-                <span>that helps the operator quickly achieve situational awareness. For more </span>
+                <span>that help the operator quickly achieve situational awareness. For more </span>
                 <span>complex machinery, this summary data may be best presented using a visual representation of the </span>
-                <span>equipment where component-specific data overlays highlight key subsystems. Figure 38 offers an </span>
+                <span>equipment where component-specific data-overlays highlight key subsystems. Figure 38 offers an </span>
                 <span>example "Machine View" that presents measured values and specified settings for segments of a filler machine. </span>
                 <span>Additionally, this context will present the standard PackML State Model, which was discussed in Section 5. </span>                
             </p>
@@ -1888,14 +1915,14 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0119] The simplest rendition of the Home icon should always be used. While no specific shape or "Home" form is required, </span>
+                <span>[0120] The simplest rendition of the Home icon should always be used. While no specific shape or "Home" form is required, </span>
                 <span>an icon similar to that shown in Table 4 should be used. The operator's efforts to navigate through the system will be </span>
-                <span>improved if their current navigation context is always easily determined. Accordingly, it is important that the actively selected context </span>
-                <span>(i.e., the context associated with the screens they are currently viewing) can always be easily distinguished. </span>
-                <span>Any styling applied to the Home icon should therefore also be applied to the remaining standard icons (e.g., Products, Settings). </span>
+                <span>improved if their current navigation context is always easily determined. Accordingly, it is important that the </span>
+                <span>actively selected context can always be easily distinguished. As noted previously, any styling </span>
+                <span>applied to the Home icon should therefore also be applied to the remaining standard icons (e.g., Products, Settings). </span>
                 <span>Additional adornments (e.g., circles, boxes, shading) may be incorrectly interpreted by the operator as an indication of their </span>
                 <span>current navigation context. Such confusion can be avoided by eliminating those adornments from the graphical "language". </span>
-                <span>As stated previously, the left-most icon in Figure 39 should not be used as the standard icon unless the remaining navigation icons follow the pattern </span>
+                <span>The left-most icon in Figure 39 should not be used as the standard icon unless the remaining navigation icons follow the pattern </span>
                 <span>and display a circle around the base image. It is, however, perfectly reasonable to use such an adornment as the indication </span>
                 <span>of navigation context, in which case, one and only one icon would ever show the selected adornment. </span>
             </p>
@@ -1909,12 +1936,11 @@
             </figure>
             
             <p>
-                <span>[0120] The <b>Products</b> context offers all of the facilities necessary to specify the production </span>
-                <span>process for a specific product. On a labeler, for example, the Products context would offer a series </span>
-                <span>of durations (e.g., Settle Time, Vacuum Delay) necessary to properly affix the label to a specific product container. </span>
-                <span>As these values are likely to be different from product to product, the interface should accommodate </span>
-                <span>specification of the these values on a per-product basis. </span>
-                <span>Settings that are applicable to all products (e.g., sensor positions) should be presented in the Settings context. </span>
+                <span>[0121] The <b>Products</b> context offers all of the facilities necessary to specify the production </span>
+                <span>process for a given product. On a labeler, for example, the Products context would offer a series </span>
+                <span>of durations (e.g., Settle Time, Vacuum Delay) necessary to properly affix a label to a specific container. </span>
+                <span>As these values are likely to vary from product to product, they should be defined on a per-product basis within the Products context. </span>
+                <span>Conversely, values that are applicable to all products (e.g., sensor positions) should be specified in the Settings context. </span>
                 <span>Figure 40 demonstrates an example product setup screen for a labeling machine. </span>
             </p>
             <figure>
@@ -1924,7 +1950,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0121] The term "Products" should be used unless a machine-specific term that is understood by the </span>
+                <span>[0122] The term "Products" should be used unless a machine-specific term that is understood by the </span>
                 <span>operator is determined to be more appropriate. For example, </span>
                 <span>on a palletizer, the term "Patterns" is appropriate as it represents the actual production process. </span>
                 <span>If this alternate term is understood by operators and does not interfere with navigation it should be preferred over "Products". Other </span>
@@ -1941,13 +1967,14 @@
                 </figcaption>
             </figure>                        
             <p>
-                <span>[0122] The <b>Statistics</b> section presents descriptive statistics that reflect the machine's production process. This context </span>
+                <span>[0123] The <b>Statistics</b> section presents descriptive statistics that reflect the machine's production process. This context </span>
                 <span>accommodates basic production statistics (e.g., Good Counts, Bad Counts, Throughput) as well as standard PackML OEE statistics. </span>
                 <span>While the Home context may offer one or two pieces of aggregate data, the remaining statistical content should be contained in </span>
-                <span>the Statistics context; the data contained here is essential to proper situational awareness. Understanding both short and long </span>
+                <span>the Statistics context. The data contained here is essential to proper situational awareness. Understanding both short and long </span>
                 <span>term trends will help operators understand how well controlled their process is, particularly when machines are not continuously </span>
-                <span>observed. As demonstrated in Figure 42, accompanying individual statistics, like standard deviation and throughput, with </span>
-                <span>simple visualizations of recent trends will help operators qualify the instantaneous data points. </span>
+                <span>observed. As demonstrated in Figure 42, pairing individual statistics with </span>
+                <span>"trend" visualizations will help operators properly qualify the instantaneous data points. The visualization showing a sharp </span>
+                <span>decline in throughput provides more actionable context for the operator than the current value of 209 ppm will in isolation.</span>
             </p>
             <figure>
                 <img id="navigation-statistics-screen" src="images/ExampleStatistics.png" />
@@ -1956,7 +1983,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0123] Comparing time periods or individual production runs, as shown in Figure 43, gives operators additional insight with important points of comparison. </span>
+                <span>[0124] Comparing time periods or individual production runs, as shown in Figure 43, gives operators additional insight with important points of comparison. </span>
             </p>
             <figure>
                 <img id="navigation-statistics-screen2" src="images/ExampleStatisticsB.png" />
@@ -1965,7 +1992,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0124] While the term "Statistics" is relatively ubiquitous, a number of variations on the standard icon exist. </span>
+                <span>[0125] While the term "Statistics" is relatively ubiquitous, a number of variations on the standard icon exist. </span>
                 <span>The proper usage of the Statistics icon and label are shown in Figure 44. Alternate shapes, borders, and grid lines </span>
                 <span>should not be added to the basic Statistics icon. </span>
             </p>
@@ -1979,7 +2006,7 @@
                 </figcaption>
             </figure> 
             <p>
-                <span>[0125] The <b>Alarms</b> context displays all machine alarms, warnings, and events. While this standard does </span>
+                <span>[0126] The <b>Alarms</b> context displays all machine alarms, warnings, and events. While this standard does </span>
                 <span>not offer specific requirements for the data presented in the associated displays, </span>
                 <span>an example screen is demonstrated in Figure 45. </span>
             </p>
@@ -1990,11 +2017,11 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0126] Due to the amount of data that may be collected over longer production runs, it is generally useful to permit </span>
+                <span>[0127] Due to the amount of data that may be collected over longer production runs, it is generally useful to permit </span>
                 <span>filtering or export facilities to simplify offline review of machine history. </span>
             </p>
             <p>
-                <span>[0127] The single term "Alarms" will be used to label the standard icon. Additional descriptions should not be added. </span>
+                <span>[0128] The single term "Alarms" will be used to label the standard icon. Additional descriptions should not be added. </span>
                 <span>Likewise, as demonstrated in Figure 46, alternate shapes and 3D representations should not replace the standard icon. </span>
             </p>
             <figure>
@@ -2007,18 +2034,18 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0128] The <b>Settings</b> context contains all machine-level configuration (e.g., sensor positions, IP addresses). </span>
+                <span>[0129] The <b>Settings</b> context contains all machine-level configuration (e.g., sensor positions, IP addresses). </span>
                 <span>More specifically, the Settings context provides all configuration settings that are not product-specific. </span>
                 <span>In many situations, machine-level settings will be paired with product-level settings that accommodate product-specific</span>
                 <span>variability. Rejectors, for example, are physically located at a fixed position, which can be precisely measured from </span>
-                <span>some relative point. Individual products, however, travel down a production in a more stochastic manner, where variability </span>
+                <span>some relative point. Individual products, however, travel down a production line in a more stochastic manner, where variability </span>
                 <span>is introduced by other system components (e.g., guiderails, belt transfers). While the rejector position can be defined </span>
                 <span>as a fixed physical distance, an additional offset may be necessary to specify the change in timing introduced by the </span>
                 <span>product's interaction with the conveyor components. In this example, the rejector's physical distance is a machine-level </span>
                 <span>value, which should be specified in the Settings context. The product-specific offset, on the other hand, should be </span>
                 <span>defined within the Products context. When these situations exist, it is helpful </span>
                 <span>to display both values so operators have total situational awareness. Figure 47 provides an example where a machine-level </span>
-                <span>rejector distance is specified, with an additional reference citing the product-specific reject delay offset. </span>
+                <span>rejector distance is specified, with an additional reference citing the product-specific reject-delay offset. </span>
             </p>
             <figure>
                 <img id="navigation-settings-screen" src="images/ExampleSettings.png" />
@@ -2029,7 +2056,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0129] While the "cog" icon is encountered most frequently, alternate icons, like that shown in Figure 48, are occasionally found. </span>
+                <span>[0130] While the "cog" icon is encountered most frequently, alternate icons, like that shown in Figure 48, are occasionally found. </span>
                 <span>Alternate icons should not be used. Likewise, alternate terms, should not be used. </span>
             </p>
             <figure>
@@ -2041,10 +2068,15 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0130] The <b>Diagnostics</b> section offers facilities for monitoring and tuning individual components (e.g., digital I/O, drives). </span>
-                <span>These facilities accommodate advanced setup and troubleshooting of machines. Given its utility in setup and troubleshooting, the </span>
-                <span>PackML state diagram &ndash; as well as those of up and downstream devices &ndash; can be co-located here. Additional tools, </span>
-                <span>like the oscilloscope demonstrated in figure 49, fit ideally in the diagnostics context.</span>
+                <span>[0131] The <b>Diagnostics</b> section offers facilities for monitoring and tuning individual system components (e.g., digital I/O, drives). </span>
+                <span>Traditional tools like the oscilloscope demonstrated in Figure 49, fit ideally in this context. </span>
+                <span>All resources that facilitate advanced setup and troubleshooting should be made available here. Where appropriate, </span>
+                <span>it is reasonable to co-locate diagnostic resources in multiple menus. </span>
+                <span>When paired with equivalent diagrams for respective upstream and downstream devices, the PackML state model will</span>
+                <span>likely aid situational awareness in troubleshooting activities. Accordingly, a position in the Diagnostics menu can be justified.  </span>
+                <span>Concurrently, the state model provides a high-level overview of machine status; this suggests residence in the Home menu is equally appropriate. </span>
+                <span>Since both choices can be justified, the PackML diagram can be co-located in both the Home and Diagnostics menus. </span>
+                
             </p>
             <figure>
                 <img id="navigation-diagnostics-screen" src="images/ExampleDiagnostics.png" />
@@ -2053,7 +2085,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0131] The stethoscope, demonstrated in Figure 50, is the standard icon for the Diagnostics context. Alternative </span>
+                <span>[0132] The stethoscope, demonstrated in Figure 50, is the standard icon for the Diagnostics context. Alternative </span>
                 <span>icons should not be used.</span>
             </p>
             <figure>
@@ -2064,7 +2096,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0132] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations (e.g., jogging a motor). These actions are often needed </span>
+                <span>[0133] The <b>Manual</b> section offers individual controls necessary to trigger specific machine operations (e.g., jogging a motor). These actions are often needed </span>
                 <span>when commissioning a machine or when performing maintenance or troubleshooting activities. Figure 51 offers an example Manual screen.</span>
             </p>
             <figure>
@@ -2074,7 +2106,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0133] The standard label and icon for the Manual context are demonstrated in Figure 52. Alternate shapes or labels should not be used. </span>
+                <span>[0134] The standard label and icon for the Manual context are demonstrated in Figure 52. Alternate shapes or labels should not be used. </span>
             </p>
             <figure>
                 <img id="navigation-manual-icon" src="images/PackMLManualUsage.png" />
@@ -2086,7 +2118,7 @@
             </figure>
             <h3 id="NavigationStandardLayouts">6.2.2 Screen Layout</h3>            
             <p>
-                <span>[0134] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 53, presents the array </span>
+                <span>[0135] The standard PackML HMI navigation template follows one of two basic patterns. The first pattern, demonstrated in Figure 53, presents the array </span>
                 <span>of primary navigation elements spread horizontally along the lower edge of the HMI. </span>
             </p>
             <figure>
@@ -2100,7 +2132,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0135] The main alternative pattern, as demonstrated in Figure 54, presents the array of primary navigation elements spread vertically </span>
+                <span>[0136] The main alternative pattern, as demonstrated in Figure 54, presents the array of primary navigation elements spread vertically </span>
                 <span>along the left edge of the HMI. As with the previous pattern, navigation is initiated by selecting  </span>
                 <span>one of the primary navigation elements positioned on the left edge of the screen. Subsequent navigation is initiated </span>
                 <span>by selecting one of the secondary-level navigation links presented along the top of the screen. </span>
@@ -2113,9 +2145,9 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0136] The standard offers a pair of alternate layout patterns to accommodate screens of various sizes and aspect ratios. </span>
+                <span>[0137] The standard offers a pair of alternate layout patterns to accommodate screens of various sizes and aspect ratios. </span>
                 <span>The designer should employ the pattern that best utilizes the available screen space. Wide screen displays for example, may </span>
-                <span>be an ideal fit for the vertical menu layout, whereas traditional 4:3 displays may find the horizontal display works best.</span>
+                <span>be an ideal fit for the vertical menu layout, whereas traditional 4:3 displays may find the horizontal variant works best.</span>
             </p>
             <figure>
                 <img id="navigation-consumer" src="images/Navigation_NonStandard.png" />
@@ -2124,16 +2156,16 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0137] Alternate layout patterns should not be used. While the pattern shown in Figure 55 is commonly </span>
+                <span>[0138] Alternate layout patterns should not be used. While the pattern shown in Figure 55 is commonly </span>
                 <span>employed in consumer devices, testing with machine HMIs demonstrated that it is not as effective as </span>
-                <span>vertically and horizontally aligned alternatives. </span>
+                <span>the vertically and horizontally-aligned alternatives. </span>
             </p>
             <h3 id="NavigationStandardSupplements">6.2.3 Supplementary Content</h3>
             <p>
-                <span>[0138] Beyond the standard menus, HMIs general provide specific contextual information, </span>
+                <span>[0139] Beyond the standard menus, HMIs general provide specific contextual information, </span>
                 <span>which helps the operator maintain situational awareness. This content is optional and should only be </span>
                 <span>shown if the information can be displayed effectively. When possible, the information should be </span>
-                <span>in a fixed location, which is always visible to the operator regardless current display context.</span>
+                <span>in a fixed location, which is always visible to the operator regardless of the current display context.</span>
             </p>
             <table id="table-navigation-content">
                 <caption>Table 5: Example Supplementary Content</caption>
@@ -2190,7 +2222,7 @@
             </table>
             <h3 id="NavigationGuidance">6.3 Guidance</h3>
             <p>
-                <span>[0139] Allowing operators to efficiently move from machine to machine was the earliest stated </span>
+                <span>[0140] Allowing operators to efficiently move from machine to machine was the earliest stated </span>
                 <span>goal of this HMI guidance. The standard HMI icons and labels established here, along with the standard set </span>
                 <span>of layout patterns, is an incredible step toward this goal. When presented with a consistent set of icons and labels &ndash; </span>
                 <span>each positioned consistently on the screen &ndash; operators will more easily identify the content required to complete their </span>
@@ -2202,7 +2234,7 @@
             </p>
             <h3 id="NavigationContrast">6.3.1 Contrast</h3>
             <p>
-                <span>[0140] We are naturally inclined to identify patterns. We are equally inclined to spot inconsistencies. The lone </span>
+                <span>[0141] We are naturally inclined to identify patterns. We are equally inclined to spot inconsistencies. The lone </span>
                 <span>blue dot in Figure 56 quickly draws our attention. Compared to the remaining dots, it offers a high level of </span>
                 <span>contrast. In this example color is used to highlight the element. This simple change of color produces </span>
                 <span>visual hierarchy within the image. The blue mark is more dominant than the grey marks because of color contrast. </span>
@@ -2215,7 +2247,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0141] Figure 57 demonstrates how adding a second highlighted point will split our focus. Two points are now competing for </span>
+                <span>[0142] Figure 57 demonstrates how adding a second highlighted point will split our focus. Two points are now competing for </span>
                 <span>our attention; emphasis on the first point has been reduced. With this additional colored point, a viewer's </span>
                 <span>gaze is more likely to travel around the image. Noting that the marks are the same color, we naturally expect a similar semantic </span>
                 <span>explanation; if we know why the first dot is blue, we assume the second dot is blue for the same reason. </span>
@@ -2228,7 +2260,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0142] If a different semantic meaning is required, an alternate color should be introduced; keeping in mind that </span>
+                <span>[0143] If a different semantic meaning is required, an alternate color should be introduced; keeping in mind that </span>
                 <span>a good rule-of-thumb suggests no more than 2-3 different colors in an interface. Figure 58 demonstrates the previous </span>
                 <span>example modified to include a second color, which now holds some other meaning. Here, the opposite expectation is in place. </span>
                 <span>If a second color is used, it should have a second meaning. We should not add another color just to make the display "pretty". </span>
@@ -2241,7 +2273,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0143] In the preceding examples, color alone was used to produce the intended contrast. </span>
+                <span>[0144] In the preceding examples, color alone was used to produce the intended contrast. </span>
                 <span>When more granularity is required, contrast can also be introduced using size. </span>
                 <span>In Figure 59, with our original dots still highlighted, one now </span>
                 <span>has more focus due to its size; size now means something as well. Our hierarchy is growing...</span>
@@ -2254,7 +2286,7 @@
             </figure>
             <h3 id="NavigationSquintTesting">6.3.2 Squint Testing</h3>
             <p>
-                <span>[0144] Contrast is used to get the viewers attention. In an HMI, it is important that the amount of contrast is proportional to </span>
+                <span>[0145] Contrast is used to get the viewers attention. In an HMI, it is important that the amount of contrast is proportional to </span>
                 <span>the element's importance. A quick gauge of the display's hierarchy can be achieved through "squint testing". </span>
                 <span>Simply squint your eyes as you look at an interface. Are the most important points the most salient? Figure </span>
                 <span>60 simulates a squint test for our running example. The large blue dot is still the clear focal point. As a display </span>
@@ -2271,7 +2303,7 @@
             </figure>
             <h3 id="NavigationDataInk">6.3.3 Data-Ink Ratio</h3>
             <p>
-                <span>[0145] Squint testing is merely a technique to validate the previously discussed Data-Ink Ratio concept. The level of </span>
+                <span>[0146] Squint testing is merely a technique to validate the previously discussed Data-Ink Ratio concept. The level of </span>
                 <span>contrast introduced by a screen element, should be proportional to the data it communicates. While we have still </span>
                 <span>not established any meaning for our array of dots, it is reasonable to argue that the grey dots are less significant. </span>
                 <span>Their perceived contrast has been limited by reducing their color saturation. Colors in the natural world </span>
@@ -2291,14 +2323,14 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0146] In our array of dots, the highly saturated blue dots have focus, while the grey dots, despite being more numerous, </span>
+                <span>[0147] In our array of dots, the highly saturated blue dots have focus, while the grey dots, despite being more numerous, </span>
                 <span>fade to the background. We can employ these same techniques to appropriately balance the components of our interface. </span>
                 <span>Recalling the characteristics of a "usable" interface, we must concurrently offer learnability and efficiency. </span>
                 <span>We have already argued that contrast is necessary to get the operator's attention; in order to afford learnability, we must have contrast. </span>
                 <span>However, once we have learned the interface, any excess contrast becomes a distraction reducing efficiency. If the contrast is overwhelming it does more harm than good. </span>
                 <span>Figure 62 shows the numeric entry box from our Settings-screen example refactored to use a more appropriate level of contrast. </span>
                 <span>Once the screen has been learned, the label "Duration" can fade to the background. We accommodate this </span>
-                <span>by adjusting its size and darkness to reduce the percieved contrast. The same technique is applied to the units label. </span>
+                <span>by adjusting its size and darkness to reduce the perceived contrast. The same technique is applied to the units label. </span>
                 <span>Units are merely presented to provide context for the associate value, which should be the primary focal point of the control. </span>
                 <span>Accordingly, the emphasis on the units is also reduced; color and size are adjusted appropriately. </span>
                 <span>Finally, the surrounding border, a signifier indicating that the element is clickable, has been likewise muted by reducing the stroke thickness </span>
@@ -2314,10 +2346,10 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0147] The Data-Ink ratio is used in an iterative fashion to control the importance of screen elements. </span>
-                <span>In our working dot-array example, if necessary, the contrast of the grey marks can be further reduced by inverting their shape as shown in Figure </span>
-                <span>63. The amount of "ink" has been reduced, leaving a less dominant low contrast mark. When the marks cannot simply </span>
-                <span>by removed all together, reversing polarity is an effective alternative.</span>
+                <span>[0148] The Data-Ink ratio is used in an iterative fashion to control the importance of screen elements. </span>
+                <span>In our working dot-array example, if necessary, the contrast of the grey marks can be further reduced by reducing </span>
+                <span>their size or by inverting their shape as shown in Figure 63. The amount of "ink" has been reduced, leaving a </span>
+                <span>less dominant low contrast mark. When the marks cannot simply by removed all together, reversing polarity is an effective alternative.</span>
             </p>
             <figure>
                 <img id="navigation-polarity" src="images/Contrast4.png" />
@@ -2326,7 +2358,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0148] These points all circle back to explain the limitations established for icon usage. Recalling the application </span>
+                <span>[0149] These points all circle back to explain the limitations established for icon usage. Recalling the application </span>
                 <span>notes for the Statistics icon, we intentionally restricted the use of additional borders, faux gridlines, </span>
                 <span>and added marks, which utilized unnecessary "ink" and, therefore, increased contrast without adding </span>
                 <span>any useful semantic meaning. Figure 64 presents a few of our Statistics guidelines. Gratuitous 3D effects </span>
@@ -2341,11 +2373,11 @@
             </figure>
             <h3 id="NavigationSignifiers">6.3.4 Signifiers</h3>
             <p>
-                <span>[0149] With the transition from physical buttons to touch screen displays, designers needed a way to communicate "clickability" </span>
+                <span>[0150] With the transition from physical buttons to touch screen displays, designers needed a way to communicate "clickability" </span>
                 <span>to their operators. This was initially achieved by making the on-screen representation of a button look like a physical button. </span>
                 <span>The aesthetic attributes used to communicate "clickability" are termed signifiers; they signify "clickability". Borders that highlight a clickable area </span>
                 <span>are the most commonly encountered signifiers. Today, touchable interfaces are a staple of our daily lives. Accordingly, we are less </span>
-                <span>reliant on the signfiers that were necessary during the transition from physical interfaces. Figure 65 shows a reasonable </span>
+                <span>reliant on the signifiers that were necessary during the transition from physical interfaces. Figure 65 shows a reasonable </span>
                 <span>representation of the evolution of the on-screen button. </span>
             </p>
             <figure>
@@ -2356,7 +2388,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0150] Gone are the button bezels that helped solidify the mental model for </span>
+                <span>[0151] Gone are the button bezels that helped solidify the mental model for </span>
                 <span>operators. Gone are the drop shadows and gradients that mimic light falling on a physical button. Often, now, particularly </span>
                 <span>for icon-based buttons, the surrounding borders that illustrate the clickable area can be removed as well. While there is nothing </span>
                 <span>wrong with the bordered button shown in the middle of Figure 65, the included border is "ink" that can be removed. The bare icon </span>
@@ -2376,7 +2408,7 @@
             </figure>
             <h3 id="NavigationAlignment">6.3.5 Alignment</h3>
             <p>
-                <span>[0151] Whereas color offers contrast using light, alignment affords contrast via position. Figure 67 </span>
+                <span>[0152] Whereas color offers contrast using light, alignment affords contrast via position. Figure 67 </span>
                 <span>offers two new dot arrays; both grey, but with one key distinction. The grid on the right is </span>
                 <span>perfectly aligned, whereas the grid on the left includes arbitrary alignment deviations. Again, </span>
                 <span>while subtle, these deviations are likely to draw the viewer's attention. This is quite effective </span>
@@ -2390,7 +2422,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0152] In general, we are seeking consistency in alignment; contrast in this dimension should be avoided. This consistency is most commonly achieved using </span>
+                <span>[0153] In general, we are seeking consistency in alignment; contrast in this dimension should be avoided. This consistency is most commonly achieved using </span>
                 <span>grids, which align and distribute our screen elements effectively. While the characteristics of the underlying grid </span>
                 <span>will vary from machine to machine based on required content and available screen space, the basic application of </span>
                 <span>a grid is demonstrated in Figure 68.</span>
@@ -2403,11 +2435,11 @@
             </figure>
             <h3 id="NavigationGrid">6.3.6 Grid Design</h3>
             <p>
-                <span>[0153] The example in Figure 68 shows a 12-column grid; 10 and 12-column grids are frequently encountered, with </span>
+                <span>[0154] The example in Figure 68 shows a 12-column grid; 10 and 12-column grids are frequently encountered, with </span>
                 <span>most grid designs offering a column count that is divisible by 2 such that the screen can be split neatly in half to </span>
                 <span>evenly accommodate larger content. In this example, 12 columns is a good compromise as the amount of content </span>
                 <span>in the HMI would likely overwhelm a 10-column grid. The grid is constructed by first allocating some margin to the left and </span>
-                <span>right sides of the screen; we don't want any content flush with the edge of our display. The remaining screen space is then </span>
+                <span>right sides of the screen; we don't typically want content flush with the edge of our display. The remaining screen space is then </span>
                 <span>divided up to produce the desired column count; gutters between the columns provide some breathing room for our content. </span>
                 <span>While the number of columns is up to the designer, a grid that is too granular will accommodate the small variations in alignment </span>
                 <span>that produced the disorienting dot-array shown earlier; keeping the column count reasonable (e.g., 12 columns) manages this problem.</span>
@@ -2421,9 +2453,9 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0154] Once the grid is designed, content within the screen is simply aligned to the columns; Figure 70 demonstrates. </span>
+                <span>[0155] Once the grid is designed, content within the screen is simply aligned to the columns; Figure 70 demonstrates. </span>
                 <span>The Statistics context label is aligned to the left-edge of the first column; likewise for the associated menu (i.e., Total, Hour, Interval, Batch). </span>
-                <span>The SKU and the PackML Mode and States labels are aligned to the left edge of the third column. Where appropriate, </span>
+                <span>The SKU and the PackML Mode and State labels are aligned to the left edge of the third column. Where appropriate, </span>
                 <span>extra margins within the columns can be used to provide extra space; consistency is the key. The grid </span>
                 <span>is simply a guide for layout of the content. In this example, "Batch" is the currently selected menu </span>
                 <span>within the Statistics context. The associated menu item is highlighted in light grey to provide focus. How wide should the </span>
@@ -2439,7 +2471,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0155] Some content will be center-aligned, other content will be right-aligned. Figure 71 demonstrates. </span>
+                <span>[0156] Some content will be center-aligned, other content will be right-aligned; Figure 71 demonstrates some reasonable alternatives. </span>
                 <span>In the figure, we see that the operator image is center-aligned to the 12th column. It could just as easily </span>
                 <span>have been left or right-aligned to the column. Here, center-alignment offered a nice balance of whitespace between </span>
                 <span>the text and the left-edge of the screen. The operator's name and time are right-aligned. Again, this is another </span>
@@ -2456,7 +2488,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0156] Content may span multiple columns as needed. The 12 column design is popular for this specific reason; it can be </span>
+                <span>[0157] Content may span multiple columns as needed. The 12-column design is popular for this specific reason; it can be </span>
                 <span>divided in half, thirds, or quarters to produce a variety of layouts. The main menu offers an interesting design decision. </span>
                 <span>With 8 elements and 12 columns, how do we align the content. Each element could be assigned a separate column, as shown in </span>
                 <span>Figure 72, or the group can be arbitrarily spaced and centered across the full 12 columns, as shown in Figure 73. There really is no wrong answer here.</span>
@@ -2476,7 +2508,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0157] Given the layout established in this standard, the preceding components (e.g., operator, menu, submenu, PackML status) will likely </span>
+                <span>[0158] Given the layout established in this standard, the preceding components (e.g., operator, menu, submenu, PackML status) will likely </span>
                 <span>maintain a fixed position from screen to screen. The grid has helped establish a fitting home for these pieces. </span>
                 <span>The remaining content &ndash; that which will vary from screen to screen &ndash; will fill the remainder of the interface. </span>
                 <span>Utilizing the grid in a consistent manner will provide the desirable internal consistency discussed earlier. </span>
@@ -2494,7 +2526,7 @@
             </figure>
             <h3 id="NavigationWhiteSpace">6.3.7 White Space</h3>
             <p>
-                <span>[0158] Once an effective grid is in place, the content layout process can begin. The previous section demonstrated how </span>
+                <span>[0159] Once an effective grid is in place, the content layout process can begin. The previous section demonstrated how </span>
                 <span>a grid provides guidance, but leaves many decisions to the designer. In general, as discussed previously, an interface </span>
                 <span>with adequate white space will be more satisfying for the operator. Given the complexity of the typical production machine, </span>
                 <span>it is understandable that some screens will be packed tightly with content. Careless use of white space aggravates this </span>
@@ -2507,11 +2539,12 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0159] The example relies heavily on borders; likely to help group elements. The borders on the left and right are different sizes, so, </span>
-                <span>if a grid is being used, it is likely too granular. Moreover, the alignment of the right-hand borders conflict with the alignment of the exit button. </span>
-                <span>Regardless, despite the 27 data points in the display, </span>
-                <span>this interface is not too overwhelming. However, the borders add lots of "ink" that introduces unnecessary noise and alignment conflicts. Figure 76 shows </span>
-                <span>the same display with the borders removed. </span>
+                <span>[0160] Excluding the border around the exit button, this example includes 4 sets of borders; likely offered to help visually </span>
+                <span>group the contained elements. Interestingly, the respective borders on the left and right are different sizes; if a grid is </span>
+                <span>being used, it is likely too granular. Moreover, the alignment of the right-hand borders conflict with the alignment of the </span>
+                <span>exit button; the respective edges are not aligned. Regardless, despite the 27 data points in the display, this interface is </span>
+                <span>not too overwhelming. However, the borders add substantial "ink", which introduces unnecessary noise and alignment conflicts. </span>
+                <span>Figure 76 shows the same display with the borders simply removed. </span>
             </p>
             <figure>
                 <img id="navigation-screen-refactoring-borders" src="images/WhiteSpaceB.png" />
@@ -2520,7 +2553,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0160] The borders simply reinforced an existing hierarchy within the display. The hierarchy introduced by </span>
+                <span>[0161] The borders simply reinforced an existing hierarchy within the display. The hierarchy introduced by </span>
                 <span>the font size establishes 3 main groups (i.e., Processor, Major Faults, and Minor Faults); no borders required. </span>
                 <span>White space and alignment can reinforce these boundaries without the need for "ink". Our trusty array of dots can </span>
                 <span>help illustrate this point.</span>
@@ -2534,7 +2567,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0161] In Figure 77, beginning with our original array of dots on the left, we remove elements to introduce white space, </span>
+                <span>[0162] In Figure 77, beginning with our original array of dots on the left, we remove elements to introduce white space, </span>
                 <span>which establishes 3 groups of dots. We interpret the grouping because the member elements are aligned, they are in close proximity to each other, </span>
                 <span>and there is white space between the respective groups. The extra borders introduced in Figure 78 are not required; </span>
                 <span>the groupings are clear without a container.</span>
@@ -2547,7 +2580,7 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0162] Returning to our working example, shown again for review in Figure 79, we note a few issues </span>
+                <span>[0163] Returning to our working example, shown again for review in Figure 79, we note a few issues </span>
                 <span>that can now be corrected. First, the alignment is not consistent. The content in the Minor Faults </span>
                 <span>section appears to be center aligned, whereas the content in the Processor and Major Faults sections </span>
                 <span>appear left-aligned. Additionally, with the borders now removed, we more readily notice the black </span>
@@ -2569,7 +2602,7 @@
             </figure>
             <h3 id="NavigationProximity">6.3.8 Proximity</h3>
             <p>
-                <span>[0163] In general, we prefer to keep related item close to each other (i.e., in close proximity). This reinforces the relationship between </span>
+                <span>[0164] In general, we prefer to keep related item close to each other (i.e., in close proximity). This reinforces the relationship between </span>
                 <span>the items, and, helps ensure the operator can find them. In our earlier example, we showed that the operator's image and name </span>
                 <span>were positioned in close proximity on the upper system tray. While minimally impactful, this same technique can be applied to our working </span>
                 <span>example. Figure 81 shows our screen updated to move the Fault LEDs for better proximity to the associated labels. This change </span>
@@ -2582,13 +2615,14 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0164] Wherever possible, the proximity between related elements should be optimized. This is often achieved with low-level </span>
-                <span>design rules or style guides (e.g., "LEDs go to the left of labels"), which ensure that screens are designed consistently, </span>
-                <span>especially when a team of designers work on a single project.</span>
+                <span>[0165] Wherever possible, the proximity between related elements should be optimized. Specific low-level design details, like the one in our current example, </span>
+                <span>may necessitate a formally defined style guide (e.g., "LEDs go to the left of labels"). These design documents ensure that screen elements are styled consistently. </span>
+                <span>While this is especially important when a team of designers and developers work together on a single project, it is equally likely to </span>
+                <span>aid the solo designer/developer responsible for multiple roles.</span>
             </p>
             <h3 id="NavigationHierarchy">6.3.9 Hierarchy</h3>
             <p>
-                <span>[0165] The examples provided throughout have noted that hierarchy can be established using contrast in color and size. A higher level of color </span>
+                <span>[0166] The examples provided throughout have noted that hierarchy can be established using contrast in color and size. A higher level of color </span>
                 <span>contrast produces screen elements that are more dominant (i.e., higher in the hierarchy). Lower color contrast pushes the element down </span>
                 <span>in the hierarchy (i.e., the item is less important). Size is used in the same manner. Items that are larger (e.g., font size) are more important. </span>
                 <span>Items that are smaller, less so. We interpret these relationships subconsciously. We quickly identify the dominant items and turn our attention to them. </span>
@@ -2597,7 +2631,7 @@
             </p>
             <h3 id="NavigationOrientation">6.3.10 Orientation</h3>
             <p>
-                <span>[0166] In most western cultures, written material travels from left to right and top to bottom. This cultural influence impacts the way </span>
+                <span>[0167] In most western cultures, written material travels from left to right and top to bottom. This cultural influence impacts the way </span>
                 <span>we view digital displays as well. When we scan content on digital displays, we tend to follow the same patterns employed when reading. </span>
                 <span>Interactive screens generally include primary content in the upper-left region of the screen, followed by a call to action in the lower portion. </span>
                 <span>Our early print dialog example, shown again in Figure 82, demonstrates this pattern.</span>
@@ -2610,14 +2644,14 @@
                 </figcaption>
             </figure>
             <p>
-                <span>[0167] The example expects the viewer's focus to begin in the upper left-corner of the screen where the title of the printed document is displayed. </span>
+                <span>[0168] The example expects the viewer's focus to begin in the upper left-corner of the screen where the title of the printed document is displayed. </span>
                 <span>Having established the context of the printout, the parameters of the print operation are displayed. The viewer is expected to review this content from the top </span>
-                <span>of the screen to the bottom. Once the settings have been reviewed down and across the display, the viewer reaches the Print button at the lower right </span>
-                <span>corner of the display and can decide whether to print or make changes. This is the same order we read print media; starting at the top-left corner, ending in the bottom-right.</span>
+                <span>of the screen to the bottom. Once the settings have been reviewed by scanning down and across the display, the viewer reaches the Print button in the lower right </span>
+                <span>corner and can decide whether to print or make changes. This is the same order we read print media; starting at the top-left corner, ending in the bottom-right.</span>
                 <span>Situational awareness begins at the top-left and grows until reaching the point of a decision.</span>
             </p>
             <p>
-                <span>[0168] The standard PackML menu orientation is designed to accommodate this pattern. The Home menu is the default context when a machine is turned on. </span>
+                <span>[0169] The standard PackML menu orientation is designed to accommodate this pattern. The Home menu is the default context when a machine is turned on. </span>
                 <span>It is, arguably, the most frequently used menu button. Accordingly, </span>
                 <span>it is positioned at the top of a vertical menu and on the left edge of a horizontal </span>
                 <span>menu. If the operator is scanning the screen for a specific menu, we expect </span>
@@ -2631,14 +2665,16 @@
                 <span>the vertical menu is positioned on the left side of the screen to accommodate the left-to-right reading order of western cultures.</span>
             </p>
             <p>
-                <span>[0169] As noted previously, the scope of the PackML HMI standard is intentionally limited. While specific orientation requirements will not be offered, </span>
-                <span>the provided orientation guidance should, nonetheless, be considered during design. With the understanding that reading orientation of western cultures transcends to </span>
-                <span>display scanning, it is important to design screens to accommodate these patterns. Place "critical" content in the upper-left region; it will get more attention there. Push less critical content </span>
-                <span>to the lower-right. If possible, move advanced material (i.e., those only used by "powerusers") off to another screen all together.</span>
+                <span>[0170] As noted previously, the scope of the PackML HMI standard is intentionally limited. While specific orientation </span>
+                <span>requirements will not be offered for any content other than the navigation system, the provided guidance should, nonetheless, </span>
+                <span>be considered during the design of the remaining screen areas. With an understanding that reading orientation of western cultures transcends to </span>
+                <span>display scanning, it is important to design screens that accommodate this pattern. Place "critical" content in the </span>
+                <span>upper-left region; it will likely get more attention there. Push less critical content </span>
+                <span>to the lower-right. If possible, move advanced material (i.e., that only used by "power users") off to another screen all together.</span>
             </p>  
             <h3 id="SummaryNavigation">6.4 Summary</h3>
             <p>
-                <span>[0170] The PackML HMI standard includes a top-level menu system that presents </span>
+                <span>[0171] The PackML HMI standard includes a top-level menu system that presents </span>
                 <span>a fixed set of icons and labels, which are positioned in a specific order on a specific portion of the screen. </span>
                 <span>This standard template will help operators learn to use new systems and transfer efficiently from machine to machine. </span>
                 <span>The challenge for the designer lies beyond this relatively limited scope. In order to effectively communicate with </span>
@@ -2646,7 +2682,7 @@
                 <span>through color, size, position, orientation, and proximity. These tools drive the implied hierarchy of content </span>
                 <span>scattered across the screen. Additional structure can be established using grids and white space, which instill order without </span>
                 <span>digital ink. Throughout the iterative design process, designers will refine the interface by manipulating these tools. </span>
-                <span>In the final section, we will discuss a few evaluation that will help drive the iterative process from concept to finished product. </span>
+                <span>In the final section of this document, we will discuss a few evaluation techniques that will help drive the iterative process from concept to finished product. </span>
             </p>          
         </div>
         <div>
@@ -2654,29 +2690,29 @@
             <hr class="black" />
             <h3 id="DesignEvaluationBias">7.1 Overcoming Bias</h3>
             <p>
-                <span>[0171] As a design matures, it is essential to validate its usability. Again, we are discussing  </span>
+                <span>[0172] As a design matures, it is essential to validate its usability. Again, we are discussing  </span>
                 <span>more than traditional functional verification. Satisfying, Efficient, Learnable, Memorable, Tolerant: those are our objectives. </span>
                 <span>An interface that makes sense to its designer is not complete until it has been vetted by another set of eyes. </span>
                 <span>The designer's own "it looks good to me" assertion is not a sufficient form of validation. Even the well trained, well intentioned, </span>
                 <span>designer will benefit from some form of supplementary design review. Why?</span>
             </p>
             <p>
-                <span>[0172] We all suffer from bias. One that is particularly challenging &ndash; specifically for engineers </span>
+                <span>[0173] We all suffer from bias. One that is particularly challenging &ndash; specifically for engineers </span>
                 <span>functioning as designers &ndash; is the "curse of knowledge". Coined in Camerer, Loewenstein, and Weber (1989), </span>
                 <span>the curse of knowledge is an inherent inability to see things from the target audience's perspective. </span>
                 <span>The cause of this bias: experience. Despite daily dialogues and interactions with my operators, I simply cannot, with </span>
-                <span>absolute certainty, speak on their behalf. I am not a production line operator. I am an engineer; I just see the world differently. </span>
+                <span>absolute certainty, speak on their behalf. I am not a production-line operator. I am an engineer; I just see the world differently. </span>
                 <span>While I empathize and focus on their unique usability requirements, I won't always make the right design decisions. </span>
-                <span>I have seen behind the curtain. I understand the inner workings of my equipment at a level my operator's should never need to comprehend. </span>
+                <span>I have seen behind the curtain. I understand the inner workings of my equipment at a level my operators should never need to comprehend. </span>
                 <span>There is a significant risk that my bias will bleed through; that I will design an interface that is suitable </span>
                 <span>for an engineer, but unsatisfying for an operator. I am more likely to explain away what I feel are simply "quirks" in the interface, which, </span>
                 <span>in the eyes of an operator, are more serious usability issues.</span>
             </p>
             <p>
-                <span>[0173] At the very least, I understand that this bias exists. I can use caution as I design; always </span>
+                <span>[0174] At the very least, I understand that this bias exists. I can use caution as I design; always </span>
                 <span>mindful that my preferences may conflict with the operator's. On the opposite end of the spectrum, </span>
                 <span>without such awareness or caution, bigger problems can occur. </span>
-                <span>The curse of knowledge is responsible for those acronym filled error messages that are </span>
+                <span>The curse of knowledge is responsible for those acronym-filled error messages that are </span>
                 <span>easily understood by the design engineer, but completely baffling for the operator using the system. The curse of </span>
                 <span>knowledge helped hide that configuration parameter in the menu you only check after looking in five other places. Worse still, </span>
                 <span>the next time you need that parameter, you may search in all those same wrong places again. </span>
@@ -2687,14 +2723,14 @@
                 <span>usability anti-pattern, the designer must do the leg work in advance to determine where the operator thinks that parameter should be. </span>
             </p>
             <p>
-                <span>[0174] To make matters worse, the curse of knowledge grows with the design itself. As the designer </span>
+                <span>[0175] To make matters worse, the curse of knowledge grows with the design itself. As the designer </span>
                 <span>molds their interface, they become enamored with its nuance and, unfortunately, comfortable with its flaws. Screens </span>
                 <span>overflowing with content are easily interpreted by the designer that managed to squeeze yet another textbox into the </span>
                 <span>display. Unfortunately, the result is likely overwhelming and completely frustrating to the production </span>
                 <span>operator that is tasked with increasing throughput to hit a quota late in their production shift.</span>
             </p>
             <p>
-                <span>[0175] Fortunately, the cure for this bias is simple; it's humility. Kleon (2012) offered a list of important characteristics </span>
+                <span>[0176] Fortunately, the cure for this bias is simple; it's humility. Kleon (2012) offered a list of important characteristics </span>
                 <span>that all "artists" should have. As an engineer studying design, I felt that "a willingness to look stupid" was the </span>
                 <span>key. The arrogant engineer, so proud of his work, releases it without the validation it needs. I've been there. </span>
                 <span>"Wow, that looks cool... ship it." I shiver a bit when I think about the designs I've shipped without ever putting them </span>
@@ -2702,17 +2738,17 @@
                 <span>The mantra of usability design brought forward a new mindset for me. If the operator cannot use my interface, whose fault is it? Mine? Wait... what?</span>                
             </p>
             <p>
-                <span>[0176] Balancing display density, information architecture, and aesthetic design is an iterative process. </span>
+                <span>[0177] Balancing display density, information architecture, and aesthetic design is an iterative process. </span>
                 <span>Getting these right the first time is not just challenging, it's unlikely. It doesn't matter how smart you are, </span>
                 <span>or what degrees you have. So, as designers, we often cheat; we need to. We look at existing designs </span>
                 <span>that resonate with us. We model our interfaces after those we find impressive. We figure we will get </span>
                 <span>further faster if we don't reinvent the wheel. Kleon argued just this point, offering the perfect inspiration </span>
                 <span>for those who are aren't "artists", but are tasked with creating "art". The secret, he argued: steal stuff, then make </span>
-                <span>it your own. While I absolutely agree with this thinking &ndash; all of my best ideas are someone elses &ndash; </span>
+                <span>it your own. While I absolutely agree with this thinking &ndash; all of my best ideas are someone else's &ndash; </span>
                 <span>there are a few risks to keep in mind.</span>
             </p>
             <p>
-                <span>[0177] First, going back to the previous point, I am not an operator. If I find something "intriguing" does that mean my </span>
+                <span>[0178] First, going back to the previous point, I am not an operator. If I find something "intriguing" does that mean my </span>
                 <span>operators will as well? Moreover, will it help them be more effective as an operator? Or will I simply burden them with some </span>
                 <span>clunky widget &ndash; like a talking paperclip &ndash; </span>
                 <span>that they will just find annoying? Engineers armed with a fancy graphical control library are more likely to gold-plate their interfaces. </span>
@@ -2722,7 +2758,7 @@
                 <span>misguided decisions.</span>
             </p> 
             <p>
-                <span>[0178] The second risk, which doesn't necessarily apply to the traditional artist, </span>
+                <span>[0179] The second risk, which doesn't necessarily apply to the traditional artist, </span>
                 <span>is the nature of our domain. Poor design in our world costs money. </span>
                 <span>An artist grows through creativity; the more carefree the better. An artist cannot be held back by fear. </span>
                 <span>They must take risks; their growth depends on it. They share their work with others openly. They crave the feedback of their peers. </span>
@@ -2738,11 +2774,11 @@
                 <img id="navigation-poor-legibility" src="images/StealWithCare.png" />
                 <figcaption>
                     <span>Figure 83: The early Apple Health App used highly saturated colors paired with superfluous gradients. The result suffered from reduced legibility </span>
-                    <span>that would likely cripple an production device.</span>
+                    <span>that would likely cripple a production device.</span>
                 </figcaption>
             </figure>
             <p>
-                <span>[0179] It is important that we design with the creativity of an artist, while accommodating the risks </span>
+                <span>[0180] It is important that we design with the creativity of an artist, while accommodating the risks </span>
                 <span>brought on by the curse of knowledge and the requirements of our domain. To do this, we must rely on others to review our work; that is where humility steps in. </span>
                 <span>Our discussion thus far suggests that this is not a simple task. Is it sufficient to simply ask other engineers their opinion? Probably not. </span>
                 <span>Are they operators? Are they graphic designers? Are they impervious to the curse of knowledge? Is the operator at the forefront of their mind? </span>
@@ -2752,22 +2788,22 @@
                 <span>We will have wasted our best chance to actually measure one of our core usability qualities: learnability. </span>
             </p>
             <p>
-                <span>[0180] Accordingly, we will employ an iterative approach. In the following sections we introduce the critique and heuristic evaluation methods. </span>
+                <span>[0181] Accordingly, we will employ an iterative approach. In the following sections we introduce the critique and heuristic evaluation methods. </span>
                 <span>These steps set the stage for usability testing, where the operator will finally evaluate a potentially finished product. Critique and </span>
-                <span>heuristic evaluation help get us their. Each of these techniques relies on others to evaluate and provide feedback. </span>
+                <span>heuristic evaluation help get us there. Each of these techniques relies on others to evaluate and provide feedback. </span>
                 <span>Ultimately, the designer is responsible for synthesizing that feedback into an interface that addresses our usability criteria: </span>
-                <span>learnable, memorable, efficient, tolerant, and, satisfying.</span>
+                <span>learnable, memorable, efficient, tolerant, and satisfying.</span>
             </p>
             <h3 id="DesignEvaluationCritique">7.2 Critique</h3>
             <p>
-                <span>[0181] Design critique is focused primarily on the effectiveness of aesthetic design decisions. Is the contrast appropriate? Is the information density overwhelming? </span>
+                <span>[0182] Design critique is focused primarily on the effectiveness of aesthetic design decisions. Is the contrast appropriate? Is the information density overwhelming? </span>
                 <span>Is the typographic scale effective? In order to properly evaluate the relevant design characteristics, the designer must receive criticism from peers </span>
                 <span>skilled in the discipline. The designer must solicit advice from others who can adequately evaluate the interface from an aesthetic </span>
                 <span>perspective; someone who will do so with a fresh set of eyes. Again, the designer is cursed by their design endeavor and they require honest feedback from </span>
                 <span>a qualified expert. Finding such an expert is not as difficult as one would expect.</span>
             </p>
             <p>
-                <span>[0182] Many companies include an in-house design team responsible for maintaining corporate brand guidelines. These design experts </span>
+                <span>[0183] Many companies include an in-house design team responsible for maintaining corporate brand guidelines. These design experts </span>
                 <span>understand that critique is an important part of the process and are generally excited to help fellow designers improve their work. </span>
                 <span>Moreover, they are intimately familiar with the color, typography, and layout techniques that make their brand special. </span>
                 <span>This awareness makes them ideal partners for interface styling activities. </span>
@@ -2776,7 +2812,7 @@
                 <span>are more likely to have an inherent understanding of the production operators that will ultimately utilize the design.</span>
             </p>
             <p>
-                <span>[0183] At its simplest, critique takes the form of a conversation between the designer and a group of reviewers. The level of formality is up to the group. </span>
+                <span>[0184] At its simplest, critique takes the form of a conversation between the designer and a group of reviewers. The level of formality is up to the group. </span>
                 <span>A 15-minute web conference is often sufficient to review a design and collect some valuable insight. </span>
                 <span>Ideally, the designer has a specific set of questions for which feedback is needed. The designer should be prepared to explain the relevant design principles for a given concept, the decisions </span>
                 <span>that were made, and ask for feedback on the current state of the work. This is where being vulnerable is most important. Hours of work on </span>
@@ -2784,14 +2820,14 @@
                 <span>A less practiced designer should embrace the critique process as an opportunity to expand their skillset and their own critical eye.</span>
             </p>
             <p>
-                <span>[0184] The critique is intended to be a place of growth for all involved. The reviewers experience a new design with new challenges, and, </span>
+                <span>[0185] The critique is intended to be a place of growth for all involved. The reviewers experience a new design with new challenges, and, </span>
                 <span>in turn, are challenged to offer guidance. The designer will hear fresh perspectives and new recommendations that help them grow. </span>
                 <span>Often, the designer will present a variety of design alternatives to help illustrate the challenge to be resolved. After a short review, </span>
                 <span>critique participants will provide concrete feedback in terms of core design principles (e.g., balance, contrast, hierarchy); vague uninformed feedback is of little use to the designer. </span>
                 <span>Ultimately, the designer must digest the feedback and decide if any changes are necessary. </span>
             </p>
             <p>
-                <span>[0185] Critique is often employed early on in the design process when the basic concept is still being established. </span>
+                <span>[0186] Critique is often employed early on in the design process when the basic concept is still being established. </span>
                 <span>The output from this early phase may include a style guide document, which formalizes and demonstrates </span>
                 <span>the underlying design concepts and associated decisions. Such design artifacts are helpful in communicating </span>
                 <span>the finer points of the style to distributed teams. Once the design language has matured, broader development </span>
@@ -2802,7 +2838,7 @@
             </p>
             <h3 id="DesignEvaluationHeuristics">7.3 Heuristic Evaluation</h3>
             <p>
-                <span>[0186] Generally more formal than design critiques, heuristic evaluations establish a list of general </span>
+                <span>[0187] Generally more formal than design critiques, heuristic evaluations establish a list of general </span>
                 <span>design principles that will be evaluated by a pool of reviewers. The resulting reviews combine to offer </span>
                 <span>a qualitative evaluation of the interface's usability. While the most commonly employed heuristics all sound like </span>
                 <span>common sense, even the most carefully designed interface will likely fall astray in some areas. </span>
@@ -2812,7 +2848,7 @@
                 <span>may begin to wonder if we are accommodating these basic expectations.</span>
             </p>
             <p>
-                <span>[0187] Heuristics effectively constitute a checklist for usability; accommodate the heuristics and usability should follow naturally. </span>
+                <span>[0188] Heuristics effectively constitute a checklist for usability; accommodate the heuristics and usability should follow naturally. </span>
                 <span>When evaluating the heuristics, reviewers must be sure to consider the actual domain-users and the specific </span>
                 <span>context of use. Operators using touchscreen interfaces on a </span>
                 <span>production floor have different goals than an online shopper. The heuristics must be considered from the appropriate perspective. </span>
@@ -2822,7 +2858,7 @@
                 <span>Additional heuristics should be added as needed to address any unique requirements for a given device. </span>
             </p>
             <p>
-                <span>[0188] "Speak the Users' Language" has a different meaning in a production environment than in an mobile app. </span>
+                <span>[0189] "Speak the Users' Language" has a different meaning in a production environment than in an mobile app. </span>
                 <span>"Oops, something went wrong..." is a fun error code for a web browser, but is probably not an acceptable error message </span>
                 <span>on a piece of manufacturing equipment. It lacks the level of professionalism one would expect from an industrial machine. </span>
                 <span>"Object not defined" is equally inappropriate; an operator should never see engineer-speak. The correct tone is somewhere in between. </span>            
@@ -2832,7 +2868,7 @@
                 <span>should help ensure the feedback is well rounded.</span>
             </p>
             <p>
-                <span>[0189] Evaluators can review the design independently, in pairs, or directly with the designer. While direct designer-evaluator reviews </span>
+                <span>[0190] Evaluators can review the design independently, in pairs, or directly with the designer. While direct designer-evaluator reviews </span>
                 <span>risk biasing the results, they do ensure that the feedback is effectively communicated. As with design critiques, the designer should </span>
                 <span>view this exercise as a growth opportunity; especially if they intend to shadow the heuristic evaluators. Whereas as design critique </span>
                 <span>is dependent on evaluators with a background in graphic design, heuristic evaluations can be performed by anyone who is familiar with </span>
@@ -2843,14 +2879,14 @@
                 <span>focused on the appropriate goal and with the right mindset.</span>
             </p>
             <p>
-                <span>[0190] Once the feedback from multiple evaluators has been collected, the designer is tasked, again, with reviewing </span>
+                <span>[0191] Once the feedback from multiple evaluators has been collected, the designer is tasked, again, with reviewing </span>
                 <span>the feedback and making appropriate changes. This may require fundamental conceptual changes to the interface design, which </span>
                 <span>could warrant a subsequent round of evaluations. After an appropriate number of iterations, the design will be </span>
                 <span>ready for review by those with the most important voice; the operators.</span>
             </p>
             <h3 id="DesignEvaluationUsability">7.4 Usability Testing</h3>
             <p>
-                <span>[0190] When the design has matured &ndash; after the styling is optimized, after consistency is considered, after the bugs </span>
+                <span>[0192] When the design has matured &ndash; after the styling is optimized, after consistency is considered, after the bugs </span>
                 <span>have been fixed &ndash; the effort will turn to usability testing. This testing will place the interface in front of </span>
                 <span>actual operators for the first time; ideally in a realistic production setting. </span>
                 <span>This is the best opportunity to evaluate the interface's perceived level of "learnability". </span>
@@ -2859,20 +2895,20 @@
                 <span>will help maximize the benefit to operators.</span>
             </p>
             <p>
-                <span>[0191] Usability testing should aim to collect both quantitative and qualitative feedback. How many clicks does it take </span>
+                <span>[0193] Usability testing should aim to collect both quantitative and qualitative feedback. How many clicks does it take </span>
                 <span>to complete a specific task? How long does it take to find a screen? Would an operator prefer this new interface over their </span>
                 <span>existing interface? To answer these questions, the designer must orchestrate a number of testing activities that sufficiently </span>
                 <span>exercise the interface. This typically takes the form of A/B testing, where an operator will perform a number of tasks on a </span>
                 <span>pair of competing designs (e.g., old design and new design) to determine if the new design has improved the system's usability.</span>
             </p>
             <p>
-                <span>[0192] The designer should develop a formal testing protocol, which will guide the operator through a series of activities </span>
+                <span>[0194] The designer should develop a formal testing protocol, which will guide the operator through a series of activities </span>
                 <span>that will paint a picture of the relative system usability. Care should be taken to ensure that the test instructions </span>
                 <span>make the desired outcome clear without specifically outlining the steps required to succeed. We want the participant to </span>
                 <span>explore the interface how they see fit; this is not a bug testing exercise, the correct path is the one the operator chooses. </span>
             </p>
             <p>
-                <span>[0193] The protocol may include an </span>
+                <span>[0195] The protocol may include an </span>
                 <span>evaluation of the operator's confidence and perceived level of difficulty. This helps distinguish between simple functionality and actual usability. </span>
                 <span>For example, if instructed to use the interface to changeover from product A to product B, the operator may complete the task </span>
                 <span>correctly, but, due to insufficient feedback, have a low level of confidence that the operation was indeed successful. We certainly </span>
@@ -2881,7 +2917,7 @@
                 <span>but communicate that the task was quite difficult to complete.</span>
             </p>
             <p>
-                <span>[0194] Having a formal test protocol helps ensure that testing is performed consistently between operators. When analyzing </span>
+                <span>[0196] Having a formal test protocol helps ensure that testing is performed consistently between operators. When analyzing </span>
                 <span>test results, it is often useful to compare the outcomes of individual sessions. Such comparisons are not </span>
                 <span>necessarily valid unless the standard protocol is followed consistently. With a formal protocol, the results </span>
                 <span>of multiple sessions can be compared regardless of when they are performed. Ideally, each detail of testing should </span>
@@ -2891,20 +2927,20 @@
                 <span>better designs.</span>
             </p>
             <p>
-                <span>[0195] The test protocol should be designed to ensure that the key interface components are all sufficiently exercised. </span>
+                <span>[0197] The test protocol should be designed to ensure that the key interface components are all sufficiently exercised. </span>
                 <span>Are the basic facilities effective? Does the keyboard work well? Designing activities that require those tools gives the designer a perspective </span>
                 <span>that is no longer impaired by their own curse of knowledge. Does the operator see the "obvious" next step? How did they miss </span>
                 <span>that button? Usability testing can help provide statistical evidence that either supports the existing design or suggests that a redesign is </span>
                 <span>needed.</span>
             </p>
             <p>
-                <span>[0196] Ideally, the bulk of the usability testing effort (e.g., a formal study with 30+ participants) should be preceded by one or more pilot test </span>
+                <span>[0198] Ideally, the bulk of the usability testing effort (e.g., a formal study with 30+ participants) should be preceded by one or more pilot tests </span>
                 <span>that will help ensure the testing protocol itself is sound. It would be unfortunate to waste time with key test users learning that the </span>
                 <span>instructions don't make sense to them. It is best to learn those lessons with a pilot study that confirms you are ready to schedule time with </span>
                 <span>the larger, more critical, test population.</span>
             </p>
             <p>
-                <span>[0197] It is important to assure the individual participants that they are not the ones being evaluated. Usability testing is an evaluation of the system </span>
+                <span>[0199] It is important to assure the individual participants that they are not the ones being evaluated. Usability testing is an evaluation of the system </span>
                 <span>interface, not the operator; be sure to make this distinction clear before testing begins. Communicate that the effort is searching for </span>
                 <span>flaws in the interface and that the operator's participation is necessary to uncover </span>
                 <span>those flaws. This message should help ease any anxiety on the part of the participant being observed. This </span>
@@ -2912,12 +2948,12 @@
                 <span>perceived usability.</span>
             </p>
             <p>
-                <span>[0198] Additionally, it is generally useful to include a small questionnaire during the participant selection process or at the beginning of each session. This will help appropriately </span>
+                <span>[0200] Additionally, it is generally useful to include a small questionnaire during the participant selection process or at the beginning of each session. This will help appropriately </span>
                 <span>characterize the participant to accommodate statistical comparisons. What type of equipment do they typically operate? How many years of </span>
                 <span>experience do they have? These demographic questions can help explain patterns in the observation data.</span>
             </p>
             <p>
-                <span>[0199] When serving as the moderator for your evaluation be sure not to interfere unless absolutely necessary. </span>
+                <span>[0201] When serving as the moderator for your evaluation be sure not to interfere unless absolutely necessary. </span>
                 <span>Avoid giving hints or assistance, as this may bias your quantitative and qualitative measures. Discuss any </span>
                 <span>observed issues during a debriefing session after the testing has been completed. It is helpful, however, to ask and remind the </span>
                 <span>operator to "think aloud" as they explore the interface. "...so, I will click this button, and I see that the dialog </span>
@@ -2926,21 +2962,21 @@
                 <span>the interface from the operator's perspective; that is a worthwhile benefit.</span>
             </p>
             <p>
-                <span>[0200] To simplify collection of quantitative data, it is often advantageous to capture a video recording of the session. </span>
+                <span>[0202] To simplify collection of quantitative data, it is often advantageous to capture a video recording of the session. </span>
                 <span>Counting "clicks" is much easier in a video that can be reviewed after the fact. Moreover, a recording will help compare </span>
                 <span>issues observed with multiple participants. Likewise, a recording will help with sharing the sessions with additional reviewers without crowding </span>
                 <span>the participant with additional bodies and extra sets of eyes. Again, more reasons to communicate upfront that the activity is testing the interface, </span>
                 <span>not the participant.</span>
             </p>
             <p>
-                <span>[0201] Testing may quickly illustrate opportunities for improvement. Ideally such issues are exposed in the pilot study, </span>
+                <span>[0203] Testing may quickly illustrate opportunities for improvement. Ideally such issues are exposed in the pilot study, </span>
                 <span>while others may not become clear until a number of operators have exercised the interface. Once the full round </span>
                 <span>of testing is complete, statistical analysis can be used to evaluate the collected quantitative data. Is design A better than design B? </span>
                 <span>The numbers should help answer that question, but will not tell the whole story. Maybe it takes more clicks to accomplish a task in one design, but doing so takes less time because the required decisions </span>
                 <span>are easier to make. Overall, the testing effort should highlight the good and bad aspects of the interface. </span>
             </p>
             <p>
-                <span>[0202] The qualitative data (e.g., non-numeric), particularly that collected during the debriefing segment of each test, should </span>
+                <span>[0204] The qualitative data (e.g., non-numeric), particularly that collected during the debriefing segment of each test, should </span>
                 <span>prove equally valuable. A moderator familiar with the interface can ask pointed questions to identify why an operator had difficulty </span>
                 <span>with particular segments of the interface. Perhaps a particular control was not highlighted sufficiently, or was tucked away in an </span>
                 <span>area the operator missed. Combined with the raw quantitative data, the qualitative data will paint a well rounded picture to guide </span>
@@ -2948,7 +2984,7 @@
             </p>
             <h3 id="DesignEvaluationSummary">7.5 Summary</h3>
             <p>
-                <span>[0203] The techniques describes here merely scratch the surface. Many more evaluation and design techniques exist. </span>
+                <span>[0205] The techniques describes here merely scratch the surface. Many more evaluation and design techniques exist. </span>
                 <span>We have offered a few common exercises, detailing the who, how, and why for evaluating the aesthetic design and general usability. As a designer </span>
                 <span>walks through these steps, they will determine what works well and what does not. Different phases of development can be supplemented </span>
                 <span>with additional techniques like card sorting, which helps a designer determine where to put that parameter to increase the likelihood </span>
@@ -3139,7 +3175,7 @@
                     <td>
                         <ul>
                             <li>Added standard abstract sections. </li>
-                            <li>Updated PackML diagrams to 2020 model. </li>
+                            <li>Updated PackML diagrams to the TR88-2021 model. </li>
                             <li>Developed Settings navigation content. </li>                            
                             <li>Begin Navigation Guidance section.</li>
                         </ul>
@@ -3214,11 +3250,23 @@
                     </td>
                     <td>01T</td>
                 </tr>
+                <tr>
+                    <td>2020-10-23</td>
+                    <td>PST</td>
+                    <td>
+                        <ul>
+                            <li>Updated state diagrams to display TR88-2021 features</li>
+                            <li>Stack light diagrams updated to include TR88-2021 transitions.</li>
+                            <li>Added serif typeface comparison.</li>
+                        </ul>
+                    </td>
+                    <td>01U</td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01T</a></footer>
+    <footer><a href="#contents">PackML HMI Implementation Guide Draft 01U</a></footer>
 </body>
 
 </html>
